@@ -1,0 +1,405 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { site, withBase } from '../../config/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('prayers');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const banner = withBase(data.image ?? data.thumbnail ?? '/saints/default.svg');
+const parallax = data.parallaxImage ? withBase(data.parallaxImage) : '';
+
+// dados que o cliente precisa
+const meta = {
+  slug: entry.id,
+  type: data.type,
+  totalDays: data.totalDays ?? 0,
+  feast: data.liturgicalFeast ?? '',
+  startOffset: data.novenaSuggestedStart ?? 0,
+};
+---
+<Base title={data.title} description={data.description || site.tagline}>
+  <article>
+    <!-- ░░ Banner com paralaxe ░░ -->
+    <header class="reader-hero">
+      <img class="reader-bg" src={banner} alt={data.saint ?? data.title} data-parallax data-speed="0.18" width="1600" height="900" />
+      {parallax && <div class="reader-parallax" data-parallax data-speed="0.34" style={`background-image:url(${parallax})`}></div>}
+      <div class="reader-shade"></div>
+      <div class="reader-head">
+        <p class="reader-type" data-i18n={`type_${data.type}`}>{data.type}</p>
+        <h1 class="reader-title">{data.title}</h1>
+        {data.saint && <p class="reader-saint">{data.saint}</p>}
+      </div>
+    </header>
+
+    <div class="reader-body">
+      <!-- ░░ Seletor de dia (novena) — contas de rosário ░░ -->
+      <nav id="beads" class="beads" hidden aria-label="Dias da novena"></nav>
+      <p id="dayCaption" class="day-caption" hidden></p>
+
+      <!-- ░░ Texto da oração ░░ -->
+      <div id="prayer-content" class="prayer-body">
+        <Content />
+      </div>
+
+      <!-- ░░ Assistente de leitura ░░ -->
+      <div class="rg-bar" role="group" aria-label="Assistente de leitura">
+        <span class="rg-title" data-i18n="reading_assistant">Assistente de leitura</span>
+        <div class="rg-controls">
+          <button id="rgPlay" class="rg-btn" type="button" aria-label="Iniciar">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor"/></svg>
+            <span id="rgPlayLabel">Iniciar</span>
+          </button>
+          <button id="rgRestart" class="rg-btn" type="button" data-i18n="restart" aria-label="Reiniciar">Reiniciar</button>
+          <button id="rgNext" class="rg-btn" type="button" data-i18n="next" aria-label="Próximo">Próximo</button>
+        </div>
+        <label class="rg-speed">
+          <span data-i18n="speed">Ritmo</span>
+          <select id="rgSpeed" aria-label="Ritmo de leitura">
+            <option value="slow" data-i18n="speed_slow">Lento</option>
+            <option value="medium" selected data-i18n="speed_medium">Médio</option>
+            <option value="fast" data-i18n="speed_fast">Rápido</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- ░░ Concluir oração ░░ -->
+      <div class="finish-zone">
+        <div id="turnstileBox" class="turnstile-box"></div>
+        <button id="finishBtn" class="btn btn-gold" type="button" data-i18n="finish_prayer">Concluir oração</button>
+        <p id="finishHint" class="day-caption" hidden></p>
+        <div id="postActions" class="post-actions">
+          <button id="paNext" class="btn" type="button" data-i18n="next_day" hidden>Próximo dia</button>
+          <button id="paAgain" class="btn" type="button" data-i18n="pray_again">Rezar de novo</button>
+          <a id="paBack" class="btn" data-i18n="back_catalog">Voltar ao catálogo</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ░░ Overlay de conclusão ░░ -->
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="ovTitle">
+    <div class="overlay-card">
+      <button id="ovClose" class="ov-close" type="button" aria-label="Fechar">×</button>
+      <div class="motes" id="motes" aria-hidden="true"></div>
+      <div class="ov-candle"><span class="ov-flame"></span><span class="ov-body"></span></div>
+      <h2 id="ovTitle" class="ov-title" data-i18n="completed_title">Oração concluída</h2>
+      <p class="ov-sub" data-i18n="completed_sub">Você faz parte de uma corrente de oração.</p>
+      <div id="ovNumber" class="ov-number">—</div>
+      <div class="ov-number-label" data-i18n="total_now">orações no total</div>
+      <div class="ov-actions">
+        <button id="ovNext" class="btn btn-gold" type="button" data-i18n="next_day" hidden>Próximo dia</button>
+        <button id="ovAgain" class="btn" type="button" data-i18n="pray_again">Rezar de novo</button>
+        <a id="ovBack" class="btn" data-i18n="back_catalog">Voltar ao catálogo</a>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ meta }}>
+    (function () {
+      var S = window.__SITE__ || {};
+      var counter = S.counter || {};
+      var turnstileKey = (S.turnstile && S.turnstile.siteKey) || '';
+      var t = window.odt || function (k) { return k; };
+      var base = window.odBase || function (p) { return p; };
+
+      var content = document.getElementById('prayer-content');
+      if (!content) return;
+
+      // ───────── util ─────────
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function fmt(n) {
+        var l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
+        try { return new Intl.NumberFormat(l).format(n); } catch (e) { return String(n); }
+      }
+      function todayKey() {
+        var d = new Date();
+        return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+      }
+
+      // ───────── dia sugerido pelo calendário litúrgico ─────────
+      function suggestedDay() {
+        if (!meta.feast || meta.type !== 'novena' || meta.totalDays < 1) return 0;
+        var parts = meta.feast.split('-');
+        if (parts.length < 2) return 0;
+        var mm = parseInt(parts[parts.length - 2], 10);
+        var dd = parseInt(parts[parts.length - 1], 10);
+        var now = new Date(); now.setHours(0, 0, 0, 0);
+        var year = now.getFullYear();
+        var feast = new Date(year, mm - 1, dd);
+        if (now > feast) feast = new Date(year + 1, mm - 1, dd);
+        var start = new Date(feast); start.setDate(start.getDate() + (meta.startOffset || 0));
+        var day = Math.floor((now - start) / 86400000) + 1;
+        if (day < 1) day = 1;
+        if (day > meta.totalDays) day = meta.totalDays;
+        return day;
+      }
+
+      // ───────── divisão em dias (novena) ─────────
+      var isNovena = meta.type === 'novena' && meta.totalDays > 1;
+      var dayOfNode = new Map(); // elemento -> nº do dia (0 = comum a todos)
+      var current = 1;
+
+      if (isNovena) {
+        var dayHead = /^\s*(dia|day)\s+\d+/i;
+        var d = 0;
+        Array.prototype.forEach.call(content.children, function (el) {
+          if (el.tagName === 'H2' && dayHead.test((el.textContent || '').trim())) d += 1;
+          dayOfNode.set(el, d); // tudo antes do 1º "Dia" fica no grupo 0 (intro comum)
+        });
+        if (d < 1) isNovena = false; // não achou marcadores -> trata como oração simples
+      }
+
+      function showDay(n) {
+        current = n;
+        content.querySelectorAll('.lead').forEach(function (e) { e.classList.remove('lead'); });
+        dayOfNode.forEach(function (grp, el) {
+          el.style.display = (grp === 0 || grp === n) ? '' : 'none';
+        });
+        buildBeads();
+        var cap = document.getElementById('dayCaption');
+        if (cap) { cap.hidden = false; cap.textContent = t('day') + ' ' + n + ' ' + t('day_of') + ' ' + meta.totalDays; }
+        try { localStorage.setItem('od-progress:' + meta.slug, String(n)); } catch (e) {}
+        rgReset();
+        togglePostNext();
+      }
+
+      function buildBeads() {
+        var wrap = document.getElementById('beads');
+        if (!wrap) return;
+        wrap.hidden = false;
+        wrap.innerHTML = '';
+        for (var i = 1; i <= meta.totalDays; i++) {
+          (function (i) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'bead' + (i < current ? ' done' : '') + (i === current ? ' current' : '');
+            b.textContent = i;
+            b.setAttribute('aria-label', t('day') + ' ' + i);
+            if (i === current) b.setAttribute('aria-current', 'true');
+            b.addEventListener('click', function () { showDay(i); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+            wrap.appendChild(b);
+          })(i);
+        }
+      }
+
+      // ───────── escopo de leitura + drop cap ─────────
+      function readables() {
+        var all = content.querySelectorAll('p, li, blockquote');
+        var out = [];
+        Array.prototype.forEach.call(all, function (el) {
+          if (el.offsetParent !== null && (el.textContent || '').trim().length > 1) out.push(el);
+        });
+        return out;
+      }
+      function setLead() {
+        content.querySelectorAll('.lead').forEach(function (e) { e.classList.remove('lead'); });
+        var first = content.querySelector('p');
+        // primeiro parágrafo VISÍVEL
+        var ps = content.querySelectorAll('p');
+        for (var i = 0; i < ps.length; i++) { if (ps[i].offsetParent !== null) { first = ps[i]; break; } }
+        if (first) first.classList.add('lead');
+      }
+
+      // ───────── assistente de leitura ─────────
+      var els = [], idx = 0, playing = false, timer = null;
+      var SPEED = { slow: [2600, 95], medium: [1700, 65], fast: [1000, 42] };
+      function dwell(el) {
+        var sp = SPEED[document.getElementById('rgSpeed').value] || SPEED.medium;
+        var words = (el.textContent || '').trim().split(/\s+/).length;
+        return Math.max(700, sp[0] + words * sp[1]);
+      }
+      function paint(i) {
+        els.forEach(function (e) { e.classList.remove('rg-active'); });
+        var el = els[i];
+        if (!el) return;
+        el.classList.add('rg-active');
+        if (!reduce) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      function playLabel() {
+        var lab = document.getElementById('rgPlayLabel');
+        if (lab) lab.textContent = playing ? t('pause') : (idx > 0 ? t('resume') : t('start'));
+      }
+      function step() {
+        if (!playing) return;
+        paint(idx);
+        timer = setTimeout(function () {
+          if (idx < els.length - 1) { idx++; step(); }
+          else { playing = false; playLabel(); }
+        }, dwell(els[idx]));
+      }
+      function play() {
+        els = readables();
+        if (!els.length) return;
+        if (idx >= els.length) idx = 0;
+        playing = true; playLabel(); step();
+      }
+      function pause() { playing = false; if (timer) clearTimeout(timer); playLabel(); }
+      function rgReset() {
+        pause(); idx = 0; els = readables();
+        els.forEach(function (e) { e.classList.remove('rg-active'); });
+        setLead();
+      }
+      document.getElementById('rgPlay').addEventListener('click', function () { playing ? pause() : play(); });
+      document.getElementById('rgRestart').addEventListener('click', function () { pause(); idx = 0; els = readables(); paint(0); });
+      document.getElementById('rgNext').addEventListener('click', function () {
+        pause(); els = readables(); if (!els.length) return;
+        idx = Math.min(idx + 1, els.length - 1); paint(idx); playLabel();
+      });
+
+      // ───────── Turnstile (CAPTCHA) opcional ─────────
+      var turnstileReady = false;
+      if (turnstileKey) {
+        var box = document.getElementById('turnstileBox');
+        var s = document.createElement('script');
+        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        s.async = true; s.defer = true;
+        s.onload = function () {
+          try {
+            window.turnstile.render(box, { sitekey: turnstileKey, theme: 'auto' });
+            turnstileReady = true;
+          } catch (e) {}
+        };
+        document.head.appendChild(s);
+      }
+
+      // ───────── contador + conclusão ─────────
+      function readCount(key, fb) {
+        var url = counter.base + '/get/' + encodeURIComponent(counter.namespace) + '/' + encodeURIComponent(key);
+        return fetch(url).then(function (r) { return r.ok ? r.json() : { value: fb }; })
+          .then(function (j) { return (j && typeof j.value === 'number') ? j.value : fb; })
+          .catch(function () { return fb; });
+      }
+      function hit(key) {
+        var url = counter.base + '/hit/' + encodeURIComponent(counter.namespace) + '/' + encodeURIComponent(key);
+        return fetch(url).then(function (r) { return r.json(); })
+          .then(function (j) { return (j && typeof j.value === 'number') ? j.value : null; })
+          .catch(function () { return null; });
+      }
+      function animateNumber(el, to) {
+        if (reduce || to == null) { el.textContent = to == null ? '—' : fmt(to); return; }
+        var from = 0, dur = 1300, t0 = performance.now();
+        function frame(now) {
+          var p = Math.min(1, (now - t0) / dur);
+          var e = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(Math.round(from + (to - from) * e));
+          if (p < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+      function spawnMotes() {
+        var box = document.getElementById('motes');
+        if (!box || reduce) return;
+        box.innerHTML = '';
+        for (var i = 0; i < 18; i++) {
+          var m = document.createElement('span');
+          m.className = 'mote';
+          m.style.left = Math.random() * 100 + '%';
+          m.style.animationDuration = (2 + Math.random() * 2.5) + 's';
+          m.style.animationDelay = (Math.random() * 1.2) + 's';
+          m.style.setProperty('--dx', (Math.random() * 60 - 30) + 'px');
+          box.appendChild(m);
+        }
+      }
+      function togglePostNext() {
+        var show = isNovena && current < meta.totalDays;
+        ['paNext', 'ovNext'].forEach(function (id) { var b = document.getElementById(id); if (b) b.hidden = !show; });
+      }
+      function openOverlay(total) {
+        var ov = document.getElementById('overlay');
+        var num = document.getElementById('ovNumber');
+        document.querySelector('.ov-number-label').style.display = (total == null) ? 'none' : '';
+        ov.classList.add('show');
+        spawnMotes();
+        animateNumber(num, total);
+        togglePostNext();
+      }
+      function closeOverlay() { document.getElementById('overlay').classList.remove('show'); }
+
+      var finishBtn = document.getElementById('finishBtn');
+      finishBtn.addEventListener('click', function () {
+        var hint = document.getElementById('finishHint');
+        hint.hidden = true;
+
+        // CAPTCHA obrigatório se configurado
+        if (turnstileKey) {
+          var tok = '';
+          try { tok = window.turnstile ? window.turnstile.getResponse() : ''; } catch (e) {}
+          if (!tok) { hint.hidden = false; hint.textContent = t('captcha_needed'); return; }
+        }
+
+        // proteção simples: 1x por dia por oração+dia (evita inflar o contador)
+        var guardKey = 'od-done:' + meta.slug + ':' + (isNovena ? current : 0) + ':' + todayKey();
+        var already = false;
+        try { already = !!localStorage.getItem(guardKey); } catch (e) {}
+
+        document.getElementById('postActions').style.display = 'flex';
+
+        if (!counter.enabled) { openOverlay(null); return; }
+
+        if (already) {
+          // já contou hoje: mostra o total atual sem incrementar
+          readCount(counter.totalKey, null).then(openOverlay);
+          return;
+        }
+
+        finishBtn.disabled = true;
+        var old = finishBtn.textContent;
+        finishBtn.textContent = t('finishing');
+
+        Promise.all([hit(counter.slug ? counter.slug : meta.slug), hit(counter.totalKey)])
+          .then(function (res) {
+            var total = res[1];
+            try { localStorage.setItem(guardKey, '1'); } catch (e) {}
+            if (total == null) { // offline: estimativa local só para feedback
+              var c = 0; try { c = parseInt(localStorage.getItem('od-total-cache') || '0', 10); } catch (e) {}
+              total = c > 0 ? c + 1 : null;
+            } else {
+              try { localStorage.setItem('od-total-cache', String(total)); } catch (e) {}
+            }
+            openOverlay(total);
+          })
+          .finally(function () { finishBtn.disabled = false; finishBtn.textContent = old; });
+      });
+
+      // ações pós-oração
+      function goNext() { if (current < meta.totalDays) { showDay(current + 1); } closeOverlay(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }
+      function again() { closeOverlay(); rgReset(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); play(); }
+      var catalogHref = base('/') + '#catalogo';
+      ['ovBack', 'paBack'].forEach(function (id) { var a = document.getElementById(id); if (a) a.setAttribute('href', catalogHref); });
+      document.getElementById('ovNext').addEventListener('click', goNext);
+      document.getElementById('paNext').addEventListener('click', goNext);
+      document.getElementById('ovAgain').addEventListener('click', again);
+      document.getElementById('paAgain').addEventListener('click', again);
+      document.getElementById('ovClose').addEventListener('click', closeOverlay);
+      document.getElementById('overlay').addEventListener('click', function (e) { if (e.target === this) closeOverlay(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeOverlay(); });
+
+      // atualiza textos dinâmicos ao trocar idioma
+      document.addEventListener('od:lang', function () {
+        playLabel();
+        if (isNovena) { var cap = document.getElementById('dayCaption'); if (cap) cap.textContent = t('day') + ' ' + current + ' ' + t('day_of') + ' ' + meta.totalDays; }
+      });
+
+      // ───────── início ─────────
+      var startDay = 1;
+      if (isNovena) {
+        var q = new URLSearchParams(location.search).get('dia');
+        var saved = null; try { saved = localStorage.getItem('od-progress:' + meta.slug); } catch (e) {}
+        if (q && +q >= 1 && +q <= meta.totalDays) startDay = +q;
+        else if (saved && +saved >= 1 && +saved <= meta.totalDays) startDay = +saved;
+        else { var sg = suggestedDay(); startDay = sg || 1; }
+        showDay(startDay);
+      } else {
+        setLead();
+        els = readables();
+      }
+    })();
+  </script>
+</Base>

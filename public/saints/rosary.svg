@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Terço">
+  <defs>
+    <radialGradient id="gr" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#3a2a16"/>
+      <stop offset="60%" stop-color="#221708"/>
+      <stop offset="100%" stop-color="#160f06"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#gr)"/>
+  <g fill="#e7c069">
+    <g id="beads"></g>
+  </g>
+  <circle cx="400" cy="250" r="120" fill="none" stroke="#8a6a2e" stroke-width="2"/>
+  <g fill="#e7c069">
+    <!-- beads around a circle (approx) -->
+    <circle cx="400" cy="130" r="7"/><circle cx="460" cy="145" r="7"/><circle cx="505" cy="190" r="7"/>
+    <circle cx="520" cy="250" r="7"/><circle cx="505" cy="310" r="7"/><circle cx="460" cy="355" r="7"/>
+    <circle cx="400" cy="370" r="7"/><circle cx="340" cy="355" r="7"/><circle cx="295" cy="310" r="7"/>
+    <circle cx="280" cy="250" r="7"/><circle cx="295" cy="190" r="7"/><circle cx="340" cy="145" r="7"/>
+  </g>
+  <!-- pendant -->
+  <line x1="400" y1="370" x2="400" y2="420" stroke="#8a6a2e" stroke-width="2"/>
+  <g fill="#e7c069">
+    <rect x="392" y="405" width="16" height="60" rx="4"/>
+    <rect x="372" y="425" width="56" height="16" rx="4"/>
+  </g>
+</svg>

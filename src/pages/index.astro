@@ -1,0 +1,225 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PrayerCard from '../components/PrayerCard.astro';
+import CommunityCounter from '../components/CommunityCounter.astro';
+import { site, withBase } from '../config/site';
+
+const all = await getCollection('prayers');
+
+// catálogo: destaques primeiro, depois por título
+const catalog = [...all].sort((a, b) => {
+  const fa = a.data.featured ? (a.data.featuredOrder ?? 50) : 999;
+  const fb = b.data.featured ? (b.data.featuredOrder ?? 50) : 999;
+  if (fa !== fb) return fa - fb;
+  return a.data.title.localeCompare(b.data.title);
+});
+
+// orações fixas em destaque (a partir do painel)
+const byId = new Map(all.map((p) => [p.id, p]));
+const pinned = site.pinnedPrayers
+  .sort((a, b) => a.order - b.order)
+  .map((p) => byId.get(p.id))
+  .filter(Boolean);
+
+// candidatas a destaque litúrgico (têm data de festa)
+const liturgical = all.filter((p) => p.data.liturgicalFeast);
+
+// filtros disponíveis
+const types = [...new Set(all.map((p) => p.data.type))];
+const langs = [...new Set(all.map((p) => p.data.language))];
+---
+<Base>
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-glow" data-parallax="0.18" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-kicker" data-i18n="hero_kicker">Reze com calma</p>
+      <h1>{site.name}</h1>
+      <p class="lead-line">{site.tagline}</p>
+      {site.showCommunityCounter && <CommunityCounter />}
+    </div>
+  </section>
+
+  <!-- ════════ DESTAQUE LITÚRGICO (revelado conforme a data) ════════ -->
+  <section class="section lit-section" id="liturgical">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="liturgical_title">Tempo de orar</p>
+      <h2 class="section-title" data-i18n="liturgical_title">Tempo de orar</h2>
+      <div class="lit-grid" id="litGrid">
+        {liturgical.map((p) => (
+          <a class={`lit-card lit-${p.data.liturgicalColor ?? 'festa'}`}
+             href={withBase(`/oracao/${p.id}`)}
+             data-feast={p.data.liturgicalFeast}
+             data-start={p.data.novenaSuggestedStart ?? 0}
+             data-total={p.data.totalDays ?? 1}
+             hidden>
+            <img class="lit-card-bg" src={withBase(p.data.image ?? p.data.thumbnail ?? '/saints/default.svg')} alt="" aria-hidden="true" />
+            <span class="lit-card-shade"></span>
+            <span class="lit-card-inner">
+              <span class="lit-seal" data-i18n="liturgical_seal">✦ Tempo de orar</span>
+              <h3>{p.data.title}</h3>
+              <span class="lit-meta">{p.data.saint}</span>
+              <span class="lit-count" data-feast-label></span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ORAÇÕES FIXAS ════════ -->
+  {pinned.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="pinned_title">Orações do dia a dia</p>
+        <h2 class="section-title" data-i18n="pinned_title">Orações do dia a dia</h2>
+        <div class="grid">
+          {pinned.map((p) => <PrayerCard prayer={p} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ════════ CATÁLOGO ════════ -->
+  <section class="section" id="catalogo">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="catalog_title">Catálogo</p>
+      <h2 class="section-title" data-i18n="catalog_title">Catálogo</h2>
+
+      <div class="toolbar">
+        <input id="search" class="search" type="search" placeholder="Buscar oração, novena ou santo…" data-i18n-ph="search_placeholder" />
+      </div>
+      <div class="toolbar">
+        <div class="chips" id="typeChips" role="group" aria-label="Tipo">
+          <button class="chip" data-type="" aria-pressed="true" data-i18n="filter_all">Todas</button>
+          {types.map((t) => <button class="chip" data-type={t} aria-pressed="false" data-i18n={`type_${t}`}>{t}</button>)}
+        </div>
+        {langs.length > 1 && (
+          <div class="chips" id="langChips" role="group" aria-label="Idioma">
+            <button class="chip" data-lang="" aria-pressed="true" data-i18n="filter_all">Todas</button>
+            {langs.map((l) => <button class="chip" data-lang={l} aria-pressed="false">{l.slice(0,2).toUpperCase()}</button>)}
+          </div>
+        )}
+      </div>
+
+      <div class="grid" id="catalogGrid">
+        {catalog.map((p) => <PrayerCard prayer={p} />)}
+      </div>
+      <p class="empty" id="emptyMsg" hidden data-i18n="no_results">Nenhuma oração encontrada com esses filtros.</p>
+    </div>
+  </section>
+
+  <script>
+    // ── Contador da comunidade ──
+    (function () {
+      const cfg = (window as any).__SITE__;
+      const el = document.getElementById('communityNumber');
+      if (!el || !cfg?.counter?.enabled) { if (el) el.textContent = '0'; return; }
+      const url = `${cfg.counter.base}/get/${cfg.counter.namespace}/${cfg.counter.totalKey}`;
+      function fmt(n: number) {
+        const l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
+        return new Intl.NumberFormat(l).format(n);
+      }
+      function animateTo(target: number) {
+        const dur = 1100; const start = performance.now();
+        function step(now: number) {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el!.textContent = fmt(Math.round(target * eased));
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      fetch(url).then((r) => (r.ok ? r.json() : { value: 0 }))
+        .then((d) => animateTo(Number(d.value) || 0))
+        .catch(() => { el!.textContent = '0'; });
+    })();
+
+    // ── Destaque litúrgico (calculado na data atual do visitante) ──
+    (function () {
+      const section = document.getElementById('liturgical');
+      const cards = Array.from(document.querySelectorAll<HTMLElement>('#litGrid .lit-card'));
+      if (!section || cards.length === 0) return;
+      const DAY = 86400000;
+      const now = new Date(); now.setHours(0, 0, 0, 0);
+      const active: { card: HTMLElement; daysToFeast: number; suggestedDay: number }[] = [];
+
+      for (const card of cards) {
+        const feastStr = card.dataset.feast || '';
+        const m = feastStr.match(/^(\d{2})-(\d{2})$/);
+        if (!m) continue;
+        const mm = +m[1], dd = +m[2];
+        let feast = new Date(now.getFullYear(), mm - 1, dd);
+        if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
+        const offset = parseInt(card.dataset.start || '0', 10);
+        const total = parseInt(card.dataset.total || '1', 10);
+        const startMs = feast.getTime() + offset * DAY;
+        if (now.getTime() >= startMs && now.getTime() <= feast.getTime()) {
+          const daysToFeast = Math.round((feast.getTime() - now.getTime()) / DAY);
+          const suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - startMs) / DAY) + 1));
+          active.push({ card, daysToFeast, suggestedDay });
+        }
+      }
+      if (active.length === 0) return;
+      active.sort((a, b) => a.daysToFeast - b.daysToFeast);
+
+      function fillLabels() {
+        for (const a of active) {
+          const lbl = a.card.querySelector<HTMLElement>('[data-feast-label]');
+          if (!lbl) continue;
+          const total = parseInt(a.card.dataset.total || '1', 10);
+          const t = (window as any).odt;
+          let txt = a.daysToFeast === 0 ? t('feast_today')
+                    : `${a.daysToFeast} ${t('days_to_feast')}`;
+          if (total > 1) txt += ` · ${t('suggested_day')} ${t('day')} ${a.suggestedDay}`;
+          lbl.textContent = txt;
+          a.card.href = a.card.href.split('?')[0] + (total > 1 ? `?dia=${a.suggestedDay}` : '');
+        }
+      }
+      const limit = (window as any).__SITE__?.maxLiturgicalHighlights ?? 3;
+      active.slice(0, limit).forEach((a) => (a.card.hidden = false));
+      section.style.display = 'block';
+      fillLabels();
+      document.addEventListener('od:lang', fillLabels);
+    })();
+
+    // ── Filtros do catálogo ──
+    (function () {
+      const grid = document.getElementById('catalogGrid');
+      const search = document.getElementById('search') as HTMLInputElement | null;
+      const empty = document.getElementById('emptyMsg');
+      if (!grid) return;
+      const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
+      let fType = '', fLang = '', fText = '';
+
+      function apply() {
+        let visible = 0;
+        for (const c of cards) {
+          const okType = !fType || c.dataset.type === fType;
+          const okLang = !fLang || c.dataset.lang === fLang;
+          const okText = !fText || (c.dataset.search || '').includes(fText);
+          const show = okType && okLang && okText;
+          c.style.display = show ? '' : 'none';
+          if (show) visible++;
+        }
+        if (empty) empty.hidden = visible !== 0;
+      }
+      function wireChips(sel: string, set: (v: string) => void) {
+        const group = document.querySelector(sel);
+        if (!group) return;
+        group.addEventListener('click', (e) => {
+          const btn = (e.target as HTMLElement).closest('.chip') as HTMLElement | null;
+          if (!btn) return;
+          group.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+          btn.setAttribute('aria-pressed', 'true');
+          set(btn.dataset.type !== undefined ? (btn.dataset.type || '') : (btn.dataset.lang || ''));
+          apply();
+        });
+      }
+      wireChips('#typeChips', (v) => (fType = v));
+      wireChips('#langChips', (v) => (fLang = v));
+      search?.addEventListener('input', () => { fText = search.value.trim().toLowerCase(); apply(); });
+    })();
+  </script>
+</Base>
