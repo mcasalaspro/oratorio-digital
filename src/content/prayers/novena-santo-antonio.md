@@ -22,7 +22,7 @@ que desde jovem entregaste tua vida a Deus,<br>
 alcança-me a graça de confiar no Senhor<br>
 mesmo quando o caminho parece incerto.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória, apresentando a intenção que traz no coração.
+*Reze um Pai Nosso, uma Ave Maria e o Glória, apresentando a intenção que traz no coração.*
 
 > Se buscas milagres, eis que afugentas<br>
 > a morte, o erro, a desventura;<br>
@@ -38,7 +38,7 @@ tua palavra tocava os corações<br>
 porque nascia do silêncio e da oração.<br>
 Ensina-me a escutar a Deus antes de falar.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > O mar se acalma, as cadeias se rompem;<br>
 > membros e bens perdidos<br>
@@ -53,7 +53,7 @@ que viste no pobre o rosto de Cristo,<br>
 abre o meu coração à generosidade<br>
 e à compaixão com quem sofre.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > Cessam todos os perigos,<br>
 > foge a necessidade;<br>
@@ -69,7 +69,7 @@ a ti recorrem os que perderam algo precioso.<br>
 Ajuda-me a reencontrar não só as coisas,<br>
 mas a paz, a esperança e a fé que às vezes se perdem.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > Por ele os mares se aplacam<br>
 > e o cativo é libertado;<br>
@@ -85,7 +85,7 @@ permaneceste humilde diante de Deus.<br>
 Livra-me da vaidade<br>
 e ensina-me a servir sem buscar recompensa.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > Glória ao Pai e ao Filho<br>
 > e ao Espírito de amor;<br>
@@ -101,9 +101,9 @@ que confiaste plenamente na providência divina,<br>
 afasta de mim a ansiedade<br>
 e ensina-me a entregar o amanhã nas mãos de Deus.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
-Apresente agora, com confiança, a graça que mais deseja alcançar nesta novena.
+*Apresente agora, com confiança, a graça que mais deseja alcançar nesta novena.*
 
 Santo Antônio, rogai por nós.
 
@@ -115,7 +115,7 @@ abençoa os laços de amor da minha vida.<br>
 Que haja reconciliação onde há mágoa<br>
 e fidelidade onde há promessa.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 Santo Antônio, rogai por nós.
 
@@ -127,7 +127,7 @@ dá-me a graça de não desanimar<br>
 diante das dificuldades<br>
 e de permanecer firme na oração.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 Santo Antônio, rogai por nós.
 
@@ -140,7 +140,7 @@ Apresenta-as a Deus<br>
 e alcança-me, se for da Sua vontade,<br>
 a graça que tanto peço.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > Rogai por nós, Santo Antônio,<br>
 > para que sejamos dignos<br>

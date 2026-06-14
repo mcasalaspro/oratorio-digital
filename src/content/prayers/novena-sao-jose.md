@@ -24,7 +24,7 @@ e obedeceste sem hesitar,<br>
 alcança-me um coração dócil<br>
 à vontade do Senhor.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória, apresentando a sua intenção.
+*Reze um Pai Nosso, uma Ave Maria e o Glória, apresentando a sua intenção.*
 
 > São José, rogai por nós.
 
@@ -37,7 +37,7 @@ com ternura e fidelidade,<br>
 abençoa as famílias<br>
 e guarda o amor que Deus uniu.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > São José, rogai por nós.
 
@@ -50,7 +50,7 @@ ajuda os pais e mães<br>
 a educar seus filhos<br>
 no amor e na verdade.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > São José, rogai por nós.
 
@@ -62,7 +62,7 @@ e santificaste o trabalho de cada dia,<br>
 abençoa o meu esforço<br>
 e dá pão a quem dele precisa.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > São José, rogai por nós.
 
@@ -74,7 +74,7 @@ que defendeste Jesus e Maria de todo perigo,<br>
 protege o meu lar<br>
 e afasta de nós todo mal.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > São José, rogai por nós.
 
@@ -86,7 +86,7 @@ que falaste mais com a vida do que com palavras,<br>
 ensina-me a rezar no recolhimento<br>
 e a buscar a Deus na quietude.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > São José, rogai por nós.
 
@@ -99,7 +99,7 @@ para os que sofrem e para os que choram,<br>
 e apresenta a Deus<br>
 as necessidades que ninguém mais conhece.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > São José, rogai por nós.
 
@@ -112,7 +112,7 @@ guarda agora o povo de Deus,<br>
 seus pastores e suas famílias,<br>
 contra toda adversidade.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > São José, rogai por nós.
 
@@ -125,7 +125,7 @@ alcança-me a graça<br>
 de viver santamente<br>
 e de morrer em paz com o Senhor.
 
-Reze um Pai Nosso, uma Ave Maria e o Glória.
+*Reze um Pai Nosso, uma Ave Maria e o Glória.*
 
 > A vós, ó bem-aventurado São José,<br>
 > recorremos na nossa tribulação;<br>

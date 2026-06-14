@@ -189,23 +189,36 @@ const meta = {
         }
       }
 
-      // ───────── escopo de leitura + drop cap ─────────
-      function readables() {
+      // ───────── rubricas (orientações) + escopo de leitura ─────────
+      function isRubric(el) {
+        return !!(el.classList && (el.classList.contains('rubric') || el.classList.contains('terco-mystery')));
+      }
+      function markRubrics() {
+        // parágrafo inteiramente em itálico = orientação ("rubrica") -> o assistente pula
+        var ps = content.querySelectorAll('p');
+        Array.prototype.forEach.call(ps, function (pe) {
+          var em = pe.querySelector(':scope > em, :scope > i');
+          var txt = (pe.textContent || '').trim();
+          if (em && txt.length && em.textContent.trim() === txt) pe.classList.add('rubric');
+        });
+      }
+      function lineHost(el) { return el.tagName === 'BLOCKQUOTE' ? (el.querySelector('p') || el) : el; }
+      function readBlocks() {
         var all = content.querySelectorAll('p, li, blockquote');
         var out = [];
         Array.prototype.forEach.call(all, function (el) {
           if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return; // o blockquote é a unidade
-          if (el.offsetParent !== null && (el.textContent || '').trim().length > 1) out.push(el);
+          if (el.offsetParent === null) return;                  // invisível (outro dia da novena)
+          if ((el.textContent || '').trim().length <= 1) return;
+          if (isRubric(el)) return;                              // pula orientações
+          out.push(el);
         });
         return out;
       }
       function setLead() {
         content.querySelectorAll('.lead').forEach(function (e) { e.classList.remove('lead'); });
-        var first = content.querySelector('p');
-        // primeiro parágrafo VISÍVEL
-        var ps = content.querySelectorAll('p');
-        for (var i = 0; i < ps.length; i++) { if (ps[i].offsetParent !== null) { first = ps[i]; break; } }
-        if (first) first.classList.add('lead');
+        var bl = readBlocks();
+        for (var i = 0; i < bl.length; i++) { if (bl[i].tagName === 'P') { bl[i].classList.add('lead'); break; } }
       }
 
       // ───────── repetições ("10x") ─────────
@@ -246,58 +259,141 @@ const meta = {
           bar.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); tap(); } });
         });
       }
+      function wrapLines(host) {
+        if (host.dataset.lined) return;
+        host.dataset.lined = '1';
+        var parts = host.innerHTML.split(/<br\s*\/?>/i);
+        if (parts.length <= 1) { host.innerHTML = '<span class="rg-line">' + host.innerHTML + '</span>'; return; }
+        var out = '';
+        for (var i = 0; i < parts.length; i++) {
+          var seg = parts[i];
+          if (seg.replace(/<[^>]*>/g, '').trim().length === 0) { out += seg; continue; }
+          out += '<span class="rg-line">' + seg + '</span>';
+          if (i < parts.length - 1) out += '<br>';
+        }
+        host.innerHTML = out;
+      }
+      function setupLines() {
+        var bl = content.querySelectorAll('p, blockquote, li');
+        Array.prototype.forEach.call(bl, function (el) {
+          if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return;
+          if (isRubric(el)) return;
+          wrapLines(lineHost(el));
+        });
+      }
+      markRubrics();
       setupRepeats();
+      setupLines();
 
-      // ───────── assistente de leitura ─────────
-      var els = [], idx = 0, playing = false, timer = null;
-      var SPEED = { slow: [2600, 95], medium: [1700, 65], fast: [1000, 42] };
-      function dwell(el) {
-        var sp = SPEED[document.getElementById('rgSpeed').value] || SPEED.medium;
-        var words = (el.textContent || '').trim().split(/\s+/).length;
-        return Math.max(700, sp[0] + words * sp[1]);
+      // ───────── assistente de leitura (linha a linha) ─────────
+      var blocks = [], bi = 0, li = 0, playing = false, timer = null;
+      // [base, ms por palavra, mínimo] — ritmo mais lento e contemplativo
+      var SPEED = { slow: [1700, 280, 1100], medium: [1150, 190, 850], fast: [780, 130, 620] };
+      function buildBlocks() {
+        return readBlocks().map(function (el) {
+          return { el: el, lines: lineHost(el).querySelectorAll('.rg-line'), rep: el._rep || null };
+        }).filter(function (b) { return b.lines.length > 0; });
       }
-      function paint(i) {
-        els.forEach(function (e) { e.classList.remove('rg-active'); });
-        var el = els[i];
-        if (!el) return;
-        el.classList.add('rg-active');
-        if (!reduce) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      function dwell(lineEl) {
+        var sel = document.getElementById('rgSpeed');
+        var sp = SPEED[sel ? sel.value : 'medium'] || SPEED.medium;
+        var words = ((lineEl.textContent || '').trim().match(/\S+/g) || []).length || 1;
+        return Math.max(sp[2], sp[0] + words * sp[1]);
       }
+      function clearActive() { content.querySelectorAll('.rg-line.rg-active').forEach(function (e) { e.classList.remove('rg-active'); }); }
+      function paint() {
+        clearActive();
+        var b = blocks[bi]; if (!b) return;
+        var ln = b.lines[li]; if (!ln) return;
+        ln.classList.add('rg-active');
+        if (!reduce) ln.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      function enterBlock() { var b = blocks[bi]; if (b && b.rep) { b.rep.k = 1; repRender(b.el); } }
       function playLabel() {
         var lab = document.getElementById('rgPlayLabel');
-        if (lab) lab.textContent = playing ? t('pause') : (idx > 0 ? t('resume') : t('start'));
+        if (lab) lab.textContent = playing ? t('pause') : ((bi > 0 || li > 0) ? t('resume') : t('start'));
       }
       function step() {
         if (!playing) return;
-        paint(idx);
-        var el = els[idx];
+        var b = blocks[bi];
+        if (!b) { playing = false; playLabel(); return; }
+        paint();
+        var ln = b.lines[li];
         timer = setTimeout(function () {
-          if (el && el._rep && el._rep.k < el._rep.n) { el._rep.k++; repRender(el); step(); return; }
-          if (idx < els.length - 1) { idx++; step(); }
-          else { playing = false; playLabel(); }
-        }, dwell(el));
+          if (li < b.lines.length - 1) { li++; step(); return; }              // próxima linha
+          if (b.rep && b.rep.k < b.rep.n) { b.rep.k++; repRender(b.el); li = 0; step(); return; } // próxima conta
+          bi++; li = 0;                                                        // próximo bloco
+          if (bi >= blocks.length) { playing = false; bi = blocks.length - 1; li = blocks[bi].lines.length - 1; playLabel(); return; }
+          enterBlock(); step();
+        }, dwell(ln));
       }
       function play() {
-        els = readables();
-        if (!els.length) return;
-        if (idx >= els.length) idx = 0;
-        playing = true; playLabel(); step();
+        blocks = buildBlocks();
+        if (!blocks.length) return;
+        if (bi >= blocks.length) { bi = 0; li = 0; }
+        playing = true; playLabel();
+        if (li === 0) enterBlock();
+        step();
       }
       function pause() { playing = false; if (timer) clearTimeout(timer); playLabel(); }
       function rgReset() {
-        pause(); idx = 0; els = readables();
-        els.forEach(function (e) { e.classList.remove('rg-active'); repReset(e); });
+        pause(); bi = 0; li = 0; blocks = buildBlocks();
+        clearActive();
+        blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
         setLead();
       }
       document.getElementById('rgPlay').addEventListener('click', function () { playing ? pause() : play(); });
-      document.getElementById('rgRestart').addEventListener('click', function () { pause(); idx = 0; els = readables(); els.forEach(function (e) { repReset(e); }); paint(0); });
-      document.getElementById('rgNext').addEventListener('click', function () {
-        pause(); els = readables(); if (!els.length) return;
-        var el = els[idx];
-        if (el && el._rep && el._rep.k < el._rep.n) { el._rep.k++; repRender(el); paint(idx); }
-        else { idx = Math.min(idx + 1, els.length - 1); paint(idx); }
-        playLabel();
+      document.getElementById('rgRestart').addEventListener('click', function () {
+        pause(); bi = 0; li = 0; blocks = buildBlocks();
+        blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
+        if (blocks.length) { enterBlock(); paint(); } playLabel();
       });
+      document.getElementById('rgNext').addEventListener('click', function () {
+        pause(); blocks = buildBlocks(); if (!blocks.length) return;
+        bi = Math.min(bi + 1, blocks.length - 1); li = 0;
+        enterBlock(); paint(); playLabel();
+      });
+
+      // ───────── Terço: mistérios por dia da semana (exclusivo desta oração) ─────────
+      if (meta.slug === 'terco') {
+        var MYS = {
+          gozosos: ['A Anunciação do Anjo a Maria', 'A Visitação de Maria a Isabel', 'O Nascimento de Jesus em Belém', 'A Apresentação do Menino Jesus no Templo', 'O Encontro do Menino Jesus no Templo'],
+          dolorosos: ['A Agonia de Jesus no Horto', 'A Flagelação do Senhor', 'A Coroação de Espinhos', 'Jesus a caminho do Calvário', 'A Crucifixão e Morte de Jesus'],
+          gloriosos: ['A Ressurreição de Jesus', 'A Ascensão do Senhor ao Céu', 'A Vinda do Espírito Santo', 'A Assunção de Maria ao Céu', 'A Coroação de Maria, Rainha do Céu'],
+          luminosos: ['O Batismo de Jesus no Jordão', 'A revelação de Jesus nas Bodas de Caná', 'O Anúncio do Reino de Deus', 'A Transfiguração do Senhor', 'A Instituição da Eucaristia']
+        };
+        var ADJ = { gozosos: 'Gozoso', dolorosos: 'Doloroso', gloriosos: 'Glorioso', luminosos: 'Luminoso' };
+        var BYDAY = ['gloriosos', 'gozosos', 'dolorosos', 'gloriosos', 'luminosos', 'dolorosos', 'gozosos']; // 0=Dom..6=Sáb
+        var ABBR = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+        var FULL = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+        var tSlots = content.querySelectorAll('.terco-mystery');
+        var tHost = document.getElementById('terco-days');
+        var tBtns = [];
+        function tFill(setKey) {
+          var arr = MYS[setKey], adj = ADJ[setKey];
+          for (var i = 0; i < tSlots.length && i < arr.length; i++) tSlots[i].textContent = (i + 1) + 'º Mistério ' + adj + ' — ' + arr[i];
+        }
+        function tSelect(d) {
+          tFill(BYDAY[d]);
+          for (var i = 0; i < tBtns.length; i++) {
+            var on = (i === d); tBtns[i].classList.toggle('day-on', on);
+            if (on) tBtns[i].setAttribute('aria-current', 'true'); else tBtns[i].removeAttribute('aria-current');
+          }
+        }
+        if (tHost) {
+          tHost.innerHTML = '';
+          var lbl = document.createElement('div'); lbl.className = 'terco-days-label'; lbl.textContent = 'Toque no dia para ver os mistérios:';
+          var rowEl = document.createElement('div'); rowEl.className = 'terco-days-row';
+          for (var d = 0; d < 7; d++) (function (d) {
+            var b = document.createElement('button'); b.type = 'button'; b.className = 'day-chip';
+            b.textContent = ABBR[d]; b.setAttribute('aria-label', FULL[d]);
+            b.addEventListener('click', function () { tSelect(d); });
+            rowEl.appendChild(b); tBtns.push(b);
+          })(d);
+          tHost.appendChild(lbl); tHost.appendChild(rowEl);
+        }
+        tSelect(new Date().getDay()); // dia de hoje já selecionado
+      }
 
       // ───────── Turnstile (CAPTCHA) opcional ─────────
       var turnstileReady = false;
@@ -445,7 +541,7 @@ const meta = {
         showDay(startDay);
       } else {
         setLead();
-        els = readables();
+        blocks = buildBlocks();
       }
     })();
   </script>

@@ -10,11 +10,11 @@ description: "O rosário inteiro — as quatro coroas, vinte mistérios — guia
 featured: false
 ---
 
-O rosário completo percorre as quatro coroas de mistérios — vinte ao todo — contemplando a vida de Jesus à luz do coração de Maria. Acompanhe o texto: as continhas (●) marcam cada Ave-Maria.
+*O rosário completo percorre as quatro coroas de mistérios — vinte ao todo — contemplando a vida de Jesus à luz do coração de Maria. Acompanhe o texto: as continhas (●) marcam cada Ave-Maria.*
 
 ## Orações iniciais
 
-Faça o Sinal da Cruz:
+*Faça o Sinal da Cruz:*
 
 > Pelo sinal da Santa Cruz,<br>
 > livrai-nos, Deus, Nosso Senhor,<br>
@@ -22,7 +22,7 @@ Faça o Sinal da Cruz:
 > Em nome do Pai, e do Filho,<br>
 > e do Espírito Santo. Amém.
 
-Reze o Creio, um Pai Nosso, três Ave-Marias e o Glória:
+*Reze o Creio, um Pai Nosso, três Ave-Marias e o Glória:*
 
 > 3x Ave Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
@@ -39,7 +39,7 @@ Reze o Creio, um Pai Nosso, três Ave-Marias e o Glória:
 
 ### A Anunciação do Anjo a Maria
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -70,7 +70,7 @@ Contemple este mistério por um instante.
 
 ### A Visitação de Maria a Isabel
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -101,7 +101,7 @@ Contemple este mistério por um instante.
 
 ### O Nascimento de Jesus em Belém
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -132,7 +132,7 @@ Contemple este mistério por um instante.
 
 ### A Apresentação do Menino Jesus no Templo
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -163,7 +163,7 @@ Contemple este mistério por um instante.
 
 ### O Encontro do Menino Jesus no Templo
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -196,7 +196,7 @@ Contemple este mistério por um instante.
 
 ### O Batismo de Jesus no Jordão
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -227,7 +227,7 @@ Contemple este mistério por um instante.
 
 ### A revelação de Jesus nas Bodas de Caná
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -258,7 +258,7 @@ Contemple este mistério por um instante.
 
 ### O Anúncio do Reino de Deus
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -289,7 +289,7 @@ Contemple este mistério por um instante.
 
 ### A Transfiguração do Senhor
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -320,7 +320,7 @@ Contemple este mistério por um instante.
 
 ### A Instituição da Eucaristia
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -353,7 +353,7 @@ Contemple este mistério por um instante.
 
 ### A Agonia de Jesus no Horto
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -384,7 +384,7 @@ Contemple este mistério por um instante.
 
 ### A Flagelação do Senhor
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -415,7 +415,7 @@ Contemple este mistério por um instante.
 
 ### A Coroação de Espinhos
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -446,7 +446,7 @@ Contemple este mistério por um instante.
 
 ### Jesus a caminho do Calvário
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -477,7 +477,7 @@ Contemple este mistério por um instante.
 
 ### A Crucifixão e Morte de Jesus
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -510,7 +510,7 @@ Contemple este mistério por um instante.
 
 ### A Ressurreição de Jesus
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -541,7 +541,7 @@ Contemple este mistério por um instante.
 
 ### A Ascensão do Senhor ao Céu
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -572,7 +572,7 @@ Contemple este mistério por um instante.
 
 ### A Vinda do Espírito Santo sobre os Apóstolos
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -603,7 +603,7 @@ Contemple este mistério por um instante.
 
 ### A Assunção de Maria ao Céu
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -634,7 +634,7 @@ Contemple este mistério por um instante.
 
 ### A Coroação de Maria, Rainha do Céu e da Terra
 
-Contemple este mistério por um instante.
+*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -665,7 +665,7 @@ Contemple este mistério por um instante.
 
 ## Conclusão
 
-Ao terminar as quatro coroas, reze a Salve Rainha e confie suas intenções a Deus:
+*Ao terminar as quatro coroas, reze a Salve Rainha e confie suas intenções a Deus:*
 
 > Salve, Rainha, Mãe de misericórdia,<br>
 > vida, doçura e esperança nossa, salve!<br>

@@ -408,12 +408,25 @@ const clientConfig = {
       float: left; font-family: 'Cormorant', serif; font-weight: 600;
       font-size: 3.6rem; line-height: .8; padding: .25rem .5rem .1rem 0; color: var(--gold);
     }
-    /* the "light" passing over the words */
-    .rg-active {
-      background: linear-gradient(90deg, color-mix(in srgb, var(--flame) 22%, transparent), color-mix(in srgb, var(--flame) 9%, transparent));
-      box-shadow: -10px 0 0 color-mix(in srgb, var(--flame) 22%, transparent);
-      padding-left: .4rem;
+    /* leitura: destaque LINHA A LINHA ("luz" passando pelas palavras) */
+    .rg-line { border-radius: 6px; padding: .02em .14em; transition: background-color .3s ease, color .3s ease, box-shadow .3s ease, text-shadow .3s ease; }
+    .rg-line.rg-active {
+      background: linear-gradient(90deg, color-mix(in srgb, var(--flame) 28%, transparent), color-mix(in srgb, var(--flame) 10%, transparent));
+      box-shadow: -8px 0 0 color-mix(in srgb, var(--flame) 28%, transparent), 8px 0 0 color-mix(in srgb, var(--flame) 8%, transparent);
+      color: var(--gold-bright);
+      text-shadow: 0 0 16px var(--glow);
     }
+    /* rubricas (orientações) — não são lidas pelo assistente */
+    .prayer-body p.rubric { font-style: italic; color: var(--ink-soft); font-size: 1rem; text-align: center; margin: .1rem 0 1.05rem; opacity: .92; }
+    .prayer-body p.rubric em, .prayer-body p.rubric i { font-style: italic; }
+    /* Terço — seletor de dia da semana + nome do mistério */
+    .terco-days { margin: .2rem 0 1.6rem; }
+    .terco-days-label { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: .55rem; }
+    .terco-days-row { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .day-chip { font-family: 'Cormorant', serif; font-size: 1.02rem; min-height: 40px; padding: .25rem .85rem; border-radius: 999px; border: 1px solid var(--hair); background: color-mix(in srgb, var(--paper) 70%, transparent); color: var(--ink); cursor: pointer; transition: all .2s ease; }
+    .day-chip:hover { border-color: var(--gold); }
+    .day-chip.day-on { background: var(--gold); color: #1c1206; border-color: var(--gold-bright); box-shadow: 0 0 12px var(--glow); }
+    .terco-mystery { font-family: 'Cormorant', serif; font-weight: 600; font-size: 1.28rem; line-height: 1.25; color: var(--gold); margin: .3rem 0 .7rem; }
 
     /* repetições (10x) — continhas para não perder a conta */
     .rep { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; margin: .7rem 0 .1rem; padding: .35rem .2rem; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }

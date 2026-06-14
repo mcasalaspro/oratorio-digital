@@ -11,9 +11,9 @@ featured: true
 featuredOrder: 4
 ---
 
-A dezena é a menor unidade do terço. Acompanhe o texto com calma: as continhas marcam cada Ave-Maria, para você não se perder.
+*A dezena é a menor unidade do terço. Acompanhe o texto com calma: as continhas (●) marcam cada Ave-Maria, para você não se perder.*
 
-Anuncie o mistério que vai meditar (por exemplo, a Anunciação) e faça uma breve pausa.
+*Anuncie o mistério que vai meditar (por exemplo, a Anunciação) e faça uma breve pausa.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
