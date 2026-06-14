@@ -3,21 +3,21 @@ title: "Ave Maria"
 type: "oracao"
 language: "pt-BR"
 saint: "Nossa Senhora"
-image: "/saints/marian.svg"
-thumbnail: "/saints/marian.svg"
+image: "/saints/nossa-senhora.webp"
+thumbnail: "/saints/nossa-senhora.webp"
 tags: ["essencial", "mariana"]
 description: "A saudação do anjo a Maria, base do terço e do rosário."
 featured: true
 featuredOrder: 2
 ---
 
-Ave Maria, cheia de graça,
-o Senhor é convosco;
-bendita sois vós entre as mulheres
+Ave Maria, cheia de graça,<br>
+o Senhor é convosco;<br>
+bendita sois vós entre as mulheres<br>
 e bendito é o fruto do vosso ventre, Jesus.
 
-Santa Maria, Mãe de Deus,
-rogai por nós, pecadores,
+Santa Maria, Mãe de Deus,<br>
+rogai por nós, pecadores,<br>
 agora e na hora da nossa morte.
 
 Amém.

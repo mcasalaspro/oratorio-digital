@@ -415,6 +415,16 @@ const clientConfig = {
       padding-left: .4rem;
     }
 
+    /* repetições (10x) — continhas para não perder a conta */
+    .rep { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; margin: .7rem 0 .1rem; padding: .35rem .2rem; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+    .rep-dots { display: inline-flex; gap: .34rem; flex-wrap: wrap; }
+    .rep-dot { width: 13px; height: 13px; border-radius: 50%; border: 1.5px solid var(--gold); background: transparent; transition: background-color .2s ease, box-shadow .2s ease; }
+    .rep-dot.on { background: var(--gold); box-shadow: 0 0 8px var(--glow); }
+    .rep-count { font-family: 'Cormorant', serif; font-weight: 600; font-size: 1.1rem; color: var(--gold); margin-left: .15rem; min-width: 3.4em; }
+    .rep-hint { font-size: .72rem; letter-spacing: .06em; color: var(--ink-soft); margin-left: auto; }
+    .rep:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; border-radius: 10px; }
+    blockquote.rep-done { border-left-color: var(--gold-bright); }
+
     /* reading assistant bar */
     .rg-bar {
       position: sticky; bottom: 0; z-index: 30; margin: 1.5rem 0 0;

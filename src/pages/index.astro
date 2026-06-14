@@ -54,7 +54,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
              data-start={p.data.novenaSuggestedStart ?? 0}
              data-total={p.data.totalDays ?? 1}
              hidden>
-            <img class="lit-card-bg" src={withBase(p.data.image ?? p.data.thumbnail ?? '/saints/default.svg')} alt="" aria-hidden="true" />
+            <img class="lit-card-bg" src={withBase(p.data.image ?? p.data.thumbnail ?? '/saints/default.webp')} alt="" aria-hidden="true" />
             <span class="lit-card-shade"></span>
             <span class="lit-card-inner">
               <span class="lit-seal" data-i18n="liturgical_seal">✦ Tempo de orar</span>

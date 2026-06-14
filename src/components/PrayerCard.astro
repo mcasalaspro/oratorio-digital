@@ -2,7 +2,7 @@
 import { withBase } from '../config/site';
 const { prayer } = Astro.props;
 const { id, data } = prayer;
-const img = withBase(data.thumbnail ?? data.image ?? '/saints/default.svg');
+const img = withBase(data.thumbnail ?? data.image ?? '/saints/default.webp');
 const href = withBase(`/oracao/${id}`);
 const langCode = (data.language ?? 'pt-BR').slice(0, 2).toUpperCase();
 ---

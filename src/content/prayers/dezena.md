@@ -3,30 +3,41 @@ title: "Dezena do Rosário"
 type: "dezena"
 language: "pt-BR"
 saint: "Nossa Senhora"
-image: "/saints/rosary.svg"
-thumbnail: "/saints/rosary.svg"
+image: "/saints/rosario.webp"
+thumbnail: "/saints/rosario.webp"
 tags: ["mariana", "rápida"]
-description: "Uma dezena: um Pai Nosso, dez Ave-Marias e o Glória."
+description: "Uma dezena completa para acompanhar sem perder a conta."
 featured: true
 featuredOrder: 4
 ---
 
-A dezena é a menor unidade do terço. Reze-a com calma, deixando a mente repousar no mistério que você contempla.
+A dezena é a menor unidade do terço. Acompanhe o texto com calma: as continhas marcam cada Ave-Maria, para você não se perder.
 
-**Anuncie o mistério** que vai meditar (por exemplo, a Anunciação) e faça uma breve pausa.
+Anuncie o mistério que vai meditar (por exemplo, a Anunciação) e faça uma breve pausa.
 
-Reze um **Pai Nosso**:
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-> Pai nosso, que estais nos céus, santificado seja o vosso nome; venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+> 10x Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-Reze **dez Ave-Marias**, uma em cada conta, mantendo o coração no mistério:
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
-> Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
-
-Conclua com o **Glória**:
-
-> Glória ao Pai, ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
-
-E, se desejar, a **oração de Fátima**:
-
-> Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno; levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
+> Ó meu Jesus, perdoai-nos,<br>
+> livrai-nos do fogo do inferno;<br>
+> levai as almas todas para o céu<br>
+> e socorrei principalmente as que mais precisarem.

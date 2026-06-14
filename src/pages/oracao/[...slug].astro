@@ -12,7 +12,7 @@ const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
-const banner = withBase(data.image ?? data.thumbnail ?? '/saints/default.svg');
+const banner = withBase(data.image ?? data.thumbnail ?? '/saints/default.webp');
 const parallax = data.parallaxImage ? withBase(data.parallaxImage) : '';
 
 // dados que o cliente precisa
@@ -92,7 +92,7 @@ const meta = {
       <h2 id="ovTitle" class="ov-title" data-i18n="completed_title">Oração concluída</h2>
       <p class="ov-sub" data-i18n="completed_sub">Você faz parte de uma corrente de oração.</p>
       <div id="ovNumber" class="ov-number">—</div>
-      <div class="ov-number-label" data-i18n="total_now">orações no total</div>
+      <div class="ov-number-label" data-i18n="times_prayed">vezes que esta oração já foi rezada</div>
       <div class="ov-actions">
         <button id="ovNext" class="btn btn-gold" type="button" data-i18n="next_day" hidden>Próximo dia</button>
         <button id="ovAgain" class="btn" type="button" data-i18n="pray_again">Rezar de novo</button>
@@ -194,6 +194,7 @@ const meta = {
         var all = content.querySelectorAll('p, li, blockquote');
         var out = [];
         Array.prototype.forEach.call(all, function (el) {
+          if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return; // o blockquote é a unidade
           if (el.offsetParent !== null && (el.textContent || '').trim().length > 1) out.push(el);
         });
         return out;
@@ -206,6 +207,46 @@ const meta = {
         for (var i = 0; i < ps.length; i++) { if (ps[i].offsetParent !== null) { first = ps[i]; break; } }
         if (first) first.classList.add('lead');
       }
+
+      // ───────── repetições ("10x") ─────────
+      var REP_RE = /^\s*\{?\s*(\d{1,2})\s*[x×]\s*\}?\s*[·.\-:]?\s*/i;
+      function repRender(el) {
+        var st = el._rep; if (!st) return;
+        for (var i = 0; i < st.dots.length; i++) st.dots[i].className = 'rep-dot' + (i < st.k ? ' on' : '');
+        st.label.textContent = st.k + ' / ' + st.n;
+        el.classList.toggle('rep-done', st.k >= st.n);
+      }
+      function repReset(el) { if (el._rep) { el._rep.k = 0; repRender(el); } }
+      function setupRepeats() {
+        var blocks = content.querySelectorAll('blockquote, p');
+        Array.prototype.forEach.call(blocks, function (el) {
+          if (el.dataset.repInit) return;
+          if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return; // o blockquote é a unidade
+          var tc = el.tagName === 'BLOCKQUOTE' ? (el.querySelector('p') || el) : el;
+          var m = (tc.textContent || '').match(REP_RE);
+          if (!m) return;
+          var n = parseInt(m[1], 10);
+          if (!(n >= 2 && n <= 99)) return;
+          el.dataset.repInit = '1';
+          tc.innerHTML = tc.innerHTML.replace(REP_RE, '');
+          var bar = document.createElement('div');
+          bar.className = 'rep'; bar.setAttribute('role', 'button'); bar.setAttribute('tabindex', '0');
+          bar.setAttribute('aria-label', t('count_tap'));
+          var dotsWrap = document.createElement('span'); dotsWrap.className = 'rep-dots';
+          var dots = [];
+          for (var i = 0; i < n; i++) { var d = document.createElement('i'); d.className = 'rep-dot'; dotsWrap.appendChild(d); dots.push(d); }
+          var lab = document.createElement('span'); lab.className = 'rep-count';
+          var hint = document.createElement('span'); hint.className = 'rep-hint'; hint.setAttribute('data-i18n','count_tap'); hint.textContent = t('count_tap');
+          bar.appendChild(dotsWrap); bar.appendChild(lab); bar.appendChild(hint);
+          el.appendChild(bar);
+          el._rep = { n: n, k: 0, dots: dots, label: lab };
+          repRender(el);
+          function tap() { el._rep.k = (el._rep.k < el._rep.n) ? el._rep.k + 1 : 0; repRender(el); }
+          bar.addEventListener('click', tap);
+          bar.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); tap(); } });
+        });
+      }
+      setupRepeats();
 
       // ───────── assistente de leitura ─────────
       var els = [], idx = 0, playing = false, timer = null;
@@ -229,10 +270,12 @@ const meta = {
       function step() {
         if (!playing) return;
         paint(idx);
+        var el = els[idx];
         timer = setTimeout(function () {
+          if (el && el._rep && el._rep.k < el._rep.n) { el._rep.k++; repRender(el); step(); return; }
           if (idx < els.length - 1) { idx++; step(); }
           else { playing = false; playLabel(); }
-        }, dwell(els[idx]));
+        }, dwell(el));
       }
       function play() {
         els = readables();
@@ -243,14 +286,17 @@ const meta = {
       function pause() { playing = false; if (timer) clearTimeout(timer); playLabel(); }
       function rgReset() {
         pause(); idx = 0; els = readables();
-        els.forEach(function (e) { e.classList.remove('rg-active'); });
+        els.forEach(function (e) { e.classList.remove('rg-active'); repReset(e); });
         setLead();
       }
       document.getElementById('rgPlay').addEventListener('click', function () { playing ? pause() : play(); });
-      document.getElementById('rgRestart').addEventListener('click', function () { pause(); idx = 0; els = readables(); paint(0); });
+      document.getElementById('rgRestart').addEventListener('click', function () { pause(); idx = 0; els = readables(); els.forEach(function (e) { repReset(e); }); paint(0); });
       document.getElementById('rgNext').addEventListener('click', function () {
         pause(); els = readables(); if (!els.length) return;
-        idx = Math.min(idx + 1, els.length - 1); paint(idx); playLabel();
+        var el = els[idx];
+        if (el && el._rep && el._rep.k < el._rep.n) { el._rep.k++; repRender(el); paint(idx); }
+        else { idx = Math.min(idx + 1, els.length - 1); paint(idx); }
+        playLabel();
       });
 
       // ───────── Turnstile (CAPTCHA) opcional ─────────
@@ -345,7 +391,7 @@ const meta = {
 
         if (already) {
           // já contou hoje: mostra o total atual sem incrementar
-          readCount(counter.totalKey, null).then(openOverlay);
+          readCount(meta.slug, null).then(openOverlay);
           return;
         }
 
@@ -353,17 +399,18 @@ const meta = {
         var old = finishBtn.textContent;
         finishBtn.textContent = t('finishing');
 
-        Promise.all([hit(counter.slug ? counter.slug : meta.slug), hit(counter.totalKey)])
+        Promise.all([hit(meta.slug), hit(counter.totalKey)])
           .then(function (res) {
-            var total = res[1];
+            var mine = res[0];
             try { localStorage.setItem(guardKey, '1'); } catch (e) {}
-            if (total == null) { // offline: estimativa local só para feedback
-              var c = 0; try { c = parseInt(localStorage.getItem('od-total-cache') || '0', 10); } catch (e) {}
-              total = c > 0 ? c + 1 : null;
+            if (res[1] != null) { try { localStorage.setItem('od-total-cache', String(res[1])); } catch (e) {} }
+            if (mine == null) { // offline: estimativa local só para feedback
+              var c = 0; try { c = parseInt(localStorage.getItem('od-mine:' + meta.slug) || '0', 10); } catch (e) {}
+              mine = c > 0 ? c + 1 : null;
             } else {
-              try { localStorage.setItem('od-total-cache', String(total)); } catch (e) {}
+              try { localStorage.setItem('od-mine:' + meta.slug, String(mine)); } catch (e) {}
             }
-            openOverlay(total);
+            openOverlay(mine);
           })
           .finally(function () { finishBtn.disabled = false; finishBtn.textContent = old; });
       });

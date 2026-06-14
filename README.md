@@ -6,6 +6,7 @@ apenas com arquivos Markdown. Sem login, sem banco de dados, sem servidor.
 
 > **Quer colocar no ar agora?** Siga o [`PASSO_A_PASSO.md`](./PASSO_A_PASSO.md).
 > **Quer criar uma nova oração?** Use o [`PROMPT_NOVA_ORACAO.md`](./PROMPT_NOVA_ORACAO.md).
+> **Quer gerar as imagens (arte bizantina)?** Use o [`PROMPT_IMAGENS.md`](./PROMPT_IMAGENS.md).
 
 ---
 
@@ -30,7 +31,7 @@ src/
    ├─ index.astro          ← home (destaques + catálogo + busca)
    └─ oracao/[...slug].astro ← leitura + novena + assistente + conclusão
 public/
-├─ saints/                 ← imagens dos santos (SVG/PNG)
+├─ saints/                 ← imagens dos santos (WebP) — veja PROMPT_IMAGENS.md
 └─ textures/               ← textura de fundo e brilho do paralaxe
 .github/workflows/deploy.yml ← publicação automática
 ```
@@ -59,7 +60,8 @@ Tudo em **`src/config/site.ts`**:
 
 ## 🔢 Contador da comunidade
 Usa o serviço gratuito **[Abacus](https://abacus.jasoncameron.dev)** — sem cadastro,
-sem chave. Cada conclusão soma no contador da própria oração e no total geral.
+sem chave. Cada conclusão soma no contador **daquela oração** (mostrado ao concluir)
+e também num total geral (a frase da home: "Esse site já guiou X orações…").
 
 ⚠️ **Troque `counter.namespace`** em `src/config/site.ts` por algo único seu
 (ex.: `oratorio-da-paroquia-x`), senão sua contagem se mistura com a de outra pessoa.
