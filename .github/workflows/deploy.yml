@@ -1,0 +1,44 @@
+# ════════════════════════════════════════════════════════════════
+#  Publica o Oratório Digital no GitHub Pages a cada "git push".
+#  Não é preciso mexer aqui. Só garanta, em Settings → Pages,
+#  que "Source" está como "GitHub Actions".
+# ════════════════════════════════════════════════════════════════
+name: Deploy no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # permite publicar manualmente pela aba Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# garante uma publicação por vez
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+      - name: Instalar, compilar e empacotar (Astro)
+        uses: withastro/action@v3
+        # Se você ativar o CAPTCHA via segredo, descomente:
+        # env:
+        #   PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

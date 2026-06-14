@@ -1,0 +1,24 @@
+---
+import { withBase } from '../config/site';
+const { prayer } = Astro.props;
+const { id, data } = prayer;
+const img = withBase(data.thumbnail ?? data.image ?? '/saints/default.svg');
+const href = withBase(`/oracao/${id}`);
+const langCode = (data.language ?? 'pt-BR').slice(0, 2).toUpperCase();
+---
+<a class="card" href={href}
+   data-type={data.type}
+   data-lang={data.language}
+   data-search={`${data.title} ${data.saint ?? ''} ${data.tags.join(' ')} ${data.description}`.toLowerCase()}>
+  <img class="card-img" src={img} alt={data.saint ?? data.title} loading="lazy" width="800" height="500" />
+  <div class="card-body">
+    <span class="card-type" data-i18n={`type_${data.type}`}>{data.type}</span>
+    <h3 class="card-title">{data.title}</h3>
+    {data.saint && <span class="card-saint">{data.saint}</span>}
+    {data.description && <p class="card-desc">{data.description}</p>}
+    <div class="card-foot">
+      <span class="pill">{langCode}</span>
+      {data.type === 'novena' && data.totalDays && <span class="pill">{data.totalDays} dias</span>}
+    </div>
+  </div>
+</a>

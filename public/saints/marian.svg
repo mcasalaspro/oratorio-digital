@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Nossa Senhora">
+  <defs>
+    <radialGradient id="gm" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#1f2742"/>
+      <stop offset="60%" stop-color="#141a30"/>
+      <stop offset="100%" stop-color="#0d1120"/>
+    </radialGradient>
+    <radialGradient id="hm" cx="50%" cy="46%" r="42%">
+      <stop offset="0%" stop-color="#9fb6ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#9fb6ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#gm)"/>
+  <rect width="800" height="500" fill="url(#hm)"/>
+  <g fill="none" stroke="#e7c069" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M330 330 V210 l70 70 70-70 V330" />
+    <path d="M400 150 l8 18 18 8 -18 8 -8 18 -8 -18 -18 -8 18 -8 z" fill="#e7c069" stroke="none"/>
+  </g>
+  <g fill="#cdd9ff">
+    <circle cx="300" cy="180" r="3"/><circle cx="500" cy="180" r="3"/>
+    <circle cx="270" cy="250" r="2.5"/><circle cx="530" cy="250" r="2.5"/>
+    <circle cx="360" cy="130" r="2.5"/><circle cx="440" cy="130" r="2.5"/>
+  </g>
+  <circle cx="400" cy="300" r="150" fill="none" stroke="#e7c069" stroke-width="2" opacity="0.35"/>
+</svg>
