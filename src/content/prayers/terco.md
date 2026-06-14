@@ -25,7 +25,7 @@ featuredOrder: 3
 > Em nome do Pai, e do Filho,<br>
 > e do Espírito Santo. Amém.
 
-*Reze o Creio (Símbolo dos Apóstolos):*
+*Creio (Símbolo dos Apóstolos):*
 
 > Creio em Deus Pai todo-poderoso,<br>
 > criador do céu e da terra;<br>
@@ -46,7 +46,7 @@ featuredOrder: 3
 > na ressurreição da carne,<br>
 > na vida eterna. Amém.
 
-*Reze um Pai Nosso:*
+*Pai Nosso:*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -78,7 +78,7 @@ featuredOrder: 3
 
 <p class="terco-mystery" data-decade="1">1º Mistério do dia</p>
 
-*Anuncie o mistério, reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Anuncie o mistério e contemple-o por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -111,7 +111,7 @@ featuredOrder: 3
 
 <p class="terco-mystery" data-decade="2">2º Mistério do dia</p>
 
-*Anuncie o mistério, reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Anuncie o mistério e contemple-o por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -144,7 +144,7 @@ featuredOrder: 3
 
 <p class="terco-mystery" data-decade="3">3º Mistério do dia</p>
 
-*Anuncie o mistério, reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Anuncie o mistério e contemple-o por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -177,7 +177,7 @@ featuredOrder: 3
 
 <p class="terco-mystery" data-decade="4">4º Mistério do dia</p>
 
-*Anuncie o mistério, reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Anuncie o mistério e contemple-o por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -210,7 +210,7 @@ featuredOrder: 3
 
 <p class="terco-mystery" data-decade="5">5º Mistério do dia</p>
 
-*Anuncie o mistério, reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Anuncie o mistério e contemple-o por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>

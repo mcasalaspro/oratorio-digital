@@ -74,7 +74,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       <div class="wrap">
         <p class="eyebrow" data-i18n="pinned_title">Orações do dia a dia</p>
         <h2 class="section-title" data-i18n="pinned_title">Orações do dia a dia</h2>
-        <div class="grid">
+        <div class="grid grid--pinned">
           {pinned.map((p) => <PrayerCard prayer={p} />)}
         </div>
       </div>

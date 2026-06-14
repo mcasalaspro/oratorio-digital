@@ -301,22 +301,27 @@ const clientConfig = {
     .votive-join { font-size: .85rem; color: #b9a47c; margin-top: .2rem; }
 
     /* ════════ CARDS / GRID ════════ */
-    .grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); }
+    /* catálogo estilo streaming: cards menores em pôster 3:4 */
+    .grid { display: grid; gap: .95rem; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); }
+    .grid--pinned { gap: .7rem; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); } /* destaque: pequeno, lado a lado */
     .card {
       position: relative; display: flex; flex-direction: column;
       background: var(--paper-raised); border: 1px solid var(--hair);
-      border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--ink);
+      border-radius: 12px; overflow: hidden; text-decoration: none; color: var(--ink);
       transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
     .card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px var(--shadow); border-color: color-mix(in srgb, var(--gold) 40%, var(--hair)); }
-    .card-img { aspect-ratio: 16/10; width: 100%; object-fit: cover; background: #1a1208; }
-    .card-body { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .35rem; flex: 1; }
-    .card-type { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
-    .card-title { font-family: 'Cormorant', serif; font-size: 1.55rem; font-weight: 600; margin: 0; line-height: 1.08; }
-    .card-saint { font-size: .92rem; color: var(--ink-soft); font-style: italic; }
-    .card-desc { font-size: .92rem; color: var(--ink-soft); margin: .15rem 0 0; }
-    .card-foot { margin-top: auto; padding-top: .7rem; display: flex; align-items: center; gap: .5rem; }
-    .pill { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid var(--hair); border-radius: 999px; padding: .15rem .55rem; }
+    .card-img { aspect-ratio: 3/4; width: 100%; object-fit: cover; object-position: center top; background: #1a1208; }
+    .card-body { padding: .55rem .62rem .7rem; display: flex; flex-direction: column; gap: .16rem; flex: 1; }
+    .card-type { font-size: .58rem; letter-spacing: .13em; text-transform: uppercase; color: var(--gold); }
+    .card-title { font-family: 'Cormorant', serif; font-size: 1.16rem; font-weight: 600; margin: 0; line-height: 1.04; }
+    .card-saint { font-size: .76rem; color: var(--ink-soft); font-style: italic; }
+    .card-desc { display: none; }
+    .card-foot { margin-top: auto; padding-top: .42rem; display: flex; align-items: center; gap: .32rem; }
+    .pill { font-size: .6rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid var(--hair); border-radius: 999px; padding: .12rem .45rem; }
+    .grid--pinned .card-title { font-size: 1rem; }
+    .grid--pinned .card-body { padding: .45rem .5rem .55rem; }
+    .grid--pinned .card-saint, .grid--pinned .card-foot { display: none; }
 
     /* ════════ LITURGICAL HIGHLIGHTS ════════ */
     .lit-section { display: none; }
@@ -377,6 +382,9 @@ const clientConfig = {
     .reader-type { font-size: .76rem; letter-spacing: .2em; text-transform: uppercase; color: var(--flame); }
     .reader-title { font-size: clamp(2.4rem, 6vw, 3.8rem); margin: .2rem 0; color: #fbf2dd; }
     .reader-saint { font-style: italic; color: #e7d8b8; }
+    .reader-count { display: inline-flex; align-items: baseline; gap: .4rem; margin: .85rem 0 0; }
+    .reader-count .rc-num { font-family: 'Cormorant', serif; font-weight: 600; font-size: 1.55rem; line-height: 1; color: var(--gold-bright); text-shadow: 0 0 14px var(--glow); }
+    .reader-count .rc-label { font-size: .82rem; letter-spacing: .05em; color: #cebf9d; }
 
     .reader-body { max-width: var(--read); margin: 0 auto; padding: 1.5rem clamp(1rem,5vw,1.5rem) 4rem; }
 

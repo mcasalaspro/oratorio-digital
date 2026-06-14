@@ -22,7 +22,29 @@ que desde jovem entregaste tua vida a Deus,<br>
 alcança-me a graça de confiar no Senhor<br>
 mesmo quando o caminho parece incerto.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória, apresentando a intenção que traz no coração.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Se buscas milagres, eis que afugentas<br>
 > a morte, o erro, a desventura;<br>
@@ -38,7 +60,29 @@ tua palavra tocava os corações<br>
 porque nascia do silêncio e da oração.<br>
 Ensina-me a escutar a Deus antes de falar.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > O mar se acalma, as cadeias se rompem;<br>
 > membros e bens perdidos<br>
@@ -53,7 +97,29 @@ que viste no pobre o rosto de Cristo,<br>
 abre o meu coração à generosidade<br>
 e à compaixão com quem sofre.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Cessam todos os perigos,<br>
 > foge a necessidade;<br>
@@ -69,7 +135,29 @@ a ti recorrem os que perderam algo precioso.<br>
 Ajuda-me a reencontrar não só as coisas,<br>
 mas a paz, a esperança e a fé que às vezes se perdem.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Por ele os mares se aplacam<br>
 > e o cativo é libertado;<br>
@@ -85,7 +173,29 @@ permaneceste humilde diante de Deus.<br>
 Livra-me da vaidade<br>
 e ensina-me a servir sem buscar recompensa.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Glória ao Pai e ao Filho<br>
 > e ao Espírito de amor;<br>
@@ -101,7 +211,29 @@ que confiaste plenamente na providência divina,<br>
 afasta de mim a ansiedade<br>
 e ensina-me a entregar o amanhã nas mãos de Deus.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 *Apresente agora, com confiança, a graça que mais deseja alcançar nesta novena.*
 
@@ -115,7 +247,29 @@ abençoa os laços de amor da minha vida.<br>
 Que haja reconciliação onde há mágoa<br>
 e fidelidade onde há promessa.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 Santo Antônio, rogai por nós.
 
@@ -127,7 +281,29 @@ dá-me a graça de não desanimar<br>
 diante das dificuldades<br>
 e de permanecer firme na oração.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 Santo Antônio, rogai por nós.
 
@@ -140,7 +316,29 @@ Apresenta-as a Deus<br>
 e alcança-me, se for da Sua vontade,<br>
 a graça que tanto peço.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Rogai por nós, Santo Antônio,<br>
 > para que sejamos dignos<br>

@@ -22,7 +22,41 @@ featured: false
 > Em nome do Pai, e do Filho,<br>
 > e do Espírito Santo. Amém.
 
-*Reze o Creio, um Pai Nosso, três Ave-Marias e o Glória:*
+*Creio (Símbolo dos Apóstolos):*
+
+> Creio em Deus Pai todo-poderoso,<br>
+> criador do céu e da terra;<br>
+> e em Jesus Cristo, seu único Filho, nosso Senhor,<br>
+> que foi concebido pelo poder do Espírito Santo,<br>
+> nasceu da Virgem Maria;<br>
+> padeceu sob Pôncio Pilatos,<br>
+> foi crucificado, morto e sepultado;<br>
+> desceu à mansão dos mortos;<br>
+> ressuscitou ao terceiro dia;<br>
+> subiu aos céus,<br>
+> está sentado à direita de Deus Pai todo-poderoso,<br>
+> donde há de vir a julgar os vivos e os mortos.<br>
+> Creio no Espírito Santo,<br>
+> na santa Igreja Católica,<br>
+> na comunhão dos santos,<br>
+> na remissão dos pecados,<br>
+> na ressurreição da carne,<br>
+> na vida eterna. Amém.
+
+*Pai Nosso:*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+*Três Ave-Marias, pela fé, esperança e caridade:*
 
 > 3x Ave Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
@@ -39,7 +73,7 @@ featured: false
 
 ### A Anunciação do Anjo a Maria
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -70,7 +104,7 @@ featured: false
 
 ### A Visitação de Maria a Isabel
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -101,7 +135,7 @@ featured: false
 
 ### O Nascimento de Jesus em Belém
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -132,7 +166,7 @@ featured: false
 
 ### A Apresentação do Menino Jesus no Templo
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -163,7 +197,7 @@ featured: false
 
 ### O Encontro do Menino Jesus no Templo
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -196,7 +230,7 @@ featured: false
 
 ### O Batismo de Jesus no Jordão
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -227,7 +261,7 @@ featured: false
 
 ### A revelação de Jesus nas Bodas de Caná
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -258,7 +292,7 @@ featured: false
 
 ### O Anúncio do Reino de Deus
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -289,7 +323,7 @@ featured: false
 
 ### A Transfiguração do Senhor
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -320,7 +354,7 @@ featured: false
 
 ### A Instituição da Eucaristia
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -353,7 +387,7 @@ featured: false
 
 ### A Agonia de Jesus no Horto
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -384,7 +418,7 @@ featured: false
 
 ### A Flagelação do Senhor
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -415,7 +449,7 @@ featured: false
 
 ### A Coroação de Espinhos
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -446,7 +480,7 @@ featured: false
 
 ### Jesus a caminho do Calvário
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -477,7 +511,7 @@ featured: false
 
 ### A Crucifixão e Morte de Jesus
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -510,7 +544,7 @@ featured: false
 
 ### A Ressurreição de Jesus
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -541,7 +575,7 @@ featured: false
 
 ### A Ascensão do Senhor ao Céu
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -572,7 +606,7 @@ featured: false
 
 ### A Vinda do Espírito Santo sobre os Apóstolos
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -603,7 +637,7 @@ featured: false
 
 ### A Assunção de Maria ao Céu
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
@@ -634,7 +668,7 @@ featured: false
 
 ### A Coroação de Maria, Rainha do Céu e da Terra
 
-*Contemple este mistério; reze um Pai Nosso, dez Ave-Marias, o Glória e a oração de Fátima.*
+*Contemple este mistério por um instante.*
 
 > Pai nosso, que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>

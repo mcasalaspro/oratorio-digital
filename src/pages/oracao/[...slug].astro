@@ -35,6 +35,7 @@ const meta = {
         <p class="reader-type" data-i18n={`type_${data.type}`}>{data.type}</p>
         <h1 class="reader-title">{data.title}</h1>
         {data.saint && <p class="reader-saint">{data.saint}</p>}
+        <p class="reader-count" id="readerCount" hidden><span class="rc-num" id="readerCountNum">—</span> <span class="rc-label" data-i18n="count_short">vezes rezada</span></p>
       </div>
     </header>
 
@@ -453,6 +454,13 @@ const meta = {
         var show = isNovena && current < meta.totalDays;
         ['paNext', 'ovNext'].forEach(function (id) { var b = document.getElementById(id); if (b) b.hidden = !show; });
       }
+      function updateReaderCount(v) {
+        if (v == null) return;
+        var n = document.getElementById('readerCountNum');
+        var box = document.getElementById('readerCount');
+        if (n) n.textContent = fmt(v);
+        if (box) box.hidden = false;
+      }
       function openOverlay(total) {
         var ov = document.getElementById('overlay');
         var num = document.getElementById('ovNumber');
@@ -460,6 +468,7 @@ const meta = {
         ov.classList.add('show');
         spawnMotes();
         animateNumber(num, total);
+        updateReaderCount(total);
         togglePostNext();
       }
       function closeOverlay() { document.getElementById('overlay').classList.remove('show'); }
@@ -543,6 +552,9 @@ const meta = {
         setLead();
         blocks = buildBlocks();
       }
+
+      // contagem desta oração, mostrada na capa
+      if (counter.enabled) { readCount(meta.slug, null).then(function (v) { updateReaderCount(v); }); }
     })();
   </script>
 </Base>

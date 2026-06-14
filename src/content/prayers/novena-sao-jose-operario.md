@@ -15,6 +15,8 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
+*Esta novena prepara para a festa de São José Operário, em 1º de maio. Ao final de cada dia, é tradição rezar também a Ladainha de São José, disponível no catálogo.*
+
 ## Dia 1 — O valor do trabalho
 
 São José Operário,<br>
@@ -23,7 +25,29 @@ ao lado do Filho de Deus,<br>
 ensina-me a ver no trabalho<br>
 um dom e uma forma de amar.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória, apresentando a sua intenção.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -35,7 +59,29 @@ ajuda-me a oferecer a Deus<br>
 o meu esforço e o meu cansaço,<br>
 fazendo do trabalho uma oração.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -48,7 +94,29 @@ Alcança-me, do Senhor,<br>
 o pão de cada dia<br>
 e a graça de não me faltar o necessário.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -61,7 +129,29 @@ Abre portas, conforta os desanimados<br>
 e conduze-os, pela mão de Deus,<br>
 a um trabalho digno.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -74,7 +164,29 @@ Que ninguém seja explorado<br>
 nem tratado como menos<br>
 do que um filho do Senhor.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -87,7 +199,29 @@ Que eu trabalhe com retidão<br>
 e trate os outros<br>
 como Deus me ensina a tratar.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -100,7 +234,29 @@ ensina-me a respeitar o descanso<br>
 e a não sacrificar a família<br>
 em troca do trabalho.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -113,7 +269,29 @@ até as tarefas mais simples,<br>
 com capricho e humildade,<br>
 para a glória de Deus.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
 
@@ -126,7 +304,29 @@ Apresenta-os ao Senhor<br>
 e alcança-me, se for da Sua vontade,<br>
 a graça que tanto peço.
 
-*Reze um Pai Nosso, uma Ave Maria e o Glória.*
+*Apresente a Deus a sua intenção.*
+
+> Pai nosso, que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino;<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu.<br>
+> O pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > São José, modelo dos trabalhadores,<br>
 > que ganhaste o pão com o suor do teu rosto,<br>
