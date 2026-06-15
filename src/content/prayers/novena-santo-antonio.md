@@ -4,7 +4,6 @@ type: "novena"
 totalDays: 9
 language: "pt-BR"
 saint: "Santo Antônio de Pádua"
-parallaxImage: "/textures/rays.svg"
 tags: ["intercessão", "casamento", "objetos perdidos", "pobres"]
 description: "Novena tradicional a Santo Antônio de Pádua, doutor da Igreja e amigo dos pobres."
 featured: true

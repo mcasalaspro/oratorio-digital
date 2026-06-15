@@ -4,7 +4,6 @@ type: "novena"
 totalDays: 9
 language: "pt-BR"
 saint: "São José Operário"
-parallaxImage: "/textures/rays.svg"
 tags: ["trabalho", "emprego", "providência", "justiça"]
 description: "Novena a São José Operário pelo trabalho, pelos trabalhadores e por quem busca emprego."
 featured: false
