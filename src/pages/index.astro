@@ -41,6 +41,23 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     </div>
   </section>
 
+  <!-- ════════ ORAÇÃO DO DIA (destaque revelado conforme a data) ════════ -->
+  <section class="section today-section" id="today">
+    <div class="wrap">
+      <a class="today-card" id="todayCard" href="#">
+        <img class="today-bg" id="todayImg" src="" alt="" aria-hidden="true" />
+        <span class="today-shade"></span>
+        <span class="today-inner">
+          <span class="today-seal" data-i18n="today_seal">Oração do dia</span>
+          <h2 class="today-title" id="todayTitle"></h2>
+          <span class="today-meta" id="todayMeta"></span>
+          <span class="today-reason" id="todayReason"></span>
+          <span class="today-cta" data-i18n="today_cta">Rezar agora</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
   <!-- ════════ DESTAQUE LITÚRGICO (revelado conforme a data) ════════ -->
   <section class="section lit-section" id="liturgical">
     <div class="wrap">
@@ -164,6 +181,37 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       if (active.length === 0) return;
       active.sort((a, b) => a.daysToFeast - b.daysToFeast);
 
+      // ── Oração do dia: a mais relevante vira um destaque grande ──
+      const today = active[0];
+      const todaySec = document.getElementById('today');
+      if (today && todaySec) {
+        const src = today.card;
+        const total0 = parseInt(src.dataset.total || '1', 10);
+        const bg = src.querySelector<HTMLImageElement>('.lit-card-bg');
+        const tImg = document.getElementById('todayImg') as HTMLImageElement | null;
+        if (tImg && bg) tImg.src = bg.getAttribute('src') || '';
+        const tTitle = src.querySelector('h3');
+        const tEl = document.getElementById('todayTitle'); if (tEl) tEl.textContent = tTitle ? tTitle.textContent : '';
+        const mEl = src.querySelector('.lit-meta');
+        const tM = document.getElementById('todayMeta'); if (tM) tM.textContent = mEl ? (mEl.textContent || '') : '';
+        const tCard = document.getElementById('todayCard') as HTMLAnchorElement | null;
+        if (tCard) tCard.href = src.href.split('?')[0] + (total0 > 1 ? `?dia=${today.suggestedDay}` : '');
+        const fillToday = () => {
+          const tt = (window as any).odt;
+          let reason: string;
+          if (today.daysToFeast === 0) reason = tt('feast_today');
+          else if (total0 > 1 && today.suggestedDay === 1) reason = tt('today_begin');
+          else if (total0 > 1) reason = `${today.daysToFeast} ${tt('days_to_feast')} · ${tt('day')} ${today.suggestedDay}`;
+          else reason = `${today.daysToFeast} ${tt('days_to_feast')}`;
+          const rEl = document.getElementById('todayReason'); if (rEl) rEl.textContent = reason;
+        };
+        fillToday();
+        document.addEventListener('od:lang', fillToday);
+        todaySec.style.display = 'block';
+        today.card.dataset.isToday = '1';
+      }
+
+      // ── Demais destaques (linha menor), sem repetir a Oração do dia ──
       function fillLabels() {
         for (const a of active) {
           const lbl = a.card.querySelector<HTMLElement>('[data-feast-label]');
@@ -177,9 +225,12 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           a.card.href = a.card.href.split('?')[0] + (total > 1 ? `?dia=${a.suggestedDay}` : '');
         }
       }
+      const rest = active.filter((a) => a.card.dataset.isToday !== '1');
       const limit = (window as any).__SITE__?.maxLiturgicalHighlights ?? 3;
-      active.slice(0, limit).forEach((a) => (a.card.hidden = false));
-      section.style.display = 'block';
+      if (rest.length > 0) {
+        rest.slice(0, limit).forEach((a) => (a.card.hidden = false));
+        section.style.display = 'block';
+      }
       fillLabels();
       document.addEventListener('od:lang', fillLabels);
     })();

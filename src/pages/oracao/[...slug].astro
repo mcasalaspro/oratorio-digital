@@ -554,7 +554,7 @@ const meta = {
       }
 
       // contagem desta oração, mostrada na capa
-      if (counter.enabled) { readCount(meta.slug, null).then(function (v) { updateReaderCount(v); }); }
+      if (counter.enabled) { readCount(meta.slug, 0).then(function (v) { updateReaderCount(v); }); }
     })();
   </script>
 </Base>
