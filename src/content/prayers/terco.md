@@ -3,8 +3,6 @@ title: "Terço"
 type: "rosario"
 language: "pt-BR"
 saint: "Nossa Senhora"
-image: "/saints/rosario.webp"
-thumbnail: "/saints/rosario.webp"
 tags: ["mariana", "diária", "completo"]
 description: "O terço completo, guiado dezena por dezena, com os mistérios do dia."
 featured: true

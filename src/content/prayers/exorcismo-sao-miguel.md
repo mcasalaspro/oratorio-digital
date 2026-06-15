@@ -1,53 +1,56 @@
 ---
-title: "Oração de Exorcismo a São Miguel Arcanjo"
+title: "Oração de Libertação a São Miguel Arcanjo"
 type: "oracao"
 language: "pt-BR"
 saint: "São Miguel Arcanjo"
-image: "/saints/sao-miguel.webp"
-thumbnail: "/saints/sao-miguel.webp"
-tags: ["proteção", "combate espiritual", "libertação"]
-description: "A Súplica a São Miguel Arcanjo, oração de proteção composta pelo Papa Leão XIII."
+tags: ["proteção", "libertação", "combate espiritual"]
+description: "Oração completa, escrita por Leão XIII em 1884, pela libertação do espírito maligno."
 featured: false
 liturgicalFeast: "09-29"
 liturgicalColor: "festa"
 ---
 
-*Súplica a São Miguel Arcanjo, composta pelo Papa Leão XIII — versão devocional para os fiéis.*
+*Escrita pelo Papa Leão XIII em 1884, após uma visão. É a versão longa, para uso dos fiéis.*
 
-Ó glorioso Príncipe da Milícia Celeste,<br>
+Em nome de Jesus Cristo, nosso Deus e Senhor,<br>
+fortalecidos pela intercessão da Imaculada Virgem Maria, Mãe de Deus,<br>
+de São Miguel Arcanjo,<br>
+dos santos Apóstolos Pedro e Paulo<br>
+e de todos os santos,<br>
+confiantes no sagrado poder de nossa santa fé,<br>
+recorremos a vós, ó São Miguel Arcanjo.
+
+Ó gloriosíssimo Príncipe da Milícia Celestial,<br>
 São Miguel Arcanjo,<br>
 defendei-nos no combate<br>
-contra os principados e as potestades,<br>
-contra os dominadores deste mundo de trevas,<br>
-contra os espíritos do mal.
+contra os principados e potestades,<br>
+contra os dominadores deste mundo tenebroso,<br>
+contra as hostes espirituais da maldade<br>
+nos lugares celestiais.
 
 Vinde em auxílio dos homens,<br>
 que Deus criou à Sua imagem e semelhança<br>
-e remiu a grande preço<br>
-da tirania do demônio.
+e que resgatou a tão grande preço<br>
+da tirania do demônio.<br>
+Sede o baluarte da santa Igreja de Deus.
 
-Combatei hoje as batalhas do Senhor,<br>
-junto com o exército dos anjos,<br>
-como outrora combatestes<br>
-Lúcifer, o chefe dos soberbos,<br>
-e os seus anjos rebeldes,<br>
-que não puderam resistir-vos,<br>
-nem houve mais lugar para eles no céu.
+Reprimi, ó Senhor, a Satanás — humildemente o suplicamos —<br>
+e afastai de nós o atrevimento daquele<br>
+que outrora tentou igualar-se a Deus,<br>
+e que pensa, em suas orgulhosas ilusões,<br>
+poder ser semelhante ao Altíssimo.
 
-Eis a Cruz do Senhor!<br>
-Fugi, potências inimigas!<br>
-Venceu o Leão da tribo de Judá,<br>
-o rebento de Davi.
-
-Desça sobre nós a Vossa misericórdia, Senhor,<br>
-como em Vós esperamos.
-
-São Miguel Arcanjo,<br>
-defendei o povo de Deus<br>
-na luta contra o poder das trevas;<br>
-precipitai no inferno<br>
-a satanás e aos espíritos malignos<br>
+Ó São Miguel Arcanjo,<br>
+expulsai Satanás e os outros espíritos malignos<br>
 que andam pelo mundo<br>
-para perder as almas.
+para a perdição das almas.
 
+Ó Senhor, pela intercessão de São Miguel Arcanjo,<br>
+cujo nome significa "Quem é como Deus",<br>
+libertai (dizer o nome da pessoa)<br>
+de todo mal e opressão do espírito maligno.<br>
+Que o sangue de Jesus Cristo o purifique,<br>
+que a luz de Cristo o envolva,<br>
+e que o poder de Deus Todo-Poderoso o proteja,<br>
+agora e sempre.<br>
 Amém.

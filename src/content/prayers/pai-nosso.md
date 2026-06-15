@@ -3,8 +3,6 @@ title: "Pai Nosso"
 type: "oracao"
 language: "pt-BR"
 saint: "Oração do Senhor"
-image: "/saints/cristo.webp"
-thumbnail: "/saints/cristo.webp"
 tags: ["essencial", "ensinada por Jesus"]
 description: "A oração que o próprio Jesus ensinou aos discípulos."
 featured: true

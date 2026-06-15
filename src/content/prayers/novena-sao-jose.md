@@ -4,8 +4,6 @@ type: "novena"
 totalDays: 9
 language: "pt-BR"
 saint: "São José"
-image: "/saints/sao-jose.webp"
-thumbnail: "/saints/sao-jose.webp"
 parallaxImage: "/textures/rays.svg"
 tags: ["intercessão", "família", "trabalho", "boa morte"]
 description: "Novena a São José, esposo de Maria, guarda da Sagrada Família e padroeiro da Igreja."

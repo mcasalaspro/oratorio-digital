@@ -3,8 +3,6 @@ title: "Ladainha de São José"
 type: "oracao"
 language: "pt-BR"
 saint: "São José"
-image: "/saints/sao-jose.webp"
-thumbnail: "/saints/sao-jose.webp"
 tags: ["são josé", "ladainha", "devoção"]
 description: "A Ladainha de São José, aprovada pelo Papa São Pio X em 1909."
 featured: false

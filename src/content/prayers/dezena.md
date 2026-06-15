@@ -3,8 +3,6 @@ title: "Dezena do Rosário"
 type: "dezena"
 language: "pt-BR"
 saint: "Nossa Senhora"
-image: "/saints/rosario.webp"
-thumbnail: "/saints/rosario.webp"
 tags: ["mariana", "rápida"]
 description: "Uma dezena completa para acompanhar sem perder a conta."
 featured: true

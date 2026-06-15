@@ -3,8 +3,6 @@ title: "Hail Mary"
 type: "oracao"
 language: "en"
 saint: "Our Lady"
-image: "/saints/nossa-senhora.webp"
-thumbnail: "/saints/nossa-senhora.webp"
 tags: ["essential", "marian"]
 description: "The angel's greeting to Mary — the heart of the rosary."
 featured: false

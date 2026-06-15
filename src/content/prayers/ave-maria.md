@@ -3,8 +3,6 @@ title: "Ave Maria"
 type: "oracao"
 language: "pt-BR"
 saint: "Nossa Senhora"
-image: "/saints/nossa-senhora.webp"
-thumbnail: "/saints/nossa-senhora.webp"
 tags: ["essencial", "mariana"]
 description: "A saudação do anjo a Maria, base do terço e do rosário."
 featured: true

@@ -12,7 +12,8 @@ const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
-const banner = withBase(data.image ?? data.thumbnail ?? '/saints/default.webp');
+const banner = withBase(data.image ?? `/saints/${entry.id}.webp`);
+const imgFallback = withBase('/saints/default.webp');
 const parallax = data.parallaxImage ? withBase(data.parallaxImage) : '';
 
 // dados que o cliente precisa
@@ -28,7 +29,7 @@ const meta = {
   <article>
     <!-- ░░ Banner com paralaxe ░░ -->
     <header class="reader-hero">
-      <img class="reader-bg" src={banner} alt={data.saint ?? data.title} data-parallax data-speed="0.18" width="1600" height="900" />
+      <img class="reader-bg" src={banner} alt={data.saint ?? data.title} data-parallax data-speed="0.18" width="1600" height="900" onerror={`this.onerror=null;this.src='${imgFallback}'`} />
       {parallax && <div class="reader-parallax" data-parallax data-speed="0.34" style={`background-image:url(${parallax})`}></div>}
       <div class="reader-shade"></div>
       <div class="reader-head">

@@ -3,8 +3,6 @@ title: "Rosário Completo"
 type: "rosario"
 language: "pt-BR"
 saint: "Nossa Senhora"
-image: "/saints/rosario.webp"
-thumbnail: "/saints/rosario.webp"
 tags: ["mariana", "contemplativa", "completo"]
 description: "O rosário inteiro — as quatro coroas, vinte mistérios — guiado dezena por dezena."
 featured: false
