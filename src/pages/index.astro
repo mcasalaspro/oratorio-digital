@@ -32,7 +32,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
 <Base>
   <!-- ════════ HERO ════════ -->
   <section class="hero">
-    <div class="hero-glow" data-parallax="0.18" aria-hidden="true"></div>
+    <img class="hero-bg" src={withBase('/textures/hero.webp')} alt="" aria-hidden="true" data-parallax="0.12" onerror="this.style.display='none'" />
+    <span class="hero-shade" aria-hidden="true"></span>
     <div class="hero-inner">
       <p class="hero-kicker" data-i18n="hero_kicker">Reze com calma</p>
       <h1>{site.name}</h1>
