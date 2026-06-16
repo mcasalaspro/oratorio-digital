@@ -71,32 +71,20 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     </div>
   </section>
 
-  <!-- ════════ DESTAQUE LITÚRGICO (revelado conforme a data) ════════ -->
-  <section class="section lit-section" id="liturgical">
-    <div class="wrap">
-      <p class="eyebrow" data-i18n="liturgical_title">Tempo de orar</p>
-      <h2 class="section-title" data-i18n="liturgical_title">Tempo de orar</h2>
-      <div class="lit-grid" id="litGrid">
-        {liturgical.map((p) => (
-          <a class={`lit-card lit-${p.data.liturgicalColor ?? 'festa'}`}
-             href={withBase(`/oracao/${p.id}`)}
-             data-feast={p.data.liturgicalFeast}
-             data-start={p.data.novenaSuggestedStart ?? 0}
-             data-total={p.data.totalDays ?? 1}
-             hidden>
-            <img class="lit-card-bg" src={withBase(p.data.image ?? `/saints/${p.id}.webp`)} alt="" aria-hidden="true" onerror={`this.onerror=null;this.src='${withBase('/saints/default.webp')}'`} />
-            <span class="lit-card-shade"></span>
-            <span class="lit-card-inner">
-              <span class="lit-seal" data-i18n="liturgical_seal">✦ Tempo de orar</span>
-              <h3>{p.data.title}</h3>
-              <span class="lit-meta">{p.data.saint}</span>
-              <span class="lit-count" data-feast-label></span>
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- dados das orações com festa: alimentam a "Oração do dia" (sem seção visível) -->
+  <div id="litData" hidden>
+    {liturgical.map((p) => (
+      <a class="lit-card"
+         href={withBase(`/oracao/${p.id}`)}
+         data-feast={p.data.liturgicalFeast}
+         data-start={p.data.novenaSuggestedStart ?? 0}
+         data-total={p.data.totalDays ?? 1}>
+        <img class="lit-card-bg" src={withBase(p.data.image ?? `/saints/${p.id}.webp`)} alt="" aria-hidden="true" onerror={`this.onerror=null;this.src='${withBase('/saints/default.webp')}'`} />
+        <h3>{p.data.title}</h3>
+        <span class="lit-meta">{p.data.saint}</span>
+      </a>
+    ))}
+  </div>
 
   <!-- ════════ ORAÇÕES FIXAS ════════ -->
   {pinned.length > 0 && (
@@ -120,20 +108,32 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       <div class="toolbar">
         <input id="search" class="search" type="search" placeholder="Buscar oração, novena ou santo…" data-i18n-ph="search_placeholder" />
       </div>
-      <div class="toolbar">
-        <div class="chips" id="typeChips" role="group" aria-label="Tipo">
-          <button class="chip" data-type="" aria-pressed="true" data-i18n="filter_all">Todas</button>
-          {types.map((t) => <button class="chip" data-type={t} aria-pressed="false" data-i18n={`type_${t}`}>{t}</button>)}
+      <div class="filters">
+        <div class="filter-row">
+          <span class="filter-label" data-i18n="lbl_type">Tipo</span>
+          <div class="chips" id="typeChips" role="group" aria-label="Tipo de oração">
+            <button class="chip" data-type="" aria-pressed="true" data-i18n="filter_all">Todas</button>
+            {types.map((t) => <button class="chip" data-type={t} aria-pressed="false" data-i18n={`type_${t}`}>{t}</button>)}
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label" data-i18n="lbl_date">Data</span>
+          <div class="chips" id="dateChips" role="group" aria-label="Data">
+            <button class="chip" data-date="" aria-pressed="true" data-i18n="filter_all">Todas</button>
+            <button class="chip" data-date="today" aria-pressed="false" data-i18n="filter_today">Hoje</button>
+            <button class="chip" data-date="week" aria-pressed="false" data-i18n="filter_week">Essa semana</button>
+            <button class="chip" data-date="month" aria-pressed="false" data-i18n="filter_month">Este mês</button>
+          </div>
         </div>
         {langs.length > 1 && (
-          <div class="chips" id="langChips" role="group" aria-label="Idioma">
-            <button class="chip" data-lang="" aria-pressed="true" data-i18n="filter_all">Todas</button>
-            {langs.map((l) => <button class="chip" data-lang={l} aria-pressed="false">{l.slice(0,2).toUpperCase()}</button>)}
+          <div class="filter-row">
+            <span class="filter-label" data-i18n="lbl_lang">Idioma</span>
+            <div class="chips" id="langChips" role="group" aria-label="Idioma">
+              <button class="chip" data-lang="" aria-pressed="true" data-i18n="filter_all">Todas</button>
+              {langs.map((l) => <button class="chip" data-lang={l} aria-pressed="false">{l.slice(0,2).toUpperCase()}</button>)}
+            </div>
           </div>
         )}
-        <div class="chips" id="monthChips" role="group" aria-label="Época">
-          <button class="chip" id="monthToggle" aria-pressed="false" data-i18n="filter_month">Este mês</button>
-        </div>
       </div>
 
       <div class="grid" id="catalogGrid">
@@ -169,86 +169,58 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         .catch(() => { el!.textContent = '0'; });
     })();
 
-    // ── Destaque litúrgico (calculado na data atual do visitante) ──
+    // ── Oração do dia (calculada na data atual do visitante) ──
     (function () {
-      const section = document.getElementById('liturgical');
-      const cards = Array.from(document.querySelectorAll<HTMLElement>('#litGrid .lit-card'));
-      if (!section || cards.length === 0) return;
+      const cards = Array.from(document.querySelectorAll<HTMLElement>('#litData .lit-card'));
+      const todaySec = document.getElementById('today');
+      if (cards.length === 0 || !todaySec) return;
       const DAY = 86400000;
       const now = new Date(); now.setHours(0, 0, 0, 0);
-      const active: { card: HTMLElement; daysToFeast: number; suggestedDay: number }[] = [];
+      const active: { card: HTMLElement; daysToFeast: number; suggestedDay: number; total: number; feast: Date; start: Date }[] = [];
 
       for (const card of cards) {
-        const feastStr = card.dataset.feast || '';
-        const m = feastStr.match(/^(\d{2})-(\d{2})$/);
+        const m = (card.dataset.feast || '').match(/^(\d{2})-(\d{2})$/);
         if (!m) continue;
         const mm = +m[1], dd = +m[2];
         let feast = new Date(now.getFullYear(), mm - 1, dd);
         if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
         const offset = parseInt(card.dataset.start || '0', 10);
         const total = parseInt(card.dataset.total || '1', 10);
-        const startMs = feast.getTime() + offset * DAY;
-        if (now.getTime() >= startMs && now.getTime() <= feast.getTime()) {
+        const start = new Date(feast.getTime() + offset * DAY);
+        if (now.getTime() >= start.getTime() && now.getTime() <= feast.getTime()) {
           const daysToFeast = Math.round((feast.getTime() - now.getTime()) / DAY);
-          const suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - startMs) / DAY) + 1));
-          active.push({ card, daysToFeast, suggestedDay });
+          const suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - start.getTime()) / DAY) + 1));
+          active.push({ card, daysToFeast, suggestedDay, total, feast, start });
         }
       }
       if (active.length === 0) return;
       active.sort((a, b) => a.daysToFeast - b.daysToFeast);
 
-      // ── Oração do dia: a mais relevante vira um destaque grande ──
       const today = active[0];
-      const todaySec = document.getElementById('today');
-      if (today && todaySec) {
-        const src = today.card;
-        const total0 = parseInt(src.dataset.total || '1', 10);
-        const bg = src.querySelector<HTMLImageElement>('.lit-card-bg');
-        const tImg = document.getElementById('todayImg') as HTMLImageElement | null;
-        if (tImg && bg) tImg.src = bg.getAttribute('src') || '';
-        const tTitle = src.querySelector('h3');
-        const tEl = document.getElementById('todayTitle'); if (tEl) tEl.textContent = tTitle ? tTitle.textContent : '';
-        const mEl = src.querySelector('.lit-meta');
-        const tM = document.getElementById('todayMeta'); if (tM) tM.textContent = mEl ? (mEl.textContent || '') : '';
-        const tCard = document.getElementById('todayCard') as HTMLAnchorElement | null;
-        if (tCard) tCard.href = src.href.split('?')[0] + (total0 > 1 ? `?dia=${today.suggestedDay}` : '');
-        const fillToday = () => {
-          const tt = (window as any).odt;
-          let reason: string;
-          if (today.daysToFeast === 0) reason = tt('feast_today');
-          else if (total0 > 1 && today.suggestedDay === 1) reason = tt('today_begin');
-          else if (total0 > 1) reason = `${today.daysToFeast} ${tt('days_to_feast')} · ${tt('day')} ${today.suggestedDay}`;
-          else reason = `${today.daysToFeast} ${tt('days_to_feast')}`;
-          const rEl = document.getElementById('todayReason'); if (rEl) rEl.textContent = reason;
-        };
-        fillToday();
-        document.addEventListener('od:lang', fillToday);
-        todaySec.style.display = 'block';
-        today.card.dataset.isToday = '1';
-      }
+      const src = today.card as HTMLAnchorElement;
+      const bg = src.querySelector<HTMLImageElement>('.lit-card-bg');
+      const tImg = document.getElementById('todayImg') as HTMLImageElement | null;
+      if (tImg && bg) tImg.src = bg.getAttribute('src') || '';
+      const tTitle = src.querySelector('h3');
+      const tEl = document.getElementById('todayTitle'); if (tEl) tEl.textContent = tTitle ? tTitle.textContent : '';
+      const mEl = src.querySelector('.lit-meta');
+      const tM = document.getElementById('todayMeta'); if (tM) tM.textContent = mEl ? (mEl.textContent || '') : '';
+      const tCard = document.getElementById('todayCard') as HTMLAnchorElement | null;
+      if (tCard) tCard.href = src.href.split('?')[0] + (today.total > 1 ? `?dia=${today.suggestedDay}` : '');
 
-      // ── Demais destaques (linha menor), sem repetir a Oração do dia ──
-      function fillLabels() {
-        for (const a of active) {
-          const lbl = a.card.querySelector<HTMLElement>('[data-feast-label]');
-          if (!lbl) continue;
-          const total = parseInt(a.card.dataset.total || '1', 10);
-          const t = (window as any).odt;
-          let txt = a.daysToFeast === 0 ? t('feast_today')
-                    : `${a.daysToFeast} ${t('days_to_feast')}`;
-          if (total > 1) txt += ` · ${t('suggested_day')} ${t('day')} ${a.suggestedDay}`;
-          lbl.textContent = txt;
-          a.card.href = a.card.href.split('?')[0] + (total > 1 ? `?dia=${a.suggestedDay}` : '');
-        }
-      }
-      const rest = active.filter((a) => a.card.dataset.isToday !== '1');
-      const limit = (window as any).__SITE__?.maxLiturgicalHighlights ?? 3;
-      if (rest.length > 0) {
-        rest.slice(0, limit).forEach((a) => (a.card.hidden = false));
-        section.style.display = 'block';
-      }
-      fillLabels();
-      document.addEventListener('od:lang', fillLabels);
+      const dm = (d: Date) => String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0');
+      const fillToday = () => {
+        const tt = (window as any).odt;
+        const feastStr = dm(today.feast), startStr = dm(today.start);
+        let reason: string;
+        if (today.daysToFeast === 0) reason = `${tt('feast_today')} (${feastStr})`;
+        else if (today.total > 1) reason = `${tt('day')} ${today.suggestedDay} ${tt('day_of')} ${today.total} · ${startStr}–${feastStr}`;
+        else reason = feastStr;
+        const rEl = document.getElementById('todayReason'); if (rEl) rEl.textContent = reason;
+      };
+      fillToday();
+      document.addEventListener('od:lang', fillToday);
+      todaySec.style.display = 'block';
     })();
 
     // ── Filtros do catálogo ──
@@ -258,8 +230,30 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       const empty = document.getElementById('emptyMsg');
       if (!grid) return;
       const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
-      let fType = '', fLang = '', fText = '', fMonth = false;
-      const curMonth = String(new Date().getMonth() + 1).padStart(2, '0');
+      let fType = '', fLang = '', fText = '', fDate = '';
+
+      // calcula uma vez se a festa de cada oração é hoje / nesta semana / neste mês
+      const DAY = 86400000;
+      const now = new Date(); now.setHours(0, 0, 0, 0);
+      const curMonth = now.getMonth();
+      const weekEnd = now.getTime() + 7 * DAY;
+      const dflag = new WeakMap<HTMLElement, { today: boolean; week: boolean; month: boolean }>();
+      for (const c of cards) {
+        const m = (c.dataset.feast || '').match(/^(\d{2})-(\d{2})$/);
+        if (!m) { dflag.set(c, { today: false, week: false, month: false }); continue; }
+        const mm = +m[1], dd = +m[2];
+        let feast = new Date(now.getFullYear(), mm - 1, dd);
+        if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
+        const total = parseInt(c.dataset.total || '1', 10);
+        const offset = parseInt(c.dataset.offset || '0', 10);
+        const start = new Date(feast.getTime() + (total > 1 ? offset : 0) * DAY);
+        const daysToFeast = Math.round((feast.getTime() - now.getTime()) / DAY);
+        const inWindow = now.getTime() >= start.getTime() && now.getTime() <= feast.getTime();
+        const isToday = daysToFeast === 0 || inWindow;
+        const isWeek = (daysToFeast >= 0 && daysToFeast <= 7) || (start.getTime() <= weekEnd && feast.getTime() >= now.getTime());
+        const isMonth = feast.getMonth() === curMonth || (total > 1 && start.getMonth() === curMonth);
+        dflag.set(c, { today: isToday, week: isWeek, month: isMonth });
+      }
 
       function apply() {
         let visible = 0;
@@ -267,14 +261,15 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           const okType = !fType || c.dataset.type === fType;
           const okLang = !fLang || c.dataset.lang === fLang;
           const okText = !fText || (c.dataset.search || '').includes(fText);
-          const okMonth = !fMonth || (c.dataset.feastMonth === curMonth);
-          const show = okType && okLang && okText && okMonth;
+          const f = dflag.get(c) || { today: false, week: false, month: false };
+          const okDate = !fDate || (fDate === 'today' && f.today) || (fDate === 'week' && f.week) || (fDate === 'month' && f.month);
+          const show = okType && okLang && okText && okDate;
           c.style.display = show ? '' : 'none';
           if (show) visible++;
         }
         if (empty) empty.hidden = visible !== 0;
       }
-      function wireChips(sel: string, set: (v: string) => void) {
+      function wireChips(sel: string, attr: string, set: (v: string) => void) {
         const group = document.querySelector(sel);
         if (!group) return;
         group.addEventListener('click', (e) => {
@@ -282,18 +277,13 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           if (!btn) return;
           group.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
           btn.setAttribute('aria-pressed', 'true');
-          set(btn.dataset.type !== undefined ? (btn.dataset.type || '') : (btn.dataset.lang || ''));
+          set(btn.dataset[attr] || '');
           apply();
         });
       }
-      wireChips('#typeChips', (v) => (fType = v));
-      wireChips('#langChips', (v) => (fLang = v));
-      const monthBtn = document.getElementById('monthToggle');
-      monthBtn?.addEventListener('click', () => {
-        fMonth = !fMonth;
-        monthBtn.setAttribute('aria-pressed', fMonth ? 'true' : 'false');
-        apply();
-      });
+      wireChips('#typeChips', 'type', (v) => (fType = v));
+      wireChips('#dateChips', 'date', (v) => (fDate = v));
+      wireChips('#langChips', 'lang', (v) => (fLang = v));
       search?.addEventListener('input', () => { fText = search.value.trim().toLowerCase(); apply(); });
     })();
   </script>
