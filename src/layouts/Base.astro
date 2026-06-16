@@ -52,6 +52,12 @@ const clientConfig = {
       if (/^https?:\/\//.test(p)) return p;
       return b + (p.charAt(0) === '/' ? p : '/' + p);
     };
+    window.odFav = {
+      key: 'od-favs',
+      all: function () { try { return JSON.parse(localStorage.getItem(this.key) || '[]'); } catch (e) { return []; } },
+      has: function (s) { return this.all().indexOf(s) >= 0; },
+      toggle: function (s) { var a = this.all(); var i = a.indexOf(s); if (i >= 0) a.splice(i, 1); else a.push(s); try { localStorage.setItem(this.key, JSON.stringify(a)); } catch (e) {} return i < 0; }
+    };
   </script>
 </head>
 <body>
@@ -67,6 +73,7 @@ const clientConfig = {
     <nav class="topnav" aria-label="Principal">
       <a href={base} data-i18n="nav_home">Início</a>
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
+      <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <button id="langBtn" class="icon-btn" type="button" aria-label="Idioma" title="Idioma">
         <span id="langCode">PT</span>
       </button>
@@ -327,6 +334,11 @@ const clientConfig = {
     .grid--pinned .card-title { font-size: 1rem; }
     .grid--pinned .card-body { padding: .45rem .5rem .55rem; }
     .grid--pinned .card-saint, .grid--pinned .card-foot { display: none; }
+    /* coração de favoritar (sobre a imagem do card) */
+    .fav-btn { position: absolute; top: .5rem; right: .5rem; z-index: 3; width: 36px; height: 36px; border-radius: 50%; border: none; cursor: pointer; display: grid; place-items: center; background: rgba(10,7,3,.45); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); transition: background .2s, transform .15s; }
+    .fav-btn:hover { background: rgba(10,7,3,.66); transform: scale(1.08); }
+    .fav-btn .hpath { fill: none; stroke: #fff; transition: fill .2s, stroke .2s; }
+    .fav-btn[aria-pressed="true"] .hpath { fill: var(--gold-bright); stroke: var(--gold-bright); }
 
     /* ════════ LITURGICAL HIGHLIGHTS ════════ */
     .lit-section { display: none; }
@@ -409,6 +421,21 @@ const clientConfig = {
 
     .reader-body { max-width: var(--read); margin: 0 auto; padding: 1.5rem clamp(1rem,5vw,1.5rem) 4rem; }
 
+    /* ferramentas de leitura (favoritar / compartilhar / fonte / foco) */
+    .reader-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin: 0 0 1.5rem; }
+    .rtool { display: inline-flex; align-items: center; gap: .4rem; min-height: 40px; padding: .35rem .7rem; border-radius: 10px; border: 1px solid var(--hair); background: transparent; color: var(--ink-soft); cursor: pointer; font-family: 'EB Garamond', serif; font-size: .85rem; transition: all .18s; }
+    .rtool:hover { border-color: var(--gold); color: var(--gold); }
+    .rtool[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+    .rtool-sq { min-width: 42px; justify-content: center; font-weight: 600; font-size: .95rem; }
+    .rtool-sep { width: 1px; height: 22px; background: var(--hair); margin: 0 .3rem; }
+    .rtool .hpath { fill: none; stroke: currentColor; transition: fill .2s, stroke .2s; }
+    .rtool[aria-pressed="true"] .hpath { fill: var(--gold-bright); stroke: var(--gold-bright); }
+
+    /* modo foco: esconde topo e rodapé para leitura sem distração */
+    body.reader-focus .topbar,
+    body.reader-focus .footsite { display: none; }
+    body.reader-focus .reader-hero { min-height: 26vh; }
+
     /* bead day selector */
     .beads { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; padding: 1.4rem 0 .6rem; }
     .bead {
@@ -424,7 +451,7 @@ const clientConfig = {
     .day-caption { text-align: center; color: var(--ink-soft); font-size: .9rem; letter-spacing: .05em; margin-bottom: 1rem; }
 
     /* prayer text */
-    .prayer-body { font-size: 1.18rem; }
+    .prayer-body { font-size: calc(1.18rem * var(--reader-scale, 1)); }
     .prayer-body p { margin: 0 0 1.15rem; transition: background-color .35s ease, color .35s ease, box-shadow .35s ease; border-radius: 8px; }
     .prayer-body h2 { font-size: 1.9rem; color: var(--gold); margin: 2rem 0 1rem; }
     .prayer-body blockquote {
@@ -544,7 +571,7 @@ const clientConfig = {
       .topnav a { display: none; }
       .topnav a[data-i18n="nav_catalog"] { display: inline-block; padding: .5rem .55rem; }
       .rg-speed { margin-left: 0; width: 100%; justify-content: space-between; }
-      .prayer-body { font-size: 1.12rem; }
+      .prayer-body { font-size: calc(1.12rem * var(--reader-scale, 1)); }
     }
   </style>
 </body>

@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../config/site';
+
+const all = await getCollection('prayers');
+const feasts = all
+  .filter((p) => p.data.liturgicalFeast)
+  .map((p) => ({
+    id: p.id,
+    title: p.data.title,
+    saint: p.data.saint ?? '',
+    feast: p.data.liturgicalFeast,
+    offset: p.data.novenaSuggestedStart ?? 0,
+    total: p.data.totalDays ?? 1,
+    href: withBase(`/oracao/${p.id}`),
+  }));
+---
+<Base>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="feasts_title">Próximas festas</p>
+      <h1 class="section-title" data-i18n="feasts_title">Próximas festas</h1>
+      <p class="feasts-lead" data-i18n="feasts_lead">Acompanhe as celebrações e novenas ao longo do ano.</p>
+
+      <ul class="feast-list" id="feastList">
+        {feasts.map((f) => (
+          <li class="feast-row" data-feast={f.feast} data-start={f.offset} data-total={f.total}>
+            <a class="feast-link" href={f.href}>
+              <span class="feast-date"><span class="fd-day" data-fd-day>—</span><span class="fd-mon" data-fd-mon></span></span>
+              <span class="feast-info">
+                <span class="feast-title">{f.title}</span>
+                {f.saint && <span class="feast-saint">{f.saint}</span>}
+                <span class="feast-status" data-feast-status></span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="empty" id="feastEmpty" hidden data-i18n="feasts_empty">Nenhuma festa cadastrada ainda.</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var t = (window as any).odt || function (k: string) { return k; };
+      var list = document.getElementById('feastList');
+      if (!list) return;
+      var rows = Array.prototype.slice.call(list.querySelectorAll('.feast-row')) as HTMLElement[];
+      var empty = document.getElementById('feastEmpty');
+      if (!rows.length) { if (empty) empty.hidden = false; return; }
+      var DAY = 86400000;
+      var now = new Date(); now.setHours(0, 0, 0, 0);
+      function lang() { return document.documentElement.getAttribute('data-lang') || 'pt-BR'; }
+      function compute() {
+        rows.forEach(function (row: any) {
+          var m = (row.getAttribute('data-feast') || '').match(/^(\d{2})-(\d{2})$/);
+          if (!m) { row._dtf = 999999; return; }
+          var mm = +m[1], dd = +m[2];
+          var feast = new Date(now.getFullYear(), mm - 1, dd);
+          if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
+          var offset = parseInt(row.getAttribute('data-start') || '0', 10);
+          var total = parseInt(row.getAttribute('data-total') || '1', 10);
+          var start = new Date(feast.getTime() + (total > 1 ? offset : 0) * DAY);
+          var dtf = Math.round((feast.getTime() - now.getTime()) / DAY);
+          var inWin = total > 1 && now.getTime() >= start.getTime() && now.getTime() <= feast.getTime();
+          var suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - start.getTime()) / DAY) + 1));
+          row._dtf = inWin ? -1 : dtf; // em andamento primeiro
+
+          var dayEl = row.querySelector('[data-fd-day]');
+          if (dayEl) dayEl.textContent = String(dd).padStart(2, '0');
+          var monEl = row.querySelector('[data-fd-mon]');
+          if (monEl) monEl.textContent = feast.toLocaleDateString(lang(), { month: 'short' }).replace('.', '');
+
+          var st = row.querySelector('[data-feast-status]');
+          if (st) {
+            var txt;
+            if (dtf === 0) txt = t('feast_today');
+            else if (inWin) txt = t('day') + ' ' + suggestedDay + ' ' + t('day_of') + ' ' + total + ' · ' + t('novena_active');
+            else {
+              txt = dtf + ' ' + t('days_to_feast');
+              if (total > 1) {
+                var sd = String(start.getDate()).padStart(2, '0') + '/' + String(start.getMonth() + 1).padStart(2, '0');
+                txt += ' · ' + t('novena_from') + ' ' + sd;
+              }
+            }
+            st.textContent = txt;
+          }
+        });
+        rows.sort(function (a: any, b: any) { return a._dtf - b._dtf; });
+        rows.forEach(function (r) { list!.appendChild(r); });
+      }
+      compute();
+      document.addEventListener('od:lang', compute);
+    })();
+  </script>
+
+  <style>
+    .feasts-lead { color: var(--ink-soft); margin: .2rem 0 1.6rem; font-size: 1.05rem; }
+    .feast-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .7rem; }
+    .feast-link { display: flex; align-items: center; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--hair); border-radius: 12px; text-decoration: none; color: var(--ink); background: var(--paper-raised); transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .feast-link:hover { border-color: color-mix(in srgb, var(--gold) 45%, var(--hair)); transform: translateY(-2px); box-shadow: 0 10px 26px var(--shadow); }
+    .feast-date { flex: 0 0 auto; width: 3.4rem; text-align: center; display: flex; flex-direction: column; line-height: 1; }
+    .fd-day { font-family: 'Cormorant', serif; font-weight: 700; font-size: 1.95rem; color: var(--gold); }
+    .fd-mon { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-top: .15rem; }
+    .feast-info { display: flex; flex-direction: column; gap: .12rem; }
+    .feast-title { font-family: 'Cormorant', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.05; }
+    .feast-saint { font-style: italic; color: var(--ink-soft); font-size: .85rem; }
+    .feast-status { font-size: .82rem; color: var(--flame); margin-top: .1rem; }
+  </style>
+</Base>

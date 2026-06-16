@@ -41,6 +41,25 @@ const meta = {
     </header>
 
     <div class="reader-body">
+      <!-- ░░ Ferramentas de leitura ░░ -->
+      <div class="reader-tools" role="group" aria-label="Ferramentas de leitura">
+        <button id="favBtn" class="rtool" type="button" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path class="hpath" d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke-width="2"/></svg>
+          <span data-i18n="fav_save">Salvar</span>
+        </button>
+        <button id="shareBtn" class="rtool" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V5l7 7-7 7v-4.1C9 11.8 5.5 13 3 16c1-5 4-9 11-9.9z" fill="currentColor"/></svg>
+          <span data-i18n="share">Compartilhar</span>
+        </button>
+        <span class="rtool-sep" aria-hidden="true"></span>
+        <button id="fsDown" class="rtool rtool-sq" type="button" aria-label="Diminuir letra">A−</button>
+        <button id="fsUp" class="rtool rtool-sq" type="button" aria-label="Aumentar letra">A+</button>
+        <button id="focusBtn" class="rtool" type="button" aria-pressed="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span data-i18n="focus_mode">Foco</span>
+        </button>
+      </div>
+
       <!-- ░░ Seletor de dia (novena) — contas de rosário ░░ -->
       <nav id="beads" class="beads" hidden aria-label="Dias da novena"></nav>
       <p id="dayCaption" class="day-caption" hidden></p>
@@ -548,6 +567,53 @@ const meta = {
           .finally(function () { finishBtn.disabled = false; finishBtn.textContent = old; });
       }
       finishBtn.addEventListener('click', function () { doFinish(false); });
+
+      // ── Ferramentas: favoritar, compartilhar, tamanho da fonte, foco ──
+      (function () {
+        var favBtn = document.getElementById('favBtn');
+        if (favBtn && window.odFav) {
+          var setFav = function () {
+            var on = window.odFav.has(meta.slug);
+            favBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            var lab = favBtn.querySelector('span');
+            if (lab) lab.textContent = t(on ? 'fav_saved' : 'fav_save');
+          };
+          setFav();
+          favBtn.addEventListener('click', function () { window.odFav.toggle(meta.slug); setFav(); });
+          document.addEventListener('od:lang', setFav);
+        }
+        var shareBtn = document.getElementById('shareBtn');
+        if (shareBtn) {
+          shareBtn.addEventListener('click', function () {
+            var url = location.href.split('#')[0];
+            var title = document.title;
+            if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
+            var feedback = function () {
+              var lab = shareBtn.querySelector('span');
+              if (lab) { lab.textContent = t('link_copied'); setTimeout(function () { lab.textContent = t('share'); }, 1800); }
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(feedback).catch(feedback);
+            else { try { var ta = document.createElement('textarea'); ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.focus(); ta.select(); document.execCommand('copy'); ta.remove(); feedback(); } catch (e) {} }
+          });
+        }
+        var FKEY = 'od-fontscale';
+        var STEPS = [0.9, 1, 1.15, 1.3, 1.45];
+        var fi = 1;
+        try { var sv = parseFloat(localStorage.getItem(FKEY)); if (sv) { var k = STEPS.indexOf(sv); fi = k >= 0 ? k : 1; } } catch (e) {}
+        function applyScale() {
+          document.documentElement.style.setProperty('--reader-scale', String(STEPS[fi]));
+          try { localStorage.setItem(FKEY, String(STEPS[fi])); } catch (e) {}
+        }
+        applyScale();
+        var up = document.getElementById('fsUp'), down = document.getElementById('fsDown');
+        if (up) up.addEventListener('click', function () { fi = Math.min(STEPS.length - 1, fi + 1); applyScale(); });
+        if (down) down.addEventListener('click', function () { fi = Math.max(0, fi - 1); applyScale(); });
+        var focusBtn = document.getElementById('focusBtn');
+        if (focusBtn) focusBtn.addEventListener('click', function () {
+          var on = document.body.classList.toggle('reader-focus');
+          focusBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      })();
 
       // ações pós-oração
       function goNext() { if (current < meta.totalDays) { showDay(current + 1); } closeOverlay(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }

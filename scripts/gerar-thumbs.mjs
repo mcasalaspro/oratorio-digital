@@ -1,12 +1,16 @@
-// Gera versões "_thumb.webp" (menores) de cada imagem em public/saints/.
-// Roda automaticamente antes do build. Nunca derruba o build (sai sempre com 0).
+// Gera "_thumb.webp" (versão leve) das imagens em public/saints/.
+// Só processa as que FALTAM ou cuja imagem mudou (reaproveita as existentes).
+// Roda em paralelo para ser rápido. Use "--force" para refazer todas.
+// Nunca derruba o build (sai sempre com 0).
 import { readdir, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 const DIR = 'public/saints';
-const WIDTH = 560;     // largura do thumbnail (suficiente para os cards, leve)
+const WIDTH = 560;        // largura do thumbnail (leve e suficiente para os cards)
 const QUALITY = 70;
+const CONCURRENCY = 8;
+const FORCE = process.argv.includes('--force');
 
 async function main() {
   let sharp;
@@ -17,22 +21,35 @@ async function main() {
   try { files = await readdir(DIR); } catch { return; }
   const fulls = files.filter((f) => f.endsWith('.webp') && !f.endsWith('_thumb.webp'));
 
-  let made = 0;
+  // decide o que precisa ser gerado
+  const todo = [];
+  let reused = 0;
   for (const f of fulls) {
     const base = f.slice(0, -'.webp'.length);
     const full = path.join(DIR, f);
     const thumb = path.join(DIR, `${base}_thumb.webp`);
-    try {
-      let regen = !existsSync(thumb);
-      if (!regen) {
+    if (!FORCE && existsSync(thumb)) {
+      try {
         const [a, b] = await Promise.all([stat(full), stat(thumb)]);
-        regen = a.mtimeMs > b.mtimeMs; // imagem grande mudou -> refaz o thumb
-      }
-      if (!regen) continue;
-      await sharp(full).resize({ width: WIDTH, withoutEnlargement: true }).webp({ quality: QUALITY }).toFile(thumb);
-      made++;
-    } catch (e) { console.warn(`[thumbs] falhou em ${f}: ${e.message}`); }
+        if (a.mtimeMs <= b.mtimeMs) { reused++; continue; } // existe e está atualizado -> pula
+      } catch { reused++; continue; }
+    }
+    todo.push({ full, thumb, name: f });
   }
-  if (made) console.log(`[thumbs] ${made} thumbnail(s) gerado(s) em ${DIR}/`);
+
+  // gera em paralelo (com limite) -> primeiro build rápido
+  let made = 0, idx = 0;
+  async function worker() {
+    while (idx < todo.length) {
+      const job = todo[idx++];
+      try {
+        await sharp(job.full).resize({ width: WIDTH, withoutEnlargement: true }).webp({ quality: QUALITY }).toFile(job.thumb);
+        made++;
+      } catch (e) { console.warn(`[thumbs] falhou em ${job.name}: ${e.message}`); }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, todo.length) || 1 }, worker));
+
+  if (made || reused) console.log(`[thumbs] ${made} gerado(s), ${reused} reutilizado(s) em ${DIR}/`);
 }
 main().catch((e) => console.warn('[thumbs] erro:', e.message)).finally(() => process.exit(0));

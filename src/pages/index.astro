@@ -99,6 +99,15 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     </section>
   )}
 
+  <!-- ════════ MINHAS ORAÇÕES (favoritos, revelado se houver) ════════ -->
+  <section class="section" id="favSection" hidden>
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="favorites_title">Minhas orações</p>
+      <h2 class="section-title" data-i18n="favorites_title">Minhas orações</h2>
+      <div class="grid grid--pinned" id="favGrid"></div>
+    </div>
+  </section>
+
   <!-- ════════ CATÁLOGO ════════ -->
   <section class="section" id="catalogo">
     <div class="wrap">
@@ -231,6 +240,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       if (!grid) return;
       const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
       let fType = '', fLang = '', fText = '', fDate = '';
+      const norm = (x: string) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
       // calcula uma vez se a festa de cada oração é hoje / nesta semana / neste mês
       const DAY = 86400000;
@@ -260,7 +270,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         for (const c of cards) {
           const okType = !fType || c.dataset.type === fType;
           const okLang = !fLang || c.dataset.lang === fLang;
-          const okText = !fText || (c.dataset.search || '').includes(fText);
+          const okText = !fText || norm(c.dataset.search || '').includes(fText);
           const f = dflag.get(c) || { today: false, week: false, month: false };
           const okDate = !fDate || (fDate === 'today' && f.today) || (fDate === 'week' && f.week) || (fDate === 'month' && f.month);
           const show = okType && okLang && okText && okDate;
@@ -284,7 +294,50 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       wireChips('#typeChips', 'type', (v) => (fType = v));
       wireChips('#dateChips', 'date', (v) => (fDate = v));
       wireChips('#langChips', 'lang', (v) => (fLang = v));
-      search?.addEventListener('input', () => { fText = search.value.trim().toLowerCase(); apply(); });
+      search?.addEventListener('input', () => { fText = norm(search.value.trim().toLowerCase()); apply(); });
+    })();
+    // ── Favoritos ("Minhas orações") ──
+    (function () {
+      if (!(window as any).odFav) return;
+      const odFav = (window as any).odFav;
+      const favGrid = document.getElementById('favGrid');
+      const favSec = document.getElementById('favSection');
+      const source: Record<string, HTMLElement> = {};
+      document.querySelectorAll<HTMLElement>('#catalogGrid .card[data-slug]').forEach((c) => {
+        if (!source[c.dataset.slug!]) source[c.dataset.slug!] = c;
+      });
+      function refreshHearts() {
+        document.querySelectorAll<HTMLElement>('.card[data-slug] .fav-btn').forEach((btn) => {
+          const card = btn.closest('.card') as HTMLElement | null;
+          if (card) btn.setAttribute('aria-pressed', odFav.has(card.dataset.slug) ? 'true' : 'false');
+        });
+      }
+      function build() {
+        if (!favGrid || !favSec) return;
+        favGrid.innerHTML = '';
+        let n = 0;
+        odFav.all().forEach((slug: string) => {
+          const orig = source[slug];
+          if (!orig) return;
+          const clone = orig.cloneNode(true) as HTMLElement;
+          clone.style.display = '';
+          favGrid.appendChild(clone);
+          n++;
+        });
+        (favSec as HTMLElement).hidden = n === 0;
+        refreshHearts();
+      }
+      document.addEventListener('click', (e) => {
+        const t = e.target as HTMLElement;
+        const btn = t.closest ? t.closest('.fav-btn') : null;
+        if (!btn) return;
+        e.preventDefault(); e.stopPropagation();
+        const card = btn.closest('.card') as HTMLElement | null;
+        if (!card) return;
+        odFav.toggle(card.dataset.slug);
+        build();
+      });
+      build();
     })();
   </script>
 </Base>

@@ -18,5 +18,3 @@ npm-debug.log*
 .env
 .env.production
 
-# thumbnails gerados no build
-public/saints/*_thumb.webp

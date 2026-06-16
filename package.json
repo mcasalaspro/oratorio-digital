@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "node scripts/gerar-thumbs.mjs && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "thumbs": "node scripts/gerar-thumbs.mjs",
+    "thumbs:force": "node scripts/gerar-thumbs.mjs --force"
   },
   "dependencies": {
     "astro": "^5.6.0"
