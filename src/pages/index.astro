@@ -1,4 +1,5 @@
 ---
+import fs from 'node:fs';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PrayerCard from '../components/PrayerCard.astro';
@@ -6,6 +7,17 @@ import CommunityCounter from '../components/CommunityCounter.astro';
 import { site, withBase } from '../config/site';
 
 const all = await getCollection('prayers');
+
+// Aviso de build: imagem de alguma oração faltando em public/saints/
+// (o nome do arquivo .webp deve ser EXATAMENTE o nome da oração, minúsculo)
+{
+  const missing = all.map((p) => p.id).filter((id) => !fs.existsSync(`public/saints/${id}.webp`));
+  if (missing.length) {
+    console.warn('\n⚠️  Imagens faltando em public/saints/ (essas orações vão usar default.webp):');
+    for (const id of missing) console.warn(`    • public/saints/${id}.webp   (oração "${id}")`);
+    console.warn('   Confira nome EXATO (minúsculo, sem acento), extensão .webp e a pasta public/saints/.\n');
+  }
+}
 
 // catálogo: destaques primeiro, depois por título
 const catalog = [...all].sort((a, b) => {
@@ -119,6 +131,9 @@ const langs = [...new Set(all.map((p) => p.data.language))];
             {langs.map((l) => <button class="chip" data-lang={l} aria-pressed="false">{l.slice(0,2).toUpperCase()}</button>)}
           </div>
         )}
+        <div class="chips" id="monthChips" role="group" aria-label="Época">
+          <button class="chip" id="monthToggle" aria-pressed="false" data-i18n="filter_month">Este mês</button>
+        </div>
       </div>
 
       <div class="grid" id="catalogGrid">
@@ -243,7 +258,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       const empty = document.getElementById('emptyMsg');
       if (!grid) return;
       const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
-      let fType = '', fLang = '', fText = '';
+      let fType = '', fLang = '', fText = '', fMonth = false;
+      const curMonth = String(new Date().getMonth() + 1).padStart(2, '0');
 
       function apply() {
         let visible = 0;
@@ -251,7 +267,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           const okType = !fType || c.dataset.type === fType;
           const okLang = !fLang || c.dataset.lang === fLang;
           const okText = !fText || (c.dataset.search || '').includes(fText);
-          const show = okType && okLang && okText;
+          const okMonth = !fMonth || (c.dataset.feastMonth === curMonth);
+          const show = okType && okLang && okText && okMonth;
           c.style.display = show ? '' : 'none';
           if (show) visible++;
         }
@@ -271,6 +288,12 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       }
       wireChips('#typeChips', (v) => (fType = v));
       wireChips('#langChips', (v) => (fLang = v));
+      const monthBtn = document.getElementById('monthToggle');
+      monthBtn?.addEventListener('click', () => {
+        fMonth = !fMonth;
+        monthBtn.setAttribute('aria-pressed', fMonth ? 'true' : 'false');
+        apply();
+      });
       search?.addEventListener('input', () => { fText = search.value.trim().toLowerCase(); apply(); });
     })();
   </script>

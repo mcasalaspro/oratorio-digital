@@ -1,15 +1,22 @@
 ---
+import fs from 'node:fs';
 import { withBase } from '../config/site';
 const { prayer } = Astro.props;
 const { id, data } = prayer;
-const img = withBase(data.thumbnail ?? data.image ?? `/saints/${id}.webp`);
+
+// usa a versão "_thumb" (menor) se existir; senão, a imagem normal
+const hasThumb = fs.existsSync(`public/saints/${id}_thumb.webp`);
+const img = withBase(hasThumb ? `/saints/${id}_thumb.webp` : `/saints/${id}.webp`);
 const imgFallback = withBase('/saints/default.webp');
+
 const href = withBase(`/oracao/${id}`);
 const langCode = (data.language ?? 'pt-BR').slice(0, 2).toUpperCase();
+const feastMonth = data.liturgicalFeast ? data.liturgicalFeast.slice(0, 2) : '';
 ---
 <a class="card" href={href}
    data-type={data.type}
    data-lang={data.language}
+   data-feast-month={feastMonth}
    data-search={`${data.title} ${data.saint ?? ''} ${data.tags.join(' ')} ${data.description}`.toLowerCase()}>
   <img class="card-img" src={img} alt={data.saint ?? data.title} loading="lazy" width="600" height="800" onerror={`this.onerror=null;this.src='${imgFallback}'`} />
   <div class="card-body">

@@ -438,12 +438,14 @@ const clientConfig = {
       font-size: 3.6rem; line-height: .8; padding: .25rem .5rem .1rem 0; color: var(--gold);
     }
     /* leitura: destaque LINHA A LINHA ("luz" passando pelas palavras) */
-    .rg-line { border-radius: 6px; padding: .02em .14em; transition: background-color .3s ease, color .3s ease, box-shadow .3s ease, text-shadow .3s ease; }
-    .rg-line.rg-active {
-      background: linear-gradient(90deg, color-mix(in srgb, var(--flame) 28%, transparent), color-mix(in srgb, var(--flame) 10%, transparent));
-      box-shadow: -8px 0 0 color-mix(in srgb, var(--flame) 28%, transparent), 8px 0 0 color-mix(in srgb, var(--flame) 8%, transparent);
+    .rg-line { border-radius: 6px; transition: background-color .3s ease; }
+    .rg-line.rg-active { background: color-mix(in srgb, var(--flame) 9%, transparent); }   /* contexto da linha */
+    .rg-word { border-radius: 5px; padding: 0 .06em; transition: background-color .15s ease, color .15s ease, text-shadow .15s ease; }
+    .rg-word.rg-word-active {                                                              /* palavra sendo lida */
+      background: linear-gradient(90deg, color-mix(in srgb, var(--flame) 42%, transparent), color-mix(in srgb, var(--flame) 24%, transparent));
       color: var(--gold-bright);
-      text-shadow: 0 0 16px var(--glow);
+      font-weight: 600;
+      text-shadow: 0 0 12px var(--glow);
     }
     /* rubricas (orientações) — não são lidas pelo assistente */
     .prayer-body p.rubric { font-style: italic; color: var(--ink-soft); font-size: 1rem; text-align: center; margin: .1rem 0 1.05rem; opacity: .92; }

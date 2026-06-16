@@ -283,76 +283,116 @@ const meta = {
           wrapLines(lineHost(el));
         });
       }
+      function wrapWords(lineSpan) {
+        if (lineSpan.dataset.worded) return;
+        lineSpan.dataset.worded = '1';
+        var tokens = (lineSpan.textContent || '').split(/(\s+)/);
+        var out = '';
+        for (var i = 0; i < tokens.length; i++) {
+          var tk = tokens[i];
+          if (!tk) continue;
+          if (/^\s+$/.test(tk)) { out += tk; continue; }
+          out += '<span class="rg-word">' + tk.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
+        }
+        lineSpan.innerHTML = out;
+      }
+      function setupWords() { content.querySelectorAll('.rg-line').forEach(function (ln) { wrapWords(ln); }); }
       markRubrics();
       setupRepeats();
       setupLines();
+      setupWords();
 
-      // ───────── assistente de leitura (linha a linha) ─────────
-      var blocks = [], bi = 0, li = 0, playing = false, timer = null;
-      // [base, ms por palavra, mínimo] — ritmo mais lento e contemplativo
-      var SPEED = { slow: [1700, 280, 1100], medium: [1150, 190, 850], fast: [780, 130, 620] };
+      // ───────── assistente de leitura (palavra a palavra) ─────────
+      var blocks = [], bi = 0, li = 0, wi = 0, playing = false, timer = null;
+      // [base ms, ms por caractere, mínimo] por PALAVRA
+      var SPEED = { slow: [240, 60, 300], medium: [150, 45, 220], fast: [90, 32, 150] };
       function buildBlocks() {
         return readBlocks().map(function (el) {
-          return { el: el, lines: lineHost(el).querySelectorAll('.rg-line'), rep: el._rep || null };
+          var lines = Array.prototype.map.call(lineHost(el).querySelectorAll('.rg-line'), function (ln) {
+            return { span: ln, words: ln.querySelectorAll('.rg-word') };
+          });
+          return { el: el, lines: lines, rep: el._rep || null };
         }).filter(function (b) { return b.lines.length > 0; });
       }
-      function dwell(lineEl) {
+      function wordDwell(w) {
         var sel = document.getElementById('rgSpeed');
         var sp = SPEED[sel ? sel.value : 'medium'] || SPEED.medium;
-        var words = ((lineEl.textContent || '').trim().match(/\S+/g) || []).length || 1;
-        return Math.max(sp[2], sp[0] + words * sp[1]);
+        var len = ((w && w.textContent) || '').length || 3;
+        return Math.max(sp[2], sp[0] + len * sp[1]);
       }
-      function clearActive() { content.querySelectorAll('.rg-line.rg-active').forEach(function (e) { e.classList.remove('rg-active'); }); }
+      function clearActive() {
+        content.querySelectorAll('.rg-active').forEach(function (e) { e.classList.remove('rg-active'); });
+        content.querySelectorAll('.rg-word-active').forEach(function (e) { e.classList.remove('rg-word-active'); });
+      }
       function paint() {
         clearActive();
         var b = blocks[bi]; if (!b) return;
-        var ln = b.lines[li]; if (!ln) return;
-        ln.classList.add('rg-active');
-        if (!reduce) ln.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var line = b.lines[li]; if (!line) return;
+        line.span.classList.add('rg-active');
+        var w = line.words[wi];
+        if (w) {
+          w.classList.add('rg-word-active');
+          if (!reduce) w.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else if (!reduce) {
+          line.span.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
       function enterBlock() { var b = blocks[bi]; if (b && b.rep) { b.rep.k = 1; repRender(b.el); } }
       function playLabel() {
         var lab = document.getElementById('rgPlayLabel');
-        if (lab) lab.textContent = playing ? t('pause') : ((bi > 0 || li > 0) ? t('resume') : t('start'));
+        if (lab) lab.textContent = playing ? t('pause') : ((bi > 0 || li > 0 || wi > 0) ? t('resume') : t('start'));
+      }
+      function onReadingEnd() {
+        playing = false;
+        var lastB = blocks.length - 1;
+        if (lastB >= 0) {
+          bi = lastB; li = blocks[lastB].lines.length - 1;
+          var lw = blocks[lastB].lines[li]; wi = lw ? Math.max(0, lw.words.length - 1) : 0;
+        }
+        playLabel();
+        doFinish(true); // marca como rezada automaticamente (conta na oração e no total)
       }
       function step() {
         if (!playing) return;
         var b = blocks[bi];
-        if (!b) { playing = false; playLabel(); return; }
+        if (!b) { onReadingEnd(); return; }
+        var line = b.lines[li];
+        if (!line) { onReadingEnd(); return; }
         paint();
-        var ln = b.lines[li];
+        var w = line.words[wi];
         timer = setTimeout(function () {
-          if (li < b.lines.length - 1) { li++; step(); return; }              // próxima linha
-          if (b.rep && b.rep.k < b.rep.n) { b.rep.k++; repRender(b.el); li = 0; step(); return; } // próxima conta
-          bi++; li = 0;                                                        // próximo bloco
-          if (bi >= blocks.length) { playing = false; bi = blocks.length - 1; li = blocks[bi].lines.length - 1; playLabel(); return; }
+          if (wi < line.words.length - 1) { wi++; step(); return; }                 // próxima palavra
+          if (li < b.lines.length - 1) { li++; wi = 0; step(); return; }             // próxima linha
+          if (b.rep && b.rep.k < b.rep.n) { b.rep.k++; repRender(b.el); li = 0; wi = 0; step(); return; } // repetição
+          bi++; li = 0; wi = 0;                                                      // próximo bloco
+          if (bi >= blocks.length) { onReadingEnd(); return; }
           enterBlock(); step();
-        }, dwell(ln));
+        }, wordDwell(w));
       }
       function play() {
         blocks = buildBlocks();
         if (!blocks.length) return;
-        if (bi >= blocks.length) { bi = 0; li = 0; }
+        if (bi >= blocks.length) { bi = 0; li = 0; wi = 0; }
         playing = true; playLabel();
-        if (li === 0) enterBlock();
+        if (li === 0 && wi === 0) enterBlock();
         step();
       }
       function pause() { playing = false; if (timer) clearTimeout(timer); playLabel(); }
       function rgReset() {
-        pause(); bi = 0; li = 0; blocks = buildBlocks();
+        pause(); bi = 0; li = 0; wi = 0; blocks = buildBlocks();
         clearActive();
         blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
         setLead();
       }
       document.getElementById('rgPlay').addEventListener('click', function () { playing ? pause() : play(); });
       document.getElementById('rgRestart').addEventListener('click', function () {
-        pause(); bi = 0; li = 0; blocks = buildBlocks();
+        pause(); bi = 0; li = 0; wi = 0; blocks = buildBlocks();
         blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
         if (blocks.length) { enterBlock(); paint(); } playLabel();
       });
       document.getElementById('rgNext').addEventListener('click', function () {
         pause(); blocks = buildBlocks(); if (!blocks.length) return;
-        bi = Math.min(bi + 1, blocks.length - 1); li = 0;
+        bi = Math.min(bi + 1, blocks.length - 1); li = 0; wi = 0;
         enterBlock(); paint(); playLabel();
       });
 
@@ -475,42 +515,29 @@ const meta = {
       function closeOverlay() { document.getElementById('overlay').classList.remove('show'); }
 
       var finishBtn = document.getElementById('finishBtn');
-      finishBtn.addEventListener('click', function () {
+      function doFinish(auto) {
         var hint = document.getElementById('finishHint');
-        hint.hidden = true;
-
-        // CAPTCHA obrigatório se configurado
+        if (hint) hint.hidden = true;
         if (turnstileKey) {
           var tok = '';
           try { tok = window.turnstile ? window.turnstile.getResponse() : ''; } catch (e) {}
-          if (!tok) { hint.hidden = false; hint.textContent = t('captcha_needed'); return; }
+          if (!tok) { if (!auto && hint) { hint.hidden = false; hint.textContent = t('captcha_needed'); } return; }
         }
-
-        // proteção simples: 1x por dia por oração+dia (evita inflar o contador)
         var guardKey = 'od-done:' + meta.slug + ':' + (isNovena ? current : 0) + ':' + todayKey();
         var already = false;
         try { already = !!localStorage.getItem(guardKey); } catch (e) {}
-
         document.getElementById('postActions').style.display = 'flex';
-
         if (!counter.enabled) { openOverlay(null); return; }
-
-        if (already) {
-          // já contou hoje: mostra o total atual sem incrementar
-          readCount(meta.slug, null).then(openOverlay);
-          return;
-        }
-
+        if (already) { readCount(meta.slug, null).then(openOverlay); return; }
         finishBtn.disabled = true;
         var old = finishBtn.textContent;
         finishBtn.textContent = t('finishing');
-
         Promise.all([hit(meta.slug), hit(counter.totalKey)])
           .then(function (res) {
             var mine = res[0];
             try { localStorage.setItem(guardKey, '1'); } catch (e) {}
             if (res[1] != null) { try { localStorage.setItem('od-total-cache', String(res[1])); } catch (e) {} }
-            if (mine == null) { // offline: estimativa local só para feedback
+            if (mine == null) {
               var c = 0; try { c = parseInt(localStorage.getItem('od-mine:' + meta.slug) || '0', 10); } catch (e) {}
               mine = c > 0 ? c + 1 : null;
             } else {
@@ -519,7 +546,8 @@ const meta = {
             openOverlay(mine);
           })
           .finally(function () { finishBtn.disabled = false; finishBtn.textContent = old; });
-      });
+      }
+      finishBtn.addEventListener('click', function () { doFinish(false); });
 
       // ações pós-oração
       function goNext() { if (current < meta.totalDays) { showDay(current + 1); } closeOverlay(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }
