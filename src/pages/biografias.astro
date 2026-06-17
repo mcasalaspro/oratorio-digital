@@ -15,6 +15,12 @@ function bioImg(id: string, image?: string) {
   return withBase(image ?? (hasThumb ? `/biografias/${id}_thumb.webp` : `/biografias/${id}.webp`));
 }
 const fallback = withBase('/biografias/default.webp');
+
+// Aviso de build (não falha): biografia sem imagem própria -> usará default.webp
+{
+  const miss = bios.filter((b) => !b.data.image && !fs.existsSync(`public/biografias/${b.id}.webp`)).map((b) => b.id);
+  if (miss.length) console.warn(`\n⚠️  Biografias sem imagem em public/biografias/ (usarão default.webp): ${miss.join(', ')}\n`);
+}
 ---
 <Base title="Biografias">
   <section class="section">

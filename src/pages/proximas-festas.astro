@@ -5,7 +5,7 @@ import { withBase } from '../config/site';
 
 const all = await getCollection('prayers');
 const feasts = all
-  .filter((p) => p.data.liturgicalFeast)
+  .filter((p) => p.data.liturgicalFeast && /^\d{2}-\d{2}$/.test(p.data.liturgicalFeast))
   .map((p) => ({
     id: p.id,
     title: p.data.title,

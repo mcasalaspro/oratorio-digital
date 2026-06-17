@@ -12,13 +12,16 @@ const { Content } = await render(entry);
 const d = entry.data;
 const banner = withBase(d.image ?? `/biografias/${entry.id}.webp`);
 const fallback = withBase('/biografias/default.webp');
-const feastDM = d.feast ? `${d.feast.slice(3, 5)}/${d.feast.slice(0, 2)}` : '';
+const feastValid = !!d.feast && /^\d{2}-\d{2}$/.test(d.feast);
+const feastDM = feastValid ? `${d.feast!.slice(3, 5)}/${d.feast!.slice(0, 2)}` : '';
 
 const prayers = await getCollection('prayers');
 const pmap = new Map(prayers.map((p) => [p.id, p.data.title]));
 const related = (d.relatedPrayers ?? [])
   .map((s) => ({ slug: s, title: pmap.get(s) }))
-  .filter((r) => r.title);
+  .filter((r) => r.title); // ignora orações inexistentes/deletadas (não quebra o build)
+const missingRel = (d.relatedPrayers ?? []).filter((s) => !pmap.has(s));
+if (missingRel.length) console.warn(`\n⚠️  Biografia "${entry.id}": orações relacionadas inexistentes, ignoradas: ${missingRel.join(', ')}\n`);
 ---
 <Base title={d.name}>
   <article>

@@ -446,6 +446,7 @@ const clientConfig = {
     .footnav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.1rem; margin: .5rem 0 .9rem; }
     .footnav a { color: var(--ink-soft); text-decoration: none; font-size: .9rem; transition: color .2s; }
     .footnav a:hover { color: var(--gold); }
+    .show-more { display: block; margin: 1.5rem auto 0; }
 
     /* bead day selector */
     .beads { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; padding: 1.4rem 0 .6rem; }
@@ -579,8 +580,9 @@ const clientConfig = {
     @media (max-width: 560px) {
       body { font-size: 18px; }
       .brand-text { font-size: 1.25rem; }
-      .topnav a { display: none; }
-      .topnav a[data-i18n="nav_catalog"] { display: inline-block; padding: .5rem .55rem; }
+      .topbar { flex-wrap: wrap; padding: .5rem .8rem; gap: .3rem .4rem; }
+      .topnav { width: 100%; justify-content: space-between; gap: .1rem .3rem; flex-wrap: wrap; }
+      .topnav a { font-size: .68rem; letter-spacing: .08em; padding: .4rem .45rem; }
       .rg-speed { margin-left: 0; width: 100%; justify-content: space-between; }
       .prayer-body { font-size: calc(1.12rem * var(--reader-scale, 1)); }
       /* banner: mais baixo no mobile -> mostra mais da largura (laterais) da imagem */

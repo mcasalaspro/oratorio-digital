@@ -148,6 +148,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       <div class="grid" id="catalogGrid">
         {catalog.map((p) => <PrayerCard prayer={p} />)}
       </div>
+      <button class="btn show-more" id="showMore" type="button" hidden data-i18n="show_more">Mostrar mais</button>
       <p class="empty" id="emptyMsg" hidden data-i18n="no_results">Nenhuma oração encontrada com esses filtros.</p>
     </div>
   </section>
@@ -241,6 +242,9 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
       let fType = '', fLang = '', fText = '', fDate = '';
       const norm = (x: string) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const STEP = 50;
+      let limit = STEP;
+      const moreBtn = document.getElementById('showMore');
 
       // calcula uma vez se a festa de cada oração é hoje / nesta semana / neste mês
       const DAY = 86400000;
@@ -266,7 +270,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       }
 
       function apply() {
-        let visible = 0;
+        let matched = 0;
         for (const c of cards) {
           const okType = !fType || c.dataset.type === fType;
           const okLang = !fLang || c.dataset.lang === fLang;
@@ -274,10 +278,11 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           const f = dflag.get(c) || { today: false, week: false, month: false };
           const okDate = !fDate || (fDate === 'today' && f.today) || (fDate === 'week' && f.week) || (fDate === 'month' && f.month);
           const show = okType && okLang && okText && okDate;
-          c.style.display = show ? '' : 'none';
-          if (show) visible++;
+          if (show) { matched++; c.style.display = matched <= limit ? '' : 'none'; }
+          else { c.style.display = 'none'; }
         }
-        if (empty) empty.hidden = visible !== 0;
+        if (empty) empty.hidden = matched !== 0;
+        if (moreBtn) moreBtn.hidden = matched <= limit;
       }
       function wireChips(sel: string, attr: string, set: (v: string) => void) {
         const group = document.querySelector(sel);
@@ -288,13 +293,16 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           group.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
           btn.setAttribute('aria-pressed', 'true');
           set(btn.dataset[attr] || '');
+          limit = STEP;
           apply();
         });
       }
       wireChips('#typeChips', 'type', (v) => (fType = v));
       wireChips('#dateChips', 'date', (v) => (fDate = v));
       wireChips('#langChips', 'lang', (v) => (fLang = v));
-      search?.addEventListener('input', () => { fText = norm(search.value.trim().toLowerCase()); apply(); });
+      search?.addEventListener('input', () => { fText = norm(search.value.trim().toLowerCase()); limit = STEP; apply(); });
+      moreBtn?.addEventListener('click', () => { limit += STEP; apply(); });
+      apply();
     })();
     // ── Favoritos ("Minhas orações") ──
     (function () {
