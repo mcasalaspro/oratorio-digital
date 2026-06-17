@@ -1,6 +1,6 @@
 ---
 title: "Ladainha de São José"
-type: "oracao"
+type: ladainha
 language: "pt-BR"
 saint: "São José"
 tags: ["são josé", "ladainha", "devoção"]

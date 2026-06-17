@@ -7,6 +7,7 @@ apenas com arquivos Markdown. Sem login, sem banco de dados, sem servidor.
 > **Quer colocar no ar agora?** Siga o [`PASSO_A_PASSO.md`](./PASSO_A_PASSO.md).
 > **Quer criar uma nova oração?** Use o [`PROMPT_NOVA_ORACAO.md`](./PROMPT_NOVA_ORACAO.md).
 > **Quer gerar as imagens (arte bizantina)?** Use o [`PROMPT_IMAGENS.md`](./PROMPT_IMAGENS.md).
+> **Quer adicionar uma biografia de santo?** Use o [`PROMPT_NOVA_BIOGRAFIA.md`](./PROMPT_NOVA_BIOGRAFIA.md).
 
 ---
 
@@ -31,7 +32,8 @@ src/
    ├─ index.astro          ← home (destaques + catálogo + busca)
    └─ oracao/[...slug].astro ← leitura + novena + assistente + conclusão
 public/
-├─ saints/                 ← imagens dos santos (WebP) — veja PROMPT_IMAGENS.md
+├─ saints/                 ← imagens das orações (WebP) — veja PROMPT_IMAGENS.md
+│  └─ biografias/             ← imagens das biografias (WebP)
 └─ textures/               ← textura de fundo e brilho do paralaxe
 .github/workflows/deploy.yml ← publicação automática
 ```

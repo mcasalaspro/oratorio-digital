@@ -1,0 +1,50 @@
+---
+import fs from 'node:fs';
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../config/site';
+
+const bios = (await getCollection('biografias')).sort((a, b) => {
+  const oa = a.data.featured ? (a.data.order ?? 50) : 999;
+  const ob = b.data.featured ? (b.data.order ?? 50) : 999;
+  if (oa !== ob) return oa - ob;
+  return a.data.name.localeCompare(b.data.name);
+});
+function bioImg(id: string, image?: string) {
+  const hasThumb = fs.existsSync(`public/biografias/${id}_thumb.webp`);
+  return withBase(image ?? (hasThumb ? `/biografias/${id}_thumb.webp` : `/biografias/${id}.webp`));
+}
+const fallback = withBase('/biografias/default.webp');
+---
+<Base title="Biografias">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="bio_title">Biografias</p>
+      <h1 class="section-title" data-i18n="bio_title">Biografias</h1>
+      <p class="bio-lead" data-i18n="bio_lead">Vidas de santos, mártires e testemunhas da fé.</p>
+
+      {bios.length === 0 ? (
+        <p class="bio-empty" data-i18n="bio_empty">As biografias serão publicadas em breve.</p>
+      ) : (
+        <div class="grid">
+          {bios.map((b) => (
+            <a class="card" href={withBase(`/biografia/${b.id}`)}>
+              <img class="card-img" src={bioImg(b.id, b.data.image)} alt={b.data.name} loading="lazy" width="600" height="800" onerror={`this.onerror=null;this.src='${fallback}'`} />
+              <div class="card-body">
+                {b.data.title && <span class="card-type">{b.data.title}</span>}
+                <h3 class="card-title">{b.data.name}</h3>
+                {b.data.summary && <p class="bio-card-sum">{b.data.summary}</p>}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <style>
+    .bio-lead { color: var(--ink-soft); margin: .2rem 0 1.6rem; font-size: 1.05rem; }
+    .bio-empty { color: var(--ink-soft); font-style: italic; padding: 2rem 0; }
+    .bio-card-sum { font-size: .8rem; color: var(--ink-soft); line-height: 1.4; margin: .15rem 0 0; }
+  </style>
+</Base>

@@ -74,6 +74,7 @@ const clientConfig = {
       <a href={base} data-i18n="nav_home">Início</a>
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
+      <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <button id="langBtn" class="icon-btn" type="button" aria-label="Idioma" title="Idioma">
         <span id="langCode">PT</span>
       </button>
@@ -90,6 +91,12 @@ const clientConfig = {
 
   <footer class="footsite">
     <p class="foot-mark">✦</p>
+    <nav class="footnav" aria-label="Seções">
+      <a href={base} data-i18n="nav_home">Início</a>
+      <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
+      <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
+      <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
+    </nav>
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
   </footer>
@@ -436,6 +443,10 @@ const clientConfig = {
     body.reader-focus .footsite { display: none; }
     body.reader-focus .reader-hero { min-height: 26vh; }
 
+    .footnav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.1rem; margin: .5rem 0 .9rem; }
+    .footnav a { color: var(--ink-soft); text-decoration: none; font-size: .9rem; transition: color .2s; }
+    .footnav a:hover { color: var(--gold); }
+
     /* bead day selector */
     .beads { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; padding: 1.4rem 0 .6rem; }
     .bead {
@@ -572,6 +583,12 @@ const clientConfig = {
       .topnav a[data-i18n="nav_catalog"] { display: inline-block; padding: .5rem .55rem; }
       .rg-speed { margin-left: 0; width: 100%; justify-content: space-between; }
       .prayer-body { font-size: calc(1.12rem * var(--reader-scale, 1)); }
+      /* banner: mais baixo no mobile -> mostra mais da largura (laterais) da imagem */
+      .hero { padding: 2.2rem 1rem 1.8rem; }
+      .hero-kicker { margin-bottom: .55rem; }
+      .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: .65rem; }
+      .hero p.lead-line { font-size: 1.02rem; margin-bottom: 1.1rem; }
+      .hero-bg { object-position: center 40%; }
     }
   </style>
 </body>

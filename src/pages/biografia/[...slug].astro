@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../config/site';
+
+export async function getStaticPaths() {
+  const bios = await getCollection('biografias');
+  return bios.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const banner = withBase(d.image ?? `/biografias/${entry.id}.webp`);
+const fallback = withBase('/biografias/default.webp');
+const feastDM = d.feast ? `${d.feast.slice(3, 5)}/${d.feast.slice(0, 2)}` : '';
+
+const prayers = await getCollection('prayers');
+const pmap = new Map(prayers.map((p) => [p.id, p.data.title]));
+const related = (d.relatedPrayers ?? [])
+  .map((s) => ({ slug: s, title: pmap.get(s) }))
+  .filter((r) => r.title);
+---
+<Base title={d.name}>
+  <article>
+    <header class="reader-hero">
+      <img class="reader-bg" src={banner} alt={d.name} data-parallax data-speed="0.16" width="1600" height="900" onerror={`this.onerror=null;this.src='${fallback}'`} />
+      <div class="reader-shade"></div>
+      <div class="reader-head">
+        {d.title && <p class="reader-type">{d.title}</p>}
+        <h1 class="reader-title">{d.name}</h1>
+        {(d.born || d.died) && <p class="reader-saint">{[d.born, d.died].filter(Boolean).join(' — ')}</p>}
+      </div>
+    </header>
+
+    <div class="reader-body">
+      {(feastDM || d.patronage) && (
+        <dl class="bio-facts">
+          {feastDM && <div><dt data-i18n="bio_feast">Festa litúrgica</dt><dd>{feastDM}</dd></div>}
+          {d.patronage && <div><dt data-i18n="bio_patron">Padroeiro de</dt><dd>{d.patronage}</dd></div>}
+        </dl>
+      )}
+
+      <div class="prayer-body">
+        <Content />
+      </div>
+
+      {related.length > 0 && (
+        <div class="bio-related">
+          <h2 data-i18n="bio_related">Orações relacionadas</h2>
+          <div class="bio-related-row">
+            {related.map((r) => (
+              <a class="btn" href={withBase(`/oracao/${r.slug}`)}>{r.title}</a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <style>
+    .bio-facts { display: flex; flex-wrap: wrap; gap: 1.4rem 2.4rem; margin: 0 0 1.8rem; padding: 0 0 1.4rem; border-bottom: 1px solid var(--hair); }
+    .bio-facts dt { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: .15rem; }
+    .bio-facts dd { margin: 0; font-family: 'Cormorant', serif; font-size: 1.2rem; color: var(--gold); }
+    .bio-related { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--hair); }
+    .bio-related h2 { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0 0 .8rem; }
+    .bio-related-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+  </style>
+</Base>
