@@ -95,7 +95,12 @@ const clientConfig = {
         document.documentElement.dataset.season = key;
         document.documentElement.style.setProperty('--season', COLORS[key] || '#c8a24a');
       } catch (e) {}
-      var applyTag = function () { var el = document.getElementById('seasonTag'); if (el) el.textContent = window.odt('season_' + key); };
+      var applyTag = function () {
+        var name = window.odt('season_' + key);
+        var ft = document.getElementById('seasonTag'); if (ft) ft.textContent = name;
+        var bt = document.getElementById('seasonBadgeText'); if (bt) bt.textContent = name;
+        var bg = document.getElementById('seasonBadge'); if (bg) bg.hidden = false;
+      };
       if (document.readyState !== 'loading') applyTag(); else document.addEventListener('DOMContentLoaded', applyTag);
       document.addEventListener('od:lang', applyTag);
       return { key: key, color: COLORS[key] };
@@ -473,6 +478,9 @@ const clientConfig = {
     .foot-mark { color: var(--season, var(--gold)); font-size: 1.1rem; }
     .season-tag { margin: -.2rem 0 .2rem; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--season, var(--gold)); opacity: .9; }
     .season-tag:empty { display: none; }
+    .season-badge { display: inline-flex; align-items: center; gap: .55rem; margin: 0 0 1.1rem; padding: .34rem .85rem .34rem .72rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--season, var(--gold)) 50%, var(--hair)); background: color-mix(in srgb, var(--season, var(--gold)) 15%, transparent); color: var(--ink); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; }
+    .season-badge[hidden] { display: none; }
+    .season-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--season, var(--gold)); box-shadow: 0 0 10px color-mix(in srgb, var(--season, var(--gold)) 75%, transparent); flex: 0 0 auto; }
     .foot-small { font-size: .82rem; opacity: .8; }
 
     /* ════════ READING PAGE ════════ */

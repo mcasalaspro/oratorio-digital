@@ -60,6 +60,10 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     <img class="hero-bg" src={withBase('/textures/rays.webp')} alt="" aria-hidden="true" data-parallax="0.12" onerror="this.style.display='none'" />
     <span class="hero-shade" aria-hidden="true"></span>
     <div class="hero-inner">
+      <span class="season-badge" id="seasonBadge" hidden>
+        <span class="season-dot" aria-hidden="true"></span>
+        <span id="seasonBadgeText"></span>
+      </span>
       <p class="hero-kicker" data-i18n="hero_kicker">Reze com calma</p>
       <h1>{site.name}</h1>
       <p class="lead-line">{site.tagline}</p>
