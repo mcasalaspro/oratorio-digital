@@ -23,20 +23,7 @@ const feasts = all
     href: withBase(`/oracao/${p.id}`),
     thumb: thumbOf(p.id),
   }));
-
-// Agrupar por mês (calendário) — uma seção por mês, em ordem de dia
-const monthsPt = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-const byMonth = new Map<number, typeof feasts>();
-for (const f of feasts) {
-  const mm = parseInt(f.feast.slice(0, 2), 10);
-  if (!byMonth.has(mm)) byMonth.set(mm, []);
-  byMonth.get(mm)!.push(f);
-}
-const months = [...byMonth.keys()].sort((a, b) => a - b).map((m) => ({
-  num: m,
-  name: monthsPt[m - 1],
-  items: byMonth.get(m)!.slice().sort((a, b) => parseInt(a.feast.slice(3, 5), 10) - parseInt(b.feast.slice(3, 5), 10)),
-}));
+const fallback = withBase('/saints/default.webp');
 ---
 <Base>
   <section class="section">
@@ -45,29 +32,24 @@ const months = [...byMonth.keys()].sort((a, b) => a - b).map((m) => ({
       <h1 class="section-title" data-i18n="feasts_title">Próximas festas</h1>
       <p class="feasts-lead" data-i18n="feasts_lead">Acompanhe as celebrações e novenas ao longo do ano.</p>
 
-      {months.length === 0 ? (
+      {feasts.length === 0 ? (
         <p class="empty" data-i18n="feasts_empty">Nenhuma festa cadastrada ainda.</p>
       ) : (
-        months.map((mo) => (
-          <div class="feast-month">
-            <h2 class="feast-month-title" data-i18n={`month_${mo.num}`}>{mo.name}</h2>
-            <ul class="feast-list">
-              {mo.items.map((f) => (
-                <li class="feast-row" data-feast={f.feast} data-start={f.offset} data-total={f.total}>
-                  <a class="feast-link" href={f.href}>
-                    <img class="feast-thumb" src={f.thumb} alt={f.saint || f.title} loading="lazy" width="50" height="50" onerror={`this.onerror=null;this.src='${withBase('/saints/default.webp')}'`} />
-                    <span class="feast-date"><span class="fd-day">{f.feast.slice(3, 5)}</span></span>
-                    <span class="feast-info">
-                      <span class="feast-title">{f.title}</span>
-                      {f.saint && <span class="feast-saint">{f.saint}</span>}
-                      <span class="feast-status" data-feast-status></span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
+        <div id="feastCal" class="feast-cal">
+          {feasts.map((f) => (
+            <a class="feast-card" href={f.href} data-feast={f.feast} data-start={f.offset} data-total={f.total}>
+              <img class="feast-thumb" src={f.thumb} alt={f.saint || f.title} loading="lazy" width="96" height="96" onerror={`this.onerror=null;this.src='${fallback}'`} />
+              <span class="feast-body">
+                <span class="feast-date"><span class="fd-day">{f.feast.slice(3, 5)}</span></span>
+                <span class="feast-info">
+                  <span class="feast-title">{f.title}</span>
+                  {f.saint && <span class="feast-saint">{f.saint}</span>}
+                  <span class="feast-status" data-feast-status></span>
+                </span>
+              </span>
+            </a>
+          ))}
+        </div>
       )}
     </div>
   </section>
@@ -75,24 +57,30 @@ const months = [...byMonth.keys()].sort((a, b) => a - b).map((m) => ({
   <script>
     (function () {
       const t = (window as any).odt || function (k: string) { return k; };
-      const rows = Array.prototype.slice.call(document.querySelectorAll('.feast-row')) as HTMLElement[];
-      if (!rows.length) return;
+      const cal = document.getElementById('feastCal');
+      if (!cal) return;
+      const cards = Array.prototype.slice.call(cal.querySelectorAll('.feast-card')) as HTMLElement[];
+      if (!cards.length) return;
       const DAY = 86400000;
-      function fill() {
+      function lang() { return document.documentElement.getAttribute('data-lang') || 'pt-BR'; }
+
+      function build() {
         const now = new Date(); now.setHours(0, 0, 0, 0);
-        rows.forEach(function (row: any) {
-          const m = (row.getAttribute('data-feast') || '').match(/^(\d{2})-(\d{2})$/);
-          if (!m) return;
+        cards.forEach(function (card: any) {
+          const m = (card.getAttribute('data-feast') || '').match(/^(\d{2})-(\d{2})$/);
+          if (!m) { card._k = 9e15; card._feast = null; return; }
           const mm = +m[1], dd = +m[2];
+          // próxima ocorrência a partir de hoje (festas já passadas vão para o ano seguinte)
           let feast = new Date(now.getFullYear(), mm - 1, dd);
-          if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
-          const offset = parseInt(row.getAttribute('data-start') || '0', 10);
-          const total = parseInt(row.getAttribute('data-total') || '1', 10);
+          if (feast.getTime() + DAY <= now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
+          const offset = parseInt(card.getAttribute('data-start') || '0', 10);
+          const total = parseInt(card.getAttribute('data-total') || '1', 10);
           const start = new Date(feast.getTime() + (total > 1 ? offset : 0) * DAY);
           const dtf = Math.round((feast.getTime() - now.getTime()) / DAY);
           const inWin = total > 1 && now.getTime() >= start.getTime() && now.getTime() <= feast.getTime();
           const suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - start.getTime()) / DAY) + 1));
-          const st = row.querySelector('[data-feast-status]');
+          card._feast = feast; card._k = feast.getTime();
+          const st = card.querySelector('[data-feast-status]');
           if (st) {
             let txt;
             if (dtf === 0) txt = t('feast_today');
@@ -106,28 +94,51 @@ const months = [...byMonth.keys()].sort((a, b) => a - b).map((m) => ({
             }
             st.textContent = txt;
           }
-          row.classList.toggle('is-today', dtf === 0);
+          card.classList.toggle('is-today', dtf === 0);
+        });
+        // ordena por próxima ocorrência (hoje primeiro) e agrupa por mês, na ordem rolante
+        cards.sort(function (a: any, b: any) { return a._k - b._k; });
+        cal.innerHTML = '';
+        let curKey: string | null = null, curList: HTMLElement | null = null;
+        cards.forEach(function (card: any) {
+          const d: Date | null = card._feast;
+          const key = d ? d.getFullYear() + '-' + d.getMonth() : 'x';
+          if (key !== curKey) {
+            const h = document.createElement('h2');
+            h.className = 'feast-month-title';
+            let name = d ? d.toLocaleDateString(lang(), { month: 'long', year: 'numeric' }) : '';
+            name = name.charAt(0).toUpperCase() + name.slice(1);
+            h.textContent = name;
+            cal.appendChild(h);
+            curList = document.createElement('div');
+            curList.className = 'feast-list';
+            cal.appendChild(curList);
+            curKey = key;
+          }
+          curList!.appendChild(card);
         });
       }
-      fill();
-      document.addEventListener('od:lang', fill);
+      build();
+      document.addEventListener('od:lang', build);
     })();
   </script>
 
   <style>
     .feasts-lead { color: var(--ink-soft); margin: .2rem 0 1.8rem; font-size: 1.05rem; }
-    .feast-month { margin: 0 0 2.2rem; }
-    .feast-month-title { font-family: 'Cormorant', serif; font-size: 1.55rem; font-weight: 600; color: var(--gold); margin: 0 0 .85rem; padding-bottom: .4rem; border-bottom: 1px solid var(--hair); letter-spacing: .01em; }
-    .feast-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .7rem; }
-    .feast-link { display: flex; align-items: center; gap: .85rem; padding: .7rem .9rem; border: 1px solid var(--hair); border-radius: 12px; text-decoration: none; color: var(--ink); background: var(--paper-raised); transition: border-color .2s, transform .2s, box-shadow .2s; }
-    .feast-link:hover { border-color: color-mix(in srgb, var(--gold) 45%, var(--hair)); transform: translateY(-2px); box-shadow: 0 10px 26px var(--shadow); }
-    .feast-row.is-today .feast-link { border-color: color-mix(in srgb, var(--gold) 60%, var(--hair)); box-shadow: 0 0 0 1px var(--glow); }
-    .feast-thumb { flex: 0 0 auto; width: 50px; height: 50px; border-radius: 10px; object-fit: cover; object-position: center 22%; border: 1px solid var(--hair); background: #1a1208; }
+    .feast-month-title { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; color: var(--gold); margin: 1.9rem 0 .85rem; padding-bottom: .4rem; border-bottom: 1px solid var(--hair); }
+    .feast-month-title:first-child { margin-top: 0; }
+    .feast-list { display: flex; flex-direction: column; gap: .7rem; }
+    .feast-card { display: flex; align-items: stretch; min-height: 86px; border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; text-decoration: none; color: var(--ink); background: var(--paper-raised); transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .feast-card:hover { border-color: color-mix(in srgb, var(--gold) 45%, var(--hair)); transform: translateY(-2px); box-shadow: 0 10px 26px var(--shadow); }
+    .feast-card.is-today { border-color: color-mix(in srgb, var(--gold) 60%, var(--hair)); box-shadow: 0 0 0 1px var(--glow); }
+    .feast-thumb { flex: 0 0 auto; width: 96px; align-self: stretch; display: block; object-fit: cover; object-position: center 20%; background: #1a1208; }
+    .feast-body { display: flex; align-items: center; gap: .9rem; padding: .7rem 1rem; flex: 1; min-width: 0; }
     .feast-date { flex: 0 0 auto; width: 2.4rem; text-align: center; }
     .fd-day { font-family: 'Cormorant', serif; font-weight: 700; font-size: 2rem; color: var(--gold); line-height: 1; }
-    .feast-info { display: flex; flex-direction: column; gap: .12rem; }
+    .feast-info { display: flex; flex-direction: column; gap: .12rem; min-width: 0; }
     .feast-title { font-family: 'Cormorant', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.05; }
     .feast-saint { font-style: italic; color: var(--ink-soft); font-size: .85rem; }
     .feast-status { font-size: .82rem; color: var(--flame); margin-top: .1rem; }
+    @media (max-width: 560px) { .feast-thumb { width: 78px; } }
   </style>
 </Base>
