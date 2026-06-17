@@ -67,6 +67,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       <p class="hero-kicker" data-i18n="hero_kicker">Reze com calma</p>
       <h1>{site.name}</h1>
       <p class="lead-line">{site.tagline}</p>
+      <p class="hero-stats"><strong>{all.length}</strong> <span data-i18n="stat_prayers">orações</span><span class="sep">·</span><strong>{bios.length}</strong> <span data-i18n="stat_bios">biografias</span></p>
       {site.showCommunityCounter && <CommunityCounter />}
     </div>
   </section>

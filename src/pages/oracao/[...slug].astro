@@ -41,7 +41,6 @@ let relatedBio: { id: string; name: string } | null = null;
   <article>
     <!-- ░░ Banner com paralaxe ░░ -->
     <header class="reader-hero">
-      <img class="reader-bg-blur" src={banner} alt="" aria-hidden="true" data-parallax data-speed="0.1" onerror="this.style.display='none'" />
       <img class="reader-bg" src={banner} alt={data.saint ?? data.title} width="1600" height="1000" onerror={`this.onerror=null;this.src='${imgFallback}'`} />
       {parallax && <div class="reader-parallax" data-parallax data-speed="0.34" style={`background-image:url(${parallax})`}></div>}
       <div class="reader-shade"></div>

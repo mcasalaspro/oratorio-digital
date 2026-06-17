@@ -337,7 +337,7 @@ const clientConfig = {
 
     /* ════════ LAYOUT ════════ */
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.2rem); }
-    .section { padding: clamp(2.4rem, 6vw, 4.2rem) 0; }
+    .section { padding: clamp(1rem, 2.4vw, 1.7rem) 0; }
     .eyebrow { font-size: .76rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); margin: 0 0 .5rem; }
     .section-title { font-size: clamp(1.9rem, 4vw, 2.7rem); margin: 0 0 1.4rem; }
 
@@ -362,7 +362,10 @@ const clientConfig = {
     .hero-inner { position: relative; z-index: 2; max-width: 40rem; margin: 0 auto; }
     .hero-kicker { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; color: var(--flame); margin: 0 0 1rem; }
     .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); margin: 0 0 1rem; color: #f7eed9; }
-    .hero p.lead-line { font-size: 1.15rem; color: #d8c8a8; margin: 0 auto 2rem; max-width: 32rem; }
+    .hero p.lead-line { font-size: 1.15rem; color: #d8c8a8; margin: 0 auto 1.1rem; max-width: 32rem; }
+    .hero-stats { color: #cebf9d; font-size: .92rem; letter-spacing: .02em; margin: 0 0 1.7rem; }
+    .hero-stats strong { color: var(--gold-bright); font-weight: 600; font-family: 'Cormorant', serif; font-size: 1.15rem; }
+    .hero-stats .sep { opacity: .5; margin: 0 .2rem; }
 
     /* ════════ COMMUNITY COUNTER (votiva) ════════ */
     .votive { position: relative; z-index: 2; display: inline-flex; flex-direction: column; align-items: center; gap: .25rem; margin-top: .5rem; }
@@ -484,10 +487,9 @@ const clientConfig = {
     .foot-small { font-size: .82rem; opacity: .8; }
 
     /* ════════ READING PAGE ════════ */
-    .reader-hero { position: relative; overflow: hidden; min-height: 50vh; display: flex; align-items: flex-end; background: #0d0a07; }
-        .reader-bg-blur { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; filter: blur(32px) brightness(.5) saturate(1.15); transform: scale(1.04); will-change: transform; pointer-events: none; }
-    .reader-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; pointer-events: none; }
-    .reader-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,8,3,.32) 0%, rgba(12,8,3,0) 26%, rgba(12,8,3,.05) 52%, rgba(12,8,3,.72) 84%, var(--paper) 100%); }
+    .reader-hero { position: relative; overflow: hidden; min-height: 46vh; display: flex; align-items: flex-end; background: #0d0a07; }
+    .reader-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; pointer-events: none; }
+    .reader-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,8,3,.30) 0%, rgba(12,8,3,.12) 40%, rgba(12,8,3,.64) 82%, var(--paper) 100%); }
     .reader-parallax { position: absolute; inset: 0; background-repeat: no-repeat; background-position: 70% 20%; background-size: 50vmax; opacity: .5; will-change: transform; pointer-events: none; }
     .reader-head { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; width: 100%; padding: 2rem clamp(1rem,4vw,2.2rem) 1.6rem; color: #f6ecd6; }
     .reader-type { font-size: .76rem; letter-spacing: .2em; text-transform: uppercase; color: var(--flame); }
@@ -577,6 +579,7 @@ const clientConfig = {
     }
     /* leitura: destaque LINHA A LINHA ("luz" passando pelas palavras) */
     .filters { display: flex; flex-direction: column; gap: .55rem; margin-top: .9rem; }
+    #catalogGrid { margin-top: 10px; }
     .filter-row { display: flex; align-items: baseline; gap: .55rem .7rem; flex-wrap: wrap; }
     .filter-label { flex: 0 0 auto; min-width: 4.2rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
     @media (max-width: 560px) { .filter-label { min-width: 100%; margin-bottom: -.2rem; } }
