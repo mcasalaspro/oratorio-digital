@@ -3,36 +3,39 @@ name: "São João Bosco (Dom Bosco)"
 title: "Sacerdote, Fundador"
 feast: "01-31"
 born: "1815, Becchi (Itália)"
-died: "31 de janeiro de 1888, Turim"
+died: "1888, Turim"
 patronage: "jovens; aprendizes; editores católicos"
 tags: ["salesiano", "educador", "juventude"]
 summary: "O pai e mestre da juventude pobre, que educou pela razão, religião e bondade."
 featured: false
 relatedPrayers: ["novena-sao-joao-bosco-dom-bosco", "ladainha-santos"]
 ---
+## Infância nos campos de Becchi
 
-## A infância nos campos de Becchi
+João Melchior Bosco nasceu em 16 de agosto de 1815, no povoado de Becchi, próximo a Castelnuovo d'Asti, no Piemonte. Filho de camponeses pobres, perdeu o pai, Francisco, quando tinha apenas dois anos, e foi criado pela mãe, Margarida Occhiena, mulher de fé profunda e firme bom senso, a quem ele chamaria carinhosamente de "Mamãe Margarida". Desde cedo, o menino aprendeu o trabalho duro da terra, o catecismo simples ensinado pela mãe e o amor a Deus que marcaria toda a sua vida.
 
-João Melchior Bosco nasceu em 1815, numa pequena propriedade rural em Becchi, perto de Castelnuovo d'Asti, no norte da Itália. Perdeu o pai aos dois anos de idade, e coube a sua mãe, Margarida Occhiena, criá-lo na pobreza e na fé. Mulher de coração reto e profunda piedade, "mamãe Margarida" plantou no menino o temor de Deus e o amor ao trabalho, ensinos que ele jamais esqueceria. Desde cedo, joãozinho reunia outras crianças do campo para entretê-las com saltos e malabarismos, prendendo sua atenção para depois repetir-lhes o que ouvira no sermão dominical e conduzi-las à oração.
+Ainda criança, aos nove anos, teve o primeiro de muitos sonhos que considerou enviados pelo Senhor. Viu-se entre meninos brigões e blasfemos e, ao tentar contê-los com socos, foi repreendido por uma figura misteriosa que lhe disse que conquistaria aqueles companheiros não com a violência, mas com a mansidão e a caridade. Surgiu então uma Senhora luminosa que lhe mostraria o caminho. Aquela visão permaneceu como semente de sua vocação.
 
-## O sonho dos nove anos
+## A vocação e o sacerdócio
 
-Por volta dos nove anos, joão teve o primeiro de muitos sonhos que marcariam sua vida. Viu-se entre uma multidão de meninos rudes e briguentos, que tentava corrigir aos gritos e socos. Então apareceu um homem de aspecto venerável que lhe disse para conquistá-los não pela força, mas pela mansidão e pela caridade. Ao seu lado estava uma Senhora majestosa, que lhe mostrou os meninos transformados em animais selvagens e, depois, em cordeiros mansos.
+O desejo de estudar e de tornar-se padre enfrentou a pobreza e a oposição familiar, mas a tenacidade do jovem joão venceu cada obstáculo. Trabalhou como pastor, alfaiate, sapateiro e padeiro para custear os estudos, aprendendo ofícios que mais tarde ensinaria a outros. Em 1841 foi ordenado sacerdote em Turim, cidade que então atravessava as transformações da industrialização e onde multidões de meninos pobres, órfãos e abandonados perambulavam pelas ruas e prisões.
 
-> "Não com pancadas, mas com a mansidão e a caridade deverás ganhar estes teus amigos."
+Tocado pela miséria daqueles jovens, dom bosco dedicou-se inteiramente a eles. Começou reunindo um pequeno grupo aos domingos para o catecismo e a oração, dando início ao que chamou de Oratório, dedicado a São Francisco de Sales. Ali os meninos encontravam casa, escola, oficina e igreja — pão para o corpo e alimento para a alma. Apoiado sempre pela mãe, que o acompanhou em Turim, criou oficinas de artesãos e escolas profissionais para que os aprendizes tivessem dignidade e futuro.
 
-Aquela voz, que ele compreenderia ser a do Senhor por meio de Nossa Mãe Santíssima, traçaria toda a sua missão. Determinado a tornar-se sacerdote para servir aos jovens, venceu enormes dificuldades de estudo e pobreza e foi ordenado em 1841.
+## O sistema preventivo e as fundações
 
-## O Oratório e os meninos de Turim
+Da sua longa experiência com os jovens nasceu o chamado "sistema preventivo", método educativo fundado na razão, na religião e na bondade. Ele não queria educadores que punissem, mas que prevenissem o mal pela presença amiga, pela confiança e pelo amor. Costumava resumir seu coração de pai numa frase simples:
 
-Recém-ordenado, dom bosco encontrou em Turim, cidade tomada pela industrialização, multidões de meninos abandonados, órfãos e aprendizes explorados, muitos deles vagando pelas ruas ou amontoados nas prisões. Comovido, começou a reuni-los aos domingos para o catecismo, os jogos e a Santa Missa: nascia assim o Oratório, dedicado a São Francisco de Sales. Com o tempo, ofereceu também moradia e oficinas, ensinando ofícios como sapataria, alfaiataria e tipografia, para que aqueles jovens pudessem viver com dignidade e honra.
+> "Basta que sejais jovens para que eu vos ame muito."
 
-Seu método ficou conhecido como **sistema preventivo**, fundado em três pilares: a razão, a religião e a bondade amorosa. Em vez de punir as faltas, procurava prevenir o mal pela presença constante e afetuosa do educador, convencido de que a confiança e o amor abrem o coração dos jovens a Deus. "Basta que sejais jovens", costumava dizer, "para que eu vos ame muito."
+Para dar continuidade à sua obra, fundou em 1859 a Sociedade de São Francisco de Sales, os Salesianos, e em 1872, junto com santa Maria Domingas Mazzarello, o Instituto das Filhas de Maria Auxiliadora, voltado à educação das meninas. Promoveu ainda os Cooperadores Salesianos, leigos comprometidos com a missão. Grande devoto de Nossa Senhora Auxiliadora, ergueu em Turim a basílica dedicada a Ela, fruto de fé e de generosidade. Homem incansável, foi também escritor e editor, publicando livros e folhetos para instruir o povo simples na fé.
 
-## Os Salesianos e Maria Auxiliadora
+## Os sonhos e a confiança em Deus
 
-Para dar continuidade à obra, dom bosco fundou em 1859 a Sociedade de São Francisco de Sales, os Salesianos, e mais tarde, com santa Maria Domingas Mazzarello, o Instituto das Filhas de Maria Auxiliadora, voltado às meninas. Confiou tudo à proteção da Virgem sob o título de Auxílio dos Cristãos, a quem atribuía todas as graças e a quem ergueu, em Turim, a grande basílica de Maria Auxiliadora. Escritor incansável, publicou livros e folhetos populares para defender a fé e instruir o povo simples, tornando-se também padroeiro dos editores católicos.
+Ao longo da vida, dom bosco continuou a receber sonhos que considerava avisos do céu, alguns de caráter profético, orientando suas decisões e prevendo acontecimentos da sua congregação e da Igreja. Vivia com a certeza serena de que era apenas instrumento nas mãos da Providência, atribuindo todo o bem realizado à graça de Deus e à proteção de Maria Auxiliadora.
 
 ## Os últimos dias
 
-Esgotado por uma vida de trabalho sem descanso, dom bosco entregou sua alma a Deus em 31 de janeiro de 1888, em Turim, cercado por seus filhos espirituais. Suas últimas palavras foram um chamado à fidelidade: que amassem a Maria Auxiliadora e trabalhassem pela salvação das almas dos jovens. Sua obra, hoje espalhada pelo mundo inteiro, continua a abrigar e educar a juventude pobre. Foi canonizado pelo papa Pio XI em 1934, e a Igreja o venera como pai e mestre da juventude, modelo de quem soube conduzir as crianças a Cristo pelo caminho da bondade.
+Esgotado por uma vida de trabalho sem descanso, foi-se enfraquecendo nos últimos anos, mas nunca abandonou a preocupação com seus filhos espirituais espalhados pelo mundo, inclusive as missões já enviadas à América. Faleceu em Turim, na madrugada de 31 de janeiro de 1888, deixando uma obra que continuaria a crescer e a abraçar a juventude em todos os continentes.
+
+Foi canonizado pelo papa Pio XI em 1934 e proclamado "Pai e Mestre da Juventude". Sua festa é celebrada em 31 de janeiro, e ele permanece padroeiro dos jovens, dos aprendizes e dos editores católicos, modelo de educador que soube unir firmeza e ternura, recordando a todos que a santidade está ao alcance de quem ama a Deus com alegria.

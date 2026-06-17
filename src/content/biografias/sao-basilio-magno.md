@@ -1,4 +1,3 @@
-```markdown
 ---
 name: "São Basílio Magno"
 title: "Bispo, Doutor da Igreja"
@@ -8,32 +7,31 @@ died: "379, Cesareia"
 patronage: "monges; reformadores litúrgicos"
 tags: ["padre da igreja", "capadócio", "doutor"]
 summary: "Pai do monaquismo oriental e grande defensor da fé contra o arianismo."
+featured: false
 relatedPrayers: ["trisagio-santo-deus-santo-forte-santo-imortal", "ladainha-santos"]
 ---
+## Origens e juventude
 
-## Uma família de santos
+Basílio nasceu por volta do ano 330, em Cesareia da Capadócia, no coração da Ásia Menor, no seio de uma família profundamente cristã. Sua casa foi verdadeiro berço de santos: sua avó Macrina, a Velha, seus pais Basílio e Emília, e vários de seus irmãos seguiram o caminho da santidade, entre eles a irmã mais velha, Macrina, a Jovem, e o irmão Gregório, que viria a ser bispo de Nissa. Foi nesse ambiente de fé viva que o jovem recebeu suas primeiras lições, depois aprofundadas pelos melhores estudos de sua época.
 
-Basílio nasceu por volta do ano 330, em Cesareia da Capadócia, no coração da Ásia Menor, em uma família notável pela riqueza de fé que produziu. Sua avó, Macrina, a Velha, havia sofrido por causa do Evangelho; seus pais, Basílio, o Velho, e Emília, transmitiram aos filhos um amor profundo pelas coisas de Deus. Da mesma casa saíram outros santos: a irmã Macrina, a Jovem, que o guiou para a vida ascética, e o irmão Gregório de Nissa, futuro bispo e teólogo. Foi nesse lar que o menino aprendeu, antes dos mestres, a reverência ao Senhor.
+Sedento de saber, basílio frequentou as escolas de Cesareia, de Constantinopla e, por fim, de Atenas, então o grande centro da cultura grega. Ali estreitou laços de profunda amizade com Gregório de Nazianzo, com quem partilhou os estudos e o amor às coisas de Deus. Os dois, junto com Gregório de Nissa, viriam a ser conhecidos como os três Padres Capadócios, colunas da fé na defesa da divindade do Filho e do Espírito Santo.
 
-## Os anos de estudo e a conversão
+## A vocação monástica
 
-Dotado de inteligência brilhante, basílio estudou em Cesareia, em Constantinopla e em Atenas, onde travou amizade duradoura com Gregório de Nazianzo. As letras profanas e a filosofia poderiam tê-lo conduzido à vaidade, mas o exemplo de Macrina o despertou para o essencial. Renunciando à carreira de retórico, recebeu o batismo e empreendeu uma viagem pelos desertos do Egito, da Síria e da Palestina, para conhecer de perto os monges que ali se consagravam a Deus. Voltou transformado, decidido a abraçar a vida solitária e a oração.
+Voltando à pátria coberto de honras intelectuais, basílio sentiu o chamado a uma vida mais radical no seguimento do Senhor. Renunciou às vaidades do mundo, distribuiu seus bens entre os pobres e retirou-se para a solidão, junto ao rio Íris, no Ponto. Ali se dedicou à oração, ao trabalho e ao estudo das Escrituras, dando início a uma forma de vida comunitária que marcaria para sempre o monaquismo oriental.
 
-## Mestre do monaquismo
+Fruto dessa experiência foram suas regras monásticas, nas quais ensinava que a vida do monge não devia isolar-se egoisticamente, mas voltar-se para o serviço fraterno, conjugando contemplação e caridade. Sua Regra continua, até hoje, a inspirar os monges do Oriente, que o veneram como pai e legislador da vida religiosa.
 
-Recolhendo-se às margens do rio Íris, basílio reuniu companheiros em torno de uma vida comum de trabalho, oração e caridade. Para eles compôs uma Regra monástica que ordenava a existência dos irmãos segundo a medida do Evangelho, dando primazia ao serviço fraterno e à obediência. Essa Regra tornou-se a raiz do monaquismo oriental, e até hoje incontáveis monges seguem o caminho por ele traçado. Para basílio, a vida ascética não era fuga do mundo, mas combate amoroso pela perfeição da caridade.
+> "Quem ama o próximo cumpre o amor a Deus, pois Deus aceita esse amor como dirigido a Si mesmo."
 
-> "A glória que se procura ardentemente neste mundo passa como sombra; mas a que vem de Deus permanece para sempre."
+## Bispo e pastor
 
-## Bispo e defensor da fé
+Ordenado presbítero e, em 370, eleito bispo de Cesareia, basílio assumiu o governo da Igreja em tempos turbulentos, marcados pela difusão da heresia ariana, que negava a plena divindade do Filho. Com firmeza e doutrina segura, defendeu a fé do Concílio de Niceia e proclamou com clareza a divindade do Espírito Santo, deixando à Igreja escritos teológicos de imenso valor.
 
-Ordenado presbítero e, em 370, elevado à sede de Cesareia, basílio enfrentou tempos turbulentos. O arianismo, que negava a plena divindade do Filho, contava com o apoio do próprio imperador Valente. Diante de ameaças e pressões, o bispo permaneceu inabalável, confessando que o Verbo é consubstancial ao Pai e que o Espírito Santo deve ser adorado e glorificado com Eles. Junto de Gregório de Nazianzo e de seu irmão Gregório de Nissa — os três grandes Capadócios —, lançou os alicerces que a Igreja consolidaria na confissão da Santíssima Trindade.
+Foi também pastor incansável dos pobres. Em meio à fome e à miséria, fundou nos arredores de Cesareia um vasto conjunto de obras de caridade — hospitais, hospedarias e abrigos — que ficou conhecido como a "Basiléia", verdadeira cidade da misericórdia. Diante das ameaças do poder imperial, que pretendia dobrá-lo, respondeu com a serenidade de quem nada possui senão a Cristo, e não recuou um passo na defesa da verdade.
 
-## Pai dos pobres
+## Os últimos dias
 
-A grandeza de basílio não esteve apenas na doutrina, mas também nas obras de misericórdia. Em tempos de fome e necessidade, vendeu seus bens e organizou junto à cidade um vasto conjunto de hospitais, hospedarias e casas para os enfermos e peregrinos, que ficou conhecido como a "Basiléia". Nele, leprosos abandonados encontravam acolhimento, e os famintos, alimento. O pastor ensinava com a vida que o serviço ao próximo é serviço ao próprio Senhor.
+Consumido pelas penitências, pelos trabalhos e pelas enfermidades, basílio teve a vida abreviada. Faleceu em Cesareia no ano de 379, ainda jovem, mas deixando uma obra imensa: a renovação litúrgica que leva seu nome, a doutrina que iluminou os concílios, a Regra que formou gerações de monges. A multidão que acompanhou seus funerais testemunhou o quanto havia sido amado por seu povo.
 
-## A passagem para a glória
-
-Consumido pelas vigílias, pelas penitências e pelo trabalho incansável, basílio morreu em 379, ainda jovem, em Cesareia. A cidade inteira chorou aquele que fora seu defensor e amparo. Por seus escritos, sua Regra, sua liturgia e seu testemunho intrépido diante dos poderosos, a Igreja o reconheceu como Doutor e lhe deu o título de Magno, o Grande. Que sua intercessão sustente os que buscam a Deus no silêncio do mosteiro e os que defendem a verdade da fé.
-```
+A Igreja honra-o com o título de Magno, "o Grande", e de Doutor, reconhecendo nele um dos mais luminosos mestres da fé. Junto aos dois Gregórios, permanece como guardião da reta doutrina e modelo de pastor que une o saber à santidade, a oração ao serviço dos mais pobres, dando glória ao Pai, ao Filho e ao Espírito Santo.

@@ -1,4 +1,3 @@
-```md
 ---
 name: "Santa Inês de Roma"
 title: "Virgem e Mártir"
@@ -8,32 +7,31 @@ died: "c. 304, Roma"
 patronage: "jovens; castidade; noivas"
 tags: ["mártir", "virgem", "roma"]
 summary: "Menina de cerca de doze anos que preferiu a morte a renunciar à fé e à sua pureza."
+featured: false
 relatedPrayers: ["novena-santa-ines-roma", "ladainha-santos"]
 ---
+## Uma criança nascida em Roma
 
-## Uma criança de Roma
+Inês veio ao mundo por volta do ano 291, em Roma, no seio de uma família cristã de boas condições. Desde a infância, conheceu o nome de Jesus e n'Ele depositou todo o seu coração. Embora pertencesse a um meio que lhe poderia oferecer riquezas e bons casamentos, ela cedo compreendeu que havia escolhido um esposo maior do que qualquer homem da terra: consagrou-se inteiramente a Cristo, fazendo da pureza o seu mais precioso tesouro.
 
-Inês nasceu por volta do ano 291, em Roma, no seio de uma família cristã da nobreza. Cresceu num tempo em que professar a fé em Cristo podia custar a própria vida, pois a perseguição movida pelo imperador Diocleciano se tornava cada vez mais cruel. Ainda menina, mal contava doze anos, ela já havia consagrado o coração ao Senhor, prometendo guardar a virgindade por amor a Cristo, seu único esposo.
+Crescendo em beleza e em graça, a jovem chamou a atenção de muitos pretendentes ilustres da sociedade romana. A todos, porém, respondia com firmeza serena, declarando que já tinha esposo e que a Ele permaneceria fiel para sempre.
 
-A beleza e a nobreza de inês atraíam muitos pretendentes entre os jovens de Roma. A todos, porém, ela respondia com a mesma serena firmeza: já estava prometida a um Esposo que não se vê com os olhos do corpo, mas que enche a alma de uma alegria que nenhum bem da terra poderia oferecer.
+> Tenho como esposo Aquele a quem os anjos servem, cuja beleza o sol e a lua admiram; a Ele me consagrei e d'Ele jamais me apartarei.
 
-## O testemunho diante do mundo
+## A perseguição de Diocleciano
 
-Recusados por ela, alguns daqueles pretendentes a denunciaram às autoridades como cristã. Levada diante do magistrado, a menina não se intimidou nem com as promessas de riquezas e casamento, nem com as ameaças de tormento e morte. Tentaram dobrá-la pela força e pela humilhação, mas a fragilidade aparente daquela criança escondia a fortaleza de quem se apoiava inteiramente em Deus.
+Os tempos eram duros para os que confessavam a fé. Sob o imperador Diocleciano, a Igreja sofria uma das mais cruéis perseguições da sua história, e muitos cristãos foram presos, torturados e mortos por não renegarem o Senhor. Quando a recusa de inês em casar-se chegou aos ouvidos das autoridades, descobriu-se que a causa de sua resistência era a fé cristã, e ela foi denunciada como seguidora de Cristo.
 
-> A Cristo eu pertenço; a Ele me entreguei, e a nenhum outro me darei.
+Diante do magistrado, a menina — que segundo a tradição contava apenas doze ou treze anos — não se intimidou. Tentaram persuadi-la com promessas e ameaças, ofereceram-lhe vantagens e procuraram quebrar a sua determinação por meio do medo e da humilhação. Mas inês permaneceu inabalável, preferindo entregar a vida a manchar a fidelidade prometida ao seu Senhor.
 
-A tradição narra que, exposta à vergonha pública para quebrar sua resolução, inês foi protegida de modo admirável, e que aqueles que ousaram ofendê-la foram detidos pela mão do Senhor. Nem a sedução nem o terror conseguiram afastar do seu coração o nome de Jesus.
+## Os últimos dias
 
-## O martírio
+Conta a tradição que tentaram desonrá-la para vencê-la pela vergonha, mas Deus protegeu a sua serva, e nenhum mal pôde tocar a sua inocência. Por fim, condenaram-na à morte. inês caminhou para o suplício com uma alegria que assombrava os presentes, como quem vai ao encontro do esposo amado e não ao próprio fim. Os relatos antigos descrevem-na entregando o pescoço ao golpe sem tremer, mais firme do que o próprio carrasco.
 
-Por volta do ano 304, vendo que nada a faria renunciar à fé, condenaram inês à morte. Conta-se que enfrentou o algoz com a paz de quem vai ao encontro do Amado, e não de quem caminha para o suplício. Assim, ainda menina, entregou a vida, selando com o sangue a fidelidade que prometera com os lábios. Foi sepultada junto à Via Nomentana, onde mais tarde se ergueu uma basílica em sua honra.
+Morreu por volta do ano 304, selando com o sangue aquela consagração que fizera ainda criança. Foi sepultada em Roma, e logo o seu túmulo tornou-se lugar de veneração; sobre ele se ergueu mais tarde a basílica que guarda o seu nome na Via Nomentana.
 
-Seu nome, próximo da palavra latina *agnus*, cordeiro, ficou para sempre ligado à imagem da pureza e da inocência oferecidas ao Senhor. Por isso, na festa de santa inês, costuma-se abençoar cordeiros, de cuja lã se tece o pálio entregue aos arcebispos, sinal do bom Pastor que dá a vida pelas suas ovelhas.
+## O cordeiro da pureza
 
-## Padroeira da juventude e da pureza
+O nome inês ressoa como *agnus*, o cordeiro, e por isso a Igreja sempre a representou com este símbolo de mansidão e inocência. Até hoje, no dia de sua festa, em Roma se abençoam cordeiros cuja lã servirá para tecer o pálio dos arcebispos, sinal de comunhão com o Pastor que é Cristo. Assim, a pequena mártir que se ofereceu pura ao Senhor continua, através dos séculos, a falar de fidelidade e entrega.
 
-Venerada desde os primeiros séculos, santa inês tornou-se uma das mártires mais amadas da Igreja de Roma, com seu nome inscrito no próprio Cânon da Missa. É invocada como padroeira das jovens, das noivas e de todos os que desejam guardar a castidade por amor a Deus. Seu exemplo recorda que a força da fé não depende da idade, e que mesmo uma criança pode dar ao mundo o mais alto testemunho do Evangelho.
-
-A santa menina nos ensina que pertencer a Cristo é o maior dos bens, mais precioso que a vida deste mundo. Que sua intercessão alcance, sobretudo aos jovens, a coragem de seguir o Senhor com o coração inteiro.
-```
+Padroeira das jovens, das noivas e de todos os que buscam viver a castidade, santa inês permanece como testemunho de que a graça de Deus pode fazer dos mais frágeis os mais fortes. Sua coragem mostra que nenhuma idade é pequena demais para amar a Cristo até o fim.

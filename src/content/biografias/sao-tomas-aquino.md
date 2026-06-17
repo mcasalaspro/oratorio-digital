@@ -11,33 +11,30 @@ featured: true
 order: 7
 relatedPrayers: ["novena-sao-tomas-aquino", "oracao-sao-tomas-aquino-antes-estudo", "oracao-sao-tomas-aquino-ordenar-vida-concede-mihi", "adoro-te-devote-devotamente-vos-adoro", "tantum-ergo-sacramentum-tao-sublime-sacramento"]
 ---
+## Origem e juventude
 
-## O jovem de Roccasecca
+tomás nasceu por volta de 1225 no castelo de Roccasecca, próximo a Aquino, no reino da Sicília, filho de uma família nobre aparentada com a casa imperial. Ainda criança foi confiado aos monges beneditinos da abadia de Monte Cassino, onde recebeu a primeira formação. Mais tarde foi enviado a estudar em Nápoles, e ali, na universidade recém-fundada por Frederico II, entrou em contato com a Ordem dos Pregadores, fundada por são Domingos.
 
-Tomás nasceu por volta de 1225 no castelo de Roccasecca, no reino da Sicília, filho de uma família nobre aparentada com as casas reais da época. Ainda menino, foi confiado aos monges beneditinos da abadia de Montecassino, onde se esperava que um dia chegasse a ser abade. Mas Deus reservava-lhe outro caminho. Enviado a estudar em Nápoles, ali encontrou os frades pregadores da recém-fundada Ordem de São Domingos e, atraído por aquela vida de pobreza e estudo, decidiu vestir o hábito dominicano.
+A decisão do jovem de tornar-se frade dominicano, abraçando a pobreza e a mendicância, escandalizou a família, que sonhava para ele uma carreira eclesiástica de prestígio. Seus irmãos chegaram a sequestrá-lo e a retê-lo por mais de um ano numa fortaleza, na esperança de demovê-lo. tomás permaneceu firme em sua vocação, e nada conseguiu apartá-lo do hábito que escolhera por amor a Cristo.
 
-A escolha escandalizou a família, que sonhava para ele honras e dignidades. Seus irmãos chegaram a sequestrá-lo e a mantê-lo retido por cerca de um ano, tentando demovê-lo. Diz a tradição que, ao enviarem-lhe uma mulher para tentá-lo, o jovem a expulsou com um tição em brasa e, ajoelhado, recebeu de Deus o dom da pureza. Firme em seu propósito, acabou por seguir os passos que o Senhor lhe traçara.
+## Mestre e teólogo
 
-## O discípulo silencioso
+Livre enfim para seguir o caminho que abraçara, foi estudar em Colônia e em Paris, tendo por mestre santo Alberto Magno, que cedo reconheceu o gênio do discípulo silencioso. Por sua compleição robusta e seu temperamento reservado, os colegas o apelidavam de "boi mudo"; mas Alberto profetizou que o mugido daquele boi um dia ecoaria pelo mundo inteiro.
 
-Em Paris e em Colônia, Tomás estudou sob a direção de santo Alberto Magno. Era um jovem corpulento e calado, ao ponto de os colegas o apelidarem de "o boi mudo". Mas Alberto, percebendo a profundidade daquele silêncio, profetizou:
+tomás tornou-se um dos maiores teólogos e filósofos da história da Igreja. Soube reconciliar a fé cristã com a razão e a filosofia de Aristóteles, mostrando que a verdade revelada por Deus e a verdade alcançada pela inteligência humana não se opõem, porque procedem de uma só fonte. Sua obra maior, a *Summa Theologiae*, permanece como monumento da inteligência posta a serviço da fé, expondo com clareza serena os mistérios de Deus, da criação e da redenção.
 
-> "Chamais-lhe boi mudo, mas um dia o mugido de sua doutrina ressoará pelo mundo inteiro."
+## O cantor da Eucaristia
 
-E assim foi. Ordenado sacerdote e tornado mestre em teologia, Tomás dedicou a vida ao ensino, à oração e à escrita. Reconciliou a filosofia de Aristóteles com a fé cristã, mostrando que a razão, dom de Deus, não se opõe à verdade revelada, mas a serve. Para ele, a graça não destrói a natureza, mas a aperfeiçoa.
+A devoção de tomás não vivia apenas dos livros, mas brotava da oração e sobretudo do amor ao Santíssimo Sacramento. Quando o papa lhe pediu que compusesse o ofício litúrgico para a festa de Corpus Christi, ele escreveu hinos de profunda beleza, como o *Adoro te devote* e o *Pange lingua*, do qual se canta o *Tantum ergo*. Nesses cânticos a teologia mais alta se faz oração e ternura diante do Senhor presente sob as espécies do pão e do vinho.
 
-## O Doutor Angélico
+> Adoro-te devotamente, ó Deus que te escondes, que sob estas figuras verdadeiramente te ocultas.
 
-De sua pena nasceram obras imensas, entre as quais sobressai a *Summa Theologiae*, vasta síntese em que tratou de Deus, da criação, do homem e de Cristo, caminho que conduz de volta ao Pai. Com clareza serena e humildade, procurou sempre a verdade, sem ceder à vaidade das disputas. Suas perguntas começavam pela dúvida honesta e terminavam na luz.
+Costumava estudar e escrever depois de longas horas diante do altar, e dizia que aprendera mais aos pés do crucifixo do que em todos os livros. A inteligência luminosa de tomás era serva de um coração humilde, que tudo buscava em Deus.
 
-Homem de profunda devoção eucarística, foi escolhido para compor o ofício litúrgico da festa de Corpus Christi. Dele recebemos hinos que a Igreja ainda canta, como o *Adoro Te devote* e o *Pange lingua*, em que adora a presença escondida de Cristo no Sacramento. Diante do altar buscava a sabedoria que os livros não bastavam a oferecer, e costumava dizer que aprendera mais aos pés do Crucificado do que em todos os seus estudos.
+## Os últimos dias
 
-## "Tudo me parece palha"
+No final de sua vida, enquanto celebrava a missa, tomás teve uma experiência mística que o transformou para sempre. A partir daquele dia interrompeu seus escritos, deixando inacabada a *Summa*. Ao ser instado a continuar, respondeu com palavras que revelam toda a sua humildade diante do mistério divino:
 
-Nos últimos meses de vida, enquanto celebrava a Missa, Tomás teve uma experiência mística que o transformou. A partir de então deixou de escrever, e a um confrade que o instava a concluir a *Summa* respondeu:
+> Tudo o que escrevi parece-me palha, comparado com aquilo que vi e me foi revelado.
 
-> "Não posso, porque tudo o que escrevi me parece palha diante daquilo que me foi revelado."
-
-A caminho do concílio de Lyon, adoeceu e foi acolhido na abadia cisterciense de Fossanova. Ali, em 1274, entregou serenamente a alma ao Senhor, ainda jovem em anos mas maduro em santidade. Canonizado em 1323 e proclamado Doutor da Igreja, recebeu o título de Doutor Angélico pela pureza e altura de sua doutrina.
-
-A Igreja o venera como patrono das universidades, dos estudantes e dos teólogos, e a ele recorrem todos os que desejam unir a inteligência ao amor. Sua vida ensina que a verdade mais alta não é conquista do orgulho, mas dom recebido de joelhos, e que toda ciência humana é apenas palha diante da visão de Deus.
+Chamado pelo papa para participar do Concílio de Lião, adoeceu pelo caminho e foi acolhido na abadia cisterciense de Fossanova. Ali, em março de 1274, ainda jovem em anos mas maduro em santidade, entregou a alma ao Senhor que tanto amara e contemplara. A Igreja o proclamou Doutor, dando-lhe o título de "Doutor Angélico", e o constituiu padroeiro das universidades, dos estudantes e dos teólogos, para que todos os que buscam a verdade aprendam, com ele, a render tudo a Deus.

@@ -1,4 +1,3 @@
-```md
 ---
 name: "São Francisco de Sales"
 title: "Bispo, Doutor da Igreja"
@@ -11,28 +10,28 @@ summary: "O bispo da doçura, mestre da vida devota para os cristãos no meio do
 featured: false
 relatedPrayers: ["novena-sao-francisco-sales", "ladainha-santos"]
 ---
+## Juventude e formação
 
-## Juventude e vocação
+Francisco de Sales nasceu em 1567 no castelo de Thorens, na Saboia, primogênito de uma família nobre. Seu pai destinava-lhe uma brilhante carreira no mundo, e por isso ele recebeu esmerada educação em Paris e depois em Pádua, onde estudou direito e teologia, formando-se doutor em ambos os campos. Desde jovem, porém, sentia no coração um chamado diferente daquele que a família planejava.
 
-Francisco nasceu em 1567 no castelo de Sales, em Thorens, na Saboia, filho de uma família nobre. Destinado pelo pai a uma carreira no mundo, estudou direito e teologia em Paris e em Pádua, tornando-se doutor em ambas as ciências. Mas o jovem trazia no coração um chamado mais alto. Ainda estudante, atravessou uma profunda provação espiritual, temendo estar condenado; dessa noite escura saiu confiando inteiramente na misericórdia de Deus, e essa confiança haveria de marcar para sempre o seu modo de servir o Senhor e as almas.
+Durante os anos de estudo em Paris, atravessou uma profunda crise espiritual, atormentado pelo temor de estar predestinado à condenação. Esse sofrimento o conduziu a um abandono confiante na misericórdia divina: decidiu amar a Deus em vida, ainda que não pudesse amá-Lo na eternidade. Dessa entrega nasceu uma paz duradoura, e com ela a certeza de que sua vocação era servir ao Senhor como sacerdote, decisão que enfim arrancou, com paciência, o consentimento do pai.
 
-## O missionário do Chablais
+## O bispo missionário da doçura
 
-Ordenado sacerdote, contrariando os planos paternos, ofereceu-se para a difícil missão do Chablais, região que abandonara a fé católica. Com paciência e mansidão, e não com a força, dedicou-se à evangelização daquele povo. Quando lhe fechavam as portas, escrevia: compunha pequenos folhetos com explicações da doutrina e os fazia circular de casa em casa. Por esse trabalho incansável com a palavra escrita, a Igreja viria a reconhecê-lo, séculos depois, como patrono dos escritores, dos jornalistas e da imprensa católica.
+Ordenado sacerdote, francisco logo se ofereceu para a árdua missão de reconquistar a região do Chablais, então marcada pela difusão do calvinismo. Diante de portas fechadas e de hostilidade, recorreu a um método inovador: escrevia pequenos folhetos com explicações da fé e os distribuía de casa em casa, deslizando-os por baixo das portas. Por esse zelo apostólico através da palavra escrita, viria mais tarde a ser proclamado patrono dos escritores, dos jornalistas e da imprensa católica.
 
-## Bispo de Genebra
+Eleito bispo de Genebra em 1602, governou sua diocese com extraordinária mansidão, convencido de que mais almas se ganham com a doçura do que com a aspereza. Tornou-se mestre na arte da direção espiritual, mostrando que a santidade não é privilégio dos religiosos, mas vocação acessível a todos os estados de vida.
 
-Sagrado bispo de Genebra em 1602, governou a diocese com zelo e ternura, residindo em Annecy. Era acessível a todos, dos camponeses aos príncipes, e dirigia muitas almas pela pregação, pela confissão e pela correspondência. Da amizade espiritual com santa Joana Francisca de Chantal nasceu, em 1610, a Ordem da Visitação de Santa Maria, as Visitandinas, comunidade pensada para acolher mulheres que não encontravam lugar nas ordens mais austeras de então.
+> Nada se faz bem com violência; mais moscas se apanham com uma gota de mel do que com um barril de vinagre.
 
 ## Mestre da vida devota
 
-Em 1609 publicou a *Introdução à Vida Devota*, obra dirigida não aos religiosos de clausura, mas aos cristãos comuns que vivem no meio do mundo. Ensinava que a santidade é possível e devida a todos — ao soldado, ao artesão, à esposa, ao trabalhador — cada um no seu estado de vida. Mais tarde escreveu o *Tratado do Amor de Deus*, em que mostrou que toda a vida espiritual culmina na caridade.
+Em 1609 publicou a *Introdução à Vida Devota*, obra destinada a leigos que desejavam crescer na união com Deus em meio às ocupações ordinárias do mundo. O livro, escrito com ternura e sabedoria prática, tornou-se um dos grandes clássicos da espiritualidade cristã e continua a guiar incontáveis fiéis. A ele se seguiu o *Tratado do Amor de Deus*, fruto maduro de sua doutrina sobre a caridade.
 
-> "Não há nada tão forte como a doçura, nem nada tão doce como a verdadeira força."
-
-A mansidão era a marca de sua alma. Conquistava os corações pela paciência, persuadido de que se apanham mais moscas com uma colher de mel do que com um barril de vinagre. Trabalhou a própria índole, naturalmente ardente, até torná-la imagem da bondade do Senhor.
+Em 1610, junto com santa Joana Francisca de Chantal, fundou a Ordem da Visitação de Santa Maria, as Visitandinas. Concebida originalmente para acolher viúvas e mulheres de saúde frágil que desejavam consagrar-se sem o rigor das ordens contemplativas tradicionais, a fundação refletia a convicção do santo de que a verdadeira devoção se mede pelo amor, e não pela austeridade exterior.
 
 ## Os últimos dias
 
-Francisco faleceu em Lyon, no fim de 1622, esgotado pelas tarefas do ministério, repetindo palavras de abandono à vontade de Deus. Foi canonizado em 1665 e, em 1877, proclamado Doutor da Igreja. Deixou à cristandade a certeza de que a devoção verdadeira não tira ninguém de seu lugar no mundo, mas o santifica ali mesmo onde Deus o pôs.
-```
+Esgotado pelos trabalhos pastorais e pelas longas viagens, francisco adoeceu em Lyon, ao retornar de um encontro com a corte de Saboia. Faleceu em 28 de dezembro de 1622, repetindo com humildade palavras de confiança no Senhor. Foi canonizado em 1665 e, em 1877, declarado Doutor da Igreja pelo título eloquente de Doutor do Amor Divino.
+
+Sua memória litúrgica é celebrada em 24 de janeiro. Padroeiro dos escritores, dos jornalistas e dos surdos — a quem em vida ensinou pacientemente a fé por sinais —, são francisco de sales permanece como testemunha de que a doçura e a firmeza podem caminhar unidas no serviço a Deus.

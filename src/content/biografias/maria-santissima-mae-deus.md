@@ -1,4 +1,3 @@
-```markdown
 ---
 name: "Maria Santíssima, Mãe de Deus"
 title: "Mãe de Deus, Theotokos"
@@ -12,32 +11,26 @@ featured: true
 order: 1
 relatedPrayers: ["ave-maria-salutacao-angelica", "salve-rainha-salve-regina", "magnificat-cantico-nossa-senhora", "ladainha-nossa-senhora-lauretana", "santo-rosario-misterios-gozosos"]
 ---
-
 ## A jovem de Nazaré
 
-Maria nasceu, segundo a tradição, em uma família humilde e piedosa de Israel, sendo educada no amor à Lei e às promessas feitas aos patriarcas. Vivia na pequena aldeia de Nazaré, na Galileia, levando a existência discreta de tantas jovens de seu povo, mas guardando no coração uma fidelidade singular ao Senhor. Desde sempre preservada por uma graça especial, ela foi preparada por Deus para a missão mais alta jamais confiada a uma criatura.
+Maria nasceu, segundo a tradição, em meados do século I antes de Cristo, fruto da piedade do povo de Israel que aguardava o Messias prometido. A tradição cristã reconhece em seus pais, joaquim e ana, almas justas e devotas, e em maria a "cheia de graça", preservada do pecado desde o primeiro instante de sua existência. Era uma jovem humilde da pequena cidade de Nazaré, na Galileia, desposada com josé, da casa de davi. Nada nela aparentava grandeza aos olhos do mundo, mas Deus, que olha o coração, escolheu-a para a maior das missões confiadas a uma criatura humana.
 
-## O sim que mudou a história
+## A Anunciação
 
-Quando o anjo Gabriel lhe apareceu, saudando-a como "cheia de graça", Maria perturbou-se e ponderou o sentido daquela saudação. Diante do anúncio de que conceberia e daria à luz o Filho do Altíssimo, ela não recuou na fé, mas pediu apenas luz para compreender. E, recebendo a palavra de que o Espírito Santo desceria sobre ela, pronunciou a resposta que abriu as portas da salvação ao mundo.
+O evangelho de São Lucas narra o momento decisivo de sua vida e da história da salvação. O anjo gabriel foi enviado por Deus e saudou-a: "Ave, cheia de graça, o Senhor é contigo" (Lc 1, 28). Diante do anúncio de que conceberia, pela ação do Espírito Santo, o Filho do Altíssimo, maria, ainda que perturbada e cheia de perguntas, respondeu com plena confiança:
 
-> "Eis aqui a serva do Senhor; faça-se em mim segundo a tua palavra."
+> Eis aqui a serva do Senhor; faça-se em mim segundo a tua palavra.
 
-Naquele instante, o Verbo se fez carne em seu seio, e a jovem de Nazaré tornou-se a Mãe do Redentor. Visitando sua parenta Isabel, transbordou em louvor no cântico do Magnífica, proclamando que Deus exalta os humildes e enche de bens os famintos, fiel à misericórdia prometida a Abraão e à sua descendência.
+Com esse sim livre e total, ela se tornou a Mãe do Verbo encarnado, abrindo as portas para que Deus se fizesse homem. Sua fé desfez o nó da desobediência de eva, e por meio dela o Salvador veio ao mundo. Ao visitar sua prima isabel, maria entoou o cântico do Magnificat, no qual sua alma engrandece o Senhor e exalta a misericórdia divina que derruba os poderosos e eleva os humildes.
 
-## A Mãe junto ao Filho
+## A serva fiel junto ao Filho
 
-Ao longo da vida de Jesus, sua mãe esteve presente nos momentos decisivos. Nas bodas de Caná, percebendo a falta de vinho, intercedeu junto ao Filho e ensinou aos servos a atitude que resume toda a vida cristã: "Fazei tudo o que Ele vos disser." Guardava no coração as palavras e os acontecimentos, meditando-os no silêncio da fé.
+A vida de maria foi um peregrinar contínuo na fé. Em Belém, deu à luz Jesus e o envolveu em panos, guardando todas as coisas e meditando-as em seu coração. Acompanhou o Filho nos anos ocultos de Nazaré e em sua vida pública. Nas bodas de Caná, percebeu a necessidade dos esposos e disse aos servos a palavra que ressoa por todos os séculos: "Fazei tudo o que Ele vos disser" (Jo 2, 5), provocando o primeiro dos sinais de Jesus.
 
-Quando chegou a hora da Paixão, ela permaneceu de pé junto à Cruz, partilhando a dor do Filho sem se afastar. Foi ali que Jesus, entregando-a ao discípulo amado, a constituiu Mãe de toda a Igreja: "Eis aí tua mãe." Depois da Ressurreição e da Ascensão, ela perseverou em oração com os apóstolos no Cenáculo, e sobre aquela comunidade reunida em torno dela desceu o Espírito Santo no dia de Pentecostes.
+Sua hora mais dolorosa veio ao pé da Cruz. Ali permaneceu de pé, unida ao sacrifício do Filho, e dele recebeu o discípulo amado como filho, tornando-se, naquele instante, Mãe de toda a Igreja. Depois da Ressurreição e da Ascensão, esteve no Cenáculo, em oração com os apóstolos, quando o Espírito Santo desceu em Pentecostes, dando início à missão da Igreja no mundo.
 
-## Theotokos, a Mãe de Deus
+## Mãe de Deus, exaltada pela Igreja
 
-A Igreja, contemplando o mistério de Maria, reconheceu desde cedo que aquele que ela gerou é verdadeiro Deus e verdadeiro homem. Por isso, no Concílio de Éfeso, no ano de 431, foi solenemente proclamado o título de *Theotokos*, "Aquela que gerou a Deus", defendendo assim a verdade sobre Cristo e a dignidade incomparável de sua mãe. Não que Maria fosse origem da divindade, mas porque o Filho que ela concebeu segundo a carne é uma só pessoa, o Filho eterno do Pai.
+A fé cristã, ao contemplar o mistério de maria, reconheceu nela a Theotokos, a "Mãe de Deus", título solenemente definido pelo Concílio de Éfeso, no ano de 431, para defender a unidade da pessoa de Cristo, verdadeiro Deus e verdadeiro homem. Ao chamar maria de Mãe de Deus, a Igreja confessa que aquele que ela gerou é o próprio Filho eterno do Pai.
 
-## Assunta e glorificada
-
-Coroando os privilégios concedidos àquela que foi toda fiel, a fé da Igreja sempre acreditou que Maria, terminado o curso da vida terrena, foi elevada em corpo e alma à glória do Céu. Essa verdade, vivida e celebrada por séculos, foi definida como dogma em 1950. Glorificada junto ao Filho, ela continua a interceder por todos os seus filhos, sinal de esperança segura e consolação para o povo peregrino.
-
-Mãe de Deus e Mãe da Igreja, Maria nos ensina, com seu sim e com sua presença fiel, o caminho da inteira confiança no Senhor. Quem a invoca encontra nela uma mãe atenta, sempre voltada para Cristo, conduzindo cada coração ao mesmo conselho que deu em Caná: fazer tudo o que Ele nos disser.
-```
+A tradição da Igreja, alimentada pela piedade dos fiéis ao longo dos séculos, professou também que maria, terminado o curso de sua vida terrena, foi assunta em corpo e alma à glória do céu, dogma proclamado solenemente em 1950. Coroada como Rainha do céu e da terra, ela não cessa de interceder por todos os seus filhos, conduzindo-os sempre a Jesus. Por isso a Igreja a invoca incessantemente como advogada, auxiliadora e medianeira, e a saúda com confiança filial: "Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte".
