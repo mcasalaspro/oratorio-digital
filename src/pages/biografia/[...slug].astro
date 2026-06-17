@@ -36,7 +36,8 @@ if (missingRel.length) console.warn(`\n⚠️  Biografia "${entry.id}": oraçõe
 <Base title={name}>
   <article>
     <header class="reader-hero">
-      <img class="reader-bg" src={banner} alt={name} data-parallax data-speed="0.16" width="1600" height="900" onerror={`this.onerror=null;this.src='${fallback}'`} />
+      <img class="reader-bg-blur" src={banner} alt="" aria-hidden="true" data-parallax data-speed="0.1" onerror="this.style.display='none'" />
+      <img class="reader-bg" src={banner} alt={name} width="1600" height="1000" onerror={`this.onerror=null;this.src='${fallback}'`} />
       <div class="reader-shade"></div>
       <div class="reader-head">
         {d.title && <p class="reader-type">{d.title}</p>}

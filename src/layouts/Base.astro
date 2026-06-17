@@ -484,9 +484,10 @@ const clientConfig = {
     .foot-small { font-size: .82rem; opacity: .8; }
 
     /* ════════ READING PAGE ════════ */
-    .reader-hero { position: relative; overflow: hidden; min-height: 44vh; display: flex; align-items: flex-end; }
-    .reader-bg { position: absolute; inset: -12% 0 0 0; height: 124%; object-fit: cover; width: 100%; will-change: transform; }
-    .reader-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,8,3,.25) 0%, rgba(12,8,3,.55) 60%, var(--paper) 100%); }
+    .reader-hero { position: relative; overflow: hidden; min-height: 50vh; display: flex; align-items: flex-end; background: #0d0a07; }
+        .reader-bg-blur { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; filter: blur(32px) brightness(.5) saturate(1.15); transform: scale(1.04); will-change: transform; pointer-events: none; }
+    .reader-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; pointer-events: none; }
+    .reader-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,8,3,.32) 0%, rgba(12,8,3,0) 26%, rgba(12,8,3,.05) 52%, rgba(12,8,3,.72) 84%, var(--paper) 100%); }
     .reader-parallax { position: absolute; inset: 0; background-repeat: no-repeat; background-position: 70% 20%; background-size: 50vmax; opacity: .5; will-change: transform; pointer-events: none; }
     .reader-head { position: relative; z-index: 2; max-width: var(--maxw); margin: 0 auto; width: 100%; padding: 2rem clamp(1rem,4vw,2.2rem) 1.6rem; color: #f6ecd6; }
     .reader-type { font-size: .76rem; letter-spacing: .2em; text-transform: uppercase; color: var(--flame); }
