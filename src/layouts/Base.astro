@@ -58,6 +58,48 @@ const clientConfig = {
       has: function (s) { return this.all().indexOf(s) >= 0; },
       toggle: function (s) { var a = this.all(); var i = a.indexOf(s); if (i >= 0) a.splice(i, 1); else a.push(s); try { localStorage.setItem(this.key, JSON.stringify(a)); } catch (e) {} return i < 0; }
     };
+    window.odFavBio = {
+      key: 'od-fav-bios',
+      all: function () { try { return JSON.parse(localStorage.getItem(this.key) || '[]'); } catch (e) { return []; } },
+      has: function (s) { return this.all().indexOf(s) >= 0; },
+      toggle: function (s) { var a = this.all(); var i = a.indexOf(s); if (i >= 0) a.splice(i, 1); else a.push(s); try { localStorage.setItem(this.key, JSON.stringify(a)); } catch (e) {} return i < 0; }
+    };
+    // ── Tempo litúrgico (a cor de destaque acompanha a estação) ──
+    window.odSeason = (function () {
+      function easter(y) {
+        var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4,
+            f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3),
+            h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4,
+            l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451),
+            mo = Math.floor((h + l - 7 * m + 114) / 31), da = ((h + l - 7 * m + 114) % 31) + 1;
+        return new Date(y, mo - 1, da);
+      }
+      function add(dt, n) { var x = new Date(dt); x.setDate(x.getDate() + n); return x; }
+      function firstAdvent(y) { var d = new Date(y, 10, 30), w = d.getDay(); if (w === 0) return d; return w <= 3 ? add(d, -w) : add(d, 7 - w); }
+      function baptism(y) { var d = new Date(y, 0, 6), w = d.getDay(); return w === 0 ? add(d, 7) : add(d, 7 - w); }
+      function season(dd) {
+        var d = new Date(dd.getFullYear(), dd.getMonth(), dd.getDate()), y = d.getFullYear(), t = d.getTime();
+        if (t >= new Date(y - 1, 11, 25).getTime() && t <= baptism(y).getTime()) return 'natal';
+        var E = easter(y), ash = add(E, -46), pent = add(E, 49);
+        if (t === pent.getTime()) return 'pentecostes';
+        if (t >= ash.getTime() && t < E.getTime()) return 'quaresma';
+        if (t >= E.getTime() && t <= pent.getTime()) return 'pascoa';
+        if (t >= firstAdvent(y).getTime() && t < new Date(y, 11, 25).getTime()) return 'advento';
+        if (t >= new Date(y, 11, 25).getTime()) return 'natal';
+        return 'comum';
+      }
+      var COLORS = { advento: '#9a86d4', natal: '#e6c876', quaresma: '#8f7bbf', pascoa: '#e6c876', comum: '#6fae84', pentecostes: '#c0563f' };
+      var key = 'comum';
+      try {
+        key = season(new Date());
+        document.documentElement.dataset.season = key;
+        document.documentElement.style.setProperty('--season', COLORS[key] || '#c8a24a');
+      } catch (e) {}
+      var applyTag = function () { var el = document.getElementById('seasonTag'); if (el) el.textContent = window.odt('season_' + key); };
+      if (document.readyState !== 'loading') applyTag(); else document.addEventListener('DOMContentLoaded', applyTag);
+      document.addEventListener('od:lang', applyTag);
+      return { key: key, color: COLORS[key] };
+    })();
   </script>
 </head>
 <body>
@@ -75,6 +117,9 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
+      <button id="searchBtn" class="icon-btn" type="button" aria-label="Buscar" title="Buscar">
+        <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
       <button id="langBtn" class="icon-btn" type="button" aria-label="Idioma" title="Idioma">
         <span id="langCode">PT</span>
       </button>
@@ -91,6 +136,7 @@ const clientConfig = {
 
   <footer class="footsite">
     <p class="foot-mark">✦</p>
+    <p class="season-tag" id="seasonTag"></p>
     <nav class="footnav" aria-label="Seções">
       <a href={base} data-i18n="nav_home">Início</a>
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
@@ -100,6 +146,21 @@ const clientConfig = {
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
   </footer>
+
+  <!-- Busca global (orações + biografias) -->
+  <div id="searchOverlay" class="search-overlay" hidden>
+    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Buscar">
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="globalSearch" type="search" autocomplete="off" placeholder="Buscar orações e santos…" data-i18n-ph="global_search_ph" aria-label="Buscar" />
+        <button id="searchClose" class="icon-btn" type="button" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div id="searchResults" class="search-results"></div>
+      <p id="searchHint" class="search-hint" data-i18n="global_search_hint">Digite para buscar orações e biografias.</p>
+    </div>
+  </div>
 
   <script>
     // ── Tema ──
@@ -228,7 +289,7 @@ const clientConfig = {
       gap: 1rem; padding: .7rem clamp(1rem, 4vw, 2.2rem);
       background: color-mix(in srgb, var(--paper) 82%, transparent);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--hair);
+      border-bottom: 1px solid color-mix(in srgb, var(--season, var(--hair)) 38%, var(--hair));
     }
     .brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); }
     .brand-mark { color: var(--gold); display: inline-flex; }
@@ -409,7 +470,9 @@ const clientConfig = {
     /* ════════ FOOTER ════════ */
     .footsite { text-align: center; padding: 3rem 1rem 3.4rem; border-top: 1px solid var(--hair); color: var(--ink-soft); }
     .footsite p { margin: .15rem 0; }
-    .foot-mark { color: var(--gold); font-size: 1.1rem; }
+    .foot-mark { color: var(--season, var(--gold)); font-size: 1.1rem; }
+    .season-tag { margin: -.2rem 0 .2rem; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--season, var(--gold)); opacity: .9; }
+    .season-tag:empty { display: none; }
     .foot-small { font-size: .82rem; opacity: .8; }
 
     /* ════════ READING PAGE ════════ */
@@ -437,6 +500,17 @@ const clientConfig = {
     .rtool-sep { width: 1px; height: 22px; background: var(--hair); margin: 0 .3rem; }
     .rtool .hpath { fill: none; stroke: currentColor; transition: fill .2s, stroke .2s; }
     .rtool[aria-pressed="true"] .hpath { fill: var(--gold-bright); stroke: var(--gold-bright); }
+    .bio-link { display: inline-flex; align-items: center; gap: .5rem; margin: 0 0 1.5rem; padding: .5rem .85rem; border: 1px solid var(--hair); border-radius: 10px; text-decoration: none; color: var(--ink-soft); font-size: .9rem; transition: border-color .2s, color .2s; }
+    .bio-link:hover { border-color: var(--gold); color: var(--gold); }
+    /* Santo do dia (faixa) */
+    .santo-dia { display: flex; align-items: center; gap: .7rem; margin: 1.6rem 0 0; padding: .7rem 1rem; border: 1px solid var(--hair); border-radius: 12px; text-decoration: none; color: var(--ink); background: color-mix(in srgb, var(--gold) 5%, transparent); transition: border-color .2s, transform .2s; }
+    .santo-dia[hidden] { display: none; }
+    .santo-dia:hover { border-color: color-mix(in srgb, var(--gold) 50%, var(--hair)); transform: translateY(-1px); }
+    .santo-dia-seal { flex: 0 0 auto; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+    .santo-dia-name { font-family: 'Cormorant', serif; font-size: 1.25rem; font-weight: 600; line-height: 1; }
+    .santo-dia-date { color: var(--ink-soft); font-size: .9rem; }
+    .santo-dia-arrow { margin-left: auto; color: var(--gold); font-size: 1.1rem; }
+    @media (max-width: 560px) { .santo-dia { flex-wrap: wrap; gap: .3rem .6rem; } .santo-dia-arrow { margin-left: 0; } }
 
     /* modo foco: esconde topo e rodapé para leitura sem distração */
     body.reader-focus .topbar,
@@ -447,6 +521,22 @@ const clientConfig = {
     .footnav a { color: var(--ink-soft); text-decoration: none; font-size: .9rem; transition: color .2s; }
     .footnav a:hover { color: var(--gold); }
     .show-more { display: block; margin: 1.5rem auto 0; }
+    /* busca global */
+    .search-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(8,5,2,.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); display: flex; align-items: flex-start; justify-content: center; padding: 10vh 1rem 2rem; }
+    .search-overlay[hidden] { display: none; }
+    .search-panel { width: 100%; max-width: 600px; background: var(--paper); border: 1px solid var(--hair); border-radius: 16px; box-shadow: 0 24px 60px var(--shadow); overflow: hidden; }
+    .search-bar { display: flex; align-items: center; gap: .5rem; padding: .65rem .85rem; border-bottom: 1px solid var(--hair); }
+    .search-bar > svg { color: var(--ink-soft); flex: 0 0 auto; }
+    .search-bar input { flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: var(--ink); font-family: 'EB Garamond', serif; font-size: 1.1rem; }
+    .search-bar .icon-btn { width: 34px; height: 34px; }
+    .search-results { max-height: 56vh; overflow-y: auto; }
+    .search-item { display: flex; align-items: center; gap: .8rem; padding: .65rem .85rem; text-decoration: none; color: var(--ink); border-top: 1px solid color-mix(in srgb, var(--hair) 55%, transparent); }
+    .search-item:hover { background: color-mix(in srgb, var(--gold) 9%, transparent); }
+    .search-item-tag { flex: 0 0 auto; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--hair); border-radius: 999px; padding: .2rem .5rem; min-width: 4.6rem; text-align: center; }
+    .search-item-main { display: flex; flex-direction: column; min-width: 0; }
+    .search-item-title { font-family: 'Cormorant', serif; font-size: 1.12rem; font-weight: 600; line-height: 1.1; }
+    .search-item-sub { font-size: .8rem; color: var(--ink-soft); font-style: italic; }
+    .search-hint, .search-empty { padding: 1.4rem .9rem; color: var(--ink-soft); font-style: italic; text-align: center; margin: 0; }
 
     /* bead day selector */
     .beads { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; padding: 1.4rem 0 .6rem; }
@@ -593,5 +683,63 @@ const clientConfig = {
       .hero-bg { object-position: center 40%; }
     }
   </style>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('searchBtn');
+      var overlay = document.getElementById('searchOverlay');
+      var input = document.getElementById('globalSearch');
+      var results = document.getElementById('searchResults');
+      var hint = document.getElementById('searchHint');
+      var closeBtn = document.getElementById('searchClose');
+      if (!btn || !overlay || !input) return;
+      var index = null, loaded = false;
+      var T = function (k) { return (window).odt ? (window).odt(k) : k; };
+      var esc = function (s) { return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+      var norm = function (s) { return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); };
+
+      function openSearch() {
+        overlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () { input.focus(); }, 30);
+        if (!loaded) load();
+      }
+      function closeSearch() { overlay.hidden = true; document.body.style.overflow = ''; }
+      function load() {
+        loaded = true;
+        var url = (window).odBase ? (window).odBase('/search-index.json') : '/search-index.json';
+        fetch(url).then(function (r) { return r.json(); }).then(function (data) { index = data; render(); }).catch(function () { loaded = false; });
+      }
+      function render() {
+        if (!index) return;
+        var q = norm((input.value || '').trim());
+        if (!q) { results.innerHTML = ''; if (hint) hint.hidden = false; return; }
+        if (hint) hint.hidden = true;
+        var matches = [];
+        for (var i = 0; i < index.length && matches.length < 40; i++) { if (index[i].s.indexOf(q) >= 0) matches.push(index[i]); }
+        if (!matches.length) { results.innerHTML = '<p class="search-empty">' + esc(T('no_results')) + '</p>'; return; }
+        results.innerHTML = matches.map(function (it) {
+          var tag = it.kind === 'biografia' ? T('search_kind_bio') : T('type_' + it.type);
+          return '<a class="search-item" href="' + it.url + '">' +
+            '<span class="search-item-tag">' + esc(tag) + '</span>' +
+            '<span class="search-item-main"><span class="search-item-title">' + esc(it.title) + '</span>' +
+            (it.sub ? '<span class="search-item-sub">' + esc(it.sub) + '</span>' : '') +
+            '</span></a>';
+        }).join('');
+      }
+      btn.addEventListener('click', openSearch);
+      if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeSearch(); });
+      input.addEventListener('input', render);
+      document.addEventListener('od:lang', function () { if (!overlay.hidden) render(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !overlay.hidden) closeSearch();
+        else if (e.key === '/' && overlay.hidden) {
+          var a = document.activeElement; var tag = a ? a.tagName : '';
+          if (tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); openSearch(); }
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

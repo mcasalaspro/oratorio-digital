@@ -8,21 +8,34 @@ const bios = (await getCollection('biografias')).sort((a, b) => {
   const oa = a.data.featured ? (a.data.order ?? 50) : 999;
   const ob = b.data.featured ? (b.data.order ?? 50) : 999;
   if (oa !== ob) return oa - ob;
-  return a.data.name.localeCompare(b.data.name);
+  return (a.data.name ?? a.id).localeCompare(b.data.name ?? b.id);
 });
+const prettify = (slug: string) => slug.split(/[-_]/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 function bioImg(id: string, image?: string) {
   const hasThumb = fs.existsSync(`public/biografias/${id}_thumb.webp`);
   return withBase(image ?? (hasThumb ? `/biografias/${id}_thumb.webp` : `/biografias/${id}.webp`));
 }
 const fallback = withBase('/biografias/default.webp');
+const tags = [...new Set(bios.flatMap((b) => b.data.tags))].sort((a, b) => a.localeCompare(b));
 
-// Aviso de build (não falha): biografia sem imagem própria -> usará default.webp
+// Avisos de build (não falham): biografia sem 'name' / sem imagem própria
 {
-  const miss = bios.filter((b) => !b.data.image && !fs.existsSync(`public/biografias/${b.id}.webp`)).map((b) => b.id);
-  if (miss.length) console.warn(`\n⚠️  Biografias sem imagem em public/biografias/ (usarão default.webp): ${miss.join(', ')}\n`);
+  const noName = bios.filter((b) => !b.data.name).map((b) => b.id);
+  if (noName.length) console.warn(`\n⚠️  Biografias sem 'name' (usando o nome do arquivo): ${noName.join(', ')}\n`);
+  const noImg = bios.filter((b) => !b.data.image && !fs.existsSync(`public/biografias/${b.id}.webp`)).map((b) => b.id);
+  if (noImg.length) console.warn(`\n⚠️  Biografias sem imagem em public/biografias/ (usarão default.webp): ${noImg.join(', ')}\n`);
 }
 ---
 <Base title="Biografias">
+  <!-- ════════ MINHAS BIOGRAFIAS (favoritos, revelado se houver) ════════ -->
+  <section class="section" id="favBioSection" hidden>
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="fav_bio_title">Minhas biografias</p>
+      <h2 class="section-title" data-i18n="fav_bio_title">Minhas biografias</h2>
+      <div class="grid grid--pinned" id="favBioGrid"></div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
       <p class="eyebrow" data-i18n="bio_title">Biografias</p>
@@ -32,25 +45,127 @@ const fallback = withBase('/biografias/default.webp');
       {bios.length === 0 ? (
         <p class="bio-empty" data-i18n="bio_empty">As biografias serão publicadas em breve.</p>
       ) : (
-        <div class="grid">
-          {bios.map((b) => (
-            <a class="card" href={withBase(`/biografia/${b.id}`)}>
-              <img class="card-img" src={bioImg(b.id, b.data.image)} alt={b.data.name} loading="lazy" width="600" height="800" onerror={`this.onerror=null;this.src='${fallback}'`} />
-              <div class="card-body">
-                {b.data.title && <span class="card-type">{b.data.title}</span>}
-                <h3 class="card-title">{b.data.name}</h3>
-                {b.data.summary && <p class="bio-card-sum">{b.data.summary}</p>}
+        <Fragment>
+          <div class="toolbar">
+            <input id="bioSearch" class="search" type="search" placeholder="Buscar santo, título ou padroado…" data-i18n-ph="bio_search_placeholder" />
+          </div>
+          {tags.length > 0 && (
+            <div class="filters">
+              <div class="filter-row">
+                <span class="filter-label" data-i18n="lbl_category">Categoria</span>
+                <div class="chips" id="bioTagChips" role="group" aria-label="Categoria">
+                  <button class="chip" data-tag="" aria-pressed="true" data-i18n="filter_all">Todas</button>
+                  {tags.map((tg) => <button class="chip" data-tag={tg} aria-pressed="false">{tg}</button>)}
+                </div>
               </div>
-            </a>
-          ))}
-        </div>
+            </div>
+          )}
+
+          <div class="grid" id="bioGrid">
+            {bios.map((b) => (
+              <a class="card" href={withBase(`/biografia/${b.id}`)}
+                 data-slug={b.id}
+                 data-tags={b.data.tags.join(' ')}
+                 data-search={`${b.data.name ?? prettify(b.id)} ${b.data.title ?? ''} ${b.data.patronage ?? ''} ${b.data.tags.join(' ')} ${b.data.summary}`.toLowerCase()}>
+                <img class="card-img" src={bioImg(b.id, b.data.image)} alt={b.data.name || prettify(b.id)} loading="lazy" width="600" height="800" onerror={`this.onerror=null;this.src='${fallback}'`} />
+                <button class="fav-btn" type="button" aria-label="Favoritar" aria-pressed="false">
+                  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path class="hpath" d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke-width="2"/></svg>
+                </button>
+                <div class="card-body">
+                  {b.data.title && <span class="card-type">{b.data.title}</span>}
+                  <h3 class="card-title">{b.data.name || prettify(b.id)}</h3>
+                  {b.data.summary && <p class="bio-card-sum">{b.data.summary}</p>}
+                </div>
+              </a>
+            ))}
+          </div>
+          <button class="btn show-more" id="bioShowMore" type="button" hidden data-i18n="show_more">Mostrar mais</button>
+          <p class="bio-empty" id="bioEmpty" hidden data-i18n="bio_no_results">Nenhuma biografia encontrada.</p>
+        </Fragment>
       )}
     </div>
   </section>
 
+  <script>
+    (function () {
+      const odFav = (window as any).odFavBio;
+      const grid = document.getElementById('bioGrid');
+      if (!grid) return;
+      const search = document.getElementById('bioSearch') as HTMLInputElement | null;
+      const empty = document.getElementById('bioEmpty');
+      const moreBtn = document.getElementById('bioShowMore');
+      const favGrid = document.getElementById('favBioGrid');
+      const favSec = document.getElementById('favBioSection');
+      const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
+      const source: Record<string, HTMLElement> = {};
+      cards.forEach((c) => { if (!source[c.dataset.slug!]) source[c.dataset.slug!] = c; });
+      const norm = (x: string) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const STEP = 50;
+      let limit = STEP, fText = '', fTag = '';
+
+      function apply() {
+        let matched = 0;
+        for (const c of cards) {
+          const okText = !fText || norm(c.dataset.search || '').includes(fText);
+          const okTag = !fTag || (' ' + (c.dataset.tags || '') + ' ').includes(' ' + fTag + ' ');
+          const show = okText && okTag;
+          if (show) { matched++; c.style.display = matched <= limit ? '' : 'none'; }
+          else { c.style.display = 'none'; }
+        }
+        if (empty) (empty as HTMLElement).hidden = matched !== 0;
+        if (moreBtn) (moreBtn as HTMLElement).hidden = matched <= limit;
+      }
+
+      const chipGroup = document.getElementById('bioTagChips');
+      chipGroup?.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest('.chip') as HTMLElement | null;
+        if (!btn) return;
+        chipGroup.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        fTag = btn.dataset.tag || ''; limit = STEP; apply();
+      });
+      search?.addEventListener('input', () => { fText = norm(search.value.trim().toLowerCase()); limit = STEP; apply(); });
+      moreBtn?.addEventListener('click', () => { limit += STEP; apply(); });
+
+      function refreshHearts() {
+        document.querySelectorAll<HTMLElement>('.card[data-slug] .fav-btn').forEach((btn) => {
+          const card = btn.closest('.card') as HTMLElement | null;
+          if (card) btn.setAttribute('aria-pressed', odFav.has(card.dataset.slug) ? 'true' : 'false');
+        });
+      }
+      function buildFav() {
+        if (!favGrid || !favSec) return;
+        favGrid.innerHTML = '';
+        let n = 0;
+        odFav.all().forEach((slug: string) => {
+          const orig = source[slug];
+          if (!orig) return;
+          const clone = orig.cloneNode(true) as HTMLElement;
+          clone.style.display = '';
+          favGrid.appendChild(clone);
+          n++;
+        });
+        (favSec as HTMLElement).hidden = n === 0;
+        refreshHearts();
+      }
+      document.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest('.fav-btn');
+        if (!btn) return;
+        e.preventDefault(); e.stopPropagation();
+        const card = btn.closest('.card') as HTMLElement | null;
+        if (!card) return;
+        odFav.toggle(card.dataset.slug);
+        buildFav();
+      });
+
+      apply();
+      buildFav();
+    })();
+  </script>
+
   <style>
-    .bio-lead { color: var(--ink-soft); margin: .2rem 0 1.6rem; font-size: 1.05rem; }
-    .bio-empty { color: var(--ink-soft); font-style: italic; padding: 2rem 0; }
+    .bio-lead { color: var(--ink-soft); margin: .2rem 0 1.2rem; font-size: 1.05rem; }
+    .bio-empty { color: var(--ink-soft); font-style: italic; padding: 1.4rem 0; }
     .bio-card-sum { font-size: .8rem; color: var(--ink-soft); line-height: 1.4; margin: .15rem 0 0; }
   </style>
 </Base>

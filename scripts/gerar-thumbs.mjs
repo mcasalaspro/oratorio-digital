@@ -2,7 +2,7 @@
 // Só processa as que FALTAM ou cuja imagem mudou (reaproveita as existentes).
 // Roda em paralelo para ser rápido. Use "--force" para refazer todas.
 // Nunca derruba o build (sai sempre com 0).
-import { readdir, stat } from 'node:fs/promises';
+import { readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
@@ -27,12 +27,7 @@ async function main() {
       const base = f.slice(0, -'.webp'.length);
       const full = path.join(DIR, f);
       const thumb = path.join(DIR, `${base}_thumb.webp`);
-      if (!FORCE && existsSync(thumb)) {
-        try {
-          const [a, b] = await Promise.all([stat(full), stat(thumb)]);
-          if (a.mtimeMs <= b.mtimeMs) { reused++; continue; }
-        } catch { reused++; continue; }
-      }
+      if (!FORCE && existsSync(thumb)) { reused++; continue; } // já existe -> reaproveita (use --force para refazer)
       todo.push({ full, thumb, name: f });
     }
   }

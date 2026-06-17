@@ -37,6 +37,19 @@ const pinned = site.pinnedPrayers
 // candidatas a destaque litúrgico (têm data de festa)
 const liturgical = all.filter((p) => p.data.liturgicalFeast);
 
+// "Santo do dia": uma entrada por data de festa (biografia tem prioridade; senão a oração do santo)
+const bios = await getCollection('biografias');
+const _byFeast = new Map<string, { feast: string; name: string; url: string }>();
+for (const b of bios) {
+  if (b.data.feast) _byFeast.set(b.data.feast, { feast: b.data.feast, name: b.data.name ?? b.id, url: withBase(`/biografia/${b.id}`) });
+}
+for (const p of all) {
+  if (p.data.liturgicalFeast && p.data.saint && !_byFeast.has(p.data.liturgicalFeast)) {
+    _byFeast.set(p.data.liturgicalFeast, { feast: p.data.liturgicalFeast, name: p.data.saint, url: withBase(`/oracao/${p.id}`) });
+  }
+}
+const santos = [..._byFeast.values()];
+
 // filtros disponíveis
 const types = [...new Set(all.map((p) => p.data.type))];
 const langs = [...new Set(all.map((p) => p.data.language))];
@@ -53,6 +66,21 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       {site.showCommunityCounter && <CommunityCounter />}
     </div>
   </section>
+
+  <!-- ════════ SANTO DO DIA (faixa, revelada conforme a data) ════════ -->
+  {santos.length > 0 && (
+    <div class="wrap">
+      <a class="santo-dia" id="santoDia" hidden href="#">
+        <span class="santo-dia-seal">✦ <span id="santoDiaLabel" data-i18n="santo_today">Santo do dia</span></span>
+        <span class="santo-dia-name" id="santoDiaName"></span>
+        <span class="santo-dia-date" id="santoDiaDate"></span>
+        <span class="santo-dia-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <div id="santoData" hidden>
+        {santos.map((sv) => <i data-feast={sv.feast} data-name={sv.name} data-url={sv.url}></i>)}
+      </div>
+    </div>
+  )}
 
   <!-- ════════ ORAÇÃO DO DIA (destaque revelado conforme a data) ════════ -->
   <section class="section today-section" id="today">
@@ -346,6 +374,49 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         build();
       });
       build();
+    })();
+    // ── Santo do dia (calculado na data do visitante) ──
+    (function () {
+      const strip = document.getElementById('santoDia');
+      const dataEl = document.getElementById('santoData');
+      if (!strip || !dataEl) return;
+      const items = Array.from(dataEl.querySelectorAll<HTMLElement>('i')).map((el) => ({
+        feast: el.dataset.feast || '', name: el.dataset.name || '', url: el.dataset.url || '',
+      })).filter((x) => /^\d{2}-\d{2}$/.test(x.feast));
+      if (!items.length) return;
+
+      const DAY = 86400000;
+      const now = new Date(); now.setHours(0, 0, 0, 0);
+      const mmdd = String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+
+      // hoje?
+      let pick = items.find((x) => x.feast === mmdd);
+      let isToday = !!pick;
+      if (!pick) {
+        // senão, o próximo a chegar
+        let best = null as any, bestDelta = Infinity;
+        for (const x of items) {
+          const mm = +x.feast.slice(0, 2), dd = +x.feast.slice(3, 5);
+          let d = new Date(now.getFullYear(), mm - 1, dd);
+          if (d.getTime() < now.getTime()) d = new Date(now.getFullYear() + 1, mm - 1, dd);
+          const delta = Math.round((d.getTime() - now.getTime()) / DAY);
+          if (delta < bestDelta) { bestDelta = delta; best = x; }
+        }
+        pick = best;
+      }
+      if (!pick) return;
+
+      const nameEl = document.getElementById('santoDiaName');
+      const dateEl = document.getElementById('santoDiaDate');
+      const labEl = document.getElementById('santoDiaLabel');
+      if (nameEl) nameEl.textContent = pick.name;
+      if (dateEl) dateEl.textContent = pick.feast.slice(3, 5) + '/' + pick.feast.slice(0, 2);
+      const setLabel = () => { if (labEl) labEl.textContent = (window as any).odt(isToday ? 'santo_today' : 'santo_next'); };
+      labEl?.setAttribute('data-i18n', isToday ? 'santo_today' : 'santo_next');
+      setLabel();
+      document.addEventListener('od:lang', setLabel);
+      (strip as HTMLAnchorElement).href = pick.url;
+      strip.hidden = false;
     })();
   </script>
 </Base>

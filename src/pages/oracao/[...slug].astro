@@ -24,6 +24,18 @@ const meta = {
   feast: data.liturgicalFeast ?? '',
   startOffset: data.novenaSuggestedStart ?? 0,
 };
+
+// ligação automática para a biografia (por data da festa ou nome) — sem editar os .md
+const _bios = await getCollection('biografias');
+const _norm = (x: string) => (x ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+let relatedBio: { id: string; name: string } | null = null;
+{
+  const ps = _norm(data.saint ?? '');
+  const pf = data.liturgicalFeast ?? '';
+  let hit = pf ? _bios.find((b) => !!b.data.feast && b.data.feast === pf) : undefined;
+  if (!hit && ps) hit = _bios.find((b) => { const bn = _norm(b.data.name ?? ''); return !!bn && (bn.includes(ps) || ps.includes(bn)); });
+  if (hit) relatedBio = { id: hit.id, name: hit.data.name ?? hit.id };
+}
 ---
 <Base title={data.title} description={data.description || site.tagline}>
   <article>
@@ -51,6 +63,10 @@ const meta = {
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V5l7 7-7 7v-4.1C9 11.8 5.5 13 3 16c1-5 4-9 11-9.9z" fill="currentColor"/></svg>
           <span data-i18n="share">Compartilhar</span>
         </button>
+        <button id="cardBtn" class="rtool" type="button" data-saint={data.saint ?? ''}>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="10" r="1.6" fill="currentColor"/><path d="M21 16l-5-5-4 4-2-2-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span data-i18n="share_image">Imagem</span>
+        </button>
         <span class="rtool-sep" aria-hidden="true"></span>
         <button id="fsDown" class="rtool rtool-sq" type="button" aria-label="Diminuir letra">A−</button>
         <button id="fsUp" class="rtool rtool-sq" type="button" aria-label="Aumentar letra">A+</button>
@@ -59,6 +75,13 @@ const meta = {
           <span data-i18n="focus_mode">Foco</span>
         </button>
       </div>
+
+      {relatedBio && (
+        <a class="bio-link" href={withBase(`/biografia/${relatedBio.id}`)}>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15H5.5C4.7 19 4 18.3 4 17.5v-12zM20 5.5C20 4.7 19.3 4 18.5 4H13v15h5.5c.8 0 1.5-.7 1.5-1.5v-12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <span><span data-i18n="bio_about">Conheça a vida de</span> {relatedBio.name}</span>
+        </a>
+      )}
 
       <!-- ░░ Seletor de dia (novena) — contas de rosário ░░ -->
       <nav id="beads" class="beads" hidden aria-label="Dias da novena"></nav>
@@ -103,6 +126,72 @@ const meta = {
       </div>
     </div>
   </article>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('cardBtn');
+      if (!btn) return;
+      function wrap(ctx, text, maxW) {
+        var words = (text || '').split(/\s+/), lines = [], line = '';
+        for (var i = 0; i < words.length; i++) {
+          var test = line ? line + ' ' + words[i] : words[i];
+          if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = words[i]; } else line = test;
+        }
+        if (line) lines.push(line);
+        return lines;
+      }
+      function spaced(ctx, text, cx, y, sp) {
+        var widths = [], total = 0, i;
+        for (i = 0; i < text.length; i++) { var w = ctx.measureText(text[i]).width; widths.push(w); total += w + sp; }
+        total -= sp; var sx = cx - total / 2; ctx.textAlign = 'left';
+        for (i = 0; i < text.length; i++) { ctx.fillText(text[i], sx, y); sx += widths[i] + sp; }
+        ctx.textAlign = 'center';
+      }
+      function titleText() { var el = document.querySelector('.reader-title'); return (el && el.textContent) || document.title; }
+      function draw() {
+        var S = 1080, c = document.createElement('canvas'); c.width = S; c.height = S;
+        var x = c.getContext('2d');
+        var g = x.createLinearGradient(0, 0, 0, S);
+        g.addColorStop(0, '#1c1308'); g.addColorStop(1, '#0b0907');
+        x.fillStyle = g; x.fillRect(0, 0, S, S);
+        x.strokeStyle = 'rgba(200,162,74,.5)'; x.lineWidth = 2; x.strokeRect(48, 48, S - 96, S - 96);
+        x.textAlign = 'center'; x.textBaseline = 'alphabetic';
+        x.fillStyle = '#c8a24a'; x.font = '44px Cormorant, serif'; x.fillText('\u2726', S / 2, 176);
+        var title = titleText();
+        var size = title.length > 40 ? 58 : 76;
+        x.fillStyle = '#ece2cc'; x.font = '600 ' + size + 'px Cormorant, serif';
+        var lines = wrap(x, title, S - 240), lh = size * 1.12, blockH = lines.length * lh;
+        var startY = S / 2 - blockH / 2 + size * 0.34, i;
+        for (i = 0; i < lines.length; i++) x.fillText(lines[i], S / 2, startY + i * lh);
+        var saint = btn.dataset.saint || '';
+        if (saint) { x.fillStyle = 'rgba(200,162,74,.9)'; x.font = 'italic 34px "EB Garamond", serif'; x.fillText(saint, S / 2, startY + lines.length * lh + 26); }
+        var name = (window.__SITE__ && window.__SITE__.name) || 'Oratorio Digital';
+        x.fillStyle = '#c8a24a'; x.font = '500 26px "EB Garamond", serif';
+        spaced(x, name.toUpperCase(), S / 2, S - 92, 6);
+        return c;
+      }
+      function go() {
+        var c = draw();
+        c.toBlob(function (blob) {
+          if (!blob) return;
+          var title = titleText();
+          var fname = (title || 'oracao').replace(/[^a-z0-9]+/gi, '-').replace(/^-+|-+$/g, '').toLowerCase() || 'oracao';
+          try {
+            var file = new File([blob], fname + '.png', { type: 'image/png' });
+            if (navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file], title: title }).catch(function () {}); return; }
+          } catch (e) {}
+          var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fname + '.png';
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+        }, 'image/png');
+      }
+      btn.addEventListener('click', function () {
+        if (document.fonts && document.fonts.load) {
+          Promise.all([document.fonts.load('600 76px Cormorant'), document.fonts.load('italic 34px "EB Garamond"'), document.fonts.load('500 26px "EB Garamond"')]).then(go).catch(go);
+        } else go();
+      });
+    })();
+  </script>
 
   <!-- ░░ Overlay de conclusão ░░ -->
   <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="ovTitle">
