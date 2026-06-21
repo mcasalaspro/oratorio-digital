@@ -10,8 +10,7 @@ import { defineConfig } from 'astro/config';
 //    use base: '/'.
 // ───────────────────────────────────────────────────────────────
 export default defineConfig({
-  site: 'https://SEU-USUARIO.github.io',
-  base: '/oratorio-digital',
-  trailingSlash: 'ignore',
-  build: { format: 'directory' },
-});
+  site: 'https://www.oratoriodigital.com',
+  base: '/',
+  ...
+})
