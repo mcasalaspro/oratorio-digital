@@ -17,6 +17,7 @@ export const site = {
     base: 'https://abacus.jasoncameron.dev',
     namespace: 'oratorio-digital-EXEMPLO-troque-isto',
     totalKey: 'total', // chave do contador global somado de todas as orações
+    visitsKey: 'visits', // chave do contador de visitas (página inicial)
   },
 
   // ── CAPTCHA anti-bot (Cloudflare Turnstile) — OPCIONAL ──
@@ -126,6 +127,14 @@ export const ui = {
     month_5: 'Maio', month_6: 'Junho', month_7: 'Julho', month_8: 'Agosto',
     month_9: 'Setembro', month_10: 'Outubro', month_11: 'Novembro', month_12: 'Dezembro',
     stat_prayers: 'orações', stat_bios: 'biografias',
+    nav_about: 'Sobre',
+    visits_label: 'visitas',
+    about_title: 'Sobre o projeto',
+    about_p1: 'O Oratório Digital nasceu de um desejo simples: reunir e organizar orações católicas em um só lugar, para ajudar na sua vida de oração.',
+    about_p2: 'É um projeto pessoal, feito com cuidado e mantido com tempo e recursos próprios. Por isso, é possível que você encontre algum erro ou veja algo que possa melhorar. Me avise! Toda ajuda é muito bem-vinda.',
+    about_contact: 'Tem uma sugestão, uma correção ou só quer compartilhar algo? Fale comigo:',
+    about_support: 'E se este espaço tem ajudado na sua oração e você quiser contribuir com os custos de mantê-lo no ar, me avise!',
+    about_thanks: 'Obrigado e aproveite!',
     filter_type: 'Tipo',
     filter_lang: 'Idioma',
     type_oracao: 'Oração',
@@ -248,6 +257,14 @@ export const ui = {
     month_5: 'May', month_6: 'June', month_7: 'July', month_8: 'August',
     month_9: 'September', month_10: 'October', month_11: 'November', month_12: 'December',
     stat_prayers: 'prayers', stat_bios: 'biographies',
+    nav_about: 'About',
+    visits_label: 'visits',
+    about_title: 'About the project',
+    about_p1: 'Oratório Digital was born from a simple wish: to gather and organize Catholic prayers in one place, to help your prayer life.',
+    about_p2: 'It is a personal project, made with care and kept online with my own time and resources. So you may find a mistake or see something that could be improved. Let me know! Any help is very welcome.',
+    about_contact: 'Have a suggestion, a correction, or just want to share something? Reach out:',
+    about_support: "And if this space has helped your prayer and you'd like to contribute to the costs of keeping it online, let me know!",
+    about_thanks: 'Thank you, and enjoy!',
     filter_type: 'Type',
     filter_lang: 'Language',
     type_oracao: 'Prayer',

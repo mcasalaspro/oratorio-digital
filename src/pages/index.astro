@@ -60,11 +60,11 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     <img class="hero-bg" src={withBase('/textures/rays.webp')} alt="" aria-hidden="true" data-parallax="0.12" onerror="this.style.display='none'" />
     <span class="hero-shade" aria-hidden="true"></span>
     <div class="hero-inner">
+      <img class="hero-logo" src={withBase('/logo.png')} alt={site.name} width="164" height="164" />
       <span class="season-badge" id="seasonBadge" hidden>
         <span class="season-dot" aria-hidden="true"></span>
         <span id="seasonBadgeText"></span>
       </span>
-      <p class="hero-kicker" data-i18n="hero_kicker">Reze com calma</p>
       <h1>{site.name}</h1>
       <p class="lead-line">{site.tagline}</p>
       <p class="hero-stats"><strong>{all.length}</strong> <span data-i18n="stat_prayers">orações</span><span class="sep">·</span><strong>{bios.length}</strong> <span data-i18n="stat_bios">biografias</span></p>
@@ -186,6 +186,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     </div>
   </section>
 
+  <p class="visit-counter" id="visitCounter" hidden><span id="visitNumber">—</span> <span data-i18n="visits_label">visitas</span></p>
+
   <script>
     // ── Contador da comunidade ──
     (function () {
@@ -210,6 +212,25 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       fetch(url).then((r) => (r.ok ? r.json() : { value: 0 }))
         .then((d) => animateTo(Number(d.value) || 0))
         .catch(() => { el!.textContent = '0'; });
+    })();
+
+    // ── Contador de visitas (Abacus) ──
+    (function () {
+      const cfg = (window as any).__SITE__;
+      const box = document.getElementById('visitCounter');
+      const num = document.getElementById('visitNumber');
+      if (!box || !num || !cfg?.counter?.enabled) return;
+      const key = cfg.counter.visitsKey || 'visits';
+      let counted = false;
+      try { counted = sessionStorage.getItem('od-visited') === '1'; } catch (e) {}
+      const url = `${cfg.counter.base}/${counted ? 'get' : 'hit'}/${cfg.counter.namespace}/${key}`;
+      fetch(url).then((r) => (r.ok ? r.json() : null)).then((d) => {
+        if (!d || typeof d.value !== 'number') return;
+        const l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
+        num.textContent = new Intl.NumberFormat(l).format(d.value);
+        box.hidden = false;
+        try { sessionStorage.setItem('od-visited', '1'); } catch (e) {}
+      }).catch(() => {});
     })();
 
     // ── Oração do dia (calculada na data atual do visitante) ──

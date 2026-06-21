@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Sobre o projeto" description="Sobre o Oratório Digital — um espaço para rezar com calma.">
+  <section class="section">
+    <div class="wrap about-wrap">
+      <p class="eyebrow" data-i18n="about_title">Sobre o projeto</p>
+      <h1 class="section-title" data-i18n="about_title">Sobre o projeto</h1>
+
+      <div class="about-body">
+        <p data-i18n="about_p1">O Oratório Digital nasceu de um desejo simples: reunir e organizar orações católicas em um só lugar, para ajudar na sua vida de oração.</p>
+        <p data-i18n="about_p2">É um projeto pessoal, feito com cuidado e mantido com tempo e recursos próprios. Por isso, é possível que você encontre algum erro ou veja algo que possa melhorar. Me avise! Toda ajuda é muito bem-vinda.</p>
+
+        <p class="about-contact-lead" data-i18n="about_contact">Tem uma sugestão, uma correção ou só quer compartilhar algo? Fale comigo:</p>
+        <div class="about-links">
+          <a class="about-link" href="mailto:maurizio.casalaspro@gmail.com">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5C3 5.7 3.7 5 4.5 5h15c.8 0 1.5.7 1.5 1.5v11c0 .8-.7 1.5-1.5 1.5h-15C3.7 19 3 18.3 3 17.5v-11z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 6.5l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span>maurizio.casalaspro@gmail.com</span>
+          </a>
+          <a class="about-link" href="https://instagram.com/mcasalaspro" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+            <span>@mcasalaspro</span>
+          </a>
+        </div>
+
+        <!-- Para receber doações: cole aqui um botão com sua chave PIX ou link (ex.: Apoia.se, Buy Me a Coffee). -->
+        <p class="about-support" data-i18n="about_support">E se este espaço tem ajudado na sua oração e você quiser contribuir com os custos de mantê-lo no ar, me avise!</p>
+        <p class="about-thanks" data-i18n="about_thanks">Obrigado e aproveite!</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-wrap { max-width: 46rem; }
+    .about-body p { font-size: 1.12rem; line-height: 1.7; color: var(--ink); margin: 0 0 1.2rem; }
+    .about-contact-lead { margin-top: 1.8rem; }
+    .about-links { display: flex; flex-wrap: wrap; gap: .7rem; margin: 0 0 1.8rem; }
+    .about-link { display: inline-flex; align-items: center; gap: .6rem; padding: .65rem 1rem; border: 1px solid var(--hair); border-radius: 12px; text-decoration: none; color: var(--ink); font-size: .95rem; transition: border-color .2s, color .2s, transform .2s; }
+    .about-link:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+    .about-link svg { color: var(--gold); flex: 0 0 auto; }
+    .about-support { border-left: 2px solid var(--gold); padding: .2rem 0 .2rem 1.1rem; color: var(--ink-soft); font-style: italic; }
+    .about-thanks { font-family: 'Cormorant', serif; font-size: 1.35rem; color: var(--gold); margin: 1.5rem 0 0; }
+  </style>
+</Base>

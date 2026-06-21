@@ -19,7 +19,9 @@ const clientConfig = {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
   <meta name="description" content={desc} />
-  <link rel="icon" type="image/svg+xml" href={`${base.replace(/\/$/,'')}/favicon.svg`} />
+  <link rel="icon" type="image/png" sizes="32x32" href={`${base.replace(/\/$/,'')}/favicon-32.png`} />
+  <link rel="icon" type="image/png" sizes="48x48" href={`${base.replace(/\/$/,'')}/favicon-48.png`} />
+  <link rel="apple-touch-icon" href={`${base.replace(/\/$/,'')}/apple-touch-icon.png`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
@@ -113,7 +115,7 @@ const clientConfig = {
   <header class="topbar">
     <a class="brand" href={base}>
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3c4 4 0 8 0 12 -4 -5 0 -8 0 -12z" fill="currentColor"/><rect x="10.5" y="13" width="3" height="6" rx="1.2" fill="currentColor"/></svg>
+        <img src={`${base.replace(/\/$/,'')}/logo.png`} alt="" width="30" height="30" />
       </span>
       <span class="brand-text">{site.name}</span>
     </a>
@@ -122,6 +124,7 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
+      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
       <button id="searchBtn" class="icon-btn" type="button" aria-label="Buscar" title="Buscar">
         <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
@@ -147,6 +150,7 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
+      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
     </nav>
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
@@ -298,6 +302,7 @@ const clientConfig = {
     }
     .brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); }
     .brand-mark { color: var(--gold); display: inline-flex; }
+    .brand-mark img { width: 30px; height: 30px; display: block; }
     .brand-text { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: .02em; }
     .topnav { display: flex; align-items: center; gap: .35rem; }
     .topnav a {
@@ -360,6 +365,7 @@ const clientConfig = {
         linear-gradient(180deg, rgba(18,12,6,.40) 0%, rgba(18,12,6,.10) 34%, rgba(18,12,6,.78) 100%);
     }
     .hero-inner { position: relative; z-index: 2; max-width: 40rem; margin: 0 auto; }
+    .hero-logo { display: block; width: clamp(108px, 17vw, 164px); height: auto; margin: 0 auto 1.1rem; }
     .hero-kicker { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; color: var(--flame); margin: 0 0 1rem; }
     .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); margin: 0 0 1rem; color: #f7eed9; }
     .hero p.lead-line { font-size: 1.15rem; color: #d8c8a8; margin: 0 auto 1.1rem; max-width: 32rem; }
@@ -531,6 +537,8 @@ const clientConfig = {
     .footnav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.1rem; margin: .5rem 0 .9rem; }
     .footnav a { color: var(--ink-soft); text-decoration: none; font-size: .9rem; transition: color .2s; }
     .footnav a:hover { color: var(--gold); }
+    .visit-counter { text-align: center; font-size: .72rem; letter-spacing: .05em; color: var(--ink-soft); opacity: .55; margin: 0 0 1.6rem; }
+    .visit-counter[hidden] { display: none; }
     .show-more { display: block; margin: 1.5rem auto 0; }
     /* busca global */
     .search-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(8,5,2,.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); display: flex; align-items: flex-start; justify-content: center; padding: 10vh 1rem 2rem; }
