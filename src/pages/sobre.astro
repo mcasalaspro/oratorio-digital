@@ -1,13 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import { withBase } from '../config/site';
 ---
 <Base title="Sobre o projeto" description="Sobre o Oratório Digital — um espaço para rezar com calma.">
-  <section class="section">
-    <div class="wrap about-wrap">
-      <p class="eyebrow" data-i18n="about_title">Sobre o projeto</p>
-      <h1 class="section-title" data-i18n="about_title">Sobre o projeto</h1>
+  <section class="about-hero">
+    <div class="about-bg" style={`background-image: url('${withBase('/sobre-bg.webp')}')`} aria-hidden="true"></div>
+    <div class="about-shade" aria-hidden="true"></div>
 
-      <div class="about-body">
+    <div class="about-wrap">
+      <div class="about-card">
+        <h1 class="about-h1" data-i18n="about_title">Sobre o projeto</h1>
+
         <p data-i18n="about_p1">O Oratório Digital nasceu de um desejo simples: reunir e organizar orações católicas em um só lugar, para ajudar na sua vida de oração.</p>
         <p data-i18n="about_p2">É um projeto pessoal, feito com cuidado e mantido com tempo e recursos próprios. Por isso, é possível que você encontre algum erro ou veja algo que possa melhorar. Me avise! Toda ajuda é muito bem-vinda.</p>
 
@@ -31,14 +34,33 @@ import Base from '../layouts/Base.astro';
   </section>
 
   <style>
-    .about-wrap { max-width: 46rem; }
-    .about-body p { font-size: 1.12rem; line-height: 1.7; color: var(--ink); margin: 0 0 1.2rem; }
-    .about-contact-lead { margin-top: 1.8rem; }
-    .about-links { display: flex; flex-wrap: wrap; gap: .7rem; margin: 0 0 1.8rem; }
-    .about-link { display: inline-flex; align-items: center; gap: .6rem; padding: .65rem 1rem; border: 1px solid var(--hair); border-radius: 12px; text-decoration: none; color: var(--ink); font-size: .95rem; transition: border-color .2s, color .2s, transform .2s; }
-    .about-link:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+    /* área ocupa a tela toda, valorizando a imagem de fundo */
+    .about-hero {
+      position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; align-items: center;
+      /* fundo reserva (caso a imagem ainda não exista) */
+      background: radial-gradient(120% 100% at 50% 0%, #2a1d0e 0%, #1a1208 55%, #120c06 100%);
+    }
+    .about-bg { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
+    .about-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,5,2,.5) 0%, rgba(8,5,2,.4) 45%, rgba(8,5,2,.66) 100%); }
+
+    .about-wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 4rem clamp(1rem, 4vw, 2.2rem); }
+    .about-card {
+      max-width: 42rem; margin: 0 auto;
+      background: rgba(30, 28, 25, .82);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border: 1px solid rgba(200, 162, 74, .22); border-radius: 18px;
+      padding: clamp(1.8rem, 4vw, 2.8rem);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+    }
+    .about-h1 { font-family: 'Cormorant', serif; font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 600; color: #f3e9d6; margin: 0 0 1.2rem; }
+    .about-card p { font-size: 1.1rem; line-height: 1.7; color: #e7ddc9; margin: 0 0 1.1rem; }
+    .about-contact-lead { margin-top: 1.6rem; color: #efe6d3; }
+    .about-links { display: flex; flex-wrap: wrap; gap: .7rem; margin: 0 0 1.6rem; }
+    .about-link { display: inline-flex; align-items: center; gap: .6rem; padding: .6rem 1rem; border: 1px solid rgba(200,162,74,.4); border-radius: 12px; text-decoration: none; color: #f0e7d4; font-size: .95rem; transition: border-color .2s, color .2s, transform .2s, background .2s; }
+    .about-link:hover { border-color: var(--gold); color: #fff; background: rgba(200,162,74,.12); transform: translateY(-1px); }
     .about-link svg { color: var(--gold); flex: 0 0 auto; }
-    .about-support { border-left: 2px solid var(--gold); padding: .2rem 0 .2rem 1.1rem; color: var(--ink-soft); font-style: italic; }
-    .about-thanks { font-family: 'Cormorant', serif; font-size: 1.35rem; color: var(--gold); margin: 1.5rem 0 0; }
+    .about-support { border-left: 2px solid var(--gold); padding: .1rem 0 .1rem 1.1rem; color: #d8cdb6; font-style: italic; }
+    .about-thanks { font-family: 'Cormorant', serif; font-size: 1.4rem; color: var(--gold); margin: 1.4rem 0 0; }
   </style>
 </Base>

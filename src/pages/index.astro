@@ -67,7 +67,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       </span>
       <h1>{site.name}</h1>
       <p class="lead-line">{site.tagline}</p>
-      <p class="hero-stats"><strong>{all.length}</strong> <span data-i18n="stat_prayers">orações</span><span class="sep">·</span><strong>{bios.length}</strong> <span data-i18n="stat_bios">biografias</span></p>
+      <p class="hero-stats"><strong>{all.length}</strong> <span data-i18n="stat_prayers">orações</span><span class="sep">·</span><strong>{bios.length}</strong> <span data-i18n="stat_bios">biografias</span><span class="sep">·</span><strong id="visitNumber">—</strong> <span data-i18n="visits_label">visitas</span></p>
       {site.showCommunityCounter && <CommunityCounter />}
     </div>
   </section>
@@ -186,7 +186,6 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     </div>
   </section>
 
-  <p class="visit-counter" id="visitCounter" hidden><span id="visitNumber">—</span> <span data-i18n="visits_label">visitas</span></p>
 
   <script>
     // ── Contador da comunidade ──
@@ -217,9 +216,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     // ── Contador de visitas (Abacus) ──
     (function () {
       const cfg = (window as any).__SITE__;
-      const box = document.getElementById('visitCounter');
       const num = document.getElementById('visitNumber');
-      if (!box || !num || !cfg?.counter?.enabled) return;
+      if (!num || !cfg?.counter?.enabled) return;
       const key = cfg.counter.visitsKey || 'visits';
       let counted = false;
       try { counted = sessionStorage.getItem('od-visited') === '1'; } catch (e) {}
@@ -228,7 +226,6 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         if (!d || typeof d.value !== 'number') return;
         const l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
         num.textContent = new Intl.NumberFormat(l).format(d.value);
-        box.hidden = false;
         try { sessionStorage.setItem('od-visited', '1'); } catch (e) {}
       }).catch(() => {});
     })();
