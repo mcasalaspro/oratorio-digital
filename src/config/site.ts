@@ -15,7 +15,7 @@ export const site = {
   counter: {
     enabled: true,
     base: 'https://abacus.jasoncameron.dev',
-    namespace: 'oratorio-digital-EXEMPLO-troque-isto',
+    namespace: 'oratorio-digital-mc-9f3a7c2e',
     totalKey: 'total', // chave do contador global somado de todas as orações
     visitsKey: 'visits', // chave do contador de visitas (página inicial)
   },
