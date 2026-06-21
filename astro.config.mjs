@@ -1,17 +1,12 @@
 import { defineConfig } from 'astro/config';
-
 // ───────────────────────────────────────────────────────────────
-//  CONFIGURAÇÃO DO DEPLOY (GitHub Pages)
+//  CONFIGURAÇÃO DO DEPLOY (Domínio customizado)
 //
-//  • Se você nomear seu repositório EXATAMENTE como "oratorio-digital",
-//    não precisa mudar nada aqui — só troque SEU-USUARIO pelo seu login.
-//  • Se usar outro nome de repositório, ajuste "base" para "/nome-do-repo".
-//  • Se publicar em https://SEU-USUARIO.github.io (repositório de usuário),
-//    use base: '/'.
+//  Usando domínio próprio: www.oratoriodigital.com
 // ───────────────────────────────────────────────────────────────
 export default defineConfig({
-  site: 'https://SEU-USUARIO.github.io',
-  base: '/oratorio-digital',
+  site: 'https://www.oratoriodigital.com',
+  base: '/',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
 });
