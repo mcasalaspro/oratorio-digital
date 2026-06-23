@@ -13,7 +13,7 @@ const clientConfig = {
 };
 ---
 <!doctype html>
-<html lang="pt-BR" data-theme="light" data-lang="pt-BR">
+<html lang="pt-BR" data-theme="dark" data-lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,7 +31,7 @@ const clientConfig = {
     (function () {
       try {
         var t = localStorage.getItem('od-theme');
-        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (!t) t = 'dark';
         document.documentElement.setAttribute('data-theme', t);
         var l = localStorage.getItem('od-lang') || 'pt-BR';
         document.documentElement.setAttribute('data-lang', l);
@@ -79,6 +79,26 @@ const clientConfig = {
       function add(dt, n) { var x = new Date(dt); x.setDate(x.getDate() + n); return x; }
       function firstAdvent(y) { var d = new Date(y, 10, 30), w = d.getDay(); if (w === 0) return d; return w <= 3 ? add(d, -w) : add(d, 7 - w); }
       function baptism(y) { var d = new Date(y, 0, 6), w = d.getDay(); return w === 0 ? add(d, 7) : add(d, 7 - w); }
+      function transitions(y) {
+        var E = easter(y);
+        return [
+          { d: add(baptism(y), 1), k: 'comum' },
+          { d: add(E, -46), k: 'quaresma' },
+          { d: E, k: 'pascoa' },
+          { d: add(E, 50), k: 'comum' },
+          { d: firstAdvent(y), k: 'advento' },
+          { d: new Date(y, 11, 25), k: 'natal' }
+        ];
+      }
+      function nextSeason(dd) {
+        var today = new Date(dd.getFullYear(), dd.getMonth(), dd.getDate());
+        var list = transitions(today.getFullYear() - 1)
+          .concat(transitions(today.getFullYear()))
+          .concat(transitions(today.getFullYear() + 1));
+        list = list.filter(function (e) { return e.d.getTime() > today.getTime(); })
+                   .sort(function (a, b) { return a.d.getTime() - b.d.getTime(); });
+        return list[0];
+      }
       function season(dd) {
         var d = new Date(dd.getFullYear(), dd.getMonth(), dd.getDate()), y = d.getFullYear(), t = d.getTime();
         if (t >= new Date(y - 1, 11, 25).getTime() && t <= baptism(y).getTime()) return 'natal';
@@ -97,11 +117,23 @@ const clientConfig = {
         document.documentElement.dataset.season = key;
         document.documentElement.style.setProperty('--season', COLORS[key] || '#c8a24a');
       } catch (e) {}
+      var nxt = null;
+      try { nxt = nextSeason(new Date()); } catch (e) {}
       var applyTag = function () {
+        var lang = document.documentElement.getAttribute('data-lang') || 'pt-BR';
         var name = window.odt('season_' + key);
         var ft = document.getElementById('seasonTag'); if (ft) ft.textContent = name;
         var bt = document.getElementById('seasonBadgeText'); if (bt) bt.textContent = name;
         var bg = document.getElementById('seasonBadge'); if (bg) bg.hidden = false;
+        var nx = document.getElementById('seasonNext');
+        if (nx && nxt && nxt.d) {
+          var opts = { day: 'numeric', month: 'long' };
+          if (nxt.d.getFullYear() !== new Date().getFullYear()) opts.year = 'numeric';
+          var dateStr = nxt.d.toLocaleDateString(lang, opts);
+          var nextName = window.odt('season_' + nxt.k);
+          nx.innerHTML = window.odt('season_until') + ' ' + dateStr + ' · ' + window.odt('season_then') + ' <b>' + nextName + '</b>';
+          nx.hidden = false;
+        }
       };
       if (document.readyState !== 'loading') applyTag(); else document.addEventListener('DOMContentLoaded', applyTag);
       document.addEventListener('od:lang', applyTag);
@@ -126,6 +158,12 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
+      <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
+      <button id="themeBtn" class="icon-btn nav-theme" type="button" aria-label="Modo claro/escuro" title="Modo claro/escuro">
+        <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.2" y1="5.2" x2="6.9" y2="6.9"/><line x1="17.1" y1="17.1" x2="18.8" y2="18.8"/><line x1="5.2" y1="18.8" x2="6.9" y2="17.1"/><line x1="17.1" y1="6.9" x2="18.8" y2="5.2"/></g></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              <span class="nav-theme-label" data-i18n="theme_toggle">Modo claro/escuro</span>
+      </button>
       </div>
       <div class="topnav-actions">
       <button id="searchBtn" class="icon-btn" type="button" aria-label="Buscar" title="Buscar">
@@ -133,10 +171,6 @@ const clientConfig = {
       </button>
       <button id="langBtn" class="icon-btn" type="button" aria-label="Idioma" title="Idioma">
         <span id="langCode">PT</span>
-      </button>
-      <button id="themeBtn" class="icon-btn" type="button" aria-label="Modo claro/escuro" title="Modo claro/escuro">
-        <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.2" y1="5.2" x2="6.9" y2="6.9"/><line x1="17.1" y1="17.1" x2="18.8" y2="18.8"/><line x1="5.2" y1="18.8" x2="6.9" y2="17.1"/><line x1="17.1" y1="6.9" x2="18.8" y2="5.2"/></g></svg>
-        <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
       </button>
         <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
           <svg class="i-menu" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -160,6 +194,7 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
       <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
+      <a href={`${base.replace(/\/$/,'')}/tempos-liturgicos`} data-i18n="nav_tempos">Tempos litúrgicos</a>
     </nav>
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
@@ -338,6 +373,7 @@ const clientConfig = {
     .topnav a:hover { color: var(--gold); }
     .topnav-links { display: flex; align-items: center; gap: .2rem; }
     .topnav-actions { display: flex; align-items: center; gap: .35rem; }
+    .nav-theme .nav-theme-label { display: none; }
     .nav-toggle { display: none; }
     .nav-toggle .i-close { display: none; }
     .topbar.nav-open .nav-toggle .i-menu { display: none; }
@@ -518,9 +554,14 @@ const clientConfig = {
     .foot-mark { color: var(--season, var(--gold)); font-size: 1.1rem; }
     .season-tag { margin: -.2rem 0 .2rem; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--season, var(--gold)); opacity: .9; }
     .season-tag:empty { display: none; }
-    .season-badge { display: inline-flex; align-items: center; gap: .55rem; margin: 0 0 1.1rem; padding: .34rem .85rem .34rem .72rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--season, var(--gold)) 50%, var(--hair)); background: color-mix(in srgb, var(--season, var(--gold)) 15%, transparent); color: var(--ink); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; }
+    .season-badge { display: inline-flex; align-items: center; gap: .6rem; margin: 0 0 .55rem; padding: .55rem 1.25rem .55rem 1rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--season, var(--gold)) 58%, var(--hair)); background: color-mix(in srgb, var(--season, var(--gold)) 17%, transparent); color: #f1e7d3; font-size: .86rem; letter-spacing: .19em; text-transform: uppercase; text-decoration: none; transition: border-color .2s, background-color .2s, transform .2s; }
+    .season-badge:hover { border-color: color-mix(in srgb, var(--season, var(--gold)) 82%, var(--hair)); background: color-mix(in srgb, var(--season, var(--gold)) 25%, transparent); transform: translateY(-1px); }
     .season-badge[hidden] { display: none; }
-    .season-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--season, var(--gold)); box-shadow: 0 0 10px color-mix(in srgb, var(--season, var(--gold)) 75%, transparent); flex: 0 0 auto; }
+    .season-dot { width: 13px; height: 13px; border-radius: 50%; background: var(--season, var(--gold)); box-shadow: 0 0 13px color-mix(in srgb, var(--season, var(--gold)) 82%, transparent); flex: 0 0 auto; }
+    .season-next { display: inline-block; margin: 0 0 1.4rem; font-size: .9rem; letter-spacing: .01em; color: #cebf9d; text-decoration: none; }
+    .season-next b { color: #ece2d0; font-weight: 600; }
+    .season-next:hover { color: var(--season, var(--gold)); text-decoration: underline; text-underline-offset: 3px; }
+    .season-next[hidden] { display: none; }
     .foot-small { font-size: .82rem; opacity: .8; }
 
     /* ════════ READING PAGE ════════ */
@@ -669,6 +710,9 @@ const clientConfig = {
       display: inline-grid; place-items: center; transition: all .18s;
     }
     .rg-btn:hover { border-color: var(--gold); color: var(--gold); }
+    #rgPlay .i-pause { display: none; }
+    #rgPlay.is-playing .i-play { display: none; }
+    #rgPlay.is-playing .i-pause { display: block; }
     .rg-speed { display: inline-flex; align-items: center; gap: .4rem; margin-left: auto; }
     .rg-speed select {
       min-height: 40px; padding: .25rem .5rem; border-radius: 9px; border: 1px solid var(--hair);
@@ -744,8 +788,11 @@ const clientConfig = {
         box-shadow: 0 14px 30px var(--shadow); display: none;
       }
       .topbar.nav-open .topnav-links { display: flex; }
-      .topnav-links a { font-size: .8rem; letter-spacing: .1em; padding: .8rem .3rem; border-bottom: 1px solid color-mix(in srgb, var(--hair) 55%, transparent); }
-      .topnav-links a:last-child { border-bottom: none; }
+      .topnav-links a,
+      .topnav-links .nav-theme { font-size: .8rem; letter-spacing: .1em; padding: .8rem .3rem; border: none; border-bottom: 1px solid color-mix(in srgb, var(--hair) 55%, transparent); border-radius: 0; background: none; }
+      .topnav-links > *:last-child { border-bottom: none; }
+      .nav-theme { display: flex; align-items: center; justify-content: flex-start; width: 100%; height: auto; gap: .65rem; text-transform: uppercase; color: var(--ink); }
+      .nav-theme .nav-theme-label { display: inline; }
     }
     @media (max-width: 560px) {
       body { font-size: 18px; }

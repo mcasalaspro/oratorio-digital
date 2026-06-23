@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../config/site';
+import { Content, frontmatter } from '../content/paginas/tempos-liturgicos.md';
+---
+<Base title={frontmatter.title} description={frontmatter.description}>
+  <section class="tl-section">
+    <div class="tl-wrap">
+      <a class="tl-back" href={withBase('/')}>
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-i18n="nav_home">Início</span>
+      </a>
+
+      <p class="tl-eyebrow">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <span data-i18n="nav_tempos">Tempos litúrgicos</span>
+      </p>
+      <h1 class="tl-title">{frontmatter.title}</h1>
+
+      <article class="tl-prose">
+        <Content />
+      </article>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .tl-section { padding: clamp(2rem, 6vw, 4rem) 1.2rem clamp(3rem, 8vw, 5rem); }
+  .tl-wrap { max-width: 44rem; margin: 0 auto; }
+
+  .tl-back {
+    display: inline-flex; align-items: center; gap: .4rem;
+    color: var(--ink-soft); text-decoration: none; font-size: .9rem;
+    letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1.6rem;
+    transition: color .2s;
+  }
+  .tl-back:hover { color: var(--gold); }
+
+  .tl-eyebrow {
+    display: inline-flex; align-items: center; gap: .55rem;
+    color: var(--season, var(--gold)); font-size: .8rem;
+    letter-spacing: .22em; text-transform: uppercase; margin: 0 0 .6rem;
+  }
+  .tl-dot {
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--season, var(--gold));
+    box-shadow: 0 0 11px color-mix(in srgb, var(--season, var(--gold)) 75%, transparent);
+  }
+  .tl-title {
+    font-family: 'Cormorant', serif; font-weight: 600;
+    font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1;
+    color: var(--ink); margin: 0 0 1.8rem;
+  }
+
+  .tl-prose { color: var(--ink); }
+  .tl-prose :global(p) {
+    font-family: 'EB Garamond', serif; font-size: 1.12rem;
+    line-height: 1.8; color: var(--ink-soft); margin: 0 0 1.2rem;
+  }
+  .tl-prose :global(h2) {
+    font-family: 'Cormorant', serif; font-weight: 600;
+    font-size: 1.7rem; color: var(--ink); margin: 2.2rem 0 .7rem;
+    padding-top: 1.4rem; border-top: 1px solid var(--hair);
+  }
+  .tl-prose :global(h2:first-of-type) { margin-top: 1.4rem; }
+  .tl-prose :global(strong) { color: var(--ink); font-weight: 600; }
+  .tl-prose :global(hr) {
+    border: none; height: 1px;
+    background: linear-gradient(to right, transparent, var(--hair), transparent);
+    margin: 2.4rem 0;
+  }
+  .tl-prose :global(a) { color: var(--gold); }
+</style>

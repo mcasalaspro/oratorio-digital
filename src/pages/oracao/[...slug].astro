@@ -97,7 +97,8 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
         <span class="rg-title" data-i18n="reading_assistant">Assistente de leitura</span>
         <div class="rg-controls">
           <button id="rgPlay" class="rg-btn" type="button" aria-label="Iniciar">
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor"/></svg>
+            <svg class="i-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor"/></svg>
+            <svg class="i-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z" fill="currentColor"/></svg>
             <span id="rgPlayLabel">Iniciar</span>
           </button>
           <button id="rgRestart" class="rg-btn" type="button" aria-label="Reiniciar">
@@ -417,6 +418,8 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       function playLabel() {
         var lab = document.getElementById('rgPlayLabel');
         if (lab) lab.textContent = playing ? t('pause') : ((bi > 0 || li > 0 || wi > 0) ? t('resume') : t('start'));
+        var btn = document.getElementById('rgPlay');
+        if (btn) { btn.classList.toggle('is-playing', playing); btn.setAttribute('aria-label', lab ? lab.textContent : ''); }
       }
       function onReadingEnd() {
         playing = false;
