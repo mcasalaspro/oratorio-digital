@@ -1,0 +1,54 @@
+# ╔════════════════════════════════════════════════════════════════╗
+# ║  PRODUTOS RELACIONADOS — gerencie TUDO neste único arquivo.       ║
+# ╠════════════════════════════════════════════════════════════════╣
+# ║  Cada produto começa com "- " e tem os campos:                  ║
+# ║                                                                  ║
+# ║  id         identificador único, sem espaços. Ex.: livro-imitacao
+# ║  nome       nome que aparece no card                             ║
+# ║  descricao  (opcional) uma linha curta                          ║
+# ║  categoria  livro | vestuario | acessorio | arte | terco |       ║
+# ║             medalha | curso | outro                              ║
+# ║  imagem     caminho local (/produtos/arquivo.webp) OU            ║
+# ║             link de imagem do site (https://.../foto.jpg)        ║
+# ║             (opcional — sem imagem o card mostra só o texto)      ║
+# ║  link       seu link de afiliado (Amazon, Mercado Livre, etc.)   ║
+# ║  paginas    (opcional) slugs das páginas onde aparece            ║
+# ║             ex.: [pai-nosso, ave-maria]                          ║
+# ║  santo      (opcional) aparece em QUALQUER página desse santo     ║
+# ║             ex.: "São Miguel Arcanjo"                            ║
+# ║                                                                  ║
+# ║  Use "paginas" OU "santo" (ou os dois). Se nada casar com a      ║
+# ║  página, o produto não aparece — e a seção some por completo.    ║
+# ║                                                                  ║
+# ║  ▸ Imagens locais: coloque o arquivo em  public/produtos/  e o   ║
+# ║    site gera uma miniatura leve automaticamente.                 ║
+# ║  ▸ Para começar: copie um bloco do MODELO abaixo (sem o "# "),   ║
+# ║    cole aqui em cima e preencha com o seu produto.               ║
+# ╚════════════════════════════════════════════════════════════════╝
+
+# ───────── coloque seus produtos a partir daqui ─────────
+
+
+# ───────── MODELO (copie, remova o "# " do início das linhas) ─────────
+# - id: livro-imitacao-cristo
+#   nome: A Imitação de Cristo
+#   descricao: Clássico da espiritualidade cristã
+#   categoria: livro
+#   imagem: /produtos/imitacao-cristo.webp
+#   link: https://www.amazon.com.br/dp/SEU-CODIGO?tag=SEU-TAG
+#   paginas: [pai-nosso, ave-maria]
+#
+# - id: medalha-sao-miguel
+#   nome: Medalha de São Miguel Arcanjo
+#   descricao: Banhada a ouro, com corrente
+#   categoria: medalha
+#   imagem: https://site-da-loja.com/foto-do-produto.jpg
+#   link: https://www.mercadolivre.com.br/SEU-LINK
+#   santo: São Miguel Arcanjo
+
+- id: livro-dom-bosco
+  nome: "Dom Bosco: Fundador da família Salesiana"
+  descricao: Biografia de Dom Bosco
+  categoria: livro
+  link: https://link.amazon/B02KMC132
+  santo: Bosco

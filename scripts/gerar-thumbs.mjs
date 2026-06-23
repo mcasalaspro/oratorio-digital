@@ -6,7 +6,7 @@ import { readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
-const DIRS = ['public/saints', 'public/biografias'];
+const DIRS = ['public/saints', 'public/biografias', 'public/produtos'];
 const WIDTH = 560;        // largura do thumbnail (leve e suficiente para os cards)
 const QUALITY = 70;
 const CONCURRENCY = 8;

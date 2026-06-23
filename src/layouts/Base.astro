@@ -120,11 +120,14 @@ const clientConfig = {
       <span class="brand-text">{site.name}</span>
     </a>
     <nav class="topnav" aria-label="Principal">
+      <div class="topnav-links" id="navLinks">
       <a href={base} data-i18n="nav_home">Início</a>
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
+      </div>
+      <div class="topnav-actions">
       <button id="searchBtn" class="icon-btn" type="button" aria-label="Buscar" title="Buscar">
         <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
@@ -135,6 +138,11 @@ const clientConfig = {
         <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.2" y1="5.2" x2="6.9" y2="6.9"/><line x1="17.1" y1="17.1" x2="18.8" y2="18.8"/><line x1="5.2" y1="18.8" x2="6.9" y2="17.1"/><line x1="17.1" y1="6.9" x2="18.8" y2="5.2"/></g></svg>
         <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
       </button>
+        <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+          <svg class="i-menu" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="i-close" viewBox="0 0 24 24" width="20" height="20"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -151,6 +159,7 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
+      <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
     </nav>
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
@@ -207,6 +216,22 @@ const clientConfig = {
       try { localStorage.setItem('od-lang', next); } catch (e) {}
     });
     applyLang(document.documentElement.getAttribute('data-lang') || 'pt-BR');
+
+    // ── Menu mobile (hambúrguer) ──
+    (function () {
+      const topbar = document.querySelector('.topbar');
+      const toggle = document.getElementById('navToggle');
+      const links = document.getElementById('navLinks');
+      if (!topbar || !toggle || !links) return;
+      const setOpen = (open: boolean) => {
+        topbar.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      toggle.addEventListener('click', () => setOpen(!topbar.classList.contains('nav-open')));
+      links.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+      window.addEventListener('resize', () => { if (window.innerWidth > 768) setOpen(false); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    })();
 
     // ── Paralaxe (respeita prefers-reduced-motion) ──
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -311,6 +336,12 @@ const clientConfig = {
       padding: .55rem .7rem; border-radius: 8px; transition: color .2s;
     }
     .topnav a:hover { color: var(--gold); }
+    .topnav-links { display: flex; align-items: center; gap: .2rem; }
+    .topnav-actions { display: flex; align-items: center; gap: .35rem; }
+    .nav-toggle { display: none; }
+    .nav-toggle .i-close { display: none; }
+    .topbar.nav-open .nav-toggle .i-menu { display: none; }
+    .topbar.nav-open .nav-toggle .i-close { display: block; }
     .icon-btn {
       display: inline-grid; place-items: center;
       width: 44px; height: 44px; min-width: 44px;
@@ -649,6 +680,21 @@ const clientConfig = {
     .turnstile-box { display: flex; justify-content: center; margin: 1rem 0; min-height: 0; }
     .post-actions { display: none; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-top: 1.4rem; }
 
+    /* ════ Produtos relacionados (cards discretos, layout das festas) ════ */
+    .prod-related { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--hair); }
+    .prod-related-title { font-family: 'Cormorant', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink-soft); margin: 0 0 1rem; }
+    .prod-list { display: flex; flex-direction: column; gap: .6rem; }
+    .prod-card { display: flex; align-items: stretch; min-height: 70px; border: 1px solid var(--hair); border-radius: 11px; overflow: hidden; text-decoration: none; color: var(--ink); background: var(--paper-raised); transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .prod-card:hover { border-color: color-mix(in srgb, var(--gold) 40%, var(--hair)); transform: translateY(-1px); box-shadow: 0 8px 22px var(--shadow); }
+    .prod-thumb { flex: 0 0 auto; width: 70px; align-self: stretch; display: block; object-fit: cover; object-position: center; background: #1a1208; }
+    .prod-body { display: flex; align-items: center; gap: .6rem; padding: .55rem .9rem; flex: 1; min-width: 0; }
+    .prod-info { display: flex; flex-direction: column; gap: .1rem; min-width: 0; flex: 1; }
+    .prod-name { font-family: 'Cormorant', serif; font-size: 1.18rem; font-weight: 600; line-height: 1.12; }
+    .prod-desc { font-size: .82rem; color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .prod-cat { font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; color: var(--flame); }
+    .prod-go { flex: 0 0 auto; color: var(--gold); font-size: 1.05rem; opacity: .7; }
+    .prod-disclosure { font-size: .72rem; color: var(--ink-soft); opacity: .6; margin: .9rem 0 0; }
+
     /* ════════ COMPLETION OVERLAY ════════ */
     .overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 1.2rem; background: var(--scrim); backdrop-filter: blur(4px); }
     .overlay.show { display: flex; animation: fade .35s ease; }
@@ -687,13 +733,32 @@ const clientConfig = {
     }
 
     /* ════════ MOBILE ════════ */
+    @media (max-width: 768px) {
+      .nav-toggle { display: inline-grid; }
+      .topnav { gap: .3rem; }
+      .topnav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--paper); border-bottom: 1px solid var(--hair);
+        padding: .4rem clamp(1rem, 4vw, 2.2rem) .7rem;
+        box-shadow: 0 14px 30px var(--shadow); display: none;
+      }
+      .topbar.nav-open .topnav-links { display: flex; }
+      .topnav-links a { font-size: .8rem; letter-spacing: .1em; padding: .8rem .3rem; border-bottom: 1px solid color-mix(in srgb, var(--hair) 55%, transparent); }
+      .topnav-links a:last-child { border-bottom: none; }
+    }
     @media (max-width: 560px) {
       body { font-size: 18px; }
       .brand-text { font-size: 1.25rem; }
-      .topbar { flex-wrap: wrap; padding: .5rem .8rem; gap: .3rem .4rem; }
-      .topnav { width: 100%; justify-content: space-between; gap: .1rem .3rem; flex-wrap: wrap; }
-      .topnav a { font-size: .68rem; letter-spacing: .08em; padding: .4rem .45rem; }
-      .rg-speed { margin-left: 0; width: 100%; justify-content: space-between; }
+      .topbar { padding: .5rem .8rem; }
+      .rg-bar { gap: .35rem; padding: .55rem .6rem; flex-wrap: nowrap; }
+      .rg-title { display: none; }
+      .rg-controls { gap: .3rem; flex-wrap: nowrap; }
+      .rg-btn { min-width: 44px; padding: 0 .35rem; }
+      .rg-btn span { display: none; }
+      .rg-speed { margin-left: auto; gap: 0; }
+      .rg-speed > span { display: none; }
+      .rg-speed select { min-height: 40px; font-size: .82rem; padding: .2rem .3rem; }
       .prayer-body { font-size: calc(1.12rem * var(--reader-scale, 1)); }
       /* banner: mais baixo no mobile -> mostra mais da largura (laterais) da imagem */
       .hero { padding: 2.2rem 1rem 1.8rem; }

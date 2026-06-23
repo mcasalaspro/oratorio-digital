@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import { categoriasComProdutos, produtoImagem } from '../config/produtos';
+
+const grupos = categoriasComProdutos();
+const total = grupos.reduce((n, g) => n + g.items.length, 0);
+---
+<Base title="Produtos" description="Indicações relacionadas às orações e aos santos.">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="produtos_title">Produtos</p>
+      <h1 class="section-title" data-i18n="produtos_title">Produtos</h1>
+      <p class="produtos-lead" data-i18n="produtos_lead">Indicações relacionadas às orações e aos santos. Alguns links são de afiliados e ajudam a manter o site no ar.</p>
+
+      {total === 0 ? (
+        <p class="empty" data-i18n="produtos_empty">Nenhum produto cadastrado ainda.</p>
+      ) : (
+        grupos.map((g) => (
+          <section class="prod-group">
+            <h2 class="prod-group-title" data-i18n={`prodcat_${g.key}`}>{g.pt}</h2>
+            <div class="prod-list">
+              {g.items.map((p) => (
+                <a class="prod-card" href={p.link} target="_blank" rel="noopener noreferrer sponsored">
+                  <img class="prod-thumb" src={produtoImagem(p)} alt={p.nome} loading="lazy" onerror="this.style.display='none'" />
+                  <span class="prod-body">
+                    <span class="prod-info">
+                      <span class="prod-name">{p.nome}</span>
+                      {p.descricao && <span class="prod-desc">{p.descricao}</span>}
+                    </span>
+                    <span class="prod-go" aria-hidden="true">↗</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))
+      )}
+    </div>
+  </section>
+
+  <style>
+    .produtos-lead { color: var(--ink-soft); margin: .2rem 0 2rem; font-size: 1.05rem; }
+    .prod-group { margin: 0 0 2.2rem; }
+    .prod-group-title { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; color: var(--gold); margin: 0 0 .9rem; padding-bottom: .4rem; border-bottom: 1px solid var(--hair); }
+  </style>
+</Base>

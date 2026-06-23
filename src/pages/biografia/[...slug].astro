@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { withBase } from '../../config/site';
+import { produtosForPage, produtoImagem, catLabelPt } from '../../config/produtos';
 
 export async function getStaticPaths() {
   const bios = await getCollection('biografias');
@@ -12,6 +13,7 @@ const { Content } = await render(entry);
 const d = entry.data;
 const name = d.name || entry.id.split(/[-_]/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 if (!d.name) console.warn(`\n⚠️  Biografia "${entry.id}" sem 'name' — usando "${name}".\n`);
+const relatedProducts = produtosForPage(entry.id, name);
 const banner = withBase(d.image ?? `/biografias/${entry.id}.webp`);
 const fallback = withBase('/biografias/default.webp');
 const feastValid = !!d.feast && /^\d{2}-\d{2}$/.test(d.feast);
@@ -78,6 +80,28 @@ if (missingRel.length) console.warn(`\n⚠️  Biografia "${entry.id}": oraçõe
       <div class="prayer-body">
         <Content />
       </div>
+
+      {relatedProducts.length > 0 && (
+        <section class="prod-related" aria-label="Produtos relacionados">
+          <h2 class="prod-related-title" data-i18n="produtos_related">Produtos relacionados</h2>
+          <div class="prod-list">
+            {relatedProducts.map((p) => (
+              <a class="prod-card" href={p.link} target="_blank" rel="noopener noreferrer sponsored">
+                <img class="prod-thumb" src={produtoImagem(p)} alt={p.nome} loading="lazy" onerror="this.style.display='none'" />
+                <span class="prod-body">
+                  <span class="prod-info">
+                    <span class="prod-name">{p.nome}</span>
+                    {p.descricao && <span class="prod-desc">{p.descricao}</span>}
+                    <span class="prod-cat" data-i18n={`prodcat_${p.categoria}`}>{catLabelPt(p.categoria)}</span>
+                  </span>
+                  <span class="prod-go" aria-hidden="true">↗</span>
+                </span>
+              </a>
+            ))}
+          </div>
+          <p class="prod-disclosure" data-i18n="produtos_disclosure">Alguns links são de afiliados e podem gerar uma pequena comissão para manter o site no ar.</p>
+        </section>
+      )}
     </div>
   </article>
 

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { site, withBase } from '../../config/site';
+import { produtosForPage, produtoImagem, catLabelPt } from '../../config/produtos';
 
 export async function getStaticPaths() {
   const entries = await getCollection('prayers');
@@ -36,6 +37,9 @@ let relatedBio: { id: string; name: string } | null = null;
   if (!hit && ps) hit = _bios.find((b) => { const bn = _norm(b.data.name ?? ''); return !!bn && (bn.includes(ps) || ps.includes(bn)); });
   if (hit) relatedBio = { id: hit.id, name: hit.data.name ?? hit.id };
 }
+
+// produtos relacionados (por slug da página ou por santo) — sem editar os .md
+const relatedProducts = produtosForPage(entry.id, data.saint);
 ---
 <Base title={data.title} description={data.description || site.tagline}>
   <article>
@@ -96,8 +100,14 @@ let relatedBio: { id: string; name: string } | null = null;
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor"/></svg>
             <span id="rgPlayLabel">Iniciar</span>
           </button>
-          <button id="rgRestart" class="rg-btn" type="button" data-i18n="restart" aria-label="Reiniciar">Reiniciar</button>
-          <button id="rgNext" class="rg-btn" type="button" data-i18n="next" aria-label="Próximo">Próximo</button>
+          <button id="rgRestart" class="rg-btn" type="button" aria-label="Reiniciar">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z" fill="currentColor"/></svg>
+            <span data-i18n="restart">Reiniciar</span>
+          </button>
+          <button id="rgNext" class="rg-btn" type="button" aria-label="Próximo">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5l9 7-9 7zM16 5h2.4v14H16z" fill="currentColor"/></svg>
+            <span data-i18n="next">Próximo</span>
+          </button>
         </div>
         <label class="rg-speed">
           <span data-i18n="speed">Ritmo</span>
@@ -120,6 +130,28 @@ let relatedBio: { id: string; name: string } | null = null;
           <a id="paBack" class="btn" data-i18n="back_catalog">Voltar ao catálogo</a>
         </div>
       </div>
+
+      {relatedProducts.length > 0 && (
+        <section class="prod-related" aria-label="Produtos relacionados">
+          <h2 class="prod-related-title" data-i18n="produtos_related">Produtos relacionados</h2>
+          <div class="prod-list">
+            {relatedProducts.map((p) => (
+              <a class="prod-card" href={p.link} target="_blank" rel="noopener noreferrer sponsored">
+                <img class="prod-thumb" src={produtoImagem(p)} alt={p.nome} loading="lazy" onerror="this.style.display='none'" />
+                <span class="prod-body">
+                  <span class="prod-info">
+                    <span class="prod-name">{p.nome}</span>
+                    {p.descricao && <span class="prod-desc">{p.descricao}</span>}
+                    <span class="prod-cat" data-i18n={`prodcat_${p.categoria}`}>{catLabelPt(p.categoria)}</span>
+                  </span>
+                  <span class="prod-go" aria-hidden="true">↗</span>
+                </span>
+              </a>
+            ))}
+          </div>
+          <p class="prod-disclosure" data-i18n="produtos_disclosure">Alguns links são de afiliados e podem gerar uma pequena comissão para manter o site no ar.</p>
+        </section>
+      )}
     </div>
   </article>
 
@@ -368,12 +400,18 @@ let relatedBio: { id: string; name: string } | null = null;
         var line = b.lines[li]; if (!line) return;
         line.span.classList.add('rg-active');
         var w = line.words[wi];
-        if (w) {
-          w.classList.add('rg-word-active');
-          if (!reduce) w.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        } else if (!reduce) {
-          line.span.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (w) w.classList.add('rg-word-active');
+        if (!reduce && line.span !== _lastCentered) {
+          _lastCentered = line.span;
+          centerOn(line.span);
         }
+      }
+      var _lastCentered = null;
+      function centerOn(el) {
+        var r = el.getBoundingClientRect();
+        // mantém a linha por volta de 42% da altura da tela (acima do centro, livre da barra)
+        var target = window.scrollY + r.top - (window.innerHeight * 0.42 - r.height / 2);
+        window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
       }
       function enterBlock() { var b = blocks[bi]; if (b && b.rep) { b.rep.k = 1; repRender(b.el); } }
       function playLabel() {
@@ -417,14 +455,14 @@ let relatedBio: { id: string; name: string } | null = null;
       }
       function pause() { playing = false; if (timer) clearTimeout(timer); playLabel(); }
       function rgReset() {
-        pause(); bi = 0; li = 0; wi = 0; blocks = buildBlocks();
+        pause(); bi = 0; li = 0; wi = 0; _lastCentered = null; blocks = buildBlocks();
         clearActive();
         blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
         setLead();
       }
       document.getElementById('rgPlay').addEventListener('click', function () { playing ? pause() : play(); });
       document.getElementById('rgRestart').addEventListener('click', function () {
-        pause(); bi = 0; li = 0; wi = 0; blocks = buildBlocks();
+        pause(); bi = 0; li = 0; wi = 0; _lastCentered = null; blocks = buildBlocks();
         blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
         if (blocks.length) { enterBlock(); paint(); } playLabel();
       });

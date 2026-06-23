@@ -13,6 +13,7 @@
     "thumbs:force": "node scripts/gerar-thumbs.mjs --force"
   },
   "dependencies": {
-    "astro": "^5.6.0"
+    "astro": "^5.6.0",
+    "js-yaml": "^5.0.0"
   }
 }
