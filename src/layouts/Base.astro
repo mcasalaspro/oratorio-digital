@@ -158,8 +158,8 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
-      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
       <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
+      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
       <button id="themeBtn" class="icon-btn nav-theme" type="button" aria-label="Modo claro/escuro" title="Modo claro/escuro">
         <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.2" y1="5.2" x2="6.9" y2="6.9"/><line x1="17.1" y1="17.1" x2="18.8" y2="18.8"/><line x1="5.2" y1="18.8" x2="6.9" y2="17.1"/><line x1="17.1" y1="6.9" x2="18.8" y2="5.2"/></g></svg>
         <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -195,9 +195,9 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
-      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
       <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
       <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
+      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
     </nav>
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
@@ -380,7 +380,7 @@ const clientConfig = {
     .topnav .nav-theme-label, .topnav .nav-btn-label { display: none; }
     .topnav-links .icon-btn { width: 38px; height: 38px; min-width: 38px; }
     .topnav-links .nav-theme { margin-left: .5rem; }
-    .nav-toggle { display: none; }
+    .topnav-actions .nav-toggle { display: none; }
     .nav-toggle .i-close { display: none; }
     .topbar.nav-open .nav-toggle .i-menu { display: none; }
     .topbar.nav-open .nav-toggle .i-close { display: block; }
@@ -784,7 +784,7 @@ const clientConfig = {
 
     /* ════════ MOBILE ════════ */
     @media (max-width: 1024px) {
-      .nav-toggle { display: inline-grid; }
+      .topbar .topnav-actions .nav-toggle { display: inline-grid; }
       .topnav { gap: .3rem; }
       .topnav-links {
         position: absolute; top: 100%; left: 0; right: 0;
