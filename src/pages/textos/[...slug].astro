@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../config/site';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('textos');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description } = entry.data;
+---
+<Base title={title} description={description}>
+  <article class="txt-hero">
+    <div class="txt-bg" style={`background-image: url('${withBase('/textures/rays.webp')}')`} aria-hidden="true"></div>
+    <div class="txt-shade" aria-hidden="true"></div>
+
+    <div class="txt-wrap">
+      <div class="txt-card">
+        <a class="txt-back" href={withBase('/textos')}>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="nav_textos">Textos</span>
+        </a>
+        <h1 class="txt-h1">{title}</h1>
+        <div class="txt-prose">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .txt-hero {
+    position: relative; overflow: hidden;
+    min-height: 100vh; display: flex; align-items: center;
+    background: radial-gradient(120% 100% at 50% 0%, #2a1d0e 0%, #1a1208 55%, #120c06 100%);
+  }
+  .txt-bg { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
+  .txt-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,5,2,.62) 0%, rgba(8,5,2,.5) 40%, rgba(8,5,2,.72) 100%); }
+
+  .txt-wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: clamp(2.4rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.2rem); }
+  .txt-card {
+    max-width: 46rem; margin: 0 auto;
+    background: rgba(28, 26, 23, .86);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border: 1px solid rgba(200, 162, 74, .24); border-radius: 18px;
+    padding: clamp(1.8rem, 4vw, 3rem);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+  }
+
+  .txt-back {
+    display: inline-flex; align-items: center; gap: .4rem;
+    color: #cdbf9f; text-decoration: none; font-size: .82rem;
+    letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.4rem;
+    transition: color .2s;
+  }
+  .txt-back:hover { color: var(--gold); }
+
+  .txt-h1 {
+    font-family: 'Cormorant', serif; font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1;
+    color: #f3e9d6; margin: 0 0 1.6rem;
+  }
+
+  .txt-prose :global(p) {
+    font-family: 'EB Garamond', serif; font-size: 1.13rem;
+    line-height: 1.85; color: #e7ddc9; margin: 0 0 1.2rem;
+  }
+  .txt-prose :global(h2) {
+    font-family: 'Cormorant', serif; font-weight: 600;
+    font-size: 1.7rem; color: #f3e9d6; margin: 2.2rem 0 .7rem;
+    padding-top: 1.5rem; border-top: 1px solid rgba(200, 162, 74, .22);
+  }
+  .txt-prose :global(h2:first-of-type) { margin-top: 1.2rem; }
+  .txt-prose :global(strong) { color: #f6eeda; font-weight: 600; }
+  .txt-prose :global(em) { color: #efe6d3; }
+  .txt-prose :global(ul) { margin: 0 0 1.2rem; padding-left: 1.3rem; }
+  .txt-prose :global(li) { font-family: 'EB Garamond', serif; font-size: 1.13rem; line-height: 1.7; color: #e7ddc9; margin: 0 0 .55rem; }
+  .txt-prose :global(li strong) { color: #f6eeda; }
+  .txt-prose :global(a) { color: var(--gold-bright); }
+  .txt-prose :global(hr) {
+    border: none; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(200,162,74,.4), transparent);
+    margin: 2.4rem 0;
+  }
+</style>

@@ -56,4 +56,18 @@ const biografias = defineCollection({
   }),
 });
 
-export const collections = { prayers, biografias };
+// ── Textos (tipo blog: explicações, formação, devoção) ──────────────────────
+// Cada item é um arquivo .md em src/content/textos/. Basta criar um novo .md
+// com o cabeçalho abaixo que ele aparece automaticamente na página /textos.
+const textos = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/textos' }),
+  schema: z.object({
+    title: z.string().catch('Sem título'),
+    description: z.string().catch('').default(''),
+    summary: z.string().catch('').default(''),   // resumo curto (aparece no card)
+    order: z.number().optional().catch(undefined), // ordena os cards (menor primeiro)
+    icon: z.string().optional().catch(undefined),   // emoji/símbolo do card (opcional)
+  }),
+});
+
+export const collections = { prayers, biografias, textos };

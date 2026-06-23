@@ -157,6 +157,7 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
+      <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
       <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
       <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
       <button id="themeBtn" class="icon-btn nav-theme" type="button" aria-label="Modo claro/escuro" title="Modo claro/escuro">
@@ -164,14 +165,16 @@ const clientConfig = {
         <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
               <span class="nav-theme-label" data-i18n="theme_toggle">Modo claro/escuro</span>
       </button>
-      </div>
-      <div class="topnav-actions">
-      <button id="searchBtn" class="icon-btn" type="button" aria-label="Buscar" title="Buscar">
+      <button id="searchBtn" class="icon-btn nav-util" type="button" aria-label="Buscar" title="Buscar">
         <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="nav-btn-label" data-i18n="search_label">Buscar</span>
       </button>
-      <button id="langBtn" class="icon-btn" type="button" aria-label="Idioma" title="Idioma">
+      <button id="langBtn" class="icon-btn nav-util" type="button" aria-label="Idioma" title="Idioma">
+        <span class="nav-btn-label" data-i18n="lang_label">Idioma</span>
         <span id="langCode">PT</span>
       </button>
+      </div>
+      <div class="topnav-actions">
         <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
           <svg class="i-menu" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <svg class="i-close" viewBox="0 0 24 24" width="20" height="20"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -194,7 +197,7 @@ const clientConfig = {
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
       <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
-      <a href={`${base.replace(/\/$/,'')}/tempos-liturgicos`} data-i18n="nav_tempos">Tempos litúrgicos</a>
+      <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
     </nav>
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
@@ -264,7 +267,8 @@ const clientConfig = {
       };
       toggle.addEventListener('click', () => setOpen(!topbar.classList.contains('nav-open')));
       links.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
-      window.addEventListener('resize', () => { if (window.innerWidth > 768) setOpen(false); });
+      links.querySelector('#searchBtn')?.addEventListener('click', () => setOpen(false));
+      window.addEventListener('resize', () => { if (window.innerWidth > 1024) setOpen(false); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
     })();
 
@@ -373,7 +377,9 @@ const clientConfig = {
     .topnav a:hover { color: var(--gold); }
     .topnav-links { display: flex; align-items: center; gap: .2rem; }
     .topnav-actions { display: flex; align-items: center; gap: .35rem; }
-    .nav-theme .nav-theme-label { display: none; }
+    .topnav .nav-theme-label, .topnav .nav-btn-label { display: none; }
+    .topnav-links .icon-btn { width: 38px; height: 38px; min-width: 38px; }
+    .topnav-links .nav-theme { margin-left: .5rem; }
     .nav-toggle { display: none; }
     .nav-toggle .i-close { display: none; }
     .topbar.nav-open .nav-toggle .i-menu { display: none; }
@@ -558,7 +564,7 @@ const clientConfig = {
     .season-badge:hover { border-color: color-mix(in srgb, var(--season, var(--gold)) 82%, var(--hair)); background: color-mix(in srgb, var(--season, var(--gold)) 25%, transparent); transform: translateY(-1px); }
     .season-badge[hidden] { display: none; }
     .season-dot { width: 13px; height: 13px; border-radius: 50%; background: var(--season, var(--gold)); box-shadow: 0 0 13px color-mix(in srgb, var(--season, var(--gold)) 82%, transparent); flex: 0 0 auto; }
-    .season-next { display: inline-block; margin: 0 0 1.4rem; font-size: .9rem; letter-spacing: .01em; color: #cebf9d; text-decoration: none; }
+    .season-next { display: block; margin: 0 0 1.4rem; font-size: .9rem; letter-spacing: .01em; color: #cebf9d; text-decoration: none; }
     .season-next b { color: #ece2d0; font-weight: 600; }
     .season-next:hover { color: var(--season, var(--gold)); text-decoration: underline; text-underline-offset: 3px; }
     .season-next[hidden] { display: none; }
@@ -777,7 +783,7 @@ const clientConfig = {
     }
 
     /* ════════ MOBILE ════════ */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .nav-toggle { display: inline-grid; }
       .topnav { gap: .3rem; }
       .topnav-links {
@@ -786,13 +792,23 @@ const clientConfig = {
         background: var(--paper); border-bottom: 1px solid var(--hair);
         padding: .4rem clamp(1rem, 4vw, 2.2rem) .7rem;
         box-shadow: 0 14px 30px var(--shadow); display: none;
+        max-height: calc(100vh - 60px); overflow-y: auto;
       }
       .topbar.nav-open .topnav-links { display: flex; }
       .topnav-links a,
-      .topnav-links .nav-theme { font-size: .8rem; letter-spacing: .1em; padding: .8rem .3rem; border: none; border-bottom: 1px solid color-mix(in srgb, var(--hair) 55%, transparent); border-radius: 0; background: none; }
+      .topnav-links .icon-btn {
+        font-size: .8rem; letter-spacing: .1em; padding: .85rem .3rem;
+        border: none; border-bottom: 1px solid color-mix(in srgb, var(--hair) 55%, transparent);
+        border-radius: 0; background: none;
+        display: flex; align-items: center; justify-content: flex-start;
+        width: 100%; height: auto; min-width: 0; gap: .65rem; margin-left: 0;
+        text-transform: uppercase; color: var(--ink-soft);
+      }
+      .topnav-links .icon-btn { color: var(--ink); }
+      .topnav-links .icon-btn svg { flex: 0 0 auto; }
+      .topnav-links #langCode { margin-left: auto; opacity: .75; }
       .topnav-links > *:last-child { border-bottom: none; }
-      .nav-theme { display: flex; align-items: center; justify-content: flex-start; width: 100%; height: auto; gap: .65rem; text-transform: uppercase; color: var(--ink); }
-      .nav-theme .nav-theme-label { display: inline; }
+      .topnav .nav-theme-label, .topnav .nav-btn-label { display: inline; }
     }
     @media (max-width: 560px) {
       body { font-size: 18px; }

@@ -45,3 +45,10 @@
 #   imagem: https://site-da-loja.com/foto-do-produto.jpg
 #   link: https://www.mercadolivre.com.br/SEU-LINK
 #   santo: São Miguel Arcanjo
+
+- id: livro-dom-bosco
+  nome: "Dom Bosco: Fundador da família Salesiana"
+  descricao: Biografia de Dom Bosco
+  categoria: livro
+  link: https://link.amazon/B02KMC132
+  paginas: [oracao-a-dom-bosco, novena-dom-bosco, sao-joao-bosco, ladainha-dom-bosco]

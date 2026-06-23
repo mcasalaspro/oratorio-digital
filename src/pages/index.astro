@@ -61,11 +61,11 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     <span class="hero-shade" aria-hidden="true"></span>
     <div class="hero-inner">
       <img class="hero-logo" src={withBase('/logo.png')} alt={site.name} width="164" height="164" />
-      <a class="season-badge" id="seasonBadge" href={withBase('/tempos-liturgicos')} hidden>
+      <a class="season-badge" id="seasonBadge" href={withBase('/textos/tempos-liturgicos')} hidden>
         <span class="season-dot" aria-hidden="true"></span>
         <span id="seasonBadgeText"></span>
       </a>
-      <a class="season-next" id="seasonNext" href={withBase('/tempos-liturgicos')} hidden></a>
+      <a class="season-next" id="seasonNext" href={withBase('/textos/tempos-liturgicos')} hidden></a>
       <h1>{site.name}</h1>
       <p class="lead-line">{site.tagline}</p>
       <p class="hero-stats"><strong>{all.length}</strong> <span data-i18n="stat_prayers">orações</span><span class="sep">·</span><strong>{bios.length}</strong> <span data-i18n="stat_bios">biografias</span><span class="sep">·</span><strong id="visitNumber">—</strong> <span data-i18n="visits_label">visitas</span></p>
