@@ -12,7 +12,8 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-*Esta novena prepara para a festa de São José Operário, em 1º de maio. Ao final de cada dia, é tradição rezar a Ladainha de São José, incluída ao final deste arquivo.*
+*Esta novena prepara para a festa de São José Operário, em 1º de maio. Ao final de cada dia, reze também a Ladainha de São José, já incluída em cada dia abaixo.*
+
 
 ## Dia 1 — O valor do trabalho
 
@@ -48,6 +49,63 @@ um dom e uma forma de amar.
 
 > São José Operário, rogai por nós.
 
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
+
 ## Dia 2 — O trabalho feito oração
 
 São José,<br>
@@ -81,6 +139,63 @@ fazendo do trabalho uma oração.
 > Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
+
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
 
 ## Dia 3 — O pão de cada dia
 
@@ -117,6 +232,63 @@ e a graça de não me faltar o necessário.
 
 > São José Operário, rogai por nós.
 
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
+
 ## Dia 4 — Pelos que não têm trabalho
 
 São José,<br>
@@ -151,6 +323,63 @@ a um trabalho digno.
 > Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
+
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
 
 ## Dia 5 — A dignidade do trabalhador
 
@@ -187,6 +416,63 @@ do que um filho do Senhor.
 
 > São José Operário, rogai por nós.
 
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
+
 ## Dia 6 — Honestidade e justiça
 
 São José,<br>
@@ -221,6 +507,63 @@ como Deus me ensina a tratar.
 > Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
+
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
 
 ## Dia 7 — O descanso e a família
 
@@ -257,6 +600,63 @@ em troca do trabalho.
 
 > São José Operário, rogai por nós.
 
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
+
 ## Dia 8 — O trabalho bem-feito
 
 São José,<br>
@@ -291,6 +691,63 @@ para a glória de Deus.
 > Como era no princípio, agora e sempre. Amém.
 
 > São José Operário, rogai por nós.
+
+### Ladainha de São José
+
+> Senhor, tende piedade de nós.<br>
+> Cristo, tende piedade de nós.<br>
+> Senhor, tende piedade de nós.
+>
+> Cristo, ouvi-nos.<br>
+> Cristo, atendei-nos.
+>
+> Deus Pai do céu, tende piedade de nós.<br>
+> Deus Filho, Redentor do mundo, tende piedade de nós.<br>
+> Deus Espírito Santo, tende piedade de nós.<br>
+> Santíssima Trindade, que sois um só Deus, tende piedade de nós.
+>
+> Santa Maria, rogai por nós.<br>
+> São José, rogai por nós.<br>
+> Ilustre descendente de Davi, rogai por nós.<br>
+> Luz dos patriarcas, rogai por nós.<br>
+> Esposo da Mãe de Deus, rogai por nós.<br>
+> Guardião casto da Virgem, rogai por nós.<br>
+> Pai nutrício do Filho de Deus, rogai por nós.<br>
+> Solícito defensor de Cristo, rogai por nós.<br>
+> Chefe da Sagrada Família, rogai por nós.<br>
+> José justíssimo, rogai por nós.<br>
+> José castíssimo, rogai por nós.<br>
+> José prudentíssimo, rogai por nós.<br>
+> José fortíssimo, rogai por nós.<br>
+> José obedientíssimo, rogai por nós.<br>
+> José fidelíssimo, rogai por nós.<br>
+> Espelho de paciência, rogai por nós.<br>
+> Amante da pobreza, rogai por nós.<br>
+> Modelo dos trabalhadores, rogai por nós.<br>
+> Glória da vida doméstica, rogai por nós.<br>
+> Guardião das virgens, rogai por nós.<br>
+> Amparo das famílias, rogai por nós.<br>
+> Consolo dos que sofrem, rogai por nós.<br>
+> Esperança dos enfermos, rogai por nós.<br>
+> Patrono dos moribundos, rogai por nós.<br>
+> Terror dos demônios, rogai por nós.<br>
+> Protetor da Santa Igreja, rogai por nós.
+>
+> Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
+> Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
+
+V. Ele o constituiu senhor de Sua casa.<br>
+R. E príncipe de todos os Seus bens.
+
+*Oremos:*
+
+> Ó Deus, que na Vossa inefável providência<br>
+> escolhestes São José para esposo da Santíssima Virgem Maria;<br>
+> concedei-nos que, tendo por intercessor no céu<br>
+> aquele que veneramos como protetor na terra,<br>
+> possamos merecer a Vossa proteção.<br>
+> Por Cristo, Nosso Senhor. Amém.
 
 ## Dia 9 — A entrega do trabalho a Deus
 
@@ -331,13 +788,9 @@ a graça que tanto peço.
 > e ensina-nos a confiar na providência de Deus,<br>
 > hoje e sempre. Amém.
 
-São José Operário, rogai por nós.
+> São José Operário, rogai por nós.
 
----
-
-## Ladainha de São José
-
-*Rezada ao final de cada dia da novena.*
+### Ladainha de São José
 
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
