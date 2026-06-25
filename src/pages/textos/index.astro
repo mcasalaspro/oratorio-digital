@@ -2,13 +2,17 @@
 import Base from '../../layouts/Base.astro';
 import { withBase } from '../../config/site';
 import { getCollection } from 'astro:content';
+import fs from 'node:fs';
 
 const entries = await getCollection('textos');
 entries.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+const bg = fs.existsSync('public/textos/index.webp')
+  ? withBase('/textos/index.webp')
+  : withBase('/textures/rays.webp');
 ---
 <Base title="Textos" description="Textos de formação e devoção do Oratório Digital — explicações sobre a fé, a liturgia e a vida cristã.">
   <section class="txs-hero">
-    <div class="txs-bg" style={`background-image: url('${withBase('/textures/rays.webp')}')`} aria-hidden="true"></div>
+    <div class="txs-bg" style={`background-image: url('${bg}')`} aria-hidden="true"></div>
     <div class="txs-shade" aria-hidden="true"></div>
 
     <div class="txs-wrap">

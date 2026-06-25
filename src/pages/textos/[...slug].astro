@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { withBase } from '../../config/site';
 import { getCollection, render } from 'astro:content';
+import fs from 'node:fs';
 
 export async function getStaticPaths() {
   const entries = await getCollection('textos');
@@ -11,10 +12,13 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { title, description } = entry.data;
+const bg = fs.existsSync(`public/textos/${entry.id}.webp`)
+  ? withBase(`/textos/${entry.id}.webp`)
+  : withBase('/textures/rays.webp');
 ---
 <Base title={title} description={description}>
   <article class="txt-hero">
-    <div class="txt-bg" style={`background-image: url('${withBase('/textures/rays.webp')}')`} aria-hidden="true"></div>
+    <div class="txt-bg" style={`background-image: url('${bg}')`} aria-hidden="true"></div>
     <div class="txt-shade" aria-hidden="true"></div>
 
     <div class="txt-wrap">

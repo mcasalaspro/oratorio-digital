@@ -1,0 +1,12 @@
+Fundo das páginas de Textos.
+
+Coloque aqui um arquivo .webp com o MESMO NOME do texto (slug) para definir
+o fundo daquela página. Ex.:
+  public/textos/estrutura-da-missa.md            (o texto)
+  public/textos/estrutura-da-missa.webp          (o fundo dele)
+
+Para o fundo da própria lista /textos, use:
+  public/textos/index.webp
+
+Se não houver arquivo, o site usa o fundo padrão (a foto do topo: rays.webp).
+Tamanho sugerido: ~2000x1200 px, WebP.

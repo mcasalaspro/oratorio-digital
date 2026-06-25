@@ -54,15 +54,15 @@ um dom e uma forma de amar.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -89,13 +89,13 @@ um dom e uma forma de amar.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -145,15 +145,15 @@ fazendo do trabalho uma oração.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -180,13 +180,13 @@ fazendo do trabalho uma oração.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -237,15 +237,15 @@ e a graça de não me faltar o necessário.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -272,13 +272,13 @@ e a graça de não me faltar o necessário.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -329,15 +329,15 @@ a um trabalho digno.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -364,13 +364,13 @@ a um trabalho digno.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -421,15 +421,15 @@ do que um filho do Senhor.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -456,13 +456,13 @@ do que um filho do Senhor.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -513,15 +513,15 @@ como Deus me ensina a tratar.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -548,13 +548,13 @@ como Deus me ensina a tratar.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -605,15 +605,15 @@ em troca do trabalho.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -640,13 +640,13 @@ em troca do trabalho.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -697,15 +697,15 @@ para a glória de Deus.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -732,13 +732,13 @@ para a glória de Deus.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
@@ -795,15 +795,15 @@ a graça que tanto peço.
 > Senhor, tende piedade de nós.<br>
 > Cristo, tende piedade de nós.<br>
 > Senhor, tende piedade de nós.
->
+
 > Cristo, ouvi-nos.<br>
 > Cristo, atendei-nos.
->
+
 > Deus Pai do céu, tende piedade de nós.<br>
 > Deus Filho, Redentor do mundo, tende piedade de nós.<br>
 > Deus Espírito Santo, tende piedade de nós.<br>
 > Santíssima Trindade, que sois um só Deus, tende piedade de nós.
->
+
 > Santa Maria, rogai por nós.<br>
 > São José, rogai por nós.<br>
 > Ilustre descendente de Davi, rogai por nós.<br>
@@ -830,13 +830,13 @@ a graça que tanto peço.
 > Patrono dos moribundos, rogai por nós.<br>
 > Terror dos demônios, rogai por nós.<br>
 > Protetor da Santa Igreja, rogai por nós.
->
+
 > Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, atendei-nos, Senhor.<br>
 > Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.
 
-V. Ele o constituiu senhor de Sua casa.<br>
-R. E príncipe de todos os Seus bens.
+> V. Ele o constituiu senhor de Sua casa.<br>
+> R. E príncipe de todos os Seus bens.
 
 *Oremos:*
 
