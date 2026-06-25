@@ -1,7 +1,7 @@
 ---
-title: Os estágios da virtude e do vício
-description: Os quatro estados da vida moral segundo a tradição cristã e aristotélica — virtude, continência, incontinência e vício — e o caminho que liga uns aos outros.
-summary: Entre a virtude plena e o vício enraizado há dois estados intermediários — a continência e a incontinência. Entender essa escala ajuda a saber onde estamos e para onde caminhamos.
+title: "Os estágios da virtude e do vício"
+description: "Os quatro estados da vida moral segundo a tradição cristã e aristotélica — virtude, continência, incontinência e vício — e o caminho que liga uns aos outros."
+summary: "Entre a virtude plena e o vício enraizado há dois estados intermediários — a continência e a incontinência. Entender essa escala ajuda a saber onde estamos e para onde caminhamos."
 order: 6
 icon: ✦
 ---

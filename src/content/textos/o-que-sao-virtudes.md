@@ -1,7 +1,7 @@
 ---
-title: O que são virtudes?
-description: O que é uma virtude, de onde vem a palavra, como as virtudes se formam pela repetição dos bons atos e como se distinguem das virtudes que Deus infunde na alma.
-summary: Antes de falar de cada virtude, vale entender o que é uma virtude: um hábito bom que torna boa a pessoa e bom o seu agir.
+title: "O que são virtudes?"
+description: "O que é uma virtude, de onde vem a palavra, como as virtudes se formam pela repetição dos bons atos e como se distinguem das virtudes que Deus infunde na alma."
+summary: "Antes de falar de cada virtude, vale entender o que é uma virtude: um hábito bom que torna boa a pessoa e bom o seu agir."
 order: 4
 icon: ✦
 ---

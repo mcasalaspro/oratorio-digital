@@ -1,7 +1,7 @@
 ---
-title: As virtudes teologais e cardinais
-description: As sete virtudes fundamentais da vida cristã — fé, esperança e caridade, infundidas por Deus, e prudência, justiça, fortaleza e temperança, que ordenam a vida humana.
-summary: Fé, esperança e caridade — as três virtudes que Deus infunde na alma — e as quatro cardinais que ordenam o agir humano, com exemplos de cada uma.
+title: "As virtudes teologais e cardinais"
+description: "As sete virtudes fundamentais da vida cristã — fé, esperança e caridade, infundidas por Deus, e prudência, justiça, fortaleza e temperança, que ordenam a vida humana."
+summary: "Fé, esperança e caridade — as três virtudes que Deus infunde na alma — e as quatro cardinais que ordenam o agir humano, com exemplos de cada uma."
 order: 5
 icon: ✦
 ---
