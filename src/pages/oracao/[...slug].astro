@@ -1,8 +1,12 @@
 ---
+import fs from 'node:fs';
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { site, withBase } from '../../config/site';
+import { site, ui, withBase } from '../../config/site';
 import { produtosForPage, produtoImagem, catLabelPt } from '../../config/produtos';
+import { bioDaOracao, nomeDaBio } from '../../config/relacoes';
+import { reserva } from '../../config/contadores';
+import CompartilharStories from '../../components/CompartilharStories.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('prayers');
@@ -15,38 +19,46 @@ const { Content } = await render(entry);
 
 const banner = withBase(data.image ?? `/saints/${entry.id}.webp`);
 const imgFallback = withBase('/saints/default.webp');
-const parallax = data.parallaxImage ? withBase(data.parallaxImage) : '';
+// camada de paralaxe só se o arquivo existir em public/ (antes: /textures/rays.svg dava 404 em 31 orações)
+const _px = data.parallaxImage ?? '';
+const _pxOk = !!_px && (/^https?:\/\//.test(_px) || fs.existsSync(`public${_px.startsWith('/') ? '' : '/'}${_px}`));
+if (_px && !_pxOk) console.warn(`⚠️  Oração "${entry.id}": parallaxImage "${_px}" não existe em public/ — camada omitida.`);
+const parallax = _pxOk ? withBase(_px) : '';
 
 // dados que o cliente precisa
+const caminho = withBase(`/oracao/${entry.id}`);
+const rotuloTipo = (ui['pt-BR'] as Record<string, string>)[`type_${data.type}`] ?? data.type;
 const meta = {
   slug: entry.id,
   type: data.type,
   totalDays: data.totalDays ?? 0,
   feast: data.liturgicalFeast ?? '',
   startOffset: data.novenaSuggestedStart ?? 0,
+  // imagem "Rezei hoje" (D2)
+  titulo: data.title,
+  banner,
+  bannerReserva: imgFallback,
+  caminho,
+  dominio: (Astro.site?.host ?? 'oratoriodigital.com').replace(/^www\./, ''),
+  // número de reserva da capa, se o contador estiver fora do ar (src/data/contadores.json)
+  reserva: reserva(entry.id),
 };
 
-// ligação automática para a biografia (por data da festa ou nome) — sem editar os .md
+// ligação automática para a biografia — regra única em src/config/relacoes.ts
+// (pelo nome do santo; a data da festa só desempata) — sem editar os .md
 const _bios = await getCollection('biografias');
-const _norm = (x: string) => (x ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
-let relatedBio: { id: string; name: string } | null = null;
-{
-  const ps = _norm(data.saint ?? '');
-  const pf = data.liturgicalFeast ?? '';
-  let hit = pf ? _bios.find((b) => !!b.data.feast && b.data.feast === pf) : undefined;
-  if (!hit && ps) hit = _bios.find((b) => { const bn = _norm(b.data.name ?? ''); return !!bn && (bn.includes(ps) || ps.includes(bn)); });
-  if (hit) relatedBio = { id: hit.id, name: hit.data.name ?? hit.id };
-}
+const _bio = bioDaOracao(entry, _bios);
+const relatedBio: { id: string; name: string } | null = _bio ? { id: _bio.id, name: nomeDaBio(_bio) } : null;
 
 // produtos relacionados (por slug da página ou por santo) — sem editar os .md
 const relatedProducts = produtosForPage(entry.id, data.saint);
 ---
-<Base title={data.title} description={data.description || site.tagline}>
+<Base title={data.title} description={data.description || site.tagline} idioma={data.language || 'pt-BR'}>
   <article>
     <!-- ░░ Banner com paralaxe ░░ -->
     <header class="reader-hero">
       <img class="reader-bg" src={banner} alt={data.saint ?? data.title} width="1600" height="1000" onerror={`this.onerror=null;this.src='${imgFallback}'`} />
-      {parallax && <div class="reader-parallax" data-parallax data-speed="0.34" style={`background-image:url(${parallax})`}></div>}
+      {parallax && <div class="reader-parallax" data-parallax="0.34" style={`background-image:url(${parallax})`}></div>}
       <div class="reader-shade"></div>
       <div class="reader-head">
         <p class="reader-type" data-i18n={`type_${data.type}`}>{data.type}</p>
@@ -67,6 +79,8 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V5l7 7-7 7v-4.1C9 11.8 5.5 13 3 16c1-5 4-9 11-9.9z" fill="currentColor"/></svg>
           <span data-i18n="share">Compartilhar</span>
         </button>
+        <CompartilharStories modo="oracao" titulo={data.title} rotulo={rotuloTipo} rotuloChave={`type_${data.type}`}
+          banner={banner} bannerReserva={imgFallback} caminho={caminho} corpo={entry.body} destaque={data.destaque} />
         <span class="rtool-sep" aria-hidden="true"></span>
         <button id="fsDown" class="rtool rtool-sq" type="button" aria-label="Diminuir letra">A−</button>
         <button id="fsUp" class="rtool rtool-sq" type="button" aria-label="Aumentar letra">A+</button>
@@ -123,7 +137,7 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       <!-- ░░ Concluir oração ░░ -->
       <div class="finish-zone">
         <div id="turnstileBox" class="turnstile-box"></div>
-        <button id="finishBtn" class="btn btn-gold" type="button" data-i18n="finish_prayer">Concluir oração</button>
+        <button id="finishBtn" class="btn btn-primary" type="button" data-i18n="finish_prayer">Concluir oração</button>
         <p id="finishHint" class="day-caption" hidden></p>
         <div id="postActions" class="post-actions">
           <button id="paNext" class="btn" type="button" data-i18n="next_day" hidden>Próximo dia</button>
@@ -166,8 +180,12 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       <p class="ov-sub" data-i18n="completed_sub">Você faz parte de uma corrente de oração.</p>
       <div id="ovNumber" class="ov-number">—</div>
       <div class="ov-number-label" data-i18n="times_prayed">vezes que esta oração já foi rezada</div>
+      <!-- aviso da 2ª conclusão no mesmo dia (texto via JS: chave already_counted) -->
+      <p id="ovNote" class="ov-sub" style="margin:.7rem 0 0" hidden></p>
       <div class="ov-actions">
-        <button id="ovNext" class="btn btn-gold" type="button" data-i18n="next_day" hidden>Próximo dia</button>
+        <button id="ovNext" class="btn btn-primary" type="button" data-i18n="next_day" hidden>Próximo dia</button>
+        <!-- imagem "Rezei hoje" para Stories/Status (texto via JS: chave share_prayed) -->
+        <button id="ovShare" class="btn" type="button" hidden>Compartilhar que rezei</button>
         <button id="ovAgain" class="btn" type="button" data-i18n="pray_again">Rezar de novo</button>
         <a id="ovBack" class="btn" data-i18n="back_catalog">Voltar ao catálogo</a>
       </div>
@@ -177,7 +195,8 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
   <script is:inline define:vars={{ meta }}>
     (function () {
       var S = window.__SITE__ || {};
-      var counter = S.counter || {};
+      var C = window.odContador || null; // contador da comunidade (Supabase ou Abacus) — public/js/contador.js
+      var contadorAtivo = !!(C && C.ativo);
       var turnstileKey = (S.turnstile && S.turnstile.siteKey) || '';
       var t = window.odt || function (k) { return k; };
       var base = window.odBase || function (p) { return p; };
@@ -275,7 +294,14 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
           if (em && txt.length && em.textContent.trim() === txt) pe.classList.add('rubric');
         });
       }
-      function lineHost(el) { return el.tagName === 'BLOCKQUOTE' ? (el.querySelector('p') || el) : el; }
+      // onde ficam as linhas de um bloco: no blockquote, CADA <p> (antes só o 1º era lido);
+      // o blockquote continua sendo a unidade de leitura e de repetição
+      function lineHosts(el) {
+        if (el.tagName !== 'BLOCKQUOTE') return [el];
+        var ps = el.querySelectorAll('p');
+        if (!ps.length) return [el];
+        return Array.prototype.filter.call(ps, function (p) { return !isRubric(p); });
+      }
       function readBlocks() {
         var all = content.querySelectorAll('p, li, blockquote');
         var out = [];
@@ -312,6 +338,7 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
           var m = (tc.textContent || '').match(REP_RE);
           if (!m) return;
           var n = parseInt(m[1], 10);
+          if (n === 1) { tc.innerHTML = tc.innerHTML.replace(REP_RE, ''); return; } // "1x": só tira o marcador, sem contas
           if (!(n >= 2 && n <= 99)) return;
           el.dataset.repInit = '1';
           tc.innerHTML = tc.innerHTML.replace(REP_RE, '');
@@ -335,23 +362,31 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       function wrapLines(host) {
         if (host.dataset.lined) return;
         host.dataset.lined = '1';
+        // a barra de contas ("10x") sai antes e volta depois: reescrever o HTML com ela dentro
+        // a recriava sem os eventos e o texto "0 / 10 toque para contar" virava parte da oração
+        var reps = Array.prototype.slice.call(host.querySelectorAll(':scope > .rep'));
+        reps.forEach(function (r) { host.removeChild(r); });
         var parts = host.innerHTML.split(/<br\s*\/?>/i);
-        if (parts.length <= 1) { host.innerHTML = '<span class="rg-line">' + host.innerHTML + '</span>'; return; }
-        var out = '';
-        for (var i = 0; i < parts.length; i++) {
-          var seg = parts[i];
-          if (seg.replace(/<[^>]*>/g, '').trim().length === 0) { out += seg; continue; }
-          out += '<span class="rg-line">' + seg + '</span>';
-          if (i < parts.length - 1) out += '<br>';
+        if (parts.length <= 1) {
+          host.innerHTML = '<span class="rg-line">' + host.innerHTML + '</span>';
+        } else {
+          var out = '';
+          for (var i = 0; i < parts.length; i++) {
+            var seg = parts[i];
+            if (seg.replace(/<[^>]*>/g, '').trim().length === 0) { out += seg; continue; }
+            out += '<span class="rg-line">' + seg + '</span>';
+            if (i < parts.length - 1) out += '<br>';
+          }
+          host.innerHTML = out;
         }
-        host.innerHTML = out;
+        reps.forEach(function (r) { host.appendChild(r); });
       }
       function setupLines() {
         var bl = content.querySelectorAll('p, blockquote, li');
         Array.prototype.forEach.call(bl, function (el) {
           if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return;
           if (isRubric(el)) return;
-          wrapLines(lineHost(el));
+          lineHosts(el).forEach(wrapLines);
         });
       }
       function wrapWords(lineSpan) {
@@ -375,12 +410,18 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
 
       // ───────── assistente de leitura (palavra a palavra) ─────────
       var blocks = [], bi = 0, li = 0, wi = 0, playing = false, timer = null;
+      // conclusão: "concluindo" = registro em andamento (não deixa contar 2×);
+      // "concluidaNaLeitura" = esta leitura já foi concluída (o fim do assistente não conclui de novo)
+      var concluindo = false, concluidaNaLeitura = false;
       // [base ms, ms por caractere, mínimo] por PALAVRA
       var SPEED = { slow: [240, 60, 300], medium: [150, 45, 220], fast: [90, 32, 150] };
       function buildBlocks() {
         return readBlocks().map(function (el) {
-          var lines = Array.prototype.map.call(lineHost(el).querySelectorAll('.rg-line'), function (ln) {
-            return { span: ln, words: ln.querySelectorAll('.rg-word') };
+          var lines = [];
+          lineHosts(el).forEach(function (h) {
+            Array.prototype.forEach.call(h.querySelectorAll('.rg-line'), function (ln) {
+              lines.push({ span: ln, words: ln.querySelectorAll('.rg-word') });
+            });
           });
           return { el: el, lines: lines, rep: el._rep || null };
         }).filter(function (b) { return b.lines.length > 0; });
@@ -459,6 +500,7 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       function pause() { playing = false; if (timer) clearTimeout(timer); playLabel(); }
       function rgReset() {
         pause(); bi = 0; li = 0; wi = 0; _lastCentered = null; blocks = buildBlocks();
+        concluidaNaLeitura = false; // nova leitura
         clearActive();
         blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
         setLead();
@@ -466,6 +508,7 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       document.getElementById('rgPlay').addEventListener('click', function () { playing ? pause() : play(); });
       document.getElementById('rgRestart').addEventListener('click', function () {
         pause(); bi = 0; li = 0; wi = 0; _lastCentered = null; blocks = buildBlocks();
+        concluidaNaLeitura = false; // nova leitura
         blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
         if (blocks.length) { enterBlock(); paint(); } playLabel();
       });
@@ -533,18 +576,16 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       }
 
       // ───────── contador + conclusão ─────────
-      function readCount(key, fb) {
-        var url = counter.base + '/get/' + encodeURIComponent(counter.namespace) + '/' + encodeURIComponent(key);
-        return fetch(url).then(function (r) { return r.ok ? r.json() : { value: fb }; })
-          .then(function (j) { return (j && typeof j.value === 'number') ? j.value : fb; })
-          .catch(function () { return fb; });
+      // texto de interface com reserva em PT (chave que ainda não está no site.ts)
+      function tt(k, pt) { var v = t(k); return (v == null || v === k) ? pt : v; }
+      // valor do contador desta oração; null = não deu para saber (a capa fica oculta, nunca "0").
+      // odContador já tem prazo e nunca rejeita (rede caída, bloqueador ou serviço fora → null)
+      function readCount(slug) {
+        if (!contadorAtivo) return Promise.resolve(null);
+        return C.ler([slug]).then(function (m) { return (m && typeof m[slug] === 'number') ? m[slug] : null; }, function () { return null; });
       }
-      function hit(key) {
-        var url = counter.base + '/hit/' + encodeURIComponent(counter.namespace) + '/' + encodeURIComponent(key);
-        return fetch(url).then(function (r) { return r.json(); })
-          .then(function (j) { return (j && typeof j.value === 'number') ? j.value : null; })
-          .catch(function () { return null; });
-      }
+      // últimos números do serviço (nunca a reserva): 2ª conclusão do dia e imagem "Rezei hoje"
+      var numVivo = null, numOverlay = null;
       function animateNumber(el, to) {
         if (reduce || to == null) { el.textContent = to == null ? '—' : fmt(to); return; }
         var from = 0, dur = 1300, t0 = performance.now();
@@ -572,31 +613,66 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       }
       function togglePostNext() {
         var show = isNovena && current < meta.totalDays;
-        ['paNext', 'ovNext'].forEach(function (id) { var b = document.getElementById(id); if (b) b.hidden = !show; });
+        // style.display além do hidden: o CSS .btn{display:inline-flex} anula o atributo hidden
+        ['paNext', 'ovNext'].forEach(function (id) { var b = document.getElementById(id); if (b) { b.hidden = !show; b.style.display = show ? '' : 'none'; } });
       }
       function updateReaderCount(v) {
-        if (v == null) return;
+        if (v == null || !(v > 0)) return; // sem número confiável (ou zero): a capa continua oculta
         var n = document.getElementById('readerCountNum');
         var box = document.getElementById('readerCount');
         if (n) n.textContent = fmt(v);
         if (box) box.hidden = false;
       }
-      function openOverlay(total) {
+      // o overlay abre na hora; o número chega depois (fillOverlay) ou fica "—"
+      function openOverlay() {
         var ov = document.getElementById('overlay');
-        var num = document.getElementById('ovNumber');
-        document.querySelector('.ov-number-label').style.display = (total == null) ? 'none' : '';
+        numOverlay = null;
+        document.getElementById('ovNumber').textContent = '…';
+        document.querySelector('.ov-number-label').style.display = 'none';
+        if (ovShare) { ovShare.hidden = !window.odCompartilhar; rotularOvShare(); }
         ov.classList.add('show');
         spawnMotes();
-        animateNumber(num, total);
-        updateReaderCount(total);
         togglePostNext();
+      }
+      function fillOverlay(total) {
+        if (!(total > 0)) total = null; // falhou (ou zero): "—", sem inventar número
+        numOverlay = total;
+        if (total != null) numVivo = total;
+        document.querySelector('.ov-number-label').style.display = (total == null) ? 'none' : '';
+        animateNumber(document.getElementById('ovNumber'), total);
+        updateReaderCount(total);
+      }
+      // "Compartilhar que rezei": imagem "Rezei hoje" para Stories/Status (public/js/compartilhar.js)
+      var ovShare = document.getElementById('ovShare');
+      function rotularOvShare() { if (ovShare) ovShare.textContent = tt('share_prayed', 'Compartilhar que rezei'); }
+      if (ovShare) ovShare.addEventListener('click', function () {
+        if (!window.odCompartilhar) return;
+        var n = numOverlay != null ? numOverlay : numVivo; // contagem da oração (sem número: sem a linha)
+        window.odCompartilhar.abrir({
+          rotulo: isNovena ? tt('prayed_day', 'Rezei o {n}º dia da').replace('{n}', current) : tt('prayed_today', 'Rezei hoje'),
+          titulo: meta.titulo,
+          linhas: n > 1 ? [tt('prayed_with', 'numa corrente de {n} orações').replace('{n}', fmt(n))] : [],
+          banner: meta.banner, bannerReserva: meta.bannerReserva,
+          caminho: meta.caminho, dominio: meta.dominio,
+          arquivo: 'rezei-' + meta.slug + (isNovena ? '-dia-' + current : '')
+        });
+      });
+      // aviso da 2ª conclusão no mesmo dia
+      function setNote(on) {
+        var n = document.getElementById('ovNote');
+        if (!n) return;
+        n.hidden = !on;
+        n.textContent = on ? tt('already_counted', 'Sua oração de hoje já foi contada.') : '';
       }
       function closeOverlay() { document.getElementById('overlay').classList.remove('show'); }
 
       var finishBtn = document.getElementById('finishBtn');
       function doFinish(auto) {
+        pause();                                // o assistente para: nada avança nem rola atrás do overlay
         var hint = document.getElementById('finishHint');
         if (hint) hint.hidden = true;
+        if (concluindo) return;                 // já há um registro em andamento (evita contar 2×)
+        if (auto && concluidaNaLeitura) return; // o assistente chegou ao fim depois de "Concluir": não conclui de novo
         if (turnstileKey) {
           var tok = '';
           try { tok = window.turnstile ? window.turnstile.getResponse() : ''; } catch (e) {}
@@ -605,26 +681,27 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
         var guardKey = 'od-done:' + meta.slug + ':' + (isNovena ? current : 0) + ':' + todayKey();
         var already = false;
         try { already = !!localStorage.getItem(guardKey); } catch (e) {}
+        concluidaNaLeitura = true;
         document.getElementById('postActions').style.display = 'flex';
-        if (!counter.enabled) { openOverlay(null); return; }
-        if (already) { readCount(meta.slug, null).then(openOverlay); return; }
+        openOverlay();
+        setNote(contadorAtivo && already);
+        if (!contadorAtivo) { fillOverlay(null); return; }
+        // já contada hoje: mostra o número mais novo que a página conhece (a leitura do
+        // odContador é guardada por página e seria a de antes da contagem)
+        if (already) { if (numVivo != null) fillOverlay(numVivo); else readCount(meta.slug).then(fillOverlay); return; }
+        concluindo = true;
         finishBtn.disabled = true;
         var old = finishBtn.textContent;
         finishBtn.textContent = t('finishing');
-        Promise.all([hit(meta.slug), hit(counter.totalKey)])
-          .then(function (res) {
-            var mine = res[0];
-            try { localStorage.setItem(guardKey, '1'); } catch (e) {}
-            if (res[1] != null) { try { localStorage.setItem('od-total-cache', String(res[1])); } catch (e) {} }
-            if (mine == null) {
-              var c = 0; try { c = parseInt(localStorage.getItem('od-mine:' + meta.slug) || '0', 10); } catch (e) {}
-              mine = c > 0 ? c + 1 : null;
-            } else {
-              try { localStorage.setItem('od-mine:' + meta.slug, String(mine)); } catch (e) {}
-            }
-            openOverlay(mine);
-          })
-          .finally(function () { finishBtn.disabled = false; finishBtn.textContent = old; });
+        C.contarOracao(meta.slug)
+          .then(function (r) {
+            var mine = r ? r.oracao : null;
+            // só marca "já contada hoje" quando a contagem desta oração deu certo
+            if (mine != null) { try { localStorage.setItem(guardKey, '1'); } catch (e) {} }
+            if (r && r.total != null) { try { localStorage.setItem('od-total-cache', String(r.total)); } catch (e) {} }
+            fillOverlay(mine); // falhou → "—" (não finge que contou)
+          }, function () { fillOverlay(null); })
+          .finally(function () { concluindo = false; finishBtn.disabled = false; finishBtn.textContent = old; });
       }
       finishBtn.addEventListener('click', function () { doFinish(false); });
 
@@ -646,14 +723,10 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
         if (shareBtn) {
           shareBtn.addEventListener('click', function () {
             var url = location.href.split('#')[0];
-            var title = document.title;
-            if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
-            var feedback = function () {
-              var lab = shareBtn.querySelector('span');
-              if (lab) { lab.textContent = t('link_copied'); setTimeout(function () { lab.textContent = t('share'); }, 1800); }
-            };
-            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(feedback).catch(feedback);
-            else { try { var ta = document.createElement('textarea'); ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.focus(); ta.select(); document.execCommand('copy'); ta.remove(); feedback(); } catch (e) {} }
+            // menu do aparelho; se falhar (sem ser cancelamento), copia o link; "Link copiado!" só se
+            // copiou; sem área de transferência, mostra o endereço — ver public/js/compartilhar.js
+            if (window.odCompartilhar) { window.odCompartilhar.link({ url: url, titulo: document.title, botao: shareBtn }); return; }
+            if (navigator.share) navigator.share({ title: document.title, url: url }).catch(function () {});
           });
         }
         var FKEY = 'od-fontscale';
@@ -692,6 +765,8 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
       document.addEventListener('od:lang', function () {
         playLabel();
         if (isNovena) { var cap = document.getElementById('dayCaption'); if (cap) cap.textContent = t('day') + ' ' + current + ' ' + t('day_of') + ' ' + meta.totalDays; }
+        var nt = document.getElementById('ovNote'); if (nt && !nt.hidden) setNote(true);
+        rotularOvShare();
       });
 
       // ───────── início ─────────
@@ -708,8 +783,28 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
         blocks = buildBlocks();
       }
 
-      // contagem desta oração, mostrada na capa
-      if (counter.enabled) { readCount(meta.slug, 0).then(function (v) { updateReaderCount(v); }); }
+      // contagem desta oração, mostrada na capa. Se a leitura falhar, usa o número de reserva
+      // do build (src/data/contadores.json); sem reserva, a capa fica oculta (nunca "0")
+      if (contadorAtivo) {
+        readCount(meta.slug).then(function (v) {
+          if (v > 0 && numVivo == null) numVivo = v;
+          if (v == null && meta.reserva > 0) v = meta.reserva;
+          updateReaderCount(v);
+        });
+      }
+
+      // limpeza: marcas "od-done:…" com mais de 30 dias (antes cresciam para sempre)
+      // e as antigas "od-mine:…" (não são mais usadas)
+      try {
+        var limite = Date.now() - 30 * 86400000;
+        for (var ki = localStorage.length - 1; ki >= 0; ki--) {
+          var kk = localStorage.key(ki);
+          if (kk && kk.indexOf('od-mine:') === 0) { localStorage.removeItem(kk); continue; }
+          if (!kk || kk.indexOf('od-done:') !== 0) continue;
+          var kd = kk.slice(kk.lastIndexOf(':') + 1).split('-');
+          if (!(new Date(+kd[0], +kd[1] - 1, +kd[2]).getTime() >= limite)) localStorage.removeItem(kk);
+        }
+      } catch (e) {}
     })();
   </script>
 </Base>

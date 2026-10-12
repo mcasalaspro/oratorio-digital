@@ -6,6 +6,7 @@ born: "c. 225, Hispânia"
 died: "258, Roma"
 patronage: "pobres; cozinheiros; bibliotecários"
 tags: ["mártir", "diácono", "roma"]
+categorias: [diacono, martir]
 summary: "O diácono que apresentou os pobres como os verdadeiros tesouros da Igreja."
 featured: false
 relatedPrayers: ["novena-sao-lourenco-diacono", "ladainha-santos"]
@@ -16,13 +17,13 @@ Lourenço nasceu por volta do ano 225, provavelmente na Hispânia, na região qu
 
 ## Diácono da Igreja de Roma
 
-Em Roma, lourenço tornou-se discípulo do Papa Sisto II, que o ordenou diácono e o confiou o cuidado dos bens materiais da comunidade cristã e o serviço aos pobres. Como primeiro dos sete diáconos da cidade, cabia-lhe administrar as esmolas, socorrer as viúvas, os órfãos e os necessitados. Lourenço exerceu esse múnus com profunda caridade, reconhecendo nos pobres o próprio rosto do Senhor.
+Em Roma, Lourenço tornou-se discípulo do Papa Sisto II, que o ordenou diácono e o confiou o cuidado dos bens materiais da comunidade cristã e o serviço aos pobres. Como primeiro dos sete diáconos da cidade, cabia-lhe administrar as esmolas, socorrer as viúvas, os órfãos e os necessitados. Lourenço exerceu esse múnus com profunda caridade, reconhecendo nos pobres o próprio rosto do Senhor.
 
-Eram tempos de perseguição. O imperador Valeriano, no ano de 258, promulgou éditos contra os cristãos, ordenando a morte dos bispos, presbíteros e diáconos. O Papa Sisto II foi capturado e conduzido ao martírio. Diz a tradição que, ao vê-lo levado à morte, lourenço chorou por não poder acompanhá-lo, mas o pontífice o consolou anunciando que, em três dias, ele também daria a vida por Cristo.
+Eram tempos de perseguição. O imperador Valeriano, no ano de 258, promulgou éditos contra os cristãos, ordenando a morte dos bispos, presbíteros e diáconos. O Papa Sisto II foi capturado e conduzido ao martírio. Diz a tradição que, ao vê-lo levado à morte, Lourenço chorou por não poder acompanhá-lo, mas o pontífice o consolou anunciando que, em três dias, ele também daria a vida por Cristo.
 
 ## O tesouro da Igreja
 
-Sabendo que a Igreja possuía bens sob a guarda de lourenço, o prefeito de Roma exigiu que lhe fossem entregues os tesouros. O diácono pediu um prazo de três dias para reuni-los. Durante esse tempo, distribuiu rapidamente entre os pobres tudo quanto havia, vendendo até os vasos sagrados para socorrer os necessitados. Ao terceiro dia, apresentou-se diante do magistrado trazendo consigo uma multidão de mendigos, enfermos, cegos e desamparados, e declarou:
+Sabendo que a Igreja possuía bens sob a guarda de Lourenço, o prefeito de Roma exigiu que lhe fossem entregues os tesouros. O diácono pediu um prazo de três dias para reuni-los. Durante esse tempo, distribuiu rapidamente entre os pobres tudo quanto havia, vendendo até os vasos sagrados para socorrer os necessitados. Ao terceiro dia, apresentou-se diante do magistrado trazendo consigo uma multidão de mendigos, enfermos, cegos e desamparados, e declarou:
 
 > Estes são os tesouros da Igreja.
 
@@ -36,4 +37,4 @@ Seu martírio comoveu profundamente a cidade de Roma e, segundo os antigos relat
 
 ## Devoção e legado
 
-Celebrado em 10 de agosto, são lourenço é invocado como padroeiro dos pobres, dos cozinheiros e dos bibliotecários — estes últimos por causa do cuidado que teve com os registros e bens da Igreja. Seu testemunho permanece como exemplo luminoso de caridade e fidelidade até o fim, recordando aos fiéis que o verdadeiro tesouro não está no ouro, mas no amor a Deus e ao próximo, especialmente aos mais pequeninos.
+Celebrado em 10 de agosto, São Lourenço é invocado como padroeiro dos pobres, dos cozinheiros e dos bibliotecários — estes últimos por causa do cuidado que teve com os registros e bens da Igreja. Seu testemunho permanece como exemplo luminoso de caridade e fidelidade até o fim, recordando aos fiéis que o verdadeiro tesouro não está no ouro, mas no amor a Deus e ao próximo, especialmente aos mais pequeninos.

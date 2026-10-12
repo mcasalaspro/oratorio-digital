@@ -36,6 +36,21 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Trazer a reserva do contador
+        # Copia o contadores.json do ramo "dados" (gravado pelo robô diário,
+        # contador-diario.yml) para src/data/contadores.json. Sem o ramo,
+        # segue sem reserva. Nunca impede a publicação.
+        continue-on-error: true
+        run: |
+          if git fetch --no-tags --depth=1 origin +refs/heads/dados:refs/remotes/origin/dados 2> /dev/null \
+            && git show refs/remotes/origin/dados:contadores.json > "$RUNNER_TEMP/contadores.json" 2> /dev/null; then
+            mkdir -p src/data
+            cp "$RUNNER_TEMP/contadores.json" src/data/contadores.json
+            echo "Reserva do contador copiada do ramo dados."
+          else
+            echo "Sem reserva do contador (o ramo dados ainda não existe): seguindo sem ela."
+          fi
+
       - name: Compilar o site
         run: npm run build
         # Se você ativar o CAPTCHA via segredo, descomente:

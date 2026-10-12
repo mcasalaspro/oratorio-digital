@@ -6,7 +6,6 @@ saint: "São Estanislau Kostka SJ"
 language: "pt-BR"
 image: "/saints/novena-sao-estanislau-kostka-sj.webp"
 thumbnail: "/saints/novena-sao-estanislau-kostka-sj.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["juventude", "vocação", "pureza", "jesuítas"]
 description: "Novena ao jovem noviço jesuíta polonês, padroeiro da juventude religiosa, que entregou tudo a Deus aos dezoito anos."
 featured: false

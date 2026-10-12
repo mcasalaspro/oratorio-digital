@@ -1,7 +1,7 @@
 ---
-title: A estrutura da Missa tridentina
-description: O que é a Missa tridentina (rito romano tradicional, em latim), suas principais diferenças em relação à forma atual e a estrutura completa da celebração, parte por parte.
-summary: O rito romano tradicional em latim — o que é, em que se distingue da Missa atual e toda a sua estrutura, da Missa dos Catecúmenos aos últimos ritos.
+title: "A estrutura da Missa tridentina"
+description: "O que é a Missa tridentina (rito romano tradicional, em latim), suas principais diferenças em relação à forma atual e a estrutura completa da celebração, parte por parte."
+summary: "O rito romano tradicional em latim — o que é, em que se distingue da Missa atual e toda a sua estrutura, da Missa dos Catecúmenos aos últimos ritos."
 order: 3
 icon: ✠
 ---
@@ -34,7 +34,7 @@ A Missa divide-se em duas grandes partes: a **Missa dos Catecúmenos** (centrada
 
 **Introito.** O sacerdote sobe ao altar e lê a antífona de entrada, geralmente tirada de um salmo, que dá o tom da celebração do dia.
 
-**Kyrie.** Em grego, *Kýrie eléison* ("Senhor, tende piedade"), repetido nove vezes (três a Cristo Senhor, três ao Cristo, três ao Senhor) — um clamor confiante à misericórdia de Deus, dirigido à Santíssima Trindade.
+**Kyrie.** Em grego, nove invocações: três vezes *Kýrie eléison* ("Senhor, tende piedade"), três vezes *Christe eléison* ("Cristo, tende piedade") e outras três vezes *Kýrie eléison* — um clamor confiante à misericórdia de Deus, dirigido à Santíssima Trindade.
 
 **Glória.** Nos domingos e festas (fora do Advento e da Quaresma), entoa-se o hino de louvor que começa com o canto dos anjos em Belém: *Gloria in excelsis Deo*.
 
@@ -66,7 +66,7 @@ A Missa divide-se em duas grandes partes: a **Missa dos Catecúmenos** (centrada
 
 **Agnus Dei.** *Agnus Dei, qui tollis peccata mundi* ("Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós… dai-nos a paz"), enquanto o sacerdote se prepara para a Comunhão. É súplica humilde a Cristo, o verdadeiro Cordeiro imolado por nós.
 
-**Comunhão.** O sacerdote comunga primeiro. Antes de distribuir a Comunhão aos fiéis, repete-se o **Confiteor** e o sacerdote eleva a Hóstia dizendo *Ecce Agnus Dei* ("Eis o Cordeiro de Deus"); todos respondem três vezes *Domine, non sum dignus* ("Senhor, eu não sou digno"). Os fiéis comungam **de joelhos, na boca**, em silêncio e adoração.
+**Comunhão.** O sacerdote comunga primeiro. Antes de distribuir a Comunhão aos fiéis, eleva a Hóstia dizendo *Ecce Agnus Dei* ("Eis o Cordeiro de Deus"); todos respondem três vezes *Domine, non sum dignus* ("Senhor, eu não sou digno"). (Antigamente, rezava-se aqui de novo o **Confiteor**; as rubricas de 1960, seguidas no Missal de 1962, o suprimiram, mas em muitas comunidades o costume se mantém.) Os fiéis comungam **de joelhos, na boca**, em silêncio e adoração.
 
 **Antífona da Comunhão e Pós-comunhão.** Lê-se um versículo próprio do dia e o sacerdote reza a oração final que pede os frutos do mistério celebrado.
 

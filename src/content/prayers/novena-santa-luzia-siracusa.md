@@ -6,7 +6,6 @@ saint: "Santa Luzia de Siracusa"
 language: "pt-BR"
 image: "/saints/novena-santa-luzia-siracusa.webp"
 thumbnail: "/saints/novena-santa-luzia-siracusa.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["visão", "olhos", "luz", "martírio", "fé"]
 description: "Novena tradicional a Santa Luzia, virgem e mártir de Siracusa, protetora da visão e portadora da luz de Cristo."
 featured: false

@@ -1,0 +1,9 @@
+Imagens da seção "cantos".
+
+- Imagem padrão (usada em todas as páginas que não tiverem a sua própria):
+    public/cantos/default.webp
+- Imagem personalizada de um item (tem prioridade): mesmo nome do arquivo .md (slug):
+    public/cantos/<slug>.webp
+
+Se não houver nem a do slug nem a default.webp, o site usa a foto do topo (rays.webp).
+O thumbnail leve é gerado sozinho no build. Tamanho sugerido: ~1600x1000 px, WebP.

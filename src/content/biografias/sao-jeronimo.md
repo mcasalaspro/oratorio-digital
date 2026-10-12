@@ -6,6 +6,7 @@ born: "c. 347, Estridão (Dalmácia)"
 died: "420, Belém"
 patronage: "tradutores; bibliotecários; estudiosos da Bíblia"
 tags: ["doutor", "vulgata", "escrituras"]
+categorias: [doutor]
 summary: "O tradutor da Bíblia para o latim, apaixonado pela Palavra de Deus."
 featured: false
 relatedPrayers: ["novena-sao-jeronimo-estridao", "ladainha-santos"]
@@ -16,15 +17,15 @@ Jerônimo nasceu por volta do ano 347 em Estridão, cidade da Dalmácia, na fron
 
 ## Conversão e vida ascética
 
-O amor de jerônimo pelos autores pagãos chegou a inquietá-lo profundamente. A tradição conta que, numa enfermidade, sonhou ser arrastado diante do tribunal do Senhor, onde ouviu a censura de ser mais "ciceroniano" do que cristão. Tocado por esse aviso, voltou-se com ardor para o estudo das Sagradas Escrituras. Retirou-se para o deserto de Cálcis, na Síria, onde viveu como eremita entre penitências, jejuns e provações. Naquela solidão, dominou suas paixões e aprendeu o hebraico com a ajuda de um judeu convertido, preparando-se sem o saber para a grande obra de sua vida. Mais tarde foi ordenado sacerdote em Antioquia, embora jamais tenha exercido as funções comuns do ministério, dedicando-se inteiramente ao estudo e à pena.
+O amor de Jerônimo pelos autores pagãos chegou a inquietá-lo profundamente. A tradição conta que, numa enfermidade, sonhou ser arrastado diante do tribunal do Senhor, onde ouviu a censura de ser mais "ciceroniano" do que cristão. Tocado por esse aviso, voltou-se com ardor para o estudo das Sagradas Escrituras. Retirou-se para o deserto de Cálcis, na Síria, onde viveu como eremita entre penitências, jejuns e provações. Naquela solidão, dominou suas paixões e aprendeu o hebraico com a ajuda de um judeu convertido, preparando-se sem o saber para a grande obra de sua vida. Mais tarde foi ordenado sacerdote em Antioquia, embora jamais tenha exercido as funções comuns do ministério, dedicando-se inteiramente ao estudo e à pena.
 
 ## O serviço em Roma e a tradução das Escrituras
 
-De volta a Roma, jerônimo tornou-se secretário do papa Dâmaso, que o encarregou de rever as traduções latinas dos Evangelhos. Nesse período, foi também guia espiritual de um grupo de nobres romanas, entre elas santa Paula e sua filha Eustáquio, que abraçaram sob sua orientação uma vida de oração e renúncia. Sua linguagem severa contra os vícios da cidade e do clero lhe atraiu inimizades, e, após a morte de Dâmaso, deixou Roma para sempre, partindo rumo à Terra Santa.
+De volta a Roma, Jerônimo tornou-se secretário do papa Dâmaso, que o encarregou de rever as traduções latinas dos Evangelhos. Nesse período, foi também guia espiritual de um grupo de nobres romanas, entre elas Santa Paula e sua filha Eustáquio, que abraçaram sob sua orientação uma vida de oração e renúncia. Sua linguagem severa contra os vícios da cidade e do clero lhe atraiu inimizades, e, após a morte de Dâmaso, deixou Roma para sempre, partindo rumo à Terra Santa.
 
 ## Belém e a Vulgata
 
-Estabeleceu-se enfim em Belém, junto à gruta da Natividade, onde fundou mosteiros e levou uma vida de estudo incansável e de austera penitência. Foi ali, ao longo de muitos anos, que realizou sua obra mais grandiosa: a tradução de quase toda a Bíblia para o latim, diretamente das fontes hebraicas e gregas. Essa versão, conhecida como Vulgata, tornou-se o texto oficial da Igreja por mais de mil anos e moldou a fé e a cultura do Ocidente. Para jerônimo, debruçar-se sobre a Palavra era encontrar o próprio Cristo, e por isso advertia com firmeza:
+Estabeleceu-se enfim em Belém, junto à gruta da Natividade, onde fundou mosteiros e levou uma vida de estudo incansável e de austera penitência. Foi ali, ao longo de muitos anos, que realizou sua obra mais grandiosa: a tradução de quase toda a Bíblia para o latim, diretamente das fontes hebraicas e gregas. Essa versão, conhecida como Vulgata, tornou-se o texto oficial da Igreja por mais de mil anos e moldou a fé e a cultura do Ocidente. Para Jerônimo, debruçar-se sobre a Palavra era encontrar o próprio Cristo, e por isso advertia com firmeza:
 
 > Ignorar as Escrituras é ignorar Cristo.
 

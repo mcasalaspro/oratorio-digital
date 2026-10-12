@@ -6,7 +6,6 @@ saint: "Epifania do Senhor"
 language: "pt-BR"
 image: "/saints/novena-epifania-senhor-reis-magos.webp"
 thumbnail: "/saints/novena-epifania-senhor-reis-magos.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["epifania", "reis magos", "manifestação de Cristo", "gentios", "adoração"]
 description: "Novena tradicional à Epifania do Senhor, celebrando a manifestação de Cristo aos gentios e a adoração dos Reis Magos."
 featured: true

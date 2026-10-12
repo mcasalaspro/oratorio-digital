@@ -9,6 +9,7 @@ tags: ["advento", "antífonas", "liturgia", "espera", "Emanuel", "Messias"]
 description: "As sete grandes antífonas que precedem o Natal, cantadas de 17 a 23 de dezembro."
 featured: false
 liturgicalFeast: "12-23"
+novenaSuggestedStart: -6
 liturgicalColor: "advento"
 ---
 

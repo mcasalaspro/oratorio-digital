@@ -1,5 +1,5 @@
 ---
-title: "Ofício dos Mortos — Novena pelos Fiéis Defuntos"
+title: "Ofício dos Mortos — Oração pelos Fiéis Defuntos"
 type: "outro"
 saint: "Fiéis Defuntos"
 language: "pt-BR"

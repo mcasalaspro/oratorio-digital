@@ -6,6 +6,7 @@ born: "1887, Pietrelcina (Itália)"
 died: "1968, San Giovanni Rotondo"
 patronage: "voluntários; confessores; doentes"
 tags: ["capuchinho", "estigmas", "confissão"]
+categorias: [religioso]
 summary: "O frade capuchinho dos estigmas, gigante da confissão e da oração pelos doentes."
 featured: true
 order: 8
@@ -31,4 +32,4 @@ Movido pela compaixão diante dos doentes e dos pobres, padre Pio empenhou-se na
 
 Nos seus últimos anos, debilitado pela idade e pela doença, padre Pio permaneceu fiel à celebração da Missa e ao atendimento dos fiéis até onde suas forças permitiram. Faleceu em 23 de setembro de 1968, em San Giovanni Rotondo, pronunciando os nomes de Jesus e de Maria. Suas chagas, presentes por meio século, haviam desaparecido pouco antes da morte.
 
-A fama de sua santidade espalhou-se rapidamente pelo mundo. O papa João Paulo II canonizou-o em 16 de junho de 2002, diante de uma multidão imensa. Padroeiro dos voluntários, dos confessores e dos doentes, são Pio de Pietrelcina permanece como um sinal luminoso da misericórdia de Deus, convidando todos a confiarem na oração e a abraçarem a cruz com amor.
+A fama de sua santidade espalhou-se rapidamente pelo mundo. O papa João Paulo II canonizou-o em 16 de junho de 2002, diante de uma multidão imensa. Padroeiro dos voluntários, dos confessores e dos doentes, São Pio de Pietrelcina permanece como um sinal luminoso da misericórdia de Deus, convidando todos a confiarem na oração e a abraçarem a cruz com amor.

@@ -6,7 +6,7 @@ language: "pt-BR"
 image: "/saints/benedictus-cantico-zacarias.webp"
 thumbnail: "/saints/benedictus-cantico-zacarias.webp"
 tags: ["laudes", "liturgia das horas", "João Batista", "cântico", "messias"]
-description: "Cântico de Zacarias (Lc 1,68-79), profecia mesiânica rezada todas as manhãs nas Laudes."
+description: "Cântico de Zacarias (Lc 1,68-79), profecia messiânica rezada todas as manhãs nas Laudes."
 featured: false
 liturgicalColor: "ordinario"
 ---

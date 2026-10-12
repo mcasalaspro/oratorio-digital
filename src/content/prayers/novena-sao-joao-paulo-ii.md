@@ -6,7 +6,6 @@ saint: "São João Paulo II"
 language: "pt-BR"
 image: "/saints/novena-sao-joao-paulo-ii.webp"
 thumbnail: "/saints/novena-sao-joao-paulo-ii.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["intercessão", "Totus Tuus", "família", "juventude", "misericórdia"]
 description: "Novena ao Papa São João Paulo II, o Papa do 'Não tenhais medo', canonizado em 2014."
 featured: false

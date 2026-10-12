@@ -161,7 +161,7 @@ enviada pelo próprio Senhor a anunciar a Boa Nova,<br>
 intercedei por nós que somos chamados<br>
 a ser arautos da alegria do Evangelho.<br>
 
-Vós corestes a dizer aos discípulos: "Eu vi o Senhor!"<br>
+Vós correstes a dizer aos discípulos: "Eu vi o Senhor!"<br>
 Dai-nos esta mesma coragem de testemunhar a fé.<br>
 Que nossas palavras e nossas obras<br>
 proclamem a vitória de Cristo sobre a morte.

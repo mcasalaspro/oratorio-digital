@@ -8,7 +8,7 @@ thumbnail: "/saints/sub-tuum-praesidium.webp"
 tags: ["Maria", "proteção", "refúgio", "oração antiga", "Mãe de Deus"]
 description: "A mais antiga oração mariana conhecida, encontrada num papiro egípcio do século III. Um pedido de amparo à Mãe de Deus."
 featured: false
-liturgicalFeast: "12-08"
+liturgicalFeast: "01-01"
 liturgicalColor: "festa"
 ---
 

@@ -6,7 +6,6 @@ saint: "N. Sra. das Candeias"
 language: "pt-BR"
 image: "/saints/novena-n-sra-candeias-apresentacao-senhor.webp"
 thumbnail: "/saints/novena-n-sra-candeias-apresentacao-senhor.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["luz", "purificação", "apresentação", "Maria", "velas"]
 description: "Novena à Apresentação do Senhor no Templo e à Purificação de Maria, com a bênção das candeias (Lc 2,22-38)."
 featured: false

@@ -6,7 +6,6 @@ saint: "São Bernardo de Claraval"
 language: "pt-BR"
 image: "/saints/novena-sao-bernardo-claraval.webp"
 thumbnail: "/saints/novena-sao-bernardo-claraval.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["Doutor Melífluo", "Cister", "devoção mariana", "vida contemplativa", "humildade"]
 description: "Novena tradicional ao Doutor Melífluo, reformador cisterciense e grande teólogo mariano do século XII."
 featured: false

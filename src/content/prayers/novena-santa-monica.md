@@ -44,7 +44,7 @@ Pela vossa intercessão,<br>
 alcançai-me a graça da paciência<br>
 diante das contrariedades do dia a dia.<br>
 
-Que eu venza o mal com o bem<br>
+Que eu vença o mal com o bem<br>
 e responda à dureza com a doçura,<br>
 confiando sempre no Senhor.
 

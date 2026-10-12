@@ -6,13 +6,14 @@ born: "c. 385, Britânia romana"
 died: "c. 461, Irlanda"
 patronage: "Irlanda; engenheiros"
 tags: ["irlanda", "missionário", "trindade"]
+categorias: [bispo]
 summary: "O escravo que voltou como bispo para evangelizar a Irlanda e ensinar a Trindade."
 featured: false
 relatedPrayers: ["novena-sao-patricio-armagh", "peitoral-sao-patricio-lorica-cristo-comigo", "ladainha-santos"]
 ---
 ## Juventude na Britânia
 
-Patrício nasceu por volta do ano 385, em uma família cristã da Britânia romana. Seu pai, Calpúrnio, era diácono e funcionário do Império, e seu avô havia sido sacerdote. Apesar dessa herança de fé, o jovem patrício confessaria mais tarde que, em sua adolescência, vivia distante de Deus e não levava a sério os ensinamentos recebidos. A piedade ainda não tinha tomado raízes profundas em seu coração.
+Patrício nasceu por volta do ano 385, em uma família cristã da Britânia romana. Seu pai, Calpúrnio, era diácono e funcionário do Império, e seu avô havia sido sacerdote. Apesar dessa herança de fé, o jovem Patrício confessaria mais tarde que, em sua adolescência, vivia distante de Deus e não levava a sério os ensinamentos recebidos. A piedade ainda não tinha tomado raízes profundas em seu coração.
 
 ## O cativeiro e a conversão
 
@@ -20,7 +21,7 @@ Aos dezesseis anos, sua vida foi bruscamente interrompida. Piratas o capturaram 
 
 > "O amor de Deus e o Seu temor cresceram cada vez mais em mim, e a fé se fortaleceu."
 
-Após cerca de seis anos de cativeiro, patrício ouviu em sonho uma voz que lhe anunciava a libertação. Confiando nessa inspiração, fugiu e percorreu uma longa distância até alcançar um navio que o levou de volta à sua pátria, reencontrando finalmente a família.
+Após cerca de seis anos de cativeiro, Patrício ouviu em sonho uma voz que lhe anunciava a libertação. Confiando nessa inspiração, fugiu e percorreu uma longa distância até alcançar um navio que o levou de volta à sua pátria, reencontrando finalmente a família.
 
 ## O chamado de retorno
 
@@ -28,7 +29,7 @@ De volta ao seu lar, poderia ter buscado uma vida tranquila. Mas teve outra vis�
 
 ## Apóstolo da Irlanda
 
-Como pastor, patrício percorreu a ilha pregando o Evangelho, batizando multidões, ordenando sacerdotes e fundando comunidades cristãs. Enfrentou a oposição de reis e druidas, sofreu perigos e ameaças, mas perseverou com coragem e mansidão. Conta a tradição que, para explicar o mistério da Santíssima Trindade a um povo simples, ele se valeu de um trevo de três folhas unidas em um único caule: assim mostrava como o Pai, o Filho e o Espírito Santo são três Pessoas em um só Deus. Por essa razão, o trevo se tornou um símbolo querido associado ao seu nome.
+Como pastor, Patrício percorreu a ilha pregando o Evangelho, batizando multidões, ordenando sacerdotes e fundando comunidades cristãs. Enfrentou a oposição de reis e druidas, sofreu perigos e ameaças, mas perseverou com coragem e mansidão. Conta a tradição que, para explicar o mistério da Santíssima Trindade a um povo simples, ele se valeu de um trevo de três folhas unidas em um único caule: assim mostrava como o Pai, o Filho e o Espírito Santo são três Pessoas em um só Deus. Por essa razão, o trevo se tornou um símbolo querido associado ao seu nome.
 
 ## Os últimos dias
 

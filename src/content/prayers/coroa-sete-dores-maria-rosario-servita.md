@@ -25,7 +25,7 @@ Concedei-me, pela compaixão de Maria,<br>
 verdadeira contrição dos meus pecados<br>
 e a graça de permanecer fiel a Vós.
 
-## Dia 1 — A profecia de Simeão
+## 1ª Dor — A profecia de Simeão
 
 Contemplo a primeira dor: quando Maria apresentou o Menino Jesus no Templo, o justo Simeão anunciou que uma espada de dor traspassaria a alma dela.
 
@@ -35,7 +35,7 @@ Pai-Nosso...
 
 Santíssima Virgem, pela dor que sentistes ao ouvir a profecia de Simeão, alcançai-me o temor santo de Deus.
 
-## Dia 2 — A fuga para o Egito
+## 2ª Dor — A fuga para o Egito
 
 Contemplo a segunda dor: quando Maria, avisada por José, fugiu para o Egito com o Menino Jesus, escapando da fúria de Herodes.
 
@@ -45,7 +45,7 @@ Pai-Nosso...
 
 Santíssima Virgem, pela angústia da fuga para o Egito, alcançai-me a coragem de seguir a Jesus em todas as provações.
 
-## Dia 3 — A perda do Menino Jesus no Templo
+## 3ª Dor — A perda do Menino Jesus no Templo
 
 Contemplo a terceira dor: quando Maria e José, voltando de Jerusalém, deram falta do Menino e O procuraram aflitos durante três dias.
 
@@ -55,7 +55,7 @@ Pai-Nosso...
 
 Santíssima Virgem, pela tristeza de procurar Jesus por três dias, alcançai-me a graça de nunca O perder pelo pecado.
 
-## Dia 4 — O encontro com Jesus a caminho do Calvário
+## 4ª Dor — O encontro com Jesus a caminho do Calvário
 
 Contemplo a quarta dor: quando Maria encontrou seu Filho carregando a cruz, ferido e exausto, a caminho do Calvário.
 
@@ -65,7 +65,7 @@ Pai-Nosso...
 
 Santíssima Virgem, pela dor do encontro doloroso na Via-Sacra, alcançai-me paciência nos sofrimentos da vida.
 
-## Dia 5 — A crucificação e a morte de Jesus
+## 5ª Dor — A crucificação e a morte de Jesus
 
 Contemplo a quinta dor: quando Maria permaneceu de pé junto à cruz, vendo seu Filho morrer pela salvação do mundo.
 
@@ -75,7 +75,7 @@ Pai-Nosso...
 
 Santíssima Virgem, pela dor imensa de ver Jesus morrer na cruz, alcançai-me o amor à cruz e o ódio ao pecado.
 
-## Dia 6 — Jesus descido da cruz e entregue à Mãe
+## 6ª Dor — Jesus descido da cruz e entregue à Mãe
 
 Contemplo a sexta dor: quando o corpo de Jesus foi descido da cruz e depositado nos braços de sua Mãe.
 
@@ -85,7 +85,7 @@ Pai-Nosso...
 
 Santíssima Virgem, pela dor de receber o corpo de Jesus em vossos braços, alcançai-me a compaixão pelos sofrimentos do meu próximo.
 
-## Dia 7 — O sepultamento de Jesus
+## 7ª Dor — O sepultamento de Jesus
 
 Contemplo a sétima dor: quando Maria acompanhou o corpo de Jesus ao sepulcro e ali o deixou, esperando na fé da ressurreição.
 

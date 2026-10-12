@@ -6,6 +6,7 @@ born: "1647, Verosvres (França)"
 died: "1690, Paray-le-Monial"
 patronage: "devoção ao Sagrado Coração"
 tags: ["visitandina", "sagrado coração", "reparação"]
+categorias: [virgem, religioso]
 summary: "A religiosa a quem Jesus revelou as riquezas do seu Sagrado Coração."
 featured: false
 relatedPrayers: ["novena-santa-margarida-maria-alacoque", "ladainha-sagrado-coracao-jesus"]
@@ -18,11 +19,11 @@ A morte de seu pai, quando ela tinha apenas oito anos, lançou a família em dif
 
 ## A vida religiosa
 
-Em 1671, contra as resistências de parte da família, margarida entrou para o mosteiro da Visitação de Paray-le-Monial, congregação fundada por são Francisco de Sales e santa Joana de Chantal. Ali professou os votos religiosos e abraçou uma vida de humildade e obediência. Não era considerada brilhante pelas irmãs, mas crescia interiormente numa intimidade cada vez mais intensa com o Coração de Cristo.
+Em 1671, contra as resistências de parte da família, Margarida entrou para o mosteiro da Visitação de Paray-le-Monial, congregação fundada por São Francisco de Sales e Santa Joana de Chantal. Ali professou os votos religiosos e abraçou uma vida de humildade e obediência. Não era considerada brilhante pelas irmãs, mas crescia interiormente numa intimidade cada vez mais intensa com o Coração de Cristo.
 
 ## As revelações do Sagrado Coração
 
-Entre os anos de 1673 e 1675, em Paray-le-Monial, margarida recebeu uma série de revelações em que o Senhor lhe manifestou o seu Coração, símbolo do amor ardente e misericordioso que Ele tem por toda a humanidade. Nessas aparições, Jesus mostrou-lhe o seu Coração coroado de espinhos e circundado de chamas, queixando-se da ingratidão e do esquecimento dos homens.
+Entre os anos de 1673 e 1675, em Paray-le-Monial, Margarida recebeu uma série de revelações em que o Senhor lhe manifestou o seu Coração, símbolo do amor ardente e misericordioso que Ele tem por toda a humanidade. Nessas aparições, Jesus mostrou-lhe o seu Coração coroado de espinhos e circundado de chamas, queixando-se da ingratidão e do esquecimento dos homens.
 
 > "Eis o Coração que tanto amou os homens, e que em troca recebe apenas ingratidão."
 
@@ -30,7 +31,7 @@ O Senhor pediu-lhe que promovesse uma devoção reparadora ao seu Sagrado Coraç
 
 ## Provações e fidelidade
 
-A missão de margarida não foi fácil. Muitas irmãs e até superioras duvidaram dela e a trataram com desconfiança, considerando suas experiências fruto de ilusão. Ela suportou tudo com mansidão e perseverança, sem jamais abandonar aquilo que sabia ter recebido do Senhor. Com o tempo, a verdade de sua santidade foi se impondo, e a devoção ao Sagrado Coração começou a espalhar-se pela Igreja, conquistando inúmeras almas.
+A missão de Margarida não foi fácil. Muitas irmãs e até superioras duvidaram dela e a trataram com desconfiança, considerando suas experiências fruto de ilusão. Ela suportou tudo com mansidão e perseverança, sem jamais abandonar aquilo que sabia ter recebido do Senhor. Com o tempo, a verdade de sua santidade foi se impondo, e a devoção ao Sagrado Coração começou a espalhar-se pela Igreja, conquistando inúmeras almas.
 
 ## Os últimos dias
 

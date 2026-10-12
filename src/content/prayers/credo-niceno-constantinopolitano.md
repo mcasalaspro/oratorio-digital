@@ -6,12 +6,12 @@ language: "pt-BR"
 image: "/saints/credo-niceno-constantinopolitano.webp"
 thumbnail: "/saints/credo-niceno-constantinopolitano.webp"
 tags: ["fé", "credo", "liturgia", "Trindade", "missa"]
-description: "Profissão de fé dos Concílios de Nicéia (325) e Constantinopla (381), proclamada na Missa dominical."
+description: "Profissão de fé dos Concílios de Niceia (325) e Constantinopla (381), proclamada na Missa dominical."
 featured: false
 liturgicalColor: "ordinario"
 ---
 
-Profissão de fé formulada pelos Concílios de Nicéia (325) e de Constantinopla (381), proclamada solenemente na Missa dominical. Defende a divindade plena do Filho e do Espírito Santo.
+Profissão de fé formulada pelos Concílios de Niceia (325) e de Constantinopla (381), proclamada solenemente na Missa dominical. Defende a divindade plena do Filho e do Espírito Santo.
 
 Creio em um só Deus,<br>
 Pai todo-poderoso,<br>

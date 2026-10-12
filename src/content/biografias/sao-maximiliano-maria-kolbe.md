@@ -6,6 +6,7 @@ born: "1894, Zduńska Wola (Polônia)"
 died: "1941, Auschwitz"
 patronage: "presos; famílias; jornalistas; dependentes químicos"
 tags: ["franciscano", "mártir", "imaculada"]
+categorias: [martir, religioso, fundador]
 summary: "O mártir da caridade que ofereceu a vida por um pai de família em Auschwitz."
 featured: false
 relatedPrayers: ["consagracao-imaculado-coracao-maria", "novena-imaculada-conceicao", "ladainha-santos"]

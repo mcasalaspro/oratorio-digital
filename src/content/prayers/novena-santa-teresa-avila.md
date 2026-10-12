@@ -6,7 +6,6 @@ saint: "Santa Teresa de Ávila"
 language: "pt-BR"
 image: "/saints/novena-santa-teresa-avila.webp"
 thumbnail: "/saints/novena-santa-teresa-avila.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["oração", "vida interior", "Carmelo", "Doutora da Igreja", "Castelo Interior"]
 description: "Novena tradicional a Santa Teresa de Ávila, mística carmelita e primeira Doutora da Igreja, mestra da oração e do Castelo Interior."
 featured: true

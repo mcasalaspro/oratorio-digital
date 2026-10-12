@@ -8,7 +8,7 @@ thumbnail: "/saints/oracao-sao-ricardo-chichester.webp"
 tags: ["gratidão", "amizade com Cristo", "conhecer a Deus", "seguimento"]
 description: "Oração tradicional de São Ricardo de Chichester (séc. XIII): conhecer, amar e seguir Jesus mais de perto."
 featured: false
-liturgicalFeast: "10-04"
+liturgicalFeast: "04-03"
 liturgicalColor: "festa"
 ---
 

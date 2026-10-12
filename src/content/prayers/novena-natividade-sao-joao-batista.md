@@ -6,7 +6,6 @@ saint: "Natividade de São João Batista"
 language: "pt-BR"
 image: "/saints/novena-natividade-sao-joao-batista.webp"
 thumbnail: "/saints/novena-natividade-sao-joao-batista.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["João Batista", "precursor", "natividade", "conversão", "preparação"]
 description: "Novena à Natividade de São João Batista, o único santo, além de Maria, cuja festa de nascimento a Igreja celebra. Tradição litúrgica romana (séc. IV–V)."
 featured: false

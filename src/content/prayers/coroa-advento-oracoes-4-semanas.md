@@ -5,7 +5,6 @@ saint: "Advento"
 language: "pt-BR"
 image: "/saints/coroa-advento-oracoes-4-semanas.webp"
 thumbnail: "/saints/coroa-advento-oracoes-4-semanas.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["advento", "coroa do advento", "esperança", "conversão", "preparação", "natal"]
 description: "Orações tradicionais para o acendimento das velas da Coroa do Advento nas quatro semanas de preparação para o Natal."
 featured: false

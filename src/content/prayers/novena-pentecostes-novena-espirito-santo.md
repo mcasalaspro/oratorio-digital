@@ -6,7 +6,6 @@ saint: "Pentecostes — Novena do Espírito Santo"
 language: "pt-BR"
 image: "/saints/novena-pentecostes-novena-espirito-santo.webp"
 thumbnail: "/saints/novena-pentecostes-novena-espirito-santo.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["Espírito Santo", "Pentecostes", "Cenáculo", "dons", "Maria"]
 description: "A primeira novena cristã: nove dias entre a Ascensão e Pentecostes, com Maria e os apóstolos no Cenáculo, implorando os dons do Espírito Santo."
 featured: true

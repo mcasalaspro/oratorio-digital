@@ -4,8 +4,9 @@ title: "Sacerdote, Primeiro santo nascido no Brasil"
 feast: "10-25"
 born: "1739, Guaratinguetá (Brasil)"
 died: "1822, São Paulo"
-patronage: "Brasil; gestantes; doentes"
+patronage: "gestantes; doentes"
 tags: ["brasil", "franciscano", "pílulas"]
+categorias: [religioso, fundador]
 summary: "O primeiro santo brasileiro de nascimento, conhecido pelas 'pílulas' de fé e cura."
 featured: false
 relatedPrayers: ["ladainha-santos"]

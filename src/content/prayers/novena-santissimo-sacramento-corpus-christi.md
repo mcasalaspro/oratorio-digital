@@ -6,7 +6,6 @@ saint: "Santíssimo Sacramento"
 language: "pt-BR"
 image: "/saints/novena-santissimo-sacramento-corpus-christi.webp"
 thumbnail: "/saints/novena-santissimo-sacramento-corpus-christi.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["eucaristia", "corpus christi", "adoração", "comunhão", "presença real"]
 description: "Novena tradicional de preparação para a Solenidade do Corpo e Sangue de Cristo, inspirada no ofício de São Tomás de Aquino."
 featured: true

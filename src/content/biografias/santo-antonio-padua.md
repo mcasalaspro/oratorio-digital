@@ -6,6 +6,7 @@ born: "c. 1195, Lisboa"
 died: "1231, Pádua"
 patronage: "objetos perdidos; pobres; noivos"
 tags: ["franciscano", "doutor", "pregador"]
+categorias: [doutor, religioso]
 summary: "O santo dos milagres e dos objetos perdidos, pregador incansável da Palavra."
 featured: true
 order: 3
@@ -21,7 +22,7 @@ O rumo de sua vida mudou ao conhecer as relíquias de cinco frades franciscanos 
 
 ## Pregador genial
 
-Sua eloquência permaneceu oculta até que, numa ordenação, foi chamado a pregar de improviso. As palavras que brotaram de seus lábios revelaram uma sabedoria tão profunda e uma unção tão ardente que todos ficaram maravilhados. A partir de então, antônio percorreu cidades e campos da Itália e da França, combatendo as heresias e reconduzindo as almas a Cristo. Pregava aos pobres e aos poderosos, e tantos eram os frutos de sua palavra que recebeu o título de Doutor Evangélico, mais tarde confirmado pela Igreja como Doutor da Igreja.
+Sua eloquência permaneceu oculta até que, numa ordenação, foi chamado a pregar de improviso. As palavras que brotaram de seus lábios revelaram uma sabedoria tão profunda e uma unção tão ardente que todos ficaram maravilhados. A partir de então, Antônio percorreu cidades e campos da Itália e da França, combatendo as heresias e reconduzindo as almas a Cristo. Pregava aos pobres e aos poderosos, e tantos eram os frutos de sua palavra que recebeu o título de Doutor Evangélico, mais tarde confirmado pela Igreja como Doutor da Igreja.
 
 > "Se desejas que Cristo habite em ti, é preciso que carregues sempre a sua Palavra no coração."
 
@@ -31,4 +32,4 @@ Estabelecido em Pádua, dedicou os últimos anos à pregação e à caridade, de
 
 ## Os últimos dias
 
-Esgotado pelas fadigas apostólicas, antônio adoeceu ainda jovem e pediu para ser conduzido a Pádua. No caminho, em 13 de junho de 1231, com pouco mais de trinta e cinco anos, entregou sua alma ao Senhor, dizendo contemplar a glória de Deus. Sua morte comoveu a cidade inteira, e os milagres que se multiplicaram junto ao seu túmulo levaram o papa Gregório IX a canonizá-lo menos de um ano depois. Até hoje sua memória permanece viva, e seu exemplo de fidelidade à Palavra continua a iluminar os que buscam a Cristo.
+Esgotado pelas fadigas apostólicas, Antônio adoeceu ainda jovem e pediu para ser conduzido a Pádua. No caminho, em 13 de junho de 1231, com pouco mais de trinta e cinco anos, entregou sua alma ao Senhor, dizendo contemplar a glória de Deus. Sua morte comoveu a cidade inteira, e os milagres que se multiplicaram junto ao seu túmulo levaram o papa Gregório IX a canonizá-lo menos de um ano depois. Até hoje sua memória permanece viva, e seu exemplo de fidelidade à Palavra continua a iluminar os que buscam a Cristo.

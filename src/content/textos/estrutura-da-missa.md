@@ -1,7 +1,7 @@
 ---
-title: A estrutura da Missa
-description: As partes da Santa Missa explicadas uma a uma — os Ritos Iniciais, a Liturgia da Palavra, a Liturgia Eucarística e os Ritos Finais — com o significado de cada momento e de cada canto.
-summary: Um passeio por toda a Missa, parte por parte, com o sentido de cada momento e o significado de cada canto — da entrada à bênção final.
+title: "A estrutura da Missa"
+description: "As partes da Santa Missa explicadas uma a uma — os Ritos Iniciais, a Liturgia da Palavra, a Liturgia Eucarística e os Ritos Finais — com o significado de cada momento e de cada canto."
+summary: "Um passeio por toda a Missa, parte por parte, com o sentido de cada momento e o significado de cada canto — da entrada à bênção final."
 order: 2
 icon: ✝
 ---

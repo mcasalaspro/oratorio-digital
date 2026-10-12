@@ -6,6 +6,7 @@ born: "1905, Głogowiec (Polônia)"
 died: "1938, Cracóvia"
 patronage: "devoção à Divina Misericórdia"
 tags: ["misericórdia", "mística", "polônia"]
+categorias: [virgem, religioso]
 summary: "A religiosa polonesa a quem Jesus confiou a mensagem e a devoção da Divina Misericórdia."
 featured: false
 relatedPrayers: ["coroa-divina-misericordia", "ladainha-divina-misericordia", "ladainha-santos"]

@@ -6,6 +6,7 @@ born: "1568, Castiglione (Itália)"
 died: "1591, Roma"
 patronage: "juventude cristã; estudantes"
 tags: ["jesuíta", "juventude", "pureza"]
+categorias: [religioso]
 summary: "O jovem nobre que renunciou a tudo e morreu cuidando dos doentes da peste."
 featured: false
 relatedPrayers: ["novena-sao-luis-gonzaga", "ladainha-santos"]
@@ -20,14 +21,14 @@ Em meio ao esplendor da corte, o jovem voltava o coração para Deus. Praticava 
 
 ## Vida religiosa
 
-Na Companhia de Jesus, luís uniu sua já ardente vida espiritual à obediência e à humildade da vida comum. Tão grande era seu recolhimento que seus mestres, entre eles são Roberto Belarmino, precisavam moderá-lo, ensinando-lhe que a verdadeira santidade não está apenas no rigor, mas no amor sereno e na entrega cotidiana. Estudou filosofia e teologia, sempre com os olhos voltados para o sacerdócio que esperava alcançar.
+Na Companhia de Jesus, Luís uniu sua já ardente vida espiritual à obediência e à humildade da vida comum. Tão grande era seu recolhimento que seus mestres, entre eles São Roberto Belarmino, precisavam moderá-lo, ensinando-lhe que a verdadeira santidade não está apenas no rigor, mas no amor sereno e na entrega cotidiana. Estudou filosofia e teologia, sempre com os olhos voltados para o sacerdócio que esperava alcançar.
 
 > "Não nasci para servir a um senhor terreno, mas para servir ao Rei do Céu."
 
 ## Os últimos dias
 
-Em 1591, uma epidemia de peste assolou Roma. Os jesuítas abriram um hospital para os doentes, e luís, vencendo a própria repugnância natural, dedicou-se a carregar os enfermos, lavá-los e assisti-los com ternura. Foi ao socorrer um pestoso que contraiu a doença que o levaria à morte. Consumido pela febre durante semanas, recebeu os sacramentos com alegria e esperou o fim como quem aguarda um encontro desejado. Faleceu na noite de 20 para 21 de junho de 1591, com apenas vinte e três anos, pronunciando o nome de Jesus.
+Em 1591, uma epidemia de peste assolou Roma. Os jesuítas abriram um hospital para os doentes, e Luís, vencendo a própria repugnância natural, dedicou-se a carregar os enfermos, lavá-los e assisti-los com ternura. Foi ao socorrer um pestoso que contraiu a doença que o levaria à morte. Consumido pela febre durante semanas, recebeu os sacramentos com alegria e esperou o fim como quem aguarda um encontro desejado. Faleceu na noite de 20 para 21 de junho de 1591, com apenas vinte e três anos, pronunciando o nome de Jesus.
 
 ## Patrono da juventude
 
-A pureza, a coragem e a generosidade de luís gonzaga fizeram dele um modelo luminoso para os jovens de todos os tempos. Canonizado em 1726, foi proclamado padroeiro da juventude cristã e dos estudantes. Sua breve existência, entregue por inteiro ao Senhor e consumada no serviço aos mais necessitados, permanece como testemunho de que a verdadeira grandeza não está nos títulos da terra, mas na fidelidade ao amor de Deus.
+A pureza, a coragem e a generosidade de Luís Gonzaga fizeram dele um modelo luminoso para os jovens de todos os tempos. Canonizado em 1726, foi proclamado padroeiro da juventude cristã e dos estudantes. Sua breve existência, entregue por inteiro ao Senhor e consumada no serviço aos mais necessitados, permanece como testemunho de que a verdadeira grandeza não está nos títulos da terra, mas na fidelidade ao amor de Deus.

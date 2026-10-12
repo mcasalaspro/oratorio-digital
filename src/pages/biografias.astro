@@ -1,8 +1,9 @@
 ---
 import fs from 'node:fs';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { withBase } from '../config/site';
+import { CATEGORIAS_BIO } from '../content.config';
 
 const bios = (await getCollection('biografias')).sort((a, b) => {
   const oa = a.data.featured ? (a.data.order ?? 50) : 999;
@@ -16,27 +17,48 @@ function bioImg(id: string, image?: string) {
   return withBase(image ?? (hasThumb ? `/biografias/${id}_thumb.webp` : `/biografias/${id}.webp`));
 }
 const fallback = withBase('/biografias/default.webp');
-// Categorias canônicas (papéis) deduzidas das tags/título que já existem — NÃO requer editar os .md
-const _catDefs: { key: string; pt: string; kw: string[] }[] = [
-  { key: 'martir', pt: 'Mártir', kw: ['martir'] },
-  { key: 'doutor', pt: 'Doutor da Igreja', kw: ['doutor'] },
-  { key: 'virgem', pt: 'Virgem', kw: ['virgem'] },
+// Categorias (filtro "Categoria"). Vêm do campo 'categorias' do .md (chaves fixas em
+// src/content.config.ts). Biografia SEM o campo cai numa dedução SEGURA: só PALAVRAS
+// INTEIRAS e só nas TAGS — nunca no título nem no padroado (o título "Esposo da Virgem"
+// não põe São José em "Virgem"; "Doutor mariano" não é "Doutor da Igreja"; "Apóstola da
+// Divina Misericórdia" não é um dos Apóstolos; Evangelista não é Apóstolo).
+// 'pt' é o rótulo de reserva do chip (o texto final vem de cat_<chave>); 'kw' são as
+// palavras da dedução; 'ignora' descarta usos que não indicam a categoria.
+type Cat = (typeof CATEGORIAS_BIO)[number];
+const _catDefs: { key: Cat; pt: string; kw: string[]; ignora?: (w: string[], i: number) => boolean }[] = [
+  { key: 'martir', pt: 'Mártir', kw: ['martir', 'protomartir'] },
+  { key: 'doutor', pt: 'Doutor da Igreja', kw: ['doutor', 'doutora'] },
+  // "da Virgem", "a Virgem", "Virgem Maria": é Nossa Senhora, não a santa
+  { key: 'virgem', pt: 'Virgem', kw: ['virgem'], ignora: (w, i) => ['a', 'da', 'de'].includes(w[i - 1]) || w[i + 1] === 'maria' },
   { key: 'bispo', pt: 'Bispo', kw: ['bispo'] },
   { key: 'papa', pt: 'Papa', kw: ['papa'] },
-  { key: 'apostolo', pt: 'Apóstolo', kw: ['apostol', 'evangelist'] },
-  { key: 'anjo', pt: 'Anjo', kw: ['arcanjo', 'anjo'] },
+  // "Apóstolo da Irlanda", "Apóstolo do Brasil": título honorífico, não um dos Doze
+  { key: 'apostolo', pt: 'Apóstolo', kw: ['apostolo'], ignora: (w, i) => ['da', 'das', 'de', 'do', 'dos'].includes(w[i + 1]) },
+  { key: 'anjo', pt: 'Anjo', kw: ['anjo', 'arcanjo'] },
   { key: 'diacono', pt: 'Diácono', kw: ['diacono'] },
-  { key: 'religioso', pt: 'Religioso(a)', kw: ['franciscan', 'dominican', 'jesuit', 'carmelit', 'beneditin', 'benedit', 'agostinian', 'salesian', 'lazarist', 'redentorist', 'capuchinh', 'cistercien', 'visitandin', 'monaqui', 'monge', 'freira', 'religios', 'clariss', 'trapist', 'ursulin', 'passionist'] },
-  { key: 'fundador', pt: 'Fundador(a)', kw: ['fundador'] },
+  // ordens e vida religiosa; "franciscana secular", "dominicano leigo" etc. não contam
+  { key: 'religioso', pt: 'Religioso(a)', kw: ['religioso', 'religiosa', 'franciscano', 'franciscana', 'dominicano', 'dominicana', 'jesuita', 'carmelita', 'beneditino', 'beneditina', 'agostiniano', 'agostiniana', 'salesiano', 'salesiana', 'lazarista', 'redentorista', 'capuchinho', 'capuchinha', 'cisterciense', 'visitandina', 'clarissa', 'trapista', 'ursulina', 'passionista', 'monge', 'monja', 'freira', 'frade', 'eremita', 'hospitaleiro'],
+    ignora: (w) => w.some((x) => ['secular', 'leigo', 'leiga', 'terceira', 'terciario', 'terciaria'].includes(x)) },
+  { key: 'fundador', pt: 'Fundador(a)', kw: ['fundador', 'fundadora'] },
   { key: 'profeta', pt: 'Profeta', kw: ['profeta'] },
   { key: 'vidente', pt: 'Vidente', kw: ['vidente'] },
-  { key: 'realeza', pt: 'Realeza', kw: ['realeza', 'rainha', 'imperador', 'imperatriz'] },
-  { key: 'maria', pt: 'Nossa Senhora', kw: ['nossa senhora', 'mae de deus', 'theotokos', 'imaculada', 'mariano', 'marian'] },
+  // "Rainha do Céu", "Rainha da Paz": títulos de Nossa Senhora
+  { key: 'realeza', pt: 'Realeza', kw: ['realeza', 'rainha', 'imperador', 'imperatriz'], ignora: (w, i) => w[i] === 'rainha' && ['da', 'das', 'do', 'dos'].includes(w[i + 1]) },
+  { key: 'maria', pt: 'Nossa Senhora', kw: ['nossa senhora', 'mae de deus', 'theotokos'] },
 ];
-const _normCat = (x: string) => (x ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-const catsOf = (b: { data: { tags: string[]; title?: string; patronage?: string } }): string[] => {
-  const toks = [...b.data.tags, b.data.title ?? '', b.data.patronage ?? ''].map(_normCat);
-  return _catDefs.filter((c) => toks.some((tk) => c.kw.some((k) => tk.includes(k)))).map((c) => c.key);
+const _palavras = (x: string) => (x ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+const _temPalavra = (w: string[], kw: string, ignora?: (w: string[], i: number) => boolean) => {
+  const k = kw.split(' ');
+  for (let i = 0; i + k.length <= w.length; i++) {
+    if (k.every((p, j) => w[i + j] === p) && !ignora?.(w, i)) return true;
+  }
+  return false;
+};
+const catsOf = (b: CollectionEntry<'biografias'>): Cat[] => {
+  const explicitas = b.data.categorias;
+  if (explicitas && explicitas.length) return _catDefs.map((c) => c.key).filter((k) => explicitas.includes(k)); // na ordem dos chips
+  const tags = b.data.tags.map(_palavras);
+  return _catDefs.filter((c) => tags.some((w) => c.kw.some((k) => _temPalavra(w, k, c.ignora)))).map((c) => c.key);
 };
 const _present = new Set<string>();
 for (const b of bios) for (const k of catsOf(b)) _present.add(k);
@@ -50,7 +72,7 @@ const cats = _catDefs.filter((c) => _present.has(c.key)); // só as categorias p
   if (noImg.length) console.warn(`\n⚠️  Biografias sem imagem em public/biografias/ (usarão default.webp): ${noImg.join(', ')}\n`);
 }
 ---
-<Base title="Biografias">
+<Base title="Biografias" description="Vidas de santos, mártires e testemunhas da fé — com festa litúrgica, padroado e orações relacionadas.">
   <!-- ════════ MINHAS BIOGRAFIAS (favoritos, revelado se houver) ════════ -->
   <section class="section" id="favBioSection" hidden>
     <div class="wrap">

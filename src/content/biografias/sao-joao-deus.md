@@ -6,6 +6,7 @@ born: "1495, Montemor-o-Novo (Portugal)"
 died: "1550, Granada (Espanha)"
 patronage: "doentes; enfermeiros; hospitais"
 tags: ["hospitaleiro", "caridade", "enfermagem"]
+categorias: [religioso, fundador]
 summary: "Convertido radical que se entregou inteiro ao cuidado dos doentes e desamparados."
 featured: false
 relatedPrayers: ["novena-sao-joao-deus", "ladainha-santos"]

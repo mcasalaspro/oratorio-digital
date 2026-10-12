@@ -6,6 +6,7 @@ born: "1515, Florença"
 died: "1595, Roma"
 patronage: "alegria cristã; jovens de Roma"
 tags: ["oratório", "alegria", "roma"]
+categorias: [fundador]
 summary: "O apóstolo de Roma e da alegria, que evangelizava com bom humor e oração."
 featured: false
 relatedPrayers: ["novena-sao-filipe-neri", "ladainha-santos"]

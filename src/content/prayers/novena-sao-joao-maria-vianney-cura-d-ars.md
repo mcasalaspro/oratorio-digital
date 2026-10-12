@@ -6,7 +6,6 @@ saint: "São João Maria Vianney"
 language: "pt-BR"
 image: "/saints/novena-sao-joao-maria-vianney-cura-d-ars.webp"
 thumbnail: "/saints/novena-sao-joao-maria-vianney-cura-d-ars.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["sacerdotes", "confissão", "conversão", "Ars", "párocos"]
 description: "Novena ao Cura d'Ars, padroeiro dos párocos, que passava até dezesseis horas no confessionário."
 featured: false

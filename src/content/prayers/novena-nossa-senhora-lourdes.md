@@ -6,7 +6,6 @@ saint: "Nossa Senhora de Lourdes"
 language: "pt-BR"
 image: "/saints/novena-nossa-senhora-lourdes.webp"
 thumbnail: "/saints/novena-nossa-senhora-lourdes.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["cura", "doentes", "Imaculada Conceição", "Bernadette", "confiança"]
 description: "Novena tradicional a Nossa Senhora de Lourdes, recordando as aparições a Santa Bernadette em 1858."
 featured: true

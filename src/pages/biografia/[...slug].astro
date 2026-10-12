@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { withBase } from '../../config/site';
 import { produtosForPage, produtoImagem, catLabelPt } from '../../config/produtos';
+import { oracoesDaBio } from '../../config/relacoes';
+import CompartilharStories from '../../components/CompartilharStories.astro';
 
 export async function getStaticPaths() {
   const bios = await getCollection('biografias');
@@ -20,22 +22,19 @@ const feastValid = !!d.feast && /^\d{2}-\d{2}$/.test(d.feast);
 const feastDM = feastValid ? `${d.feast!.slice(3, 5)}/${d.feast!.slice(0, 2)}` : '';
 
 const prayers = await getCollection('prayers');
+const bios = await getCollection('biografias');
 const pmap = new Map(prayers.map((p) => [p.id, p.data.title]));
-const _norm = (x: string) => (x ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
-const _bn = _norm(d.name ?? name);
-const _auto = prayers.filter((p) => {
-  if (d.feast && p.data.liturgicalFeast === d.feast) return true;
-  const ps = _norm(p.data.saint ?? '');
-  return !!ps && !!_bn && (ps.includes(_bn) || _bn.includes(ps));
-}).map((p) => p.id);
-const _allSlugs = [...new Set([...(d.relatedPrayers ?? []), ..._auto])];
-const related = _allSlugs
-  .map((s) => ({ slug: s, title: pmap.get(s) }))
+// orações ligadas — regra única em src/config/relacoes.ts: primeiro as de relatedPrayers,
+// depois as orações cujo santo é esta pessoa (pelo nome; nunca só pela data da festa)
+const related = oracoesDaBio(entry, prayers, bios)
+  .map((p) => ({ slug: p.id, title: p.data.title }))
   .filter((r) => r.title); // orações inexistentes são ignoradas (não quebra o build)
 const missingRel = (d.relatedPrayers ?? []).filter((s) => !pmap.has(s));
 if (missingRel.length) console.warn(`\n⚠️  Biografia "${entry.id}": orações relacionadas inexistentes, ignoradas: ${missingRel.join(', ')}\n`);
+// descrição própria da página (busca e prévia de links): o summary; reserva: título + nome
+const descricao = d.summary?.trim() || [d.title, name].filter(Boolean).join(' — ');
 ---
-<Base title={name}>
+<Base title={name} description={descricao}>
   <article>
     <header class="reader-hero">
       <img class="reader-bg" src={banner} alt={name} width="1600" height="1000" onerror={`this.onerror=null;this.src='${fallback}'`} />
@@ -57,6 +56,8 @@ if (missingRel.length) console.warn(`\n⚠️  Biografia "${entry.id}": oraçõe
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V5l7 7-7 7v-4.1C9 11.8 5.5 13 3 16c1-5 4-9 11-9.9z" fill="currentColor"/></svg>
           <span data-i18n="share">Compartilhar</span>
         </button>
+        <CompartilharStories modo="bio" titulo={name} rotulo={d.title} banner={banner} bannerReserva={fallback}
+          caminho={withBase(`/biografia/${entry.id}`)} corpo={entry.body} frase={d.frase} resumo={d.summary} />
       </div>
 
       {(feastDM || d.patronage) && (
@@ -126,11 +127,11 @@ if (missingRel.length) console.warn(`\n⚠️  Biografia "${entry.id}": oraçõe
       if (shareBtn) {
         shareBtn.addEventListener('click', () => {
           const url = location.href.split('#')[0];
-          const title = document.title;
-          if ((navigator as any).share) { (navigator as any).share({ title, url }).catch(() => {}); return; }
-          const fb = () => { const lab = shareBtn.querySelector('span'); if (lab) { lab.textContent = t('link_copied'); setTimeout(() => { lab.textContent = t('share'); }, 1800); } };
-          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(fb).catch(fb);
-          else { try { const ta = document.createElement('textarea'); ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.focus(); ta.select(); document.execCommand('copy'); ta.remove(); fb(); } catch (e) {} }
+          // menu do aparelho; se falhar (sem ser cancelamento), copia o link; "Link copiado!" só se
+          // copiou; sem área de transferência, mostra o endereço — ver public/js/compartilhar.js
+          const oc = (window as any).odCompartilhar;
+          if (oc) { oc.link({ url, titulo: document.title, botao: shareBtn }); return; }
+          if ((navigator as any).share) (navigator as any).share({ title: document.title, url }).catch(() => {});
         });
       }
     })();

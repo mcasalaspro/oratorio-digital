@@ -1,6 +1,7 @@
 ---
 import fs from 'node:fs';
 import { withBase } from '../config/site';
+import { reserva } from '../config/contadores';
 const { prayer } = Astro.props;
 const { id, data } = prayer;
 
@@ -14,6 +15,11 @@ const langCode = (data.language ?? 'pt-BR').slice(0, 2).toUpperCase();
 const feast = data.liturgicalFeast ?? '';
 const total = data.totalDays ?? 1;
 const offset = data.novenaSuggestedStart ?? 0;
+
+// quantas vezes já foi rezada: começa com a reserva do build (src/data/contadores.json);
+// a página inicial troca pelo número vivo do contador. Zero ou sem número = marca oculta.
+const rezas = reserva(id) ?? 0;
+const rezasTxt = rezas > 0 ? new Intl.NumberFormat('pt-BR').format(rezas) : '';
 ---
 <a class="card" href={href}
    data-slug={id}
@@ -35,6 +41,21 @@ const offset = data.novenaSuggestedStart ?? 0;
     <div class="card-foot">
       <span class="pill">{langCode}</span>
       {data.type === 'novena' && data.totalDays && <span class="pill">{data.totalDays} dias</span>}
+      {/* vezes rezada: chama + número; o leitor de tela ouve "120 vezes rezada" */}
+      <span class="pill pill-reza" data-n={rezas || undefined} title={rezas ? `${rezasTxt} ${rezas === 1 ? 'vez rezada' : 'vezes rezada'}` : undefined} hidden={!rezas}><span class="pill-reza-n">{rezasTxt}</span><span class="sr-only"> <span class="pill-reza-lab" data-i18n={rezas === 1 ? undefined : 'count_short'}>{rezas === 1 ? 'vez rezada' : 'vezes rezada'}</span></span></span>
     </div>
   </div>
 </a>
+
+<style is:global>
+  /* marca "vezes rezada" no rodapé do cartão (global: não espalha atributos pelos 234 cartões) */
+  .card-foot { flex-wrap: wrap; row-gap: .25rem; }
+  .pill-reza { display: inline-flex; align-items: center; gap: .3em; margin-left: auto; }
+  .pill-reza[hidden] { display: none; }
+  .pill-reza::before {   /* chama da vela, a mesma do contador da comunidade */
+    content: ''; flex: 0 0 auto; width: .5em; height: .8em;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: radial-gradient(circle at 50% 70%, #fff6da 0%, var(--flame) 45%, #e07a1f 100%);
+  }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+</style>

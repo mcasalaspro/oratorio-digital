@@ -6,6 +6,7 @@ born: "c. 480, Núrsia (Itália)"
 died: "c. 547, Monte Cassino"
 patronage: "Europa; monges; contra o mal"
 tags: ["beneditino", "ora et labora", "europa"]
+categorias: [religioso, fundador]
 summary: "O pai do monaquismo ocidental, mestre do equilíbrio entre a oração e o trabalho."
 featured: false
 relatedPrayers: ["novena-sao-bento-nursia", "oracao-exorcismo-sao-bento-medalha", "ladainha-santos"]
@@ -20,14 +21,14 @@ Retirou-se para as montanhas de Subiaco, onde, guiado pelo monge Romano, passou 
 
 ## A fundação de Monte Cassino
 
-Por volta de 529, bento deixou Subiaco e dirigiu-se a Monte Cassino, onde, sobre as ruínas de um antigo templo pagão, ergueu o mosteiro que se tornaria o berço do monaquismo ocidental. Ali compôs a célebre Regra, fruto maduro de sua experiência e de sua sabedoria espiritual. Equilibrada e cheia de discernimento, ela ordenava a vida dos monges segundo o lema que ficaria gravado na história: *ora et labora* — reza e trabalha. A Regra distribuía o dia entre a oração litúrgica, a leitura das Escrituras e o trabalho manual, evitando os excessos e cultivando a moderação como caminho de santidade.
+Por volta de 529, Bento deixou Subiaco e dirigiu-se a Monte Cassino, onde, sobre as ruínas de um antigo templo pagão, ergueu o mosteiro que se tornaria o berço do monaquismo ocidental. Ali compôs a célebre Regra, fruto maduro de sua experiência e de sua sabedoria espiritual. Equilibrada e cheia de discernimento, ela ordenava a vida dos monges segundo o lema que ficaria gravado na história: *ora et labora* — reza e trabalha. A Regra distribuía o dia entre a oração litúrgica, a leitura das Escrituras e o trabalho manual, evitando os excessos e cultivando a moderação como caminho de santidade.
 
 > Nada seja anteposto ao amor de Cristo.
 
 ## A Regra e a herança monástica
 
-A obra de bento moldou profundamente a Europa. Nos séculos seguintes, os mosteiros beneditinos foram faróis de fé, de cultura e de civilização: ali se copiavam manuscritos, conservava-se o saber antigo, cultivava-se a terra e se acolhiam os pobres e peregrinos. A estabilidade, a obediência e a conversão dos costumes, votos próprios da família que dele nasceu, deram à cristandade ocidental uma coluna sólida em tempos de desordem e invasões. Por isso, séculos depois, a Igreja o proclamaria patrono da Europa.
+A obra de Bento moldou profundamente a Europa. Nos séculos seguintes, os mosteiros beneditinos foram faróis de fé, de cultura e de civilização: ali se copiavam manuscritos, conservava-se o saber antigo, cultivava-se a terra e se acolhiam os pobres e peregrinos. A estabilidade, a obediência e a conversão dos costumes, votos próprios da família que dele nasceu, deram à cristandade ocidental uma coluna sólida em tempos de desordem e invasões. Por isso, séculos depois, a Igreja o proclamaria patrono da Europa.
 
 ## Os últimos dias e a herança de proteção
 
-Bento morreu por volta de 547, em Monte Cassino, segundo a tradição de pé diante do altar, sustentado pelos braços de seus monges, depois de receber o Corpo do Senhor. Pouco antes havia partido sua irmã, santa Escolástica, com quem partilhava o amor a Deus e o ardor da vida consagrada. À sua memória ligou-se também a Medalha de São Bento, sacramental venerado pelos fiéis como sinal de proteção contra o mal, cujas iniciais latinas exprimem uma súplica de fé e de combate espiritual. Até hoje, monges e leigos do mundo inteiro recorrem à sua intercessão, encontrando na sua Regra um caminho de equilíbrio, paz e total entrega ao Senhor.
+Bento morreu por volta de 547, em Monte Cassino, segundo a tradição de pé diante do altar, sustentado pelos braços de seus monges, depois de receber o Corpo do Senhor. Pouco antes havia partido sua irmã, Santa Escolástica, com quem partilhava o amor a Deus e o ardor da vida consagrada. À sua memória ligou-se também a Medalha de São Bento, sacramental venerado pelos fiéis como sinal de proteção contra o mal, cujas iniciais latinas exprimem uma súplica de fé e de combate espiritual. Até hoje, monges e leigos do mundo inteiro recorrem à sua intercessão, encontrando na sua Regra um caminho de equilíbrio, paz e total entrega ao Senhor.

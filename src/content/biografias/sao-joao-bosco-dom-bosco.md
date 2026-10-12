@@ -6,6 +6,7 @@ born: "1815, Becchi (Itália)"
 died: "1888, Turim"
 patronage: "jovens; aprendizes; editores católicos"
 tags: ["salesiano", "educador", "juventude"]
+categorias: [religioso, fundador]
 summary: "O pai e mestre da juventude pobre, que educou pela razão, religião e bondade."
 featured: false
 relatedPrayers: ["novena-sao-joao-bosco-dom-bosco", "ladainha-santos"]
@@ -18,9 +19,9 @@ Ainda criança, aos nove anos, teve o primeiro de muitos sonhos que considerou e
 
 ## A vocação e o sacerdócio
 
-O desejo de estudar e de tornar-se padre enfrentou a pobreza e a oposição familiar, mas a tenacidade do jovem joão venceu cada obstáculo. Trabalhou como pastor, alfaiate, sapateiro e padeiro para custear os estudos, aprendendo ofícios que mais tarde ensinaria a outros. Em 1841 foi ordenado sacerdote em Turim, cidade que então atravessava as transformações da industrialização e onde multidões de meninos pobres, órfãos e abandonados perambulavam pelas ruas e prisões.
+O desejo de estudar e de tornar-se padre enfrentou a pobreza e a oposição familiar, mas a tenacidade do jovem João venceu cada obstáculo. Trabalhou como pastor, alfaiate, sapateiro e padeiro para custear os estudos, aprendendo ofícios que mais tarde ensinaria a outros. Em 1841 foi ordenado sacerdote em Turim, cidade que então atravessava as transformações da industrialização e onde multidões de meninos pobres, órfãos e abandonados perambulavam pelas ruas e prisões.
 
-Tocado pela miséria daqueles jovens, dom bosco dedicou-se inteiramente a eles. Começou reunindo um pequeno grupo aos domingos para o catecismo e a oração, dando início ao que chamou de Oratório, dedicado a São Francisco de Sales. Ali os meninos encontravam casa, escola, oficina e igreja — pão para o corpo e alimento para a alma. Apoiado sempre pela mãe, que o acompanhou em Turim, criou oficinas de artesãos e escolas profissionais para que os aprendizes tivessem dignidade e futuro.
+Tocado pela miséria daqueles jovens, Dom Bosco dedicou-se inteiramente a eles. Começou reunindo um pequeno grupo aos domingos para o catecismo e a oração, dando início ao que chamou de Oratório, dedicado a São Francisco de Sales. Ali os meninos encontravam casa, escola, oficina e igreja — pão para o corpo e alimento para a alma. Apoiado sempre pela mãe, que o acompanhou em Turim, criou oficinas de artesãos e escolas profissionais para que os aprendizes tivessem dignidade e futuro.
 
 ## O sistema preventivo e as fundações
 
@@ -28,11 +29,11 @@ Da sua longa experiência com os jovens nasceu o chamado "sistema preventivo", m
 
 > "Basta que sejais jovens para que eu vos ame muito."
 
-Para dar continuidade à sua obra, fundou em 1859 a Sociedade de São Francisco de Sales, os Salesianos, e em 1872, junto com santa Maria Domingas Mazzarello, o Instituto das Filhas de Maria Auxiliadora, voltado à educação das meninas. Promoveu ainda os Cooperadores Salesianos, leigos comprometidos com a missão. Grande devoto de Nossa Senhora Auxiliadora, ergueu em Turim a basílica dedicada a Ela, fruto de fé e de generosidade. Homem incansável, foi também escritor e editor, publicando livros e folhetos para instruir o povo simples na fé.
+Para dar continuidade à sua obra, fundou em 1859 a Sociedade de São Francisco de Sales, os Salesianos, e em 1872, junto com Santa Maria Domingas Mazzarello, o Instituto das Filhas de Maria Auxiliadora, voltado à educação das meninas. Promoveu ainda os Cooperadores Salesianos, leigos comprometidos com a missão. Grande devoto de Nossa Senhora Auxiliadora, ergueu em Turim a basílica dedicada a Ela, fruto de fé e de generosidade. Homem incansável, foi também escritor e editor, publicando livros e folhetos para instruir o povo simples na fé.
 
 ## Os sonhos e a confiança em Deus
 
-Ao longo da vida, dom bosco continuou a receber sonhos que considerava avisos do céu, alguns de caráter profético, orientando suas decisões e prevendo acontecimentos da sua congregação e da Igreja. Vivia com a certeza serena de que era apenas instrumento nas mãos da Providência, atribuindo todo o bem realizado à graça de Deus e à proteção de Maria Auxiliadora.
+Ao longo da vida, Dom Bosco continuou a receber sonhos que considerava avisos do céu, alguns de caráter profético, orientando suas decisões e prevendo acontecimentos da sua congregação e da Igreja. Vivia com a certeza serena de que era apenas instrumento nas mãos da Providência, atribuindo todo o bem realizado à graça de Deus e à proteção de Maria Auxiliadora.
 
 ## Os últimos dias
 

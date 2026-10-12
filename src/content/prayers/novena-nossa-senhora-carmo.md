@@ -6,7 +6,6 @@ saint: "Nossa Senhora do Carmo"
 language: "pt-BR"
 image: "/saints/novena-nossa-senhora-carmo.webp"
 thumbnail: "/saints/novena-nossa-senhora-carmo.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["escapulário", "proteção", "Carmelo", "Maria"]
 description: "Novena tradicional a Nossa Senhora do Carmo, devoção do Escapulário Marrom da Ordem do Carmo."
 featured: true

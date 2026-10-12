@@ -6,9 +6,8 @@ saint: "São Sebastião"
 language: "pt-BR"
 image: "/saints/novena-sao-sebastiao.webp"
 thumbnail: "/saints/novena-sao-sebastiao.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["proteção", "epidemias", "mártir", "coragem", "fé", "Brasil"]
-description: "Novena tradicional ao soldado mártir São Sebastião, protetor contra as epidemias e co-padroeiro do Brasil."
+description: "Novena tradicional ao soldado mártir São Sebastião, protetor contra as epidemias e padroeiro do Rio de Janeiro."
 featured: true
 liturgicalFeast: "01-20"
 liturgicalColor: "martir"

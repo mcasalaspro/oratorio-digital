@@ -6,6 +6,7 @@ born: "séc. I, Galileia"
 died: "c. 72, Mylapore (Índia, tradição)"
 patronage: "Índia; arquitetos; quem duvida e busca"
 tags: ["apóstolo", "índia", "fé"]
+categorias: [apostolo, martir]
 summary: "O apóstolo que, tocando as chagas, fez a maior profissão de fé: 'Meu Senhor e meu Deus'."
 featured: false
 relatedPrayers: ["ladainha-santos"]

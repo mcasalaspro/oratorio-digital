@@ -6,6 +6,7 @@ born: "1696, Nápoles"
 died: "1787, Pagani (Itália)"
 patronage: "confessores; moralistas; teólogos"
 tags: ["redentorista", "doutor", "moral"]
+categorias: [bispo, doutor, religioso, fundador]
 summary: "Fundador dos Redentoristas e mestre da teologia moral e da confiança em Maria."
 featured: false
 relatedPrayers: ["novena-santo-afonso-maria-ligorio", "ato-comunhao-espiritual", "ladainha-santos"]
@@ -18,7 +19,7 @@ Aos vinte e sete anos, porém, sofreu uma humilhação pública: por um descuido
 
 ## Conversão e sacerdócio
 
-Apesar da oposição do pai, que sonhava para o filho um casamento e uma carreira ilustre, afonso entregou-se à vida eclesiástica. Foi ordenado sacerdote em 1726 e dedicou-se à pregação e ao cuidado das almas mais abandonadas, especialmente os pobres do campo e os trabalhadores das ruas de Nápoles, que ninguém evangelizava.
+Apesar da oposição do pai, que sonhava para o filho um casamento e uma carreira ilustre, Afonso entregou-se à vida eclesiástica. Foi ordenado sacerdote em 1726 e dedicou-se à pregação e ao cuidado das almas mais abandonadas, especialmente os pobres do campo e os trabalhadores das ruas de Nápoles, que ninguém evangelizava.
 
 Movido pelo desejo de levar a Boa Nova às populações rurais esquecidas, fundou em 1732 a Congregação do Santíssimo Redentor, os Redentoristas, voltada à missão entre os mais simples. Sua pregação era clara, acessível e cheia de amor, fugindo do estilo rebuscado e erudito da época. Queria que o Evangelho fosse compreendido por todos.
 
@@ -34,6 +35,6 @@ Sua produção espiritual foi imensa e profundamente popular. Escreveu *As Glór
 
 Em 1762, contra a sua vontade, foi nomeado bispo de Santa Águeda dos Godos. Governou a diocese com zelo, reformando o clero, socorrendo os pobres durante a fome e pregando incansavelmente, até que problemas de saúde o levaram a renunciar.
 
-Os últimos anos de afonso foram marcados por intenso sofrimento físico e por uma dolorosa provação interior, na qual experimentou trevas e desolação espiritual. Tornou-se quase totalmente paralisado, com a cabeça curvada sobre o peito. Suportou tudo unido a Cristo crucificado, sustentado pela oração e pela confiança em Maria. Faleceu santamente em 1787, em Pagani, com mais de noventa anos.
+Os últimos anos de Afonso foram marcados por intenso sofrimento físico e por uma dolorosa provação interior, na qual experimentou trevas e desolação espiritual. Tornou-se quase totalmente paralisado, com a cabeça curvada sobre o peito. Suportou tudo unido a Cristo crucificado, sustentado pela oração e pela confiança em Maria. Faleceu santamente em 1787, em Pagani, com mais de noventa anos.
 
 Foi canonizado em 1839 e proclamado Doutor da Igreja em 1871. Sua vida ensina que a santidade nasce da oração perseverante, da confiança na misericórdia divina e do amor terno à Mãe de Deus.

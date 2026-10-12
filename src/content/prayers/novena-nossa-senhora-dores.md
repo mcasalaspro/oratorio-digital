@@ -6,7 +6,6 @@ saint: "Nossa Senhora das Dores"
 language: "pt-BR"
 image: "/saints/novena-nossa-senhora-dores.webp"
 thumbnail: "/saints/novena-nossa-senhora-dores.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["Sete Dores", "Paixão", "compaixão", "Maria", "Stabat Mater"]
 description: "Novena tradicional às Sete Dores de Maria, na devoção difundida pela Ordem dos Servitas (séc. XIII), unindo-nos à compaixão da Virgem junto à Paixão de Cristo."
 featured: true

@@ -6,7 +6,6 @@ saint: "Sant'Ana e São Joaquim"
 language: "pt-BR"
 image: "/saints/novena-sant-ana-sao-joaquim.webp"
 thumbnail: "/saints/novena-sant-ana-sao-joaquim.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["família", "avós", "intercessão", "fertilidade", "esperança"]
 description: "Novena tradicional aos santos avós de Jesus, protetores das famílias e dos avós."
 featured: true

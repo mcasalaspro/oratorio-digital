@@ -6,6 +6,7 @@ born: "séc. I, Jerusalém"
 died: "c. 35, Jerusalém"
 patronage: "diáconos; pedreiros; perseguidos pela fé"
 tags: ["protomártir", "diácono", "jerusalém"]
+categorias: [diacono, martir]
 summary: "O primeiro mártir cristão, que morreu perdoando como o próprio Senhor."
 featured: false
 relatedPrayers: ["novena-santo-estevao-protomartir", "ladainha-santos"]

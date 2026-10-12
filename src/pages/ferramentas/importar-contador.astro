@@ -1,0 +1,292 @@
+---
+// ════════════════════════════════════════════════════════════════
+//  FERRAMENTA INTERNA — importar o contador do Abacus para o Supabase
+//  Endereço: /ferramentas/importar-contador/ — sem links no site e fora do Google
+//  (o Base.astro marca /ferramentas/ como noindex e o sitemap deixa de fora).
+//  Lê cada contador do Abacus devagar (ele aceita 30 pedidos a cada 10 s por IP)
+//  e monta o SQL para colar no SQL Editor do Supabase. A tabela public.importacoes
+//  impede importar duas vezes: na 2ª vez dá erro e nada muda.
+// ════════════════════════════════════════════════════════════════
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { site } from '../../config/site';
+
+const c = site.counter;
+// a lista de contadores fica embutida na página: total, visitas, liturgias e cada oração
+const oracoes = (await getCollection('prayers')).map((p) => p.id).sort();
+const dados = {
+  base: c.base,
+  namespace: c.namespace,
+  total: c.totalKey ?? 'total',
+  visitas: c.visitsKey ?? 'visits',
+  liturgias: c.liturgiasKey ?? 'liturgias',
+  oracoes,
+};
+const quantos = 3 + oracoes.length;
+---
+<Base title="Importar o contador" description="Ferramenta interna do Oratório Digital." noindex>
+  <section class="section">
+    <div class="wrap imp">
+      <p class="eyebrow">Ferramenta interna</p>
+      <h1 class="section-title">Importar o contador do Abacus para o Supabase</h1>
+      <p class="imp-lead">
+        Copia os números do contador antigo (Abacus) para o novo (Supabase): {quantos} contadores —
+        o total, as visitas, as liturgias lidas e cada uma das {oracoes.length} orações.
+      </p>
+
+      <ol class="imp-passos">
+        <li><strong>Ler.</strong> Clique em <em>Ler o Abacus</em> e espere a barra chegar ao fim (uns 2 minutos: o Abacus só aceita poucos pedidos por segundo). Se algum falhar, use <em>Tentar de novo as falhas</em>.</li>
+        <li><strong>Copiar.</strong> Clique em <em>Copiar SQL</em> (ou em <em>Baixar .sql</em>).</li>
+        <li><strong>Colar.</strong> No Supabase, abra <em>SQL Editor → New query</em>, cole e clique em <em>Run</em>. Uma vez só: se rodar de novo, dá erro e nada muda.</li>
+      </ol>
+
+      <div class="imp-acoes">
+        <button class="btn-primary" id="impLer" type="button">Ler o Abacus</button>
+        <button class="btn" id="impRetry" type="button" hidden>Tentar de novo as falhas</button>
+      </div>
+
+      <div class="imp-prog" id="impProg" hidden>
+        <progress id="impBar" max={quantos} value="0"></progress>
+        <p class="imp-prog-txt" id="impProgTxt" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="imp-resumo" id="impResumo" hidden></div>
+
+      <div class="imp-sql" id="impSqlBox" hidden>
+        <div class="imp-acoes">
+          <button class="btn-primary" id="impCopiar" type="button">Copiar SQL</button>
+          <button class="btn" id="impBaixar" type="button">Baixar .sql</button>
+        </div>
+        <p class="imp-aviso" id="impCopiado" role="status" aria-live="polite"></p>
+        <textarea id="impSql" readonly rows="14" spellcheck="false" aria-label="SQL para colar no Supabase"></textarea>
+      </div>
+
+      <div class="imp-conf" id="impConf" hidden>
+        <h2 class="imp-h2">Conferir no Supabase</h2>
+        <p class="imp-nota">Lê os números que já estão no Supabase e mostra ao lado dos do Abacus. Depois da importação, o Supabase deve ter o que já tinha <em>mais</em> o do Abacus.</p>
+        <button class="btn" id="impConferir" type="button">Conferir no Supabase</button>
+        <p class="imp-aviso" id="impConfTxt" role="status" aria-live="polite"></p>
+        <div class="imp-tabela-wrap">
+          <table class="imp-tabela" id="impTabela" hidden>
+            <thead><tr><th scope="col">Contador</th><th scope="col">Abacus</th><th scope="col">Supabase</th><th scope="col">Diferença</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="impDados" hidden data-cfg={JSON.stringify(dados)}></div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // ── importação Abacus → Supabase (só nesta página interna) ──
+  type Resultado = { valor: number | null; erro: string; status?: number };   // valor null = falhou
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const cfg = JSON.parse($('impDados').dataset.cfg || '{}');
+  const CHAVES: string[] = [cfg.total, cfg.visitas, cfg.liturgias, ...(cfg.oracoes || [])];
+  const ORACOES = new Set<string>(cfg.oracoes || []);
+  const RITMO = 500;        // ms entre um pedido e outro: ~2 por segundo (o Abacus aceita 30 a cada 10 s)
+  const TENTATIVAS = 3;     // por contador, dentro de uma leitura
+  const PRAZO = 10000;      // ms sem resposta = falha
+  const lidos = new Map<string, Resultado>();
+  const espera = (ms: number) => new Promise((r) => setTimeout(r, ms));
+  const fmt = (n: number) => new Intl.NumberFormat('pt-BR').format(n);
+
+  const btnLer = $<HTMLButtonElement>('impLer'), btnRetry = $<HTMLButtonElement>('impRetry');
+  const prog = $('impProg'), bar = $<HTMLProgressElement>('impBar'), progTxt = $('impProgTxt');
+  const resumo = $('impResumo'), sqlBox = $('impSqlBox'), ta = $<HTMLTextAreaElement>('impSql'), copiado = $('impCopiado');
+
+  // um contador do Abacus: 200 → valor; 404 → 0 (ninguém contou ainda); o resto → falha com o motivo
+  async function lerAbacus(chave: string): Promise<Resultado> {
+    const url = `${String(cfg.base).replace(/\/+$/, '')}/get/${encodeURIComponent(cfg.namespace)}/${encodeURIComponent(chave)}`;
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), PRAZO);
+    try {
+      const r = await fetch(url, { signal: ctl.signal, cache: 'no-store' });
+      if (r.status === 404) return { valor: 0, erro: '' };
+      if (!r.ok) return { valor: null, erro: `erro ${r.status}`, status: r.status };
+      const j = await r.json().catch(() => null);
+      const n = Number(j && j.value);
+      return Number.isFinite(n) && n >= 0 ? { valor: Math.trunc(n), erro: '' } : { valor: null, erro: 'resposta sem número' };
+    } catch (e) {
+      return { valor: null, erro: (e as Error)?.name === 'AbortError' ? 'sem resposta' : 'falha de rede' };
+    } finally {
+      clearTimeout(t);
+    }
+  }
+  // com novas tentativas e sempre no ritmo (429 = limite do Abacus: espera a janela de 10 s passar)
+  async function lerComTentativas(chave: string): Promise<Resultado> {
+    let r: Resultado = { valor: null, erro: '' };
+    for (let i = 1; i <= TENTATIVAS; i++) {
+      const t0 = performance.now();
+      r = await lerAbacus(chave);
+      const resto = RITMO - (performance.now() - t0);
+      if (resto > 0) await espera(resto);
+      if (r.valor != null) return r;
+      if (i < TENTATIVAS) await espera(r.status === 429 ? 11000 : 1500 * i);
+    }
+    return r;
+  }
+
+  function contagem() {
+    let comValor = 0, falhas = 0, lidas = 0, somaOracoes = 0;
+    for (const k of CHAVES) {
+      const r = lidos.get(k);
+      if (!r) continue;
+      if (r.valor == null) { falhas++; continue; }
+      lidas++;
+      if (r.valor > 0) comValor++;
+      if (ORACOES.has(k)) somaOracoes += r.valor;
+    }
+    return { comValor, falhas, lidas, somaOracoes };
+  }
+
+  // SQL no formato combinado (só os contadores com valor maior que zero)
+  function montarSql(): string {
+    const linhas = CHAVES
+      .filter((k) => (lidos.get(k)?.valor ?? 0) > 0)
+      .map((k) => `  ('${k.replace(/'/g, "''")}', ${lidos.get(k)!.valor})`);
+    if (!linhas.length) return '';
+    return [
+      'begin;',
+      "insert into public.importacoes (origem) values ('abacus');",
+      'insert into public.contadores (chave, valor) values',
+      linhas.join(',\n'),
+      'on conflict (chave) do update set valor = public.contadores.valor + excluded.valor, atualizado_em = now();',
+      'commit;',
+    ].join('\n') + '\n';
+  }
+
+  function linha(rotulo: string, valor: string, forte = false) {
+    const p = document.createElement('p');
+    const b = document.createElement(forte ? 'strong' : 'span'); b.textContent = rotulo + ' ';
+    p.append(b, valor);
+    return p;
+  }
+
+  function finalizar() {
+    const k = contagem();
+    const total = lidos.get(cfg.total)?.valor ?? null;
+    resumo.textContent = '';
+    resumo.append(
+      linha('Lidos:', `${fmt(k.lidas)} de ${fmt(CHAVES.length)} contadores · com valor: ${fmt(k.comValor)} · falhas: ${fmt(k.falhas)}`, true),
+      linha('Total (orações rezadas):', total == null ? 'não lido' : fmt(total)),
+      linha('Soma das orações, uma a uma:', fmt(k.somaOracoes) + (total == null ? '' : ` (diferença para o total: ${fmt(k.somaOracoes - total)})`)),
+      linha('Visitas:', (() => { const v = lidos.get(cfg.visitas)?.valor; return v == null ? 'não lido' : fmt(v); })()),
+      linha('Liturgias lidas:', (() => { const v = lidos.get(cfg.liturgias)?.valor; return v == null ? 'não lido' : fmt(v); })()),
+    );
+    if (k.falhas) {
+      const nomes = CHAVES.filter((c) => lidos.get(c)?.valor == null);
+      const p = linha('Ainda sem resposta:', nomes.slice(0, 12).join(', ') + (nomes.length > 12 ? ` e mais ${nomes.length - 12}` : '') + ` (${lidos.get(nomes[0])?.erro || 'falha'}).`);
+      const aviso = linha('', 'O SQL só aparece quando tudo for lido — como a importação só pode ser feita uma vez, ela não pode sair pela metade. Use "Tentar de novo as falhas".');
+      aviso.className = 'imp-alerta';
+      resumo.append(p, aviso);
+    }
+    resumo.hidden = false;
+    btnRetry.hidden = k.falhas === 0;
+    btnLer.disabled = false;
+    btnRetry.disabled = false;
+
+    const sql = k.falhas === 0 ? montarSql() : '';
+    ta.value = sql;
+    sqlBox.hidden = !sql;
+    copiado.textContent = '';
+    if (k.falhas === 0 && !sql) resumo.append(linha('', 'Nenhum contador com valor no Abacus: não há nada para importar.'));
+    conferirPronto();
+  }
+
+  async function rodar(lista: string[], rotulo = '') {
+    btnLer.disabled = true; btnRetry.disabled = true;
+    sqlBox.hidden = true;
+    prog.hidden = false;
+    bar.max = lista.length; bar.value = 0;
+    const t0 = performance.now();
+    for (let i = 0; i < lista.length; i++) {
+      lidos.set(lista[i], await lerComTentativas(lista[i]));
+      bar.value = i + 1;
+      const k = contagem();
+      const seg = Math.round(((performance.now() - t0) / (i + 1)) * (lista.length - i - 1) / 1000);
+      progTxt.textContent = rotulo + `${fmt(i + 1)} de ${fmt(lista.length)} · com valor: ${fmt(k.comValor)} · falhas: ${fmt(k.falhas)}` +
+        (i + 1 < lista.length ? ` · faltam uns ${seg >= 60 ? Math.floor(seg / 60) + ' min ' : ''}${seg % 60} s` : ' · pronto');
+    }
+    finalizar();
+  }
+
+  btnLer.addEventListener('click', () => { lidos.clear(); rodar(CHAVES); });
+  btnRetry.addEventListener('click', () => rodar(CHAVES.filter((k) => lidos.get(k)?.valor == null), 'Nova tentativa: '));
+
+  // copiar: se o navegador não deixar, o SQL fica selecionado na tela para Ctrl+C
+  $('impCopiar').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(ta.value);
+      copiado.textContent = 'SQL copiado. Agora cole no SQL Editor do Supabase e clique em Run.';
+    } catch (e) {
+      ta.focus(); ta.select();
+      copiado.textContent = 'Não deu para copiar sozinho: o SQL está selecionado — use Ctrl+C (no celular, "Copiar").';
+    }
+  });
+  $('impBaixar').addEventListener('click', () => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([ta.value], { type: 'application/sql' }));
+    a.download = 'importar-contador-abacus.sql';
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  });
+
+  // ── conferir no Supabase (só quando o site já usa o Supabase) ──
+  const C = (window as any).odContador;
+  const conf = $('impConf'), confTxt = $('impConfTxt'), tabela = $<HTMLTableElement>('impTabela');
+  function conferirPronto() { conf.hidden = !(C && C.servico === 'supabase'); }
+  conferirPronto();
+  $('impConferir').addEventListener('click', async () => {
+    confTxt.textContent = 'Lendo o Supabase…';
+    tabela.hidden = true;
+    // a chave extra muda a cada clique: o odContador guarda a leitura da página e devolveria a anterior
+    const m = await C.ler(CHAVES, { novo: true }); // sempre uma leitura nova
+    if (!m) { confTxt.textContent = 'Não deu para ler o Supabase agora. Confira a conexão e tente de novo.'; return; }
+    const corpo = tabela.tBodies[0];
+    corpo.textContent = '';
+    let iguais = 0, diferentes = 0;
+    for (const k of CHAVES) {
+      const a = lidos.get(k)?.valor ?? null;
+      const s = typeof m[k] === 'number' ? m[k] : 0;
+      if (!(a && a > 0) && !(s > 0)) continue;   // os dois zerados: nem entra na tabela
+      if (a === s) iguais++; else diferentes++;
+      const tr = document.createElement('tr');
+      if (a !== s) tr.className = 'imp-dif';
+      for (const v of [k, a == null ? '—' : fmt(a), fmt(s), a == null ? '—' : (s - a > 0 ? '+' : '') + fmt(s - a)]) {
+        const td = document.createElement('td'); td.textContent = v; tr.append(td);
+      }
+      corpo.append(tr);
+    }
+    confTxt.textContent = `${fmt(iguais)} iguais · ${fmt(diferentes)} diferentes` + (lidos.size ? '' : ' (o Abacus ainda não foi lido nesta página)');
+    tabela.hidden = false;
+  });
+</script>
+
+<style>
+  .imp { max-width: 52rem; }
+  .imp-lead { color: var(--ink-soft); margin: 0 0 1rem; }
+  .imp-passos { margin: 0 0 1.4rem; padding-left: 1.3rem; }
+  .imp-passos li { margin: 0 0 .45rem; }
+  .imp-acoes { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: 0 0 1rem; }
+  .imp-prog { margin: 0 0 1rem; }
+  .imp-prog progress { width: 100%; height: 14px; accent-color: var(--gold); }
+  .imp-prog-txt { margin: .35rem 0 0; font-size: .95rem; color: var(--ink-soft); }
+  .imp-resumo { border: 1px solid var(--hair); border-radius: 12px; padding: .8rem 1rem; margin: 0 0 1.2rem; background: var(--paper-raised); }
+  .imp-resumo :global(p) { margin: .2rem 0; }
+  .imp-resumo :global(.imp-alerta) { color: var(--gold); font-style: italic; }
+  .imp-aviso { min-height: 1.4em; margin: 0 0 .6rem; color: var(--gold); }
+  .imp-sql textarea { width: 100%; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .82rem; line-height: 1.45; padding: .8rem; border-radius: 10px; border: 1px solid var(--hair); background: var(--paper-raised); color: var(--ink); resize: vertical; }
+  .imp-conf { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--hair); }
+  .imp-h2 { font-size: 1.6rem; margin: 0 0 .4rem; }
+  .imp-nota { color: var(--ink-soft); font-size: .98rem; margin: 0 0 .8rem; }
+  .imp-tabela-wrap { overflow-x: auto; }
+  .imp-tabela { border-collapse: collapse; width: 100%; font-size: .92rem; }
+  /* as linhas da tabela são criadas pelo script: por isso o :global() */
+  .imp-tabela th, .imp-tabela :global(td) { text-align: right; padding: .3rem .6rem; border-bottom: 1px solid var(--hair); white-space: nowrap; }
+  .imp-tabela th:first-child, .imp-tabela :global(td:first-child) { text-align: left; }
+  .imp-tabela :global(tr.imp-dif td) { color: var(--gold); }
+</style>

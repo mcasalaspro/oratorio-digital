@@ -6,7 +6,6 @@ saint: "São Tomás de Aquino"
 language: "pt-BR"
 image: "/saints/novena-sao-tomas-aquino.webp"
 thumbnail: "/saints/novena-sao-tomas-aquino.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["sabedoria", "estudantes", "universidades", "Doutor Angélico", "fé e razão"]
 description: "Novena tradicional ao Doutor Angélico, padroeiro das universidades e dos estudantes, autor da Summa Theologiae."
 featured: false

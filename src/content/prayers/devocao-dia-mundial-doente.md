@@ -5,7 +5,6 @@ saint: "Dia Mundial do Doente"
 language: "pt-BR"
 image: "/saints/devocao-dia-mundial-doente.webp"
 thumbnail: "/saints/devocao-dia-mundial-doente.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["enfermos", "cura", "Lourdes", "Nossa Senhora", "cuidadores"]
 description: "Devoção de oração pelos enfermos e seus cuidadores, instituída por São João Paulo II e celebrada na memória de Nossa Senhora de Lourdes."
 featured: false

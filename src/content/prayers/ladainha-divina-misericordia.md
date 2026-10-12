@@ -72,4 +72,4 @@ V. A misericórdia de Deus está acima de todas as Suas obras.<br>
 R. Por isso cantarei eternamente a misericórdia do Senhor.
 
 > Oremos.<br>
-> Ó Deus eterno, cuja misericórdia é infinita e cujo tesouro de compaixão é inesgotável, olhai benignamente para nós e aumentai em nós a Vossa misericórdia, para que, nas horas difíceis, não caiamos no desespero nem na tristeza, mas com grande confiança nos submetamos à Vossa santa vontade, que é o próprio amor e a própria misericórdia. Por Jesus Cristo, Rei da Misericórdia, que conVosco e com o Espírito Santo nos mostrais a Vossa misericórdia para sempre. Amém.
+> Ó Deus eterno, cuja misericórdia é infinita e cujo tesouro de compaixão é inesgotável, olhai benignamente para nós e aumentai em nós a Vossa misericórdia, para que, nas horas difíceis, não caiamos no desespero nem na tristeza, mas com grande confiança nos submetamos à Vossa santa vontade, que é o próprio amor e a própria misericórdia. Por Jesus Cristo, Rei da Misericórdia, que Convosco e com o Espírito Santo nos mostrais a Vossa misericórdia para sempre. Amém.

@@ -6,6 +6,7 @@ born: "1801, Londres"
 died: "1890, Birmingham"
 patronage: "convertidos; educadores; buscadores da verdade"
 tags: ["convertido", "cardeal", "consciência"]
+categorias: [doutor]
 summary: "O grande convertido inglês, mestre da consciência e da busca sincera da verdade."
 featured: false
 relatedPrayers: ["conduze-me-luz-bondosa-lead-kindly-light", "deus-me-criou-um-servico-determinado", "ladainha-santos"]
@@ -26,13 +27,13 @@ Sua famosa súplica, escrita em momento de angústia e confiança, exprimia o co
 
 ## Conversão ao catolicismo
 
-Em 9 de outubro de 1845, depois de anos de hesitação e de honesta busca, newman foi recebido na Igreja Católica. A decisão custou-lhe muito: perdeu prestígio, cargos e a estima de muitos que antes o admiravam. Mas encontrou a paz de quem segue a verdade até as últimas consequências. Ordenado sacerdote católico, foi a Roma e ali conheceu a espiritualidade de são Filipe Néri, cujo ardor e doçura o cativaram profundamente.
+Em 9 de outubro de 1845, depois de anos de hesitação e de honesta busca, Newman foi recebido na Igreja Católica. A decisão custou-lhe muito: perdeu prestígio, cargos e a estima de muitos que antes o admiravam. Mas encontrou a paz de quem segue a verdade até as últimas consequências. Ordenado sacerdote católico, foi a Roma e ali conheceu a espiritualidade de São Filipe Néri, cujo ardor e doçura o cativaram profundamente.
 
-De regresso à Inglaterra, fundou o Oratório de são Filipe Néri em Birmingham, levando a terras inglesas aquele estilo de vida sacerdotal feito de fraternidade, oração e proximidade ao povo. Dedicou-se também à educação, convencido de que a fé e a razão caminham juntas, e escreveu obras notáveis sobre a universidade, o desenvolvimento da doutrina cristã e a consciência. Sua defesa serena e luminosa da verdade católica fez dele um dos pensadores mais influentes de seu tempo.
+De regresso à Inglaterra, fundou o Oratório de São Filipe Néri em Birmingham, levando a terras inglesas aquele estilo de vida sacerdotal feito de fraternidade, oração e proximidade ao povo. Dedicou-se também à educação, convencido de que a fé e a razão caminham juntas, e escreveu obras notáveis sobre a universidade, o desenvolvimento da doutrina cristã e a consciência. Sua defesa serena e luminosa da verdade católica fez dele um dos pensadores mais influentes de seu tempo.
 
 ## Cardeal e mestre da fé
 
-Em 1879, o Papa Leão XIII elevou-o à dignidade de cardeal, reconhecendo a fidelidade e a profundidade de toda a sua obra. Para seu brasão, newman escolheu o lema *Cor ad cor loquitur* — "o coração fala ao coração" —, expressão da convicção de que a fé não se transmite apenas por argumentos, mas pelo encontro vivo entre as pessoas e, sobretudo, com o Senhor.
+Em 1879, o Papa Leão XIII elevou-o à dignidade de cardeal, reconhecendo a fidelidade e a profundidade de toda a sua obra. Para seu brasão, Newman escolheu o lema *Cor ad cor loquitur* — "o coração fala ao coração" —, expressão da convicção de que a fé não se transmite apenas por argumentos, mas pelo encontro vivo entre as pessoas e, sobretudo, com o Senhor.
 
 > Deus me criou para prestar-Lhe algum serviço determinado; confiou-me uma obra que não confiou a outro.
 
@@ -40,6 +41,6 @@ Nessa certeza encontrou ele o sentido de toda a sua existência, mesmo nos momen
 
 ## Os últimos dias e legado
 
-O cardeal newman faleceu em Birmingham, em 11 de agosto de 1890, cercado pelo afeto de seus irmãos do Oratório e venerado por inúmeros fiéis. Sua vida inteira fora uma peregrinação rumo à luz, marcada pela humildade do estudioso e pela mansidão do pastor. Foi canonizado pelo Papa Francisco em 13 de outubro de 2019 e proclamado Doutor da Igreja em 2025, em reconhecimento à fecundidade de seu pensamento e à santidade de sua vida.
+O cardeal Newman faleceu em Birmingham, em 11 de agosto de 1890, cercado pelo afeto de seus irmãos do Oratório e venerado por inúmeros fiéis. Sua vida inteira fora uma peregrinação rumo à luz, marcada pela humildade do estudioso e pela mansidão do pastor. Foi canonizado pelo Papa Francisco em 13 de outubro de 2019 e proclamado Doutor da Igreja em 2025, em reconhecimento à fecundidade de seu pensamento e à santidade de sua vida.
 
-Padroeiro dos convertidos, dos educadores e de todos os que buscam sinceramente a verdade, são João Henrique Newman permanece como modelo luminoso para quantos desejam seguir a voz de Deus com coração honesto, deixando-se conduzir, um passo de cada vez, pela Luz bondosa que nunca falha.
+Padroeiro dos convertidos, dos educadores e de todos os que buscam sinceramente a verdade, São João Henrique Newman permanece como modelo luminoso para quantos desejam seguir a voz de Deus com coração honesto, deixando-se conduzir, um passo de cada vez, pela Luz bondosa que nunca falha.

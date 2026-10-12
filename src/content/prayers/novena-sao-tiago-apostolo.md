@@ -6,7 +6,6 @@ saint: "São Tiago Apóstolo"
 language: "pt-BR"
 image: "/saints/novena-sao-tiago-apostolo.webp"
 thumbnail: "/saints/novena-sao-tiago-apostolo.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["intercessão", "Caminho de Santiago", "fé", "peregrinação", "Espanha"]
 description: "Novena tradicional ao primeiro apóstolo mártir, padroeiro da Espanha e do Caminho de Santiago de Compostela."
 featured: true

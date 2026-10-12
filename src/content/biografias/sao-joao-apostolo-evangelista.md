@@ -6,6 +6,7 @@ born: "séc. I, Betsaida"
 died: "c. 100, Éfeso"
 patronage: "teólogos; escritores; amizade fiel"
 tags: ["apóstolo", "evangelista", "amor"]
+categorias: [apostolo]
 summary: "O discípulo amado, que repousou no peito do Senhor e ensinou que Deus é amor."
 featured: false
 relatedPrayers: ["novena-sao-joao-apostolo-evangelista", "ladainha-santos"]

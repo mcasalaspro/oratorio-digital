@@ -210,4 +210,15 @@ Peçamos a graça da perseverança final e do amor a Deus sobre todas as coisas.
 
 Salve, Rainha, Mãe de misericórdia,<br>
 vida, doçura e esperança nossa, salve!<br>
-A Vós bradamos, os degredados fil
+A Vós bradamos, os degredados filhos de Eva.<br>
+A Vós suspiramos, gemendo e chorando neste vale de lágrimas.<br>
+Eia, pois, advogada nossa,<br>
+esses Vossos olhos misericordiosos a nós volvei.<br>
+E, depois deste desterro, mostrai-nos Jesus,<br>
+bendito fruto do Vosso ventre,<br>
+ó clemente, ó piedosa, ó doce sempre Virgem Maria.
+
+Rogai por nós, Santa Mãe de Deus.<br>
+Para que sejamos dignos das promessas de Cristo. Amém.
+
+Em nome do Pai, e do Filho, e do Espírito Santo. Amém.

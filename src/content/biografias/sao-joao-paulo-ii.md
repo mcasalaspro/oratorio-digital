@@ -6,6 +6,7 @@ born: "1920, Wadowice (Polônia)"
 died: "2005, Vaticano"
 patronage: "famílias; jovens; Jornada Mundial da Juventude"
 tags: ["papa", "totus tuus", "polônia"]
+categorias: [papa]
 summary: "O Papa peregrino do mundo inteiro, profeta da esperança e da dignidade humana."
 featured: true
 order: 9
@@ -37,4 +38,4 @@ João Paulo II teve um amor especial pelos jovens, para os quais criou as Jornad
 
 ## Os últimos dias e a glória dos altares
 
-Faleceu em 2 de abril de 2005, no Vaticano, na véspera da festa da Divina Misericórdia, devoção que tanto promovera. Multidões aclamaram, em seus funerais, o desejo de vê-lo proclamado santo. Beatificado em 2011 e canonizado em 27 de abril de 2014, é hoje venerado como modelo de fé corajosa e de entrega total ao Senhor e à Virgem Maria. Sua memória litúrgica é celebrada em 22 de outubro, dia em que iniciou seu ministério como Sucessor de Pedro. Padroeiro das famílias, dos jovens e das Jornadas Mundiais da Juventude, são João Paulo II continua a repetir a cada geração o convite que marcou sua vida: abrir o coração inteiro a Cristo.
+Faleceu em 2 de abril de 2005, no Vaticano, na véspera da festa da Divina Misericórdia, devoção que tanto promovera. Multidões aclamaram, em seus funerais, o desejo de vê-lo proclamado santo. Beatificado em 2011 e canonizado em 27 de abril de 2014, é hoje venerado como modelo de fé corajosa e de entrega total ao Senhor e à Virgem Maria. Sua memória litúrgica é celebrada em 22 de outubro, dia em que iniciou seu ministério como Sucessor de Pedro. Padroeiro das famílias, dos jovens e das Jornadas Mundiais da Juventude, São João Paulo II continua a repetir a cada geração o convite que marcou sua vida: abrir o coração inteiro a Cristo.

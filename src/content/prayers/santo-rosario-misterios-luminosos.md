@@ -268,4 +268,25 @@ Glória ao Pai, ao Filho e ao Espírito Santo.<br>
 Como era no princípio, agora e sempre.<br>
 Amém.
 
-> Ó meu Jesus, perdoai-
+> Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
+
+## Salve Rainha
+
+Salve, Rainha, Mãe de misericórdia,<br>
+vida, doçura e esperança nossa, salve!<br>
+A vós bradamos, os degredados filhos de Eva.<br>
+A vós suspiramos, gemendo e chorando neste vale de lágrimas.<br>
+Eia, pois, advogada nossa,<br>
+esses vossos olhos misericordiosos a nós volvei.<br>
+E, depois deste desterro, mostrai-nos Jesus,<br>
+bendito fruto do vosso ventre,<br>
+ó clemente, ó piedosa, ó doce sempre Virgem Maria.
+
+Rogai por nós, Santa Mãe de Deus.<br>
+Para que sejamos dignos das promessas de Cristo.<br>
+Amém.
+
+**Sinal da Cruz**
+
+Em nome do Pai, e do Filho, e do Espírito Santo.<br>
+Amém.

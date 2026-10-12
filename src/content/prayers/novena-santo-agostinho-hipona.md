@@ -6,7 +6,6 @@ saint: "Santo Agostinho de Hipona"
 language: "pt-BR"
 image: "/saints/novena-santo-agostinho-hipona.webp"
 thumbnail: "/saints/novena-santo-agostinho-hipona.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["conversão", "graça", "sabedoria", "Doutor da Igreja"]
 description: "Novena tradicional a Santo Agostinho de Hipona, Doutor da Graça e Bispo de Hipona, autor das Confissões."
 featured: false

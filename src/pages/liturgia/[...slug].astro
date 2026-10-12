@@ -1,0 +1,239 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../config/site';
+import { getCollection, render } from 'astro:content';
+import fs from 'node:fs';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('liturgia');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, date, rank, semana, cor, leituras } = entry.data;
+
+// nome-base do arquivo (sem eventual subpasta de ano), p/ achar a imagem
+const slugName = entry.id.split('/').pop();
+const bg = fs.existsSync(`public/liturgia/${slugName}.webp`)
+  ? withBase(`/liturgia/${slugName}.webp`)
+  : fs.existsSync('public/liturgia/default.webp')
+    ? withBase('/liturgia/default.webp')
+    : withBase('/textures/rays.webp');
+
+// a DATA vem do nome do arquivo: AAAAMMDD_Liturgia (ex.: 20260711_Liturgia)
+const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const dias = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+let dataFmt = '';
+const dm = entry.id.match(/(\d{4})(\d{2})(\d{2})/) || (date && date.match(/(\d{4})-?(\d{2})-?(\d{2})/));
+if (dm) {
+  const y = Number(dm[1]), m = Number(dm[2]), d = Number(dm[3]);
+  if (m >= 1 && m <= 12 && d >= 1 && d <= 31) {
+    const wd = new Date(y, m - 1, d).getDay();
+    dataFmt = `${cap(dias[wd])}, ${d} de ${meses[m - 1]} de ${y}`;
+  }
+}
+const corHex = { verde: '#6fae84', branco: '#d4af52', dourado: '#d4af52', roxo: '#8a6db0', vermelho: '#c0584e', rosa: '#d98ba6' };
+const corDot = cor ? (corHex[cor.toLowerCase()] || null) : null;
+---
+<Base title={`Liturgia — ${title}`} description={description}>
+  <article class="lit-hero">
+    <div class="lit-bg" style={`background-image: url('${bg}')`} aria-hidden="true"></div>
+    <div class="lit-shade" aria-hidden="true"></div>
+    <div class="lit-wrap">
+      <div class="lit-card">
+        <a class="lit-back" href={withBase('/liturgia')}>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="nav_liturgia">Liturgia</span>
+        </a>
+
+        <header class="lit-head">
+          <p class="lit-date">
+            {corDot && <span class="lit-dot" style={`background:${corDot}; box-shadow:0 0 10px ${corDot}`} aria-hidden="true"></span>}
+            {dataFmt}
+          </p>
+          <h1 class="lit-h1">{title}{rank && <span class="lit-rank">, {rank}</span>}</h1>
+          {semana && <p class="lit-semana">{semana}</p>}
+          {leituras && leituras.length > 0 && (
+            <div class="lit-leituras">
+              <span class="lit-leituras-k" data-i18n="liturgia_leituras">Leituras</span>
+              <ul>{leituras.map((r) => <li>{r}</li>)}</ul>
+            </div>
+          )}
+        </header>
+
+        <!-- barra de apoio à leitura -->
+        <div class="lit-toolbar" id="litToolbar" role="toolbar" aria-label="Apoio à leitura">
+          <button class="lit-tb" id="litFontDown" type="button" aria-label="Diminuir letra">A−</button>
+          <button class="lit-tb" id="litFontUp" type="button" aria-label="Aumentar letra">A+</button>
+          <button class="lit-play" id="litPlay" type="button" aria-label="Iniciar leitura">
+            <svg class="i-play" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <svg class="i-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg>
+            <span id="litPlayLabel" data-i18n="liturgia_reader_start">Iniciar leitura</span>
+          </button>
+        </div>
+
+        <div class="lit-prose" id="litContent">
+          <Content />
+        </div>
+
+        <p class="lit-done" id="litDone" hidden>
+          <span data-i18n="liturgia_today">Liturgia de hoje</span> ✓
+          <span class="lit-done-count" id="litDoneCount"></span>
+        </p>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<script is:inline>
+  (function () {
+    var C = window.odContador || null; // contador da comunidade (Supabase ou Abacus) — public/js/contador.js
+    var content = document.getElementById('litContent');
+    if (!content) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ── tamanho da letra ──
+    var scale = 1;
+    function applyScale() { content.style.fontSize = scale + 'em'; }
+    var fd = document.getElementById('litFontDown'), fu = document.getElementById('litFontUp');
+    if (fd) fd.addEventListener('click', function () { scale = Math.max(0.85, scale - 0.1); applyScale(); });
+    if (fu) fu.addEventListener('click', function () { scale = Math.min(1.6, scale + 0.1); applyScale(); });
+
+    // ── quebra o texto das LEITURAS (blockquotes) em palavras ──
+    var words = [];
+    var quotes = content.querySelectorAll('blockquote');
+    Array.prototype.forEach.call(quotes, function (bq) {
+      var hosts = bq.querySelectorAll('p');
+      if (!hosts.length) hosts = [bq];
+      Array.prototype.forEach.call(hosts, function (host) {
+        var parts = [];
+        Array.prototype.forEach.call(host.childNodes, function (node) { parts.push(node); });
+        host.innerHTML = '';
+        parts.forEach(function (node) {
+          if (node.nodeType === 3) {
+            var toks = node.textContent.split(/(\s+)/);
+            toks.forEach(function (tok) {
+              if (/^\s+$/.test(tok) || tok === '') { host.appendChild(document.createTextNode(tok)); return; }
+              var sp = document.createElement('span'); sp.className = 'rg-w'; sp.textContent = tok;
+              host.appendChild(sp); words.push(sp);
+            });
+          } else { host.appendChild(node); } // mantém marcações (ex.: R. em negrito) sem destacar
+        });
+      });
+    });
+
+    // ── leitor ──
+    var i = -1, playing = false, timer = null, hitDone = false;
+    var playBtn = document.getElementById('litPlay');
+    var label = document.getElementById('litPlayLabel');
+    var t = window.odt || function (k) { return k; };
+
+    function clearOn() { for (var k = 0; k < words.length; k++) words[k].classList.remove('rg-on'); }
+    function paint(idx) {
+      clearOn();
+      for (var k = 0; k < words.length; k++) words[k].classList.toggle('rg-read', k < idx);
+      if (idx >= 0 && idx < words.length) {
+        var w = words[idx]; w.classList.add('rg-on');
+        var r = w.getBoundingClientRect();
+        var mid = window.innerHeight * 0.42;
+        if (r.top < 90 || r.top > window.innerHeight - 120) {
+          window.scrollBy({ top: r.top - mid, behavior: reduce ? 'auto' : 'smooth' });
+        }
+      }
+    }
+    function delayFor(sp) {
+      var len = (sp.textContent || '').replace(/[^A-Za-zÀ-ÿ]/g, '').length;
+      var d = 210 + len * 45;                                   // ritmo calmo
+      if (/[.!?:;]$/.test(sp.textContent || '')) d += 360;      // pausa em pontuação
+      return Math.min(1500, d);
+    }
+    function step() {
+      i++;
+      if (i >= words.length) { finish(); return; }
+      paint(i);
+      timer = setTimeout(step, delayFor(words[i]));
+    }
+    function setPlaying(on) {
+      playing = on;
+      playBtn.classList.toggle('is-playing', on);
+      if (label) label.textContent = on ? (t('reading') !== 'reading' ? t('reading') : 'Lendo…') : (t('liturgia_reader_start') || 'Iniciar leitura');
+    }
+    function play() { if (!words.length) return; setPlaying(true); if (i >= words.length - 1) i = -1; step(); }
+    function pause() { setPlaying(false); if (timer) { clearTimeout(timer); timer = null; } }
+    function finish() {
+      pause(); i = words.length; clearOn();
+      for (var k = 0; k < words.length; k++) words[k].classList.add('rg-read');
+      countHit();
+    }
+    if (playBtn) playBtn.addEventListener('click', function () { playing ? pause() : play(); });
+
+    // ── contador SEPARADO de liturgias lidas ──
+    // odContador nunca rejeita: falha = null → mostra só o "✓", sem número (nunca "0")
+    function countHit() {
+      if (hitDone || !C || !C.ativo) return;
+      hitDone = true;
+      C.contarLiturgia().then(function (n) {
+        var done = document.getElementById('litDone');
+        var cnt = document.getElementById('litDoneCount');
+        if (done) done.hidden = false;
+        if (cnt && typeof n === 'number' && n > 0) {
+          try { localStorage.setItem('od-liturgias-cache', String(n)); } catch (e) {}
+          var l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
+          try { cnt.textContent = '· ' + new Intl.NumberFormat(l).format(n); } catch (e) { cnt.textContent = '· ' + n; }
+        }
+      });
+    }
+  })();
+</script>
+
+<style>
+  .lit-hero { position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: flex-start; background: radial-gradient(120% 100% at 50% 0%, #2a1d0e 0%, #1a1208 55%, #120c06 100%); }
+  .lit-bg { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
+  .lit-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,5,2,.66) 0%, rgba(8,5,2,.55) 40%, rgba(8,5,2,.74) 100%); }
+  .lit-wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: clamp(2rem, 5vw, 3.6rem) clamp(1rem, 4vw, 2.2rem); }
+  .lit-card { max-width: 44rem; margin: 0 auto; background: rgba(28, 26, 23, .88); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(200, 162, 74, .24); border-radius: 18px; padding: clamp(1.6rem, 4vw, 2.8rem); box-shadow: 0 30px 80px rgba(0, 0, 0, .55); }
+  .lit-back { display: inline-flex; align-items: center; gap: .4rem; color: #cdbf9f; text-decoration: none; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.2rem; transition: color .2s; }
+  .lit-back:hover { color: var(--gold); }
+
+  .lit-head { border-bottom: 1px solid rgba(200,162,74,.2); padding-bottom: 1.2rem; margin-bottom: 1.4rem; }
+  .lit-date { display: flex; align-items: center; gap: .5rem; margin: 0 0 .3rem; color: #cdbf9f; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
+  .lit-dot { width: 11px; height: 11px; border-radius: 50%; flex: 0 0 auto; }
+  .lit-h1 { font-family: 'Cormorant', serif; font-weight: 600; font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.08; color: #f3e9d6; margin: 0; }
+  .lit-rank { font-weight: 500; color: #d8c8a8; }
+  .lit-semana { font-family: 'EB Garamond', serif; color: #cdc0a8; margin: .3rem 0 0; }
+  .lit-leituras { margin-top: .9rem; display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; }
+  .lit-leituras-k { color: var(--season, var(--gold)); font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; }
+  .lit-leituras ul { list-style: none; display: flex; gap: .3rem 1rem; flex-wrap: wrap; margin: 0; padding: 0; }
+  .lit-leituras li { font-family: 'EB Garamond', serif; color: #e7ddc9; font-size: .98rem; }
+
+  .lit-toolbar { display: flex; align-items: center; gap: .5rem; margin: 0 0 1.4rem; }
+  .lit-tb { width: 38px; height: 34px; border-radius: 9px; border: 1px solid rgba(200,162,74,.28); background: rgba(0,0,0,.2); color: #e2d6bd; font-family: 'EB Garamond', serif; font-size: .95rem; cursor: pointer; transition: border-color .2s, color .2s; }
+  .lit-tb:hover { border-color: var(--gold); color: var(--gold-bright); }
+  .lit-play { display: inline-flex; align-items: center; gap: .5rem; margin-left: auto; padding: .5rem 1.1rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--season, var(--gold)) 55%, var(--hair)); background: color-mix(in srgb, var(--season, var(--gold)) 18%, rgba(0,0,0,.25)); color: #f5ecd8; font-size: .84rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: background .2s, border-color .2s; }
+  .lit-play:hover { border-color: var(--gold); background: color-mix(in srgb, var(--season, var(--gold)) 28%, rgba(0,0,0,.25)); }
+  .lit-play .i-pause { display: none; }
+  .lit-play.is-playing .i-play { display: none; }
+  .lit-play.is-playing .i-pause { display: inline; }
+
+  /* ── prosa no estilo CNBB ── */
+  .lit-prose :global(h2) { font-family: 'Cormorant', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: .16em; text-transform: uppercase; text-align: center; color: var(--season, var(--gold-bright)); margin: 2.2rem 0 .9rem; }
+  .lit-prose :global(h2:first-of-type) { margin-top: .4rem; }
+  .lit-prose :global(p) { font-family: 'EB Garamond', serif; font-size: 1.1rem; line-height: 1.8; color: #e7ddc9; margin: 0 0 .9rem; }
+  /* antífona / tema: 1º parágrafo em itálico depois do título */
+  .lit-prose :global(h2 + p em), .lit-prose :global(p > em:only-child) { color: #ecd9c6; }
+  .lit-prose :global(h2 + p) { text-align: center; font-style: italic; color: #e6d3bd; }
+  .lit-prose :global(strong) { color: #f2c877; font-weight: 600; }   /* referências e R./V. em destaque dourado */
+  .lit-prose :global(blockquote) { margin: 0 0 1.1rem; padding: .3rem 0 .3rem 1.1rem; border-left: 3px solid color-mix(in srgb, var(--season, var(--gold)) 60%, transparent); }
+  .lit-prose :global(blockquote p) { color: #efe6d3; }
+  .lit-prose :global(hr) { border: none; height: 1px; background: linear-gradient(to right, transparent, rgba(200,162,74,.4), transparent); margin: 2rem 0; }
+
+  /* ── destaque do leitor ── */
+  .lit-prose :global(.rg-w) { transition: color .15s, background .15s; border-radius: 4px; }
+  .lit-prose :global(.rg-read) { color: #a99c82; }
+  .lit-prose :global(.rg-on) { color: #14100a; background: var(--season, var(--gold-bright)); box-shadow: 0 0 18px color-mix(in srgb, var(--season, var(--gold-bright)) 60%, transparent); padding: 0 .12em; }
+
+  .lit-done { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid rgba(200,162,74,.2); text-align: center; font-family: 'Cormorant', serif; font-size: 1.3rem; color: var(--gold-bright); }
+  .lit-done-count { color: #cdc0a8; font-size: .95rem; }
+</style>

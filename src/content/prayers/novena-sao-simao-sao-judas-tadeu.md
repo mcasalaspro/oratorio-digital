@@ -6,7 +6,6 @@ saint: "São Simão e São Judas Tadeu"
 language: "pt-BR"
 image: "/saints/novena-sao-simao-sao-judas-tadeu.webp"
 thumbnail: "/saints/novena-sao-simao-sao-judas-tadeu.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["causas desesperadas", "situações impossíveis", "apóstolos", "intercessão"]
 description: "Novena tradicional aos apóstolos São Simão e São Judas Tadeu, padroeiro das causas desesperadas e impossíveis."
 featured: false

@@ -8,16 +8,29 @@ export const site = {
   tagline: 'Um espaço para rezar com calma — orações, terços e novenas.',
   defaultLang: 'pt-BR' as const,
 
-  // ── Contador da comunidade (serviço Abacus, grátis, sem cadastro) ──
-  // IMPORTANTE: troque o namespace por algo ÚNICO seu (3–64 caracteres,
-  // letras/números/._-) para seu contador não se misturar com o de outra
-  // pessoa. Ex.: 'oratorio-do-joao-2026'.
+  // ── Contador da comunidade ──
+  // Serviço principal: Supabase (grátis, sem prazo de validade). Cole aqui os dois
+  // dados do SEU projeto (supabase.com → seu projeto → Settings → API Keys).
+  // Enquanto os dois estiverem vazios, o site continua usando o serviço antigo
+  // (Abacus, logo abaixo), exatamente como antes.
   counter: {
     enabled: true,
+    supabaseUrl: 'https://glomtkodigkncnydzhzy.supabase.co', // ex.: 'https://abcdxyz.supabase.co'
+    supabaseKey: 'sb_publishable_Rkb7dn49xgq363A5mXwKqg_Wt0cerzb', // a "Publishable key" (começa com 'sb_publishable_'); NUNCA a "Secret key"
+    // serviço antigo (Abacus) — usado só enquanto o Supabase acima estiver vazio
     base: 'https://abacus.jasoncameron.dev',
     namespace: 'oratorio-digital-mc-9f3a7c2e',
-    totalKey: 'total', // chave do contador global somado de todas as orações
-    visitsKey: 'visits', // chave do contador de visitas (página inicial)
+    // nomes dos contadores (os mesmos nos dois serviços)
+    totalKey: 'total', // contador global somado de todas as orações
+    visitsKey: 'visits', // contador de visitas (página inicial)
+    liturgiasKey: 'liturgias', // contador SEPARADO: liturgias lidas (não soma às orações)
+  },
+
+  // ── Estatísticas de visitas sem cookies (Cloudflare Web Analytics) — OPCIONAL ──
+  // Cole o "token" que aparece em dash.cloudflare.com → Web Analytics → Manage site.
+  // Vazio = desligado.
+  analytics: {
+    cloudflareToken: '',
   },
 
   // ── CAPTCHA anti-bot (Cloudflare Turnstile) — OPCIONAL ──
@@ -102,13 +115,15 @@ export const ui = {
     bio_about: 'Conheça a vida de',
     santo_today: 'Santo do dia',
     santo_next: 'Próximo santo',
+    santos_today: 'Santos do dia',
+    santos_next: 'Próximos santos',
+    list_and: 'e',
     season_advento: 'Tempo do Advento',
     season_natal: 'Tempo do Natal',
     season_quaresma: 'Tempo da Quaresma',
     season_pascoa: 'Tempo Pascal',
     season_comum: 'Tempo Comum',
     season_pentecostes: 'Pentecostes',
-    share_image: 'Imagem',
     cat_martir: 'Mártir',
     cat_doutor: 'Doutor da Igreja',
     cat_virgem: 'Virgem',
@@ -152,6 +167,21 @@ export const ui = {
     lang_label: 'Idioma',
     textos_title: 'Textos',
     textos_lead: 'Leituras para entender e viver melhor a fé — aos poucos, novos textos vão aparecendo aqui.',
+    nav_cantos: 'Cantos',
+    cantos_title: 'Cantos litúrgicos',
+    cantos_lead: 'O repertório das partes cantadas da Missa — o Ordinário e os cantos próprios.',
+    cantos_empty: 'Em breve, os cantos litúrgicos.',
+    nav_liturgia: 'Liturgia',
+    liturgia_title: 'Liturgia do dia',
+    liturgia_lead: 'A Liturgia da Palavra de cada dia — as leituras da Missa, fiéis aos textos da Igreja.',
+    liturgia_read: 'Ler a Liturgia do dia',
+    liturgia_today: 'Liturgia de hoje',
+    liturgia_empty: 'Em breve, a Liturgia diária.',
+    liturgia_read_action: 'Ler a Liturgia',
+    liturgia_count_pre: 'A comunidade já leu',
+    liturgia_count_post: 'liturgias diárias.',
+    liturgia_leituras: 'Leituras',
+    liturgia_reader_start: 'Iniciar leitura',
     filter_type: 'Tipo',
     filter_lang: 'Idioma',
     type_oracao: 'Oração',
@@ -181,6 +211,7 @@ export const ui = {
     next: 'Próximo',
     finish_prayer: 'Concluir oração',
     finishing: 'Registrando…',
+    already_counted: 'Sua oração de hoje já foi contada.',
     completed_title: 'Oração concluída',
     completed_sub: 'Você faz parte de uma corrente de oração.',
     total_now: 'orações no total',
@@ -192,6 +223,29 @@ export const ui = {
     suggested_day: 'comece pelo',
     captcha_needed: 'Confirme que você não é um robô para registrar.',
     progress_saved: 'Progresso salvo neste aparelho.',
+    // ── Fase 2: Stories e Status, contador, página 404 ──
+    stories_btn: 'Stories e Status',
+    stories_title: 'Stories e Status',
+    stories_share: 'Compartilhar imagem',
+    stories_preview: 'Prévia da imagem para Stories e Status',
+    stories_hint: 'Instagram: escolha Story, toque no adesivo Link e cole o endereço. WhatsApp: escolha Status.',
+    copy_link: 'Copiar link',
+    copy_manual: 'Copie o endereço:',
+    download_image: 'Baixar imagem',
+    preparing_image: 'Preparando a imagem…',
+    image_failed: 'Não foi possível gerar a imagem.',
+    share_failed: 'Não foi possível compartilhar. Use “Baixar imagem”.',
+    close: 'Fechar',
+    share_prayed: 'Compartilhar que rezei',
+    prayed_today: 'Rezei hoje',
+    prayed_day: 'Rezei o {n}º dia da',
+    prayed_with: 'numa corrente de {n} orações',
+    community_today: 'orações hoje',
+    community_today_one: 'oração hoje',
+    count_short_one: 'vez rezada',
+    nf_title: 'Página não encontrada',
+    nf_lead: 'O caminho que você procurou não existe ou mudou de lugar. Mas a oração continua — escolha por onde seguir.',
+    nf_ways: 'Ou volte por aqui:',
   },
   en: {
     langLabel: 'English',
@@ -249,13 +303,15 @@ export const ui = {
     bio_about: 'Discover the life of',
     santo_today: 'Saint of the day',
     santo_next: 'Next saint',
+    santos_today: 'Saints of the day',
+    santos_next: 'Next saints',
+    list_and: 'and',
     season_advento: 'Advent',
     season_natal: 'Christmas Time',
     season_quaresma: 'Lent',
     season_pascoa: 'Eastertide',
     season_comum: 'Ordinary Time',
     season_pentecostes: 'Pentecost',
-    share_image: 'Image',
     cat_martir: 'Martyr',
     cat_doutor: 'Doctor of the Church',
     cat_virgem: 'Virgin',
@@ -299,6 +355,21 @@ export const ui = {
     lang_label: 'Language',
     textos_title: 'Texts',
     textos_lead: 'Readings to better understand and live the faith — new texts will appear here over time.',
+    nav_cantos: 'Chants',
+    cantos_title: 'Liturgical chants',
+    cantos_lead: 'The repertoire of the sung parts of the Mass — the Ordinary and the proper chants.',
+    cantos_empty: 'Chants coming soon.',
+    nav_liturgia: 'Liturgy',
+    liturgia_title: 'Liturgy of the day',
+    liturgia_lead: 'The daily Liturgy of the Word — the Mass readings, faithful to the texts of the Church.',
+    liturgia_read: 'Read the Liturgy of the day',
+    liturgia_today: "Today's Liturgy",
+    liturgia_empty: 'The daily Liturgy is coming soon.',
+    liturgia_read_action: 'Read the Liturgy',
+    liturgia_count_pre: 'The community has read',
+    liturgia_count_post: 'daily liturgies.',
+    liturgia_leituras: 'Readings',
+    liturgia_reader_start: 'Start reading',
     filter_type: 'Type',
     filter_lang: 'Language',
     type_oracao: 'Prayer',
@@ -328,6 +399,7 @@ export const ui = {
     next: 'Next',
     finish_prayer: 'Complete prayer',
     finishing: 'Recording…',
+    already_counted: 'Your prayer for today has already been counted.',
     completed_title: 'Prayer completed',
     completed_sub: 'You are part of a chain of prayer.',
     total_now: 'prayers in total',
@@ -339,6 +411,29 @@ export const ui = {
     suggested_day: 'start on',
     captcha_needed: 'Confirm you are not a robot to record it.',
     progress_saved: 'Progress saved on this device.',
+    // ── Phase 2: Stories & Status, counter, 404 page ──
+    stories_btn: 'Stories & Status',
+    stories_title: 'Stories & Status',
+    stories_share: 'Share image',
+    stories_preview: 'Preview of the Stories & Status image',
+    stories_hint: 'Instagram: choose Story, tap the Link sticker and paste the address. WhatsApp: choose Status.',
+    copy_link: 'Copy link',
+    copy_manual: 'Copy the address:',
+    download_image: 'Download image',
+    preparing_image: 'Preparing the image…',
+    image_failed: "Couldn't create the image.",
+    share_failed: "Couldn't share. Use “Download image”.",
+    close: 'Close',
+    share_prayed: 'Share that I prayed',
+    prayed_today: 'I prayed today',
+    prayed_day: 'I prayed day {n} of the',
+    prayed_with: 'in a chain of {n} prayers',
+    community_today: 'prayers today',
+    community_today_one: 'prayer today',
+    count_short_one: 'time prayed',
+    nf_title: 'Page not found',
+    nf_lead: "The page you were looking for doesn't exist or has moved. But prayer goes on — choose where to go next.",
+    nf_ways: 'Or go back from here:',
   },
 } as const;
 

@@ -6,6 +6,7 @@ born: "1673, Montfort (França)"
 died: "1716, Saint-Laurent-sur-Sèvre"
 patronage: "pregadores; devoção mariana"
 tags: ["mariano", "totus tuus", "missionário"]
+categorias: [fundador]
 summary: "O apóstolo da verdadeira devoção a Maria, mestre da consagração 'Totus Tuus'."
 featured: false
 relatedPrayers: ["oracao-totus-tuus-sao-luis-maria-montfort", "consagracao-imaculado-coracao-maria", "novena-nossa-senhora-rosario"]
@@ -20,7 +21,7 @@ Em 1693 partiu para Paris, a fim de cursar teologia no célebre seminário de Sa
 
 Os primeiros anos de seu ministério foram marcados por dificuldades e incompreensões. Sua maneira ardorosa de pregar, sua exigência de penitência e sua devoção popular ao Rosário despertaram tanto entusiasmo entre o povo simples quanto resistência entre alguns clérigos. Levado certa vez a Roma, recebeu do papa Clemente XI o título de "missionário apostólico", confirmação que o lançou definitivamente às estradas do oeste da França.
 
-Por dezesseis anos percorreu as regiões da Bretanha, do Poitou e da Vendéia, pregando missões populares, restaurando igrejas, erguendo cruzeiros e calvários, e reunindo multidões em torno da pregação da Cruz e do Rosário. Fundou as Filhas da Sabedoria, dedicadas ao cuidado dos doentes e à educação dos pobres, e a Companhia de Maria, congregação de missionários que perpetuaria seu carisma.
+Por dezesseis anos percorreu as regiões da Bretanha, do Poitou e da Vendeia, pregando missões populares, restaurando igrejas, erguendo cruzeiros e calvários, e reunindo multidões em torno da pregação da Cruz e do Rosário. Fundou as Filhas da Sabedoria, dedicadas ao cuidado dos doentes e à educação dos pobres, e a Companhia de Maria, congregação de missionários que perpetuaria seu carisma.
 
 ## A devoção mariana
 

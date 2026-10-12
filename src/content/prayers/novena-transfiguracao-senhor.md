@@ -6,7 +6,6 @@ saint: "Transfiguração do Senhor"
 language: "pt-BR"
 image: "/saints/novena-transfiguracao-senhor.webp"
 thumbnail: "/saints/novena-transfiguracao-senhor.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["Transfiguração", "Monte Tabor", "glória", "luz", "Cristo"]
 description: "Novena à Transfiguração do Senhor, contemplando a glória de Cristo revelada no Monte Tabor diante de Pedro, Tiago e João."
 featured: false

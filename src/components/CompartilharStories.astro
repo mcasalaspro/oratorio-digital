@@ -1,0 +1,129 @@
+---
+// ════════════════════════════════════════════════════════════════
+//  Botão "Stories e Status" (oração e biografia)
+//  Gera, no aparelho, uma imagem 1080×1920 para Instagram Stories e
+//  WhatsApp Status (public/js/compartilhar.js). Aqui, no build, só se
+//  escolhem os textos da imagem:
+//   - oração: campo `destaque`; sem ele, as primeiras linhas da primeira
+//     citação (>) ou do primeiro verso com <br> — nunca a nota histórica
+//     nem rubricas (parágrafos inteiros em itálico);
+//   - biografia: campo `frase`; sem ele, a primeira citação (>) do texto se
+//     for curta; senão, o `summary`.
+//  O botão nasce com hidden e só aparece quando o compartilhar.js carrega.
+// ════════════════════════════════════════════════════════════════
+import { withBase } from '../config/site';
+
+interface Props {
+  modo: 'oracao' | 'bio';
+  titulo: string;        // título da oração / nome do santo
+  rotulo?: string;       // linha pequena acima do título (PT)
+  rotuloChave?: string;  // chave de tradução do rótulo (ex.: type_novena)
+  banner: string;        // imagem de fundo (já com o caminho-base)
+  bannerReserva?: string;
+  caminho: string;       // ex.: /oracao/pai-nosso (já com o caminho-base)
+  corpo?: string;        // texto em markdown (entry.body)
+  destaque?: string;     // oração: trecho escolhido à mão
+  frase?: string;        // biografia: frase escolhida à mão
+  resumo?: string;       // biografia: summary
+}
+const p = Astro.props;
+
+const REP = /^\s*\{?\s*\d{1,2}\s*[x×]\s*\}?\s*[·.\-:]?\s*/i; // marcador "10x" das repetições
+// markdown → linhas de texto puro
+function linhasDe(md: string): string[] {
+  return md
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/\*\*|__|\*|_/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .split('\n')
+    .map((l) => l.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+}
+// até ~6 linhas / 230 letras; se cortar, termina com "…"
+function cortar(linhas: string[], max = 230, maxLinhas = 6): string {
+  const fim = (s: string) => s.replace(/[\s,;:.—-]+$/, '') + '…';
+  const out: string[] = [];
+  let n = 0;
+  for (const l of linhas) {
+    if (!out.length && l.length > max) return fim(l.slice(0, max).replace(/\s+\S*$/, ''));
+    if (out.length >= maxLinhas || (out.length && n + l.length > max)) { out[out.length - 1] = fim(out[out.length - 1]); return out.join('\n'); }
+    out.push(l);
+    n += l.length;
+  }
+  return out.join('\n');
+}
+const blocos = (md = '') => md.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean);
+const ehCitacao = (b: string) => b.split('\n').every((l) => /^\s*>/.test(l));
+const semCitacao = (b: string) => b.split('\n').map((l) => l.replace(/^\s*>\s?/, '')).join('\n');
+
+function trechoDaOracao(md?: string): string {
+  for (const b of blocos(md)) {
+    if (/^(#|<|-{3,}|\*{3,}|_{3,})/.test(b)) continue;                    // título, HTML, linha
+    if (/^\*[^*][\s\S]*[^*]\*$/.test(b) || /^_[^_][\s\S]*[^_]_$/.test(b)) continue; // rubrica
+    const cit = ehCitacao(b);
+    if (!cit && !/<br\s*\/?>/i.test(b)) continue;                         // nota histórica ou instrução
+    if (!cit && /\b(1\d{3}|20\d{2})\b|\bs[ée]culo\b/i.test(b)) continue;  // nota em versos (cita ano ou século)
+    const linhas = linhasDe((cit ? semCitacao(b) : b).replace(REP, ''));
+    if (linhas.length) return cortar(linhas);
+  }
+  return '';
+}
+function citacaoCurta(md?: string, max = 220): string {
+  const b = blocos(md).find(ehCitacao);
+  if (!b) return '';
+  const t = linhasDe(semCitacao(b)).join(' ');
+  return t.length <= max ? t : '';
+}
+
+let trecho = '';
+let citacao = false;
+if (p.modo === 'oracao') {
+  trecho = p.destaque?.trim() || trechoDaOracao(p.corpo);
+} else {
+  trecho = p.frase?.trim() || citacaoCurta(p.corpo);
+  citacao = !!trecho;
+  if (!trecho) trecho = (p.resumo ?? '').trim();
+}
+
+const dominio = (Astro.site?.host ?? 'oratoriodigital.com').replace(/^www\./, '');
+const slug = p.caminho.replace(/\/+$/, '').split('/').pop() ?? 'oratorio';
+const dados = {
+  rotulo: p.rotulo ?? '',
+  rotuloChave: p.rotuloChave ?? '',
+  titulo: p.titulo,
+  trecho,
+  citacao,
+  banner: p.banner,
+  bannerReserva: p.bannerReserva ?? '',
+  caminho: p.caminho,
+  dominio,
+  arquivo: `oratorio-${slug}`,
+};
+---
+<button type="button" class="rtool" hidden data-od-stories={JSON.stringify(dados)}>
+  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+  <span>Stories e Status</span>
+</button>
+<script is:inline src={withBase('/js/compartilhar.js')} defer></script>
+
+<style is:global>
+  /* janela "Stories e Status" (criada pelo public/js/compartilhar.js) */
+  .odc { border: none; padding: 0; background: transparent; color: var(--ink); width: min(28rem, calc(100vw - 1.6rem)); max-width: none; }
+  .odc::backdrop { background: var(--scrim); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .odc-card { position: relative; text-align: center; background: var(--paper-raised); border: 1px solid color-mix(in srgb, var(--gold) 40%, var(--hair)); border-radius: 20px; padding: 1.3rem 1.1rem 1.15rem; box-shadow: 0 24px 70px rgba(0,0,0,.4); max-height: calc(100dvh - 1.6rem); overflow-y: auto; }
+  .odc-titulo { font-size: 1.55rem; margin: .1rem 2.6rem .85rem; color: var(--gold); }
+  .odc-fechar { position: absolute; top: .6rem; right: .6rem; width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--hair); background: transparent; color: var(--ink-soft); cursor: pointer; font-size: 1.3rem; line-height: 1; }
+  .odc-fechar:hover { border-color: var(--gold); color: var(--gold); }
+  .odc-previa { position: relative; width: min(100%, 14.5rem); aspect-ratio: 9 / 16; margin: 0 auto .95rem; border-radius: 14px; overflow: hidden; background: #120c06; border: 1px solid var(--hair); }
+  .odc-previa img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .odc-espera { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; padding: 1rem; color: #cebf9d; font-style: italic; font-size: .92rem; }
+  .odc-acoes { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+  .odc-acoes .btn { min-height: 46px; }
+  .odc-acoes .btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+  .odc-status { min-height: 1.5em; margin: .55rem 0 0; color: var(--gold); font-size: .95rem; }
+  .odc-manual { margin: .3rem 0 0; text-align: left; font-size: .9rem; color: var(--ink-soft); }
+  .odc-manual input { display: block; width: 100%; margin-top: .3rem; min-height: 44px; padding: .5rem .7rem; border-radius: 10px; border: 1px solid var(--gold); background: var(--paper); color: var(--ink); font-family: 'EB Garamond', serif; font-size: 16px; }
+  .odc-dica { margin: .75rem 0 0; font-size: .86rem; line-height: 1.45; color: var(--ink-soft); }
+</style>

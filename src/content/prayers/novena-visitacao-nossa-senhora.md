@@ -6,7 +6,6 @@ saint: "Visitação de Nossa Senhora"
 language: "pt-BR"
 image: "/saints/novena-visitacao-nossa-senhora.webp"
 thumbnail: "/saints/novena-visitacao-nossa-senhora.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["Visitação", "Maria", "Isabel", "Magnificat", "caridade", "alegria"]
 description: "Novena tradicional à Visitação de Nossa Senhora, inspirada no encontro de Maria e Isabel e no cântico do Magnificat (Lc 1,39-56)."
 featured: false
@@ -97,7 +96,7 @@ para que eu confie na Palavra de Deus<br>
 mesmo quando não compreendo<br>
 os caminhos por onde Ele me conduz.
 
-Feliz de quem crê como Vós cristes,<br>
+Feliz de quem crê como Vós crestes,<br>
 ó Virgem da total entrega.
 
 > Nossa Senhora da Visitação, rogai por nós.

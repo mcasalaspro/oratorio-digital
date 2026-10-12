@@ -5,8 +5,15 @@ import Base from '../layouts/Base.astro';
 import PrayerCard from '../components/PrayerCard.astro';
 import CommunityCounter from '../components/CommunityCounter.astro';
 import { site, withBase } from '../config/site';
+import { reserva } from '../config/contadores';
 
 const all = await getCollection('prayers');
+const liturgiaEntries = await getCollection('liturgia');
+const liturgiaToday = {};
+for (const e of liturgiaEntries) {
+  const m = e.id.match(/(\d{4})(\d{2})(\d{2})/);   // AAAAMMDD do nome do arquivo
+  if (m) liturgiaToday[m[1] + m[2] + m[3]] = e.id;
+}
 
 // Aviso de build: imagem de alguma oração faltando em public/saints/
 // (o nome do arquivo .webp deve ser EXATAMENTE o nome da oração, minúsculo)
@@ -34,21 +41,31 @@ const pinned = site.pinnedPrayers
   .map((p) => byId.get(p.id))
   .filter(Boolean);
 
-// candidatas a destaque litúrgico (têm data de festa)
-const liturgical = all.filter((p) => p.data.liturgicalFeast);
+// candidatas à "Oração do dia" (têm data de festa). As devoções de mês ("mes-…",
+// ex.: Mês de Maria) ficam de fora: a data delas marca o início do mês, não uma festa.
+const liturgical = all.filter((p) => p.data.liturgicalFeast && !p.id.startsWith('mes-'));
 
-// "Santo do dia": uma entrada por data de festa (biografia tem prioridade; senão a oração do santo)
+// "Santo do dia": SOMENTE biografias com data de festa (campo feast "MM-DD").
+// Santos do mesmo dia aparecem juntos ("São Pedro e São Paulo"), nesta ordem:
+// a tradicional para os pares conhecidos, depois os destaques (featured/order) e o nome.
 const bios = await getCollection('biografias');
-const _byFeast = new Map<string, { feast: string; name: string; url: string }>();
-for (const b of bios) {
-  if (b.data.feast) _byFeast.set(b.data.feast, { feast: b.data.feast, name: b.data.name ?? b.id, url: withBase(`/biografia/${b.id}`) });
-}
-for (const p of all) {
-  if (p.data.liturgicalFeast && p.data.saint && !_byFeast.has(p.data.liturgicalFeast)) {
-    _byFeast.set(p.data.liturgicalFeast, { feast: p.data.liturgicalFeast, name: p.data.saint, url: withBase(`/oracao/${p.id}`) });
-  }
-}
-const santos = [..._byFeast.values()];
+const ORDEM_TRADICIONAL = ['sao-pedro-apostolo', 'sao-paulo-apostolo', 'sao-miguel-arcanjo', 'sao-gabriel-arcanjo', 'sao-rafael-arcanjo'];
+const _trad = (id: string) => { const i = ORDEM_TRADICIONAL.indexOf(id); return i < 0 ? 999 : i; };
+const santos = bios
+  .filter((b) => /^\d{2}-\d{2}$/.test(b.data.feast ?? ''))
+  .map((b) => ({
+    id: b.id,
+    feast: b.data.feast as string,
+    name: b.data.name ?? b.id,
+    url: withBase(`/biografia/${b.id}`),
+    rank: b.data.featured ? (b.data.order ?? 50) : 999,
+  }))
+  .sort((a, b) => a.feast.localeCompare(b.feast) || _trad(a.id) - _trad(b.id) || a.rank - b.rank || a.name.localeCompare(b.name, 'pt-BR'));
+
+// números de reserva do contador (src/data/contadores.json, se o build tiver trazido):
+// aparecem quando o serviço não responde e não há número guardado no aparelho
+const reservaTotal = reserva(site.counter.totalKey ?? 'total');
+const reservaVisitas = reserva(site.counter.visitsKey ?? 'visits');
 
 // filtros disponíveis
 const types = [...new Set(all.map((p) => p.data.type))];
@@ -60,7 +77,11 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     <img class="hero-bg" src={withBase('/textures/rays.webp')} alt="" aria-hidden="true" data-parallax="0.12" onerror="this.style.display='none'" />
     <span class="hero-shade" aria-hidden="true"></span>
     <div class="hero-inner">
-      <img class="hero-logo" src={withBase('/logo.png')} alt={site.name} width="164" height="164" />
+      <!-- logo leve: o CSS exibe entre 108 e 164 px, então basta a versão de 128 px ou a de 340 px (telas nítidas) -->
+      <img class="hero-logo" src={withBase('/logo-340.webp')}
+           srcset={`${withBase('/logo-128.webp')} 128w, ${withBase('/logo-340.webp')} 340w`}
+           sizes="(max-width: 635px) 108px, (max-width: 965px) 17vw, 164px"
+           alt={site.name} width="164" height="164" />
       <a class="season-badge" id="seasonBadge" href={withBase('/textos/tempos-liturgicos')} hidden>
         <span class="season-dot" aria-hidden="true"></span>
         <span id="seasonBadgeText"></span>
@@ -68,11 +89,31 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       <a class="season-next" id="seasonNext" href={withBase('/textos/tempos-liturgicos')} hidden></a>
       <h1>{site.name}</h1>
       <p class="lead-line">{site.tagline}</p>
-      <p class="hero-stats"><strong>{all.length}</strong> <span data-i18n="stat_prayers">orações</span><span class="sep">·</span><strong>{bios.length}</strong> <span data-i18n="stat_bios">biografias</span><span class="sep">·</span><strong id="visitNumber">—</strong> <span data-i18n="visits_label">visitas</span></p>
-      {site.showCommunityCounter && <CommunityCounter />}
+      <p class="hero-stats" id="heroStats" data-reserva-total={reservaTotal ?? undefined} data-reserva-visitas={reservaVisitas ?? undefined}><strong>{all.length}</strong> <span data-i18n="stat_prayers">orações</span><span class="sep">·</span><strong>{bios.length}</strong> <span data-i18n="stat_bios">biografias</span><span id="visitStat"><span class="sep">·</span><strong id="visitNumber">—</strong> <span data-i18n="visits_label">visitas</span></span></p>
+      {site.showCommunityCounter && (
+        <Fragment>
+          <CommunityCounter />
+          {/* orações de hoje (só o Supabase sabe): "12 orações hoje"; some sem número */}
+          <p class="votive-today" id="communityToday" hidden></p>
+        </Fragment>
+      )}
     </div>
   </section>
 
+  <!-- ════════ LITURGIA DO DIA (botão de abertura) ════════ -->
+  <!-- só aparece quando houver ao menos uma Liturgia em src/content/liturgia/ (volta sozinho) -->
+  {liturgiaEntries.length > 0 && (
+    <div class="wrap">
+      <a class="liturgia-cta" id="liturgiaCta" href={withBase('/liturgia')} data-map={JSON.stringify(liturgiaToday)} data-base={import.meta.env.BASE_URL}>
+        <span class="liturgia-cta-icon" aria-hidden="true">&#10013;</span>
+        <span class="liturgia-cta-text">
+          <span class="liturgia-cta-k" data-i18n="liturgia_read">Ler a Liturgia do dia</span>
+          <span class="liturgia-cta-sub">As leituras da Missa de hoje</span>
+        </span>
+        <span class="liturgia-cta-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  )}
   <!-- ════════ SANTO DO DIA (faixa, revelada conforme a data) ════════ -->
   {santos.length > 0 && (
     <div class="wrap">
@@ -92,7 +133,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
   <section class="section today-section" id="today">
     <div class="wrap">
       <a class="today-card" id="todayCard" href="#">
-        <img class="today-bg" id="todayImg" src="" alt="" aria-hidden="true" />
+        <img class="today-bg" id="todayImg" alt="" aria-hidden="true" />
         <span class="today-shade"></span>
         <span class="today-inner">
           <span class="today-seal" data-i18n="today_seal">Oração do dia</span>
@@ -105,15 +146,18 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     </div>
   </section>
 
-  <!-- dados das orações com festa: alimentam a "Oração do dia" (sem seção visível) -->
-  <div id="litData" hidden>
+  <!-- dados das orações com festa: alimentam a "Oração do dia" (sem seção visível).
+       A imagem fica só como endereço (data-img): o script baixa apenas a da oração escolhida.
+       (Uma imagem aqui seria baixada mesmo escondida: eram ~125 imagens grandes, ~52 MB.) -->
+  <div id="litData" hidden data-fallback={withBase('/saints/default.webp')}>
     {liturgical.map((p) => (
       <a class="lit-card"
          href={withBase(`/oracao/${p.id}`)}
          data-feast={p.data.liturgicalFeast}
          data-start={p.data.novenaSuggestedStart ?? 0}
-         data-total={p.data.totalDays ?? 1}>
-        <img class="lit-card-bg" src={withBase(p.data.image ?? `/saints/${p.id}.webp`)} alt="" aria-hidden="true" onerror={`this.onerror=null;this.src='${withBase('/saints/default.webp')}'`} />
+         data-total={p.data.totalDays ?? 1}
+         data-type={p.data.type}
+         data-img={withBase(p.data.image ?? `/saints/${p.id}.webp`)}>
         <h3>{p.data.title}</h3>
         <span class="lit-meta">{p.data.saint}</span>
       </a>
@@ -189,46 +233,121 @@ const langs = [...new Set(all.map((p) => p.data.language))];
 
 
   <script>
-    // ── Contador da comunidade ──
+    // último número bom guardado neste aparelho (0 = nenhum)
+    function cachedCount(key: string): number {
+      try { const n = Number(localStorage.getItem(key)); return Number.isFinite(n) && n > 0 ? n : 0; } catch (e) { return 0; }
+    }
+    function fmtCount(n: number) {
+      const l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
+      return new Intl.NumberFormat(l).format(n);
+    }
+    // texto da interface com reserva em português (para chaves ainda fora do site.ts)
+    function tr(k: string, pt: string) { const f = (window as any).odt; const v = f ? f(k) : k; return v && v !== k ? v : pt; }
+
+    // ── Contadores da comunidade: vela, visitas, "hoje" e os cartões do catálogo ──
+    // Uma leitura só (window.odContador — public/js/contador.js): no Supabase vem tudo de
+    // uma vez (total, visitas, 'hoje' e cada oração); no Abacus, só total e visitas, e os
+    // cartões ficam com a reserva do build. A visita conta uma vez por sessão (od-visited).
+    // Número mostrado: o vivo; sem ele, o maior entre o guardado neste aparelho e a reserva
+    // do build; sem nenhum, o bloco some — nunca "0".
     (function () {
-      const cfg = (window as any).__SITE__;
-      const el = document.getElementById('communityNumber');
-      if (!el || !cfg?.counter?.enabled) { if (el) el.textContent = '0'; return; }
-      const url = `${cfg.counter.base}/get/${cfg.counter.namespace}/${cfg.counter.totalKey}`;
-      function fmt(n: number) {
-        const l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
-        return new Intl.NumberFormat(l).format(n);
-      }
-      function animateTo(target: number) {
-        const dur = 1100; const start = performance.now();
-        function step(now: number) {
-          const t = Math.min(1, (now - start) / dur);
-          const eased = 1 - Math.pow(1 - t, 3);
-          el!.textContent = fmt(Math.round(target * eased));
+      const C = (window as any).odContador;
+      const stats = document.getElementById('heroStats');
+      const elTotal = document.getElementById('communityNumber');
+      const boxTotal = document.getElementById('community');
+      const elVis = document.getElementById('visitNumber');
+      const boxVis = document.getElementById('visitStat');
+      const elHoje = document.getElementById('communityToday');
+      const hideTotal = () => { if (boxTotal) boxTotal.style.display = 'none'; if (elHoje) elHoje.hidden = true; };   // .votive tem display próprio: hidden não bastaria
+      const hideVis = () => { if (boxVis) boxVis.hidden = true; };
+      if (!C || !C.ativo) { hideTotal(); hideVis(); return; }
+
+      const reservaDe = (attr: string) => { const n = Number(stats?.getAttribute(attr)); return Number.isFinite(n) && n > 0 ? n : 0; };
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // números na tela (0 = nenhum ainda)
+      let total = Math.max(cachedCount('od-total-cache'), reservaDe('data-reserva-total'));
+      let visitas = Math.max(cachedCount('od-visits-cache'), reservaDe('data-reserva-visitas'));
+      let hoje = 0;
+      if (elTotal && total) elTotal.textContent = fmtCount(total);
+      if (elVis && visitas) elVis.textContent = fmtCount(visitas);
+
+      function animate(el: HTMLElement, from: number, to: number) {
+        if (reduce || from === to) { el.textContent = fmtCount(to); return; }
+        const dur = 1100, t0 = performance.now();
+        const step = (now: number) => {
+          const t = Math.min(1, (now - t0) / dur);
+          el.textContent = fmtCount(Math.round(from + (to - from) * (1 - Math.pow(1 - t, 3))));
           if (t < 1) requestAnimationFrame(step);
-        }
+        };
         requestAnimationFrame(step);
       }
-      fetch(url).then((r) => (r.ok ? r.json() : { value: 0 }))
-        .then((d) => animateTo(Number(d.value) || 0))
-        .catch(() => { el!.textContent = '0'; });
-    })();
+      function renderHoje() {
+        if (!elHoje) return;
+        if (!(hoje > 0) || !total) { elHoje.hidden = true; return; }
+        elHoje.textContent = '';
+        const b = document.createElement('b'); b.textContent = fmtCount(hoje);
+        elHoje.append(b, ' ' + (hoje === 1 ? tr('community_today_one', 'oração hoje') : tr('community_today', 'orações hoje')));
+        elHoje.hidden = false;
+      }
+      // marca "N vezes rezada" dos cartões (PrayerCard): mostra se > 0, some com 0
+      function setReza(pill: HTMLElement, n: number) {
+        pill.dataset.n = n > 0 ? String(n) : '';
+        if (!(n > 0)) { pill.hidden = true; return; }
+        const num = pill.querySelector<HTMLElement>('.pill-reza-n');
+        const lab = pill.querySelector<HTMLElement>('.pill-reza-lab');
+        let txt: string;
+        if (n === 1) { txt = tr('count_short_one', 'vez rezada'); lab?.removeAttribute('data-i18n'); }
+        else { txt = tr('count_short', 'vezes rezada'); lab?.setAttribute('data-i18n', 'count_short'); }
+        if (num) num.textContent = fmtCount(n);
+        if (lab) lab.textContent = txt;
+        pill.title = `${fmtCount(n)} ${txt}`;
+        pill.hidden = false;
+      }
+      const pills = () => Array.from(document.querySelectorAll<HTMLElement>('.card[data-slug] .pill-reza'));
 
-    // ── Contador de visitas (Abacus) ──
-    (function () {
-      const cfg = (window as any).__SITE__;
-      const num = document.getElementById('visitNumber');
-      if (!num || !cfg?.counter?.enabled) return;
-      const key = cfg.counter.visitsKey || 'visits';
-      let counted = false;
-      try { counted = sessionStorage.getItem('od-visited') === '1'; } catch (e) {}
-      const url = `${cfg.counter.base}/${counted ? 'get' : 'hit'}/${cfg.counter.namespace}/${key}`;
-      fetch(url).then((r) => (r.ok ? r.json() : null)).then((d) => {
-        if (!d || typeof d.value !== 'number') return;
-        const l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
-        num.textContent = new Intl.NumberFormat(l).format(d.value);
-        try { sessionStorage.setItem('od-visited', '1'); } catch (e) {}
-      }).catch(() => {});
+      // a visita conta uma vez por sessão; no Abacus, a própria contagem já traz as visitas
+      let contar = false;
+      try { contar = sessionStorage.getItem('od-visited') !== '1'; } catch (e) {}
+      const pLer: Promise<Record<string, number> | null> = (contar && C.servico === 'abacus') ? C.ler([C.chaves.total]) : C.ler();
+      const pVisita: Promise<number | null> = contar ? C.contarVisita() : Promise.resolve(null);
+
+      pLer.then((m) => {
+        const vivo = (k: string) => { const v = m ? Number(m[k]) : NaN; return Number.isFinite(v) && v > 0 ? v : 0; };
+        const t = vivo(C.chaves.total);
+        if (t) {
+          try { localStorage.setItem('od-total-cache', String(t)); } catch (e) {}
+          if (elTotal) animate(elTotal, total, t);
+          total = t;
+        } else if (!total) hideTotal();
+        if (C.servico === 'supabase') {
+          hoje = vivo('hoje');
+          renderHoje();
+          // cartões: no Supabase a leitura traz todas as orações de uma vez; o número vivo
+          // substitui a reserva (sem número vivo, fica a reserva — ou a marca segue oculta)
+          if (m) for (const p of pills()) {
+            const v = vivo(p.closest<HTMLElement>('.card')?.dataset.slug || '');
+            if (v) setReza(p, v);
+          }
+        }
+      });
+      Promise.all([pLer, pVisita]).then(([m, nv]) => {
+        if (contar && nv != null && nv > 0) { try { sessionStorage.setItem('od-visited', '1'); } catch (e) {} }
+        const lido = m ? Number(m[C.chaves.visitas]) : NaN;
+        const v = (nv != null && nv > 0) ? nv : (Number.isFinite(lido) && lido > 0 ? lido : 0);
+        if (v) {
+          try { localStorage.setItem('od-visits-cache', String(v)); } catch (e) {}
+          if (elVis) elVis.textContent = fmtCount(v);
+          visitas = v;
+        } else if (!visitas) hideVis();
+      });
+
+      // troca de idioma: refaz os números (separador de milhar) e os rótulos novos
+      document.addEventListener('od:lang', () => {
+        if (elTotal && total) elTotal.textContent = fmtCount(total);
+        if (elVis && visitas) elVis.textContent = fmtCount(visitas);
+        renderHoje();
+        for (const p of pills()) { const n = Number(p.dataset.n); if (n > 0) setReza(p, n); }
+      });
     })();
 
     // ── Oração do dia (calculada na data atual do visitante) ──
@@ -238,7 +357,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       if (cards.length === 0 || !todaySec) return;
       const DAY = 86400000;
       const now = new Date(); now.setHours(0, 0, 0, 0);
-      const active: { card: HTMLElement; daysToFeast: number; suggestedDay: number; total: number; feast: Date; start: Date }[] = [];
+      const active: { card: HTMLElement; daysToFeast: number; suggestedDay: number; total: number; feast: Date; start: Date; novena: boolean; title: string }[] = [];
 
       for (const card of cards) {
         const m = (card.dataset.feast || '').match(/^(\d{2})-(\d{2})$/);
@@ -252,17 +371,32 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         if (now.getTime() >= start.getTime() && now.getTime() <= feast.getTime()) {
           const daysToFeast = Math.round((feast.getTime() - now.getTime()) / DAY);
           const suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - start.getTime()) / DAY) + 1));
-          active.push({ card, daysToFeast, suggestedDay, total, feast, start });
+          const title = card.querySelector('h3')?.textContent || '';
+          active.push({ card, daysToFeast, suggestedDay, total, feast, start, novena: card.dataset.type === 'novena', title });
         }
       }
       if (active.length === 0) return;
-      active.sort((a, b) => a.daysToFeast - b.daysToFeast);
+      // 1º a festa de HOJE (no empate, a novena vence os demais tipos);
+      // depois, a novena em andamento vence devoções de vários dias que não são novena
+      // (ex.: Antífonas Ó, de 17 a 23/12, não tiram a Novena de Natal do destaque);
+      // depois, a festa mais próxima; por fim, a ordem alfabética do título
+      const hoje = (x: { daysToFeast: number }) => (x.daysToFeast === 0 ? 0 : 1);
+      active.sort((a, b) =>
+        hoje(a) - hoje(b) ||
+        Number(b.novena) - Number(a.novena) ||
+        a.daysToFeast - b.daysToFeast ||
+        a.title.localeCompare(b.title, 'pt-BR'));
 
       const today = active[0];
       const src = today.card as HTMLAnchorElement;
-      const bg = src.querySelector<HTMLImageElement>('.lit-card-bg');
+      // só agora baixa uma imagem: a da oração escolhida (com a padrão de reserva)
       const tImg = document.getElementById('todayImg') as HTMLImageElement | null;
-      if (tImg && bg) tImg.src = bg.getAttribute('src') || '';
+      const imgUrl = src.dataset.img || '';
+      if (tImg && imgUrl) {
+        const fallback = (document.getElementById('litData') as HTMLElement | null)?.dataset.fallback || '';
+        tImg.addEventListener('error', () => { if (fallback && tImg.getAttribute('src') !== fallback) tImg.src = fallback; });
+        tImg.src = imgUrl;
+      }
       const tTitle = src.querySelector('h3');
       const tEl = document.getElementById('todayTitle'); if (tEl) tEl.textContent = tTitle ? tTitle.textContent : '';
       const mEl = src.querySelector('.lit-meta');
@@ -292,8 +426,13 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       const empty = document.getElementById('emptyMsg');
       if (!grid) return;
       const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
-      let fType = '', fLang = '', fText = '', fDate = '';
-      const norm = (x: string) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      let fType = '', fLang = '', fDate = '';
+      let fWords: string[] = [];   // palavras buscadas: TODAS precisam aparecer, em qualquer ordem
+      // sinônimos de uso comum: muita gente chama a "Coroa" de "Terço" (Terço da Misericórdia)
+      const SINONIMOS: Record<string, string[]> = { terco: ['terco', 'coroa'], coroa: ['coroa', 'terco'] };
+      const norm = (x: string) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      const hay = new WeakMap<HTMLElement, string>();   // texto de busca de cada cart\u00e3o, j\u00e1 sem acentos
+      for (const c of cards) hay.set(c, norm(c.dataset.search || ''));
       const STEP = 50;
       let limit = STEP;
       const moreBtn = document.getElementById('showMore');
@@ -312,7 +451,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
         const total = parseInt(c.dataset.total || '1', 10);
         const offset = parseInt(c.dataset.offset || '0', 10);
-        const start = new Date(feast.getTime() + (total > 1 ? offset : 0) * DAY);
+        // a janela (novenaSuggestedStart) vale também para devoções de vários dias que não são novena (Antífonas Ó)
+        const start = new Date(feast.getTime() + offset * DAY);
         const daysToFeast = Math.round((feast.getTime() - now.getTime()) / DAY);
         const inWindow = now.getTime() >= start.getTime() && now.getTime() <= feast.getTime();
         const isToday = daysToFeast === 0 || inWindow;
@@ -326,7 +466,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         for (const c of cards) {
           const okType = !fType || c.dataset.type === fType;
           const okLang = !fLang || c.dataset.lang === fLang;
-          const okText = !fText || norm(c.dataset.search || '').includes(fText);
+          const okText = !fWords.length || fWords.every((w) => (SINONIMOS[w] || [w]).some((s) => (hay.get(c) || '').includes(s)));
           const f = dflag.get(c) || { today: false, week: false, month: false };
           const okDate = !fDate || (fDate === 'today' && f.today) || (fDate === 'week' && f.week) || (fDate === 'month' && f.month);
           const show = okType && okLang && okText && okDate;
@@ -352,7 +492,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       wireChips('#typeChips', 'type', (v) => (fType = v));
       wireChips('#dateChips', 'date', (v) => (fDate = v));
       wireChips('#langChips', 'lang', (v) => (fLang = v));
-      search?.addEventListener('input', () => { fText = norm(search.value.trim().toLowerCase()); limit = STEP; apply(); });
+      // "terço misericórdia" acha a "Coroa da Divina Misericórdia" (acentos e maiúsculas não importam)
+      search?.addEventListener('input', () => { fWords = norm(search.value).split(/[^a-z0-9]+/).filter(Boolean); limit = STEP; apply(); });
       moreBtn?.addEventListener('click', () => { limit += STEP; apply(); });
       apply();
     })();
@@ -399,11 +540,11 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       });
       build();
     })();
-    // ── Santo do dia (calculado na data do visitante) ──
+    // ── Santo do dia (calculado na data do visitante; só biografias) ──
     (function () {
-      const strip = document.getElementById('santoDia');
+      const link = document.getElementById('santoDia');
       const dataEl = document.getElementById('santoData');
-      if (!strip || !dataEl) return;
+      if (!link || !dataEl) return;
       const items = Array.from(dataEl.querySelectorAll<HTMLElement>('i')).map((el) => ({
         feast: el.dataset.feast || '', name: el.dataset.name || '', url: el.dataset.url || '',
       })).filter((x) => /^\d{2}-\d{2}$/.test(x.feast));
@@ -413,34 +554,128 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       const now = new Date(); now.setHours(0, 0, 0, 0);
       const mmdd = String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
 
-      // hoje?
-      let pick = items.find((x) => x.feast === mmdd);
-      let isToday = !!pick;
-      if (!pick) {
-        // senão, o próximo a chegar
-        let best = null as any, bestDelta = Infinity;
+      // hoje? senão, a próxima data que tiver santo
+      let feast = items.some((x) => x.feast === mmdd) ? mmdd : '';
+      const isToday = !!feast;
+      if (!feast) {
+        let bestDelta = Infinity;
         for (const x of items) {
           const mm = +x.feast.slice(0, 2), dd = +x.feast.slice(3, 5);
           let d = new Date(now.getFullYear(), mm - 1, dd);
           if (d.getTime() < now.getTime()) d = new Date(now.getFullYear() + 1, mm - 1, dd);
           const delta = Math.round((d.getTime() - now.getTime()) / DAY);
-          if (delta < bestDelta) { bestDelta = delta; best = x; }
+          if (delta < bestDelta) { bestDelta = delta; feast = x.feast; }
         }
-        pick = best;
       }
-      if (!pick) return;
+      // todos os santos dessa data, juntos (a ordem já vem pronta do build)
+      const group = items.filter((x) => x.feast === feast);
+      if (!group.length) return;
+      const many = group.length > 1;
 
-      const nameEl = document.getElementById('santoDiaName');
-      const dateEl = document.getElementById('santoDiaDate');
-      const labEl = document.getElementById('santoDiaLabel');
-      if (nameEl) nameEl.textContent = pick.name;
-      if (dateEl) dateEl.textContent = pick.feast.slice(3, 5) + '/' + pick.feast.slice(0, 2);
-      const setLabel = () => { if (labEl) labEl.textContent = (window as any).odt(isToday ? 'santo_today' : 'santo_next'); };
-      labEl?.setAttribute('data-i18n', isToday ? 'santo_today' : 'santo_next');
-      setLabel();
-      document.addEventListener('od:lang', setLabel);
-      (strip as HTMLAnchorElement).href = pick.url;
+      // vários santos no mesmo dia: a faixa deixa de ser um link único
+      // e cada nome passa a levar à sua própria biografia
+      let strip: HTMLElement = link;
+      if (many) {
+        const box = document.createElement('div');
+        for (const at of Array.from(link.attributes)) if (at.name !== 'href') box.setAttribute(at.name, at.value);
+        while (link.firstChild) box.appendChild(link.firstChild);
+        link.replaceWith(box);
+        strip = box;
+      } else {
+        (link as HTMLAnchorElement).href = group[0].url;
+      }
+
+      const nameEl = strip.querySelector<HTMLElement>('#santoDiaName');
+      const dateEl = strip.querySelector<HTMLElement>('#santoDiaDate');
+      const labEl = strip.querySelector<HTMLElement>('#santoDiaLabel');
+      if (dateEl) dateEl.textContent = feast.slice(3, 5) + '/' + feast.slice(0, 2);
+      // o rótulo plural usa chaves novas: tira o data-i18n para o Base não trocá-lo pela chave crua
+      if (labEl) { if (many) labEl.removeAttribute('data-i18n'); else labEl.setAttribute('data-i18n', isToday ? 'santo_today' : 'santo_next'); }
+      const render = () => {
+        if (labEl) labEl.textContent = many
+          ? (isToday ? tr('santos_today', 'Santos do dia') : tr('santos_next', 'Próximos santos'))
+          : (window as any).odt(isToday ? 'santo_today' : 'santo_next');
+        if (!nameEl) return;
+        if (!many) { nameEl.textContent = group[0].name; return; }
+        // "A e B" / "A, B e C", cada nome com o seu link
+        const and = tr('list_and', 'e');
+        nameEl.textContent = '';
+        group.forEach((g, i) => {
+          if (i > 0) nameEl.append(i === group.length - 1 ? ` ${and} ` : ', ');
+          const a = document.createElement('a');
+          a.href = g.url; a.textContent = g.name;
+          nameEl.append(a);
+        });
+      };
+      render();
+      document.addEventListener('od:lang', render);
       strip.hidden = false;
+    })();
+
+    // ── Busca pelo endereço: /?q=termo (é o endereço que o Google usa) ──
+    // preenche a busca do catálogo, aplica o filtro e rola até o catálogo
+    (function () {
+      let q = '';
+      try { q = (new URLSearchParams(location.search).get('q') || '').trim().slice(0, 100); } catch (e) {}
+      const input = document.getElementById('search') as HTMLInputElement | null;
+      const cat = document.getElementById('catalogo');
+      if (!q || !input || !cat) return;
+      input.value = q;
+      input.dispatchEvent(new Event('input'));
+      // o topo fixo cobriria o título: desconta a altura dele
+      const rolar = () => {
+        const topo = (document.querySelector('.topbar') as HTMLElement | null)?.offsetHeight || 0;
+        window.scrollTo({ top: cat.getBoundingClientRect().top + window.scrollY - topo - 8, behavior: 'auto' });
+      };
+      rolar();
+      // quando imagens e fontes terminarem de chegar, confere de novo (se a pessoa ainda não rolou)
+      let mexeu = false;
+      const marca = () => { mexeu = true; };
+      for (const ev of ['wheel', 'touchstart', 'keydown']) window.addEventListener(ev, marca, { once: true, passive: true });
+      window.addEventListener('load', () => { if (!mexeu) rolar(); }, { once: true });
     })();
   </script>
 </Base>
+
+<script>
+  (function () {
+    var el = document.getElementById('liturgiaCta');
+    if (!el) return;
+    var base = el.getAttribute('data-base') || '/';
+    var map = {};
+    try { map = JSON.parse(el.getAttribute('data-map') || '{}'); } catch (e) {}
+    var now = new Date();
+    var key = '' + now.getFullYear() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
+    if (map[key]) {
+      el.setAttribute('href', base.replace(/\/$/, '') + '/liturgia/' + map[key]);
+    }
+  })();
+</script>
+
+<style>
+  .liturgia-cta {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 0 auto 1rem; padding: 1.15rem 1.5rem; max-width: 40rem;
+    border-radius: 16px; text-decoration: none;
+    background: color-mix(in srgb, var(--season, var(--gold)) 20%, var(--paper-raised));
+    border: 1px solid color-mix(in srgb, var(--season, var(--gold)) 60%, var(--hair));
+    box-shadow: 0 14px 36px var(--shadow);
+    transition: transform .2s, border-color .2s, background .2s;
+  }
+  .liturgia-cta:hover { transform: translateY(-2px); border-color: var(--gold); background: color-mix(in srgb, var(--season, var(--gold)) 28%, var(--paper-raised)); }
+  .liturgia-cta-icon { font-size: 1.7rem; color: var(--gold); line-height: 1; flex: 0 0 auto; }
+  .liturgia-cta-text { display: flex; flex-direction: column; gap: .15rem; flex: 1; }
+  .liturgia-cta-k { font-family: 'Cormorant', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink); line-height: 1.1; }
+  .liturgia-cta-sub { font-family: 'EB Garamond', serif; font-size: .98rem; color: var(--ink-soft); }
+  .liturgia-cta-arrow { color: var(--gold); font-size: 1.3rem; flex: 0 0 auto; transition: transform .2s; }
+  .liturgia-cta:hover .liturgia-cta-arrow { transform: translateX(4px); }
+
+  /* "12 orações hoje", logo abaixo da vela (o fundo da abertura é sempre escuro) */
+  .votive-today { margin: .45rem 0 0; font-size: .88rem; letter-spacing: .02em; color: #b9a47c; }
+  .votive-today :global(b) { color: var(--flame); font-weight: 600; font-family: 'Cormorant', serif; font-size: 1.1rem; }
+
+  /* "Santos do dia" com vários nomes: cada nome é um link discreto (criado pelo script) */
+  .santo-dia-name :global(a) { color: inherit; text-decoration: none; }
+  .santo-dia-name :global(a:hover) { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+  div.santo-dia .santo-dia-name { line-height: 1.2; }
+</style>

@@ -1,0 +1,82 @@
+# ════════════════════════════════════════════════════════════════
+#  Robô diário do contador — roda sozinho todo dia às 06:17 (Brasília).
+#  Para que serve:
+#   1. Manter o Supabase "acordado": o plano grátis pausa o projeto depois
+#      de 7 dias sem uso. Uma leitura por dia evita a pausa.
+#   2. Guardar uma cópia dos números (contadores.json) no ramo "dados".
+#      A publicação do site (deploy.yml) usa essa cópia como reserva,
+#      para mostrar números mesmo se o contador estiver fora do ar.
+#  Nunca mexe no ramo main. Enquanto o Supabase não estiver configurado
+#  em src/config/site.ts, só avisa e termina sem erro.
+#  Para rodar agora: aba Actions → "Contador diário" → Run workflow.
+#  Se falhar, o GitHub manda um e-mail; o site continua no ar.
+# ════════════════════════════════════════════════════════════════
+name: Contador diário
+
+on:
+  schedule:
+    - cron: '17 9 * * *' # 09:17 UTC = 06:17 em Brasília
+  workflow_dispatch: # permite rodar manualmente pela aba Actions
+
+permissions:
+  contents: write # para gravar a cópia no ramo "dados"
+
+# uma execução por vez (evita duas gravações ao mesmo tempo)
+concurrency:
+  group: contador-diario
+  cancel-in-progress: false
+
+jobs:
+  copia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Baixar o código (main)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Instalar o Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Abrir o ramo "dados" numa pasta à parte
+        run: |
+          set -euo pipefail
+          pasta="$RUNNER_TEMP/dados"
+          codigo=0
+          git ls-remote --exit-code --heads origin dados > /dev/null || codigo=$?
+          if [ "$codigo" -eq 0 ]; then
+            git fetch --no-tags --depth=1 origin +refs/heads/dados:refs/remotes/origin/dados
+            git worktree add --detach "$pasta" refs/remotes/origin/dados
+          elif [ "$codigo" -eq 2 ]; then
+            echo 'O ramo "dados" ainda não existe: será criado agora (vazio, só com a cópia).'
+            git worktree add --detach --no-checkout "$pasta" HEAD
+            git -C "$pasta" switch --orphan dados
+          else
+            echo "Não deu para consultar o GitHub (erro $codigo)."
+            exit 1
+          fi
+
+      - name: Ler os contadores do Supabase
+        run: node scripts/backup-contador.mjs "$RUNNER_TEMP/dados/contadores.json"
+
+      - name: Guardar a cópia (só se os números mudaram)
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/dados"
+          if [ ! -f contadores.json ]; then
+            echo "Nada para guardar (Supabase ainda não configurado)."
+            exit 0
+          fi
+          git add contadores.json
+          if git diff --cached --quiet; then
+            echo "Os números não mudaram desde a última cópia: nada a guardar hoje."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Cópia do contador: $(TZ=America/Sao_Paulo date '+%d/%m/%Y %H:%M')"
+          git push -q origin HEAD:refs/heads/dados
+          echo 'Cópia guardada no ramo "dados".'

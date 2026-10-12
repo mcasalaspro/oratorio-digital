@@ -1,0 +1,12 @@
+Imagens da seção "liturgia".
+
+Lembrete: aqui ficam SÓ as imagens. O conteúdo (o arquivo .md) fica em
+src/content/liturgia/ — como em todo o site (conteúdo em src/, imagem em public/).
+
+- Imagem padrão (usada em todos os dias que não tiverem a sua própria):
+    public/liturgia/default.webp
+- Imagem personalizada de um dia (tem prioridade): use o MESMO nome (slug) do .md:
+    public/liturgia/<slug>.webp
+
+Se não houver nem a do slug nem a default.webp, o site usa a foto do topo (rays.webp).
+O thumbnail leve é gerado sozinho no build. Tamanho sugerido: ~1600x1000 px, WebP.

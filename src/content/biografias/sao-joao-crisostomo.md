@@ -6,6 +6,7 @@ born: "c. 349, Antioquia"
 died: "407, Comana (Ponto)"
 patronage: "pregadores; oradores"
 tags: ["padre da igreja", "boca de ouro", "oriente"]
+categorias: [bispo, doutor]
 summary: "O 'boca de ouro', maior pregador do Oriente e pastor corajoso dos pobres."
 featured: false
 relatedPrayers: ["trisagio-santo-deus-santo-forte-santo-imortal", "oracao-jesus-oracao-coracao", "ladainha-santos"]
@@ -30,4 +31,4 @@ Vítima de intrigas, foi deposto e enviado ao exílio. Restituído por breve tem
 
 ## Legado
 
-A Igreja venerou-o como um dos grandes Doutores e mestres da fé, e a tradição oriental conserva seu nome na Divina Liturgia que celebra cotidianamente. Seus comentários às Sagradas Escrituras, sobretudo às cartas de São Paulo, e suas homílias permanecem como tesouro de doutrina e de zelo pastoral. Pregador incansável, defensor dos pobres e mártir da verdade, são João Crisóstomo continua a ensinar que a palavra cristã, quando nasce da oração e do amor a Cristo, não recua diante dos poderosos deste mundo.
+A Igreja venerou-o como um dos grandes Doutores e mestres da fé, e a tradição oriental conserva seu nome na Divina Liturgia que celebra cotidianamente. Seus comentários às Sagradas Escrituras, sobretudo às cartas de São Paulo, e suas homílias permanecem como tesouro de doutrina e de zelo pastoral. Pregador incansável, defensor dos pobres e mártir da verdade, São João Crisóstomo continua a ensinar que a palavra cristã, quando nasce da oração e do amor a Cristo, não recua diante dos poderosos deste mundo.

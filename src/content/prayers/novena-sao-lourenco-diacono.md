@@ -6,7 +6,6 @@ saint: "São Lourenço Diácono"
 language: "pt-BR"
 image: "/saints/novena-sao-lourenco-diacono.webp"
 thumbnail: "/saints/novena-sao-lourenco-diacono.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["mártir", "diácono", "caridade", "pobres", "fé"]
 description: "Novena tradicional a São Lourenço, diácono e mártir, modelo de caridade e fidelidade a Cristo."
 featured: false

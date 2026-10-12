@@ -6,7 +6,6 @@ saint: "São João Apóstolo e Evangelista"
 language: "pt-BR"
 image: "/saints/novena-sao-joao-apostolo-evangelista.webp"
 thumbnail: "/saints/novena-sao-joao-apostolo-evangelista.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["amor", "evangelho", "discípulo amado", "fidelidade"]
 description: "Novena ao discípulo amado, autor do IV Evangelho, das três Cartas e do Apocalipse, único apóstolo que não morreu mártir."
 featured: false

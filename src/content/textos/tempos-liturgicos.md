@@ -1,7 +1,7 @@
 ---
-title: Os tempos litúrgicos
-description: Um guia dos tempos do ano litúrgico — Advento, Natal, Tempo Comum, Quaresma, Páscoa e Pentecostes — com seus significados, suas cores e como vivê-los.
-summary: O que é o ano litúrgico e o sentido de cada tempo — Advento, Natal, Quaresma, Páscoa e o Tempo Comum — com suas cores e suas festas.
+title: "Os tempos litúrgicos"
+description: "Um guia dos tempos do ano litúrgico — Advento, Natal, Tempo Comum, Quaresma, Páscoa e Pentecostes — com seus significados, suas cores e como vivê-los."
+summary: "O que é o ano litúrgico e o sentido de cada tempo — Advento, Natal, Quaresma, Páscoa e o Tempo Comum — com suas cores e suas festas."
 order: 1
 icon: ✦
 ---
@@ -24,7 +24,7 @@ A cor é o **branco e o dourado**, que evocam a festa, a pureza e a glória. Nes
 
 ## Tempo Comum — o caminho de cada dia
 
-Depois do Natal abre-se o **Tempo Comum**, que retorna também depois de Pentecostes e ocupa a maior parte do ano. O nome não significa "sem importância": "comum" vem de *ordinal*, isto é, das semanas contadas em ordem. É o tempo em que a Igreja contempla, domingo após domingo, a **vida pública de Jesus** — seus ensinamentos, seus milagres, suas parábolas e seu chamado ao seguimento.
+Depois do Natal abre-se o **Tempo Comum**, que retorna também depois de Pentecostes e ocupa a maior parte do ano. O nome não significa "sem importância": em latim ele se chama *Tempus per annum*, o "tempo durante o ano", e suas semanas são contadas em ordem (1ª, 2ª, 3ª…) — daí o nome inglês *Ordinary Time*, ligado a "ordinal". É o tempo em que a Igreja contempla, domingo após domingo, a **vida pública de Jesus** — seus ensinamentos, seus milagres, suas parábolas e seu chamado ao seguimento.
 
 A cor é o **verde**, sinal de esperança e de crescimento. É o tempo do amadurecimento na fé, do trabalho discreto e fiel, do discipulado vivido no dia a dia. Sem as grandes festas, aprendemos que a santidade também se constrói na constância e na vida ordinária.
 

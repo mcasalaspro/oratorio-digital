@@ -4,8 +4,9 @@ title: "Mártir"
 feast: "01-20"
 born: "c. 256, Narbona ou Milão"
 died: "c. 288, Roma"
-patronage: "soldados; atletas; contra epidemias; co-padroeiro do Brasil"
+patronage: "soldados; atletas; contra epidemias; cidade do Rio de Janeiro"
 tags: ["mártir", "soldado", "roma"]
+categorias: [martir]
 summary: "Soldado romano que professou a fé e foi martirizado a flechadas pelo imperador Diocleciano."
 featured: false
 relatedPrayers: ["novena-sao-sebastiao", "ladainha-santos"]
@@ -32,6 +33,6 @@ Estas palavras do Senhor, que o mártir fizera suas, sustentaram-no até o fim, 
 
 ## Devoção e patrocínio
 
-Desde os primeiros séculos, são Sebastião foi venerado como um dos grandes mártires de Roma. Sua intercessão tornou-se especialmente invocada contra as epidemias e pestes que assolavam as cidades, e muitas vezes a tradição lhe atribuiu o fim de grandes flagelos. As flechas, instrumento de seu primeiro suplício, tornaram-se o símbolo com que a arte cristã sempre o representou.
+Desde os primeiros séculos, São Sebastião foi venerado como um dos grandes mártires de Roma. Sua intercessão tornou-se especialmente invocada contra as epidemias e pestes que assolavam as cidades, e muitas vezes a tradição lhe atribuiu o fim de grandes flagelos. As flechas, instrumento de seu primeiro suplício, tornaram-se o símbolo com que a arte cristã sempre o representou.
 
-Padroeiro dos soldados e dos atletas, pela disciplina e pela fortaleza que demonstrou, é também co-padroeiro do Brasil, cuja cidade do Rio de Janeiro foi fundada e consagrada sob o seu nome. Até hoje, multidões acorrem em sua festa, no dia vinte de janeiro, para pedir sua proteção e renovar a confiança naquele que, ferido e perseguido, jamais renegou o Senhor que tanto amava.
+Padroeiro dos soldados e dos atletas, pela disciplina e pela fortaleza que demonstrou, é também padroeiro da cidade do Rio de Janeiro, fundada e consagrada sob o seu nome. Até hoje, multidões acorrem em sua festa, no dia vinte de janeiro, para pedir sua proteção e renovar a confiança naquele que, ferido e perseguido, jamais renegou o Senhor que tanto amava.

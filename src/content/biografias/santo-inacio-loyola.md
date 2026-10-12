@@ -6,6 +6,7 @@ born: "1491, Loyola (País Basco)"
 died: "1556, Roma"
 patronage: "retiros espirituais; soldados; Companhia de Jesus"
 tags: ["jesuíta", "exercícios", "discernimento"]
+categorias: [religioso, fundador]
 summary: "O soldado ferido que se converteu e fundou a Companhia de Jesus para a maior glória de Deus."
 featured: false
 relatedPrayers: ["novena-santo-inacio-loyola", "oracao-suscipe-santo-inacio-loyola", "anima-christi-alma-cristo"]
@@ -28,14 +29,14 @@ Convencido de que precisava preparar-se para servir melhor às almas, retomou os
 
 ## A serviço da Igreja
 
-Ordenado sacerdote, inácio fixou-se em Roma e foi eleito o primeiro superior geral da nova ordem. Dali governou os jesuítas com firmeza e prudência, enviando seus filhos espirituais aos quatro cantos do mundo conhecido: às missões do Oriente, às escolas e colégios da Europa, ao serviço dos pobres e doentes. Tudo era feito sob o lema que se tornou a alma de sua espiritualidade.
+Ordenado sacerdote, Inácio fixou-se em Roma e foi eleito o primeiro superior geral da nova ordem. Dali governou os jesuítas com firmeza e prudência, enviando seus filhos espirituais aos quatro cantos do mundo conhecido: às missões do Oriente, às escolas e colégios da Europa, ao serviço dos pobres e doentes. Tudo era feito sob o lema que se tornou a alma de sua espiritualidade.
 
 > Tudo para a maior glória de Deus — *Ad Maiorem Dei Gloriam*.
 
-Para inácio, nenhuma obra era pequena demais nem grande demais, contanto que servisse a esse fim único: a glória do Senhor e a salvação das almas.
+Para Inácio, nenhuma obra era pequena demais nem grande demais, contanto que servisse a esse fim único: a glória do Senhor e a salvação das almas.
 
 ## Os últimos dias
 
-Consumido pelo trabalho incessante de governo, correspondência e oração, inácio entregou sua alma a Deus em Roma, no dia 31 de julho de 1556. Deixava uma ordem florescente e um caminho espiritual que continuaria a frutificar pelos séculos. Foi canonizado em 1622 e é hoje venerado como padroeiro dos retiros espirituais e dos exercícios da alma. Sua oração de oferecimento, o *Suscipe*, resume toda a sua entrega:
+Consumido pelo trabalho incessante de governo, correspondência e oração, Inácio entregou sua alma a Deus em Roma, no dia 31 de julho de 1556. Deixava uma ordem florescente e um caminho espiritual que continuaria a frutificar pelos séculos. Foi canonizado em 1622 e é hoje venerado como padroeiro dos retiros espirituais e dos exercícios da alma. Sua oração de oferecimento, o *Suscipe*, resume toda a sua entrega:
 
 > Tomai, Senhor, e recebei toda a minha liberdade, a minha memória, o meu entendimento e toda a minha vontade. Tudo o que tenho e possuo, Vós me destes; a Vós, Senhor, eu o restituo. Tudo é Vosso; disponde dele segundo a Vossa inteira vontade. Dai-me o Vosso amor e a Vossa graça, que isto me basta.

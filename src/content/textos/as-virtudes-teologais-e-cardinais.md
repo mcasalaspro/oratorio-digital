@@ -10,7 +10,7 @@ Há um mapa para a vida boa. Não um mapa de estradas ou de fortunas, mas um map
 
 ## As virtudes teologais
 
-As virtudes teologais têm Deus Mesmo como objeto e como origem. São **fé**, **esperança** e **caridade**. Nenhum esforço humano as produz sozinho: elas são infundidas por Deus na alma no Batismo e crescem — ou murcham — conforme nos abrimos ou nos fechamos à Sua graça. São chamadas "teologais" porque têm a Deus (*Theos*) como seu fim direto.
+As virtudes teologais têm Deus mesmo como objeto e como origem. São **fé**, **esperança** e **caridade**. Nenhum esforço humano as produz sozinho: elas são infundidas por Deus na alma no Batismo e crescem — ou murcham — conforme nos abrimos ou nos fechamos à Sua graça. São chamadas "teologais" porque têm a Deus (*Theos*) como seu fim direto.
 
 ### A fé
 

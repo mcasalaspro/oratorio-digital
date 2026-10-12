@@ -6,7 +6,6 @@ saint: "Nossa Senhora Aparecida"
 language: "pt-BR"
 image: "/saints/novena-nossa-senhora-aparecida.webp"
 thumbnail: "/saints/novena-nossa-senhora-aparecida.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["proteção", "família", "Brasil", "Maria", "padroeira"]
 description: "Novena tradicional à Padroeira do Brasil, encontrada por pescadores no Rio Paraíba do Sul em 1717."
 featured: true

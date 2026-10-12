@@ -6,6 +6,7 @@ born: "c. 340, Tréveris"
 died: "397, Milão"
 patronage: "apicultores; aprendizes; estudantes"
 tags: ["padre da igreja", "doutor", "milão"]
+categorias: [bispo, doutor]
 summary: "O bispo de Milão que batizou Agostinho e deu voz ao canto e à coragem da Igreja."
 featured: false
 relatedPrayers: ["te-deum-laudamus-vos-deus-louvamos", "ladainha-santos"]
@@ -20,18 +21,18 @@ Por volta de 374, a morte do bispo ariano de Milão lançou a cidade numa disput
 
 ## Pastor firme diante dos poderosos
 
-Como bispo, ambrósio uniu a doçura à firmeza, defendendo intransigentemente a fé católica contra o arianismo e a liberdade da Igreja diante do poder civil. Recusou-se a entregar uma basílica aos arianos protegidos da corte e enfrentou imperatrizes e imperadores sem ceder à intimidação. Seu episódio mais célebre deu-se com o imperador Teodósio: após o massacre de Tessalônica, o santo bispo negou-lhe a comunhão até que fizesse penitência pública por seus crimes, e o poderoso soberano humilhou-se diante de Deus. Para ambrósio, nenhum homem, por mais elevado que fosse seu trono, estava acima da lei divina.
+Como bispo, Ambrósio uniu a doçura à firmeza, defendendo intransigentemente a fé católica contra o arianismo e a liberdade da Igreja diante do poder civil. Recusou-se a entregar uma basílica aos arianos protegidos da corte e enfrentou imperatrizes e imperadores sem ceder à intimidação. Seu episódio mais célebre deu-se com o imperador Teodósio: após o massacre de Tessalônica, o santo bispo negou-lhe a comunhão até que fizesse penitência pública por seus crimes, e o poderoso soberano humilhou-se diante de Deus. Para Ambrósio, nenhum homem, por mais elevado que fosse seu trono, estava acima da lei divina.
 
 > O imperador está dentro da Igreja, não acima dela.
 
 ## A conversão de Agostinho
 
-Entre os frutos mais preciosos de seu ministério está a conversão de um jovem mestre de retórica vindo da África: Agostinho. Atraído primeiro pela fama de sua oratória, o jovem inquieto deixou-se aos poucos tocar pela profundidade da pregação do bispo de Milão. Foi ambrósio quem o acolheu, o instruiu pacientemente e, na noite da Vigília Pascal de 387, derramou sobre ele as águas do batismo. Aquele que recebia o sacramento das mãos de ambrósio viria a tornar-se Santo Agostinho, um dos maiores doutores da Igreja — sinal de como a paciência de um pastor pode mudar o curso da história da fé.
+Entre os frutos mais preciosos de seu ministério está a conversão de um jovem mestre de retórica vindo da África: Agostinho. Atraído primeiro pela fama de sua oratória, o jovem inquieto deixou-se aos poucos tocar pela profundidade da pregação do bispo de Milão. Foi Ambrósio quem o acolheu, o instruiu pacientemente e, na noite da Vigília Pascal de 387, derramou sobre ele as águas do batismo. Aquele que recebia o sacramento das mãos de Ambrósio viria a tornar-se Santo Agostinho, um dos maiores doutores da Igreja — sinal de como a paciência de um pastor pode mudar o curso da história da fé.
 
-## Pai da himnódia latina
+## Pai da hinódia latina
 
-Ambrósio compreendeu o poder do canto para sustentar a fé do povo e formar os corações na verdade. Introduziu no Ocidente o canto antifonal e compôs hinos de grande beleza, em estrofes simples e memoráveis, que ensinavam a doutrina enquanto elevavam a alma a Deus. Por isso é chamado pai da himnódia latina, e a tradição lhe atribui — junto a Santo Agostinho — o célebre cântico de louvor *Te Deum laudamus*. Deixou ainda muitos escritos sobre os sacramentos, a virgindade, os deveres dos ministros e os comentários às Escrituras, que fizeram dele um dos quatro grandes doutores da Igreja latina.
+Ambrósio compreendeu o poder do canto para sustentar a fé do povo e formar os corações na verdade. Introduziu no Ocidente o canto antifonal e compôs hinos de grande beleza, em estrofes simples e memoráveis, que ensinavam a doutrina enquanto elevavam a alma a Deus. Por isso é chamado pai da hinódia latina, e a tradição lhe atribui — junto a Santo Agostinho — o célebre cântico de louvor *Te Deum laudamus*. Deixou ainda muitos escritos sobre os sacramentos, a virgindade, os deveres dos ministros e os comentários às Escrituras, que fizeram dele um dos quatro grandes doutores da Igreja latina.
 
 ## Os últimos dias
 
-Esgotado pelas fadigas do longo episcopado, ambrósio adoeceu em Milão. Nos seus últimos dias, perseverou em oração, e os que o cercavam contaram tê-lo visto com os lábios movendo-se em prece, como o menino sobre quem outrora pousaram as abelhas. Faleceu na madrugada do Sábado Santo, em 4 de abril de 397, depois de receber o Corpo do Senhor. A Igreja celebra sua memória em 7 de dezembro, dia de sua ordenação episcopal. Deixou um exemplo luminoso de pastor que soube unir a coragem profética à ternura paterna, servindo a Deus e ao seu povo até o último alento.
+Esgotado pelas fadigas do longo episcopado, Ambrósio adoeceu em Milão. Nos seus últimos dias, perseverou em oração, e os que o cercavam contaram tê-lo visto com os lábios movendo-se em prece, como o menino sobre quem outrora pousaram as abelhas. Faleceu na madrugada do Sábado Santo, em 4 de abril de 397, depois de receber o Corpo do Senhor. A Igreja celebra sua memória em 7 de dezembro, dia de sua ordenação episcopal. Deixou um exemplo luminoso de pastor que soube unir a coragem profética à ternura paterna, servindo a Deus e ao seu povo até o último alento.

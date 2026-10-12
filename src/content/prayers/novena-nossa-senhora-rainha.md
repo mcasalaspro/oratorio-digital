@@ -6,7 +6,6 @@ saint: "Nossa Senhora Rainha"
 language: "pt-BR"
 image: "/saints/novena-nossa-senhora-rainha.webp"
 thumbnail: "/saints/novena-nossa-senhora-rainha.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["Maria Rainha", "realeza de Maria", "intercessão", "consagração"]
 description: "Novena à Realeza de Maria, instituída após a encíclica Ad Caeli Reginam de Pio XII (1954)."
 featured: true

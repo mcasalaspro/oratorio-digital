@@ -6,7 +6,6 @@ saint: "Exaltação da Santa Cruz"
 language: "pt-BR"
 image: "/saints/novena-exaltacao-santa-cruz.webp"
 thumbnail: "/saints/novena-exaltacao-santa-cruz.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["cruz", "redenção", "sacrifício", "vera cruz", "salvação"]
 description: "Novena tradicional em honra à Exaltação da Santa Cruz, sinal da nossa redenção."
 featured: false

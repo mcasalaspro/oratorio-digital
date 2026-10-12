@@ -1,0 +1,60 @@
+---
+// Página "não encontrada". O GitHub Pages serve este dist/404.html para QUALQUER endereço
+// que não exista, em qualquer profundidade (ex.: /oracao/nao-existe/abc) — por isso todos
+// os links e imagens aqui são absolutos (withBase). Fica fora do Google (noindex).
+import Base from '../layouts/Base.astro';
+import { withBase } from '../config/site';
+---
+<Base title="Página não encontrada" description="Esta página não existe ou mudou de endereço. Volte ao início, ao catálogo de orações ou busque no Oratório Digital." noindex>
+  <section class="section nf">
+    <div class="wrap nf-wrap">
+      <img class="nf-logo" src={withBase('/logo-128.webp')} alt="" width="84" height="84" />
+      <p class="eyebrow">404</p>
+      <h1 class="section-title" data-i18n="nf_title">Página não encontrada</h1>
+      <p class="nf-lead" data-i18n="nf_lead">O caminho que você procurou não existe ou mudou de lugar. Mas a oração continua — escolha por onde seguir.</p>
+
+      <!-- sem JS, a busca vai para a abertura (/?q=…); com JS, abre a busca do site aqui mesmo -->
+      <form class="nf-busca" id="nfBusca" action={withBase('/')} method="get" role="search">
+        <input class="search" id="nfTermo" type="search" name="q" autocomplete="off" placeholder="Buscar orações e santos…" data-i18n-ph="global_search_ph" aria-label="Buscar" />
+        <button class="btn btn-primary" type="submit" data-i18n="search_label">Buscar</button>
+      </form>
+
+      <p class="nf-ways" data-i18n="nf_ways">Ou volte por aqui:</p>
+      <nav class="nf-links" aria-label="Caminhos de volta">
+        <a class="btn" href={withBase('/')} data-i18n="nav_home">Início</a>
+        <a class="btn" href={withBase('/#catalogo')} data-i18n="nav_catalog">Catálogo</a>
+        <a class="btn" href={withBase('/proximas-festas/')} data-i18n="nav_feasts">Próximas festas</a>
+        <a class="btn" href={withBase('/biografias/')} data-i18n="nav_bio">Biografias</a>
+      </nav>
+    </div>
+  </section>
+
+  <script>
+    // busca: abre a mesma busca do topo (Base.astro) já com o termo digitado
+    (function () {
+      const form = document.getElementById('nfBusca') as HTMLFormElement | null;
+      const termo = document.getElementById('nfTermo') as HTMLInputElement | null;
+      const abrir = document.getElementById('searchBtn');
+      const campo = document.getElementById('globalSearch') as HTMLInputElement | null;
+      if (!form || !termo || !abrir || !campo) return;
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        abrir.click();
+        campo.value = termo.value.trim();
+        campo.dispatchEvent(new Event('input'));
+      });
+    })();
+  </script>
+
+  <style>
+    .nf { padding: clamp(2.5rem, 8vw, 5rem) 0 clamp(3rem, 8vw, 5rem); text-align: center; }
+    .nf-wrap { max-width: 40rem; }
+    .nf-logo { width: 84px; height: 84px; margin: 0 auto 1.1rem; opacity: .95; }
+    .nf .section-title { margin-bottom: .8rem; }
+    .nf-lead { color: var(--ink-soft); font-size: 1.08rem; margin: 0 auto 1.8rem; max-width: 32rem; }
+    .nf-busca { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 0 auto 2rem; max-width: 32rem; }
+    .nf-busca .search { flex: 1 1 14rem; }
+    .nf-ways { font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 .8rem; }
+    .nf-links { display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center; }
+  </style>
+</Base>

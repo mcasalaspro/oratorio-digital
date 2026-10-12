@@ -6,6 +6,7 @@ born: "c. 1200, Lauingen (Alemanha)"
 died: "1280, Colônia"
 patronage: "cientistas; estudantes de ciências naturais"
 tags: ["dominicano", "doutor universal", "ciência"]
+categorias: [bispo, doutor, religioso]
 summary: "O Doutor Universal, mestre de São Tomás e amante da fé e das ciências."
 featured: false
 relatedPrayers: ["novena-sao-tomas-aquino", "ladainha-santos"]
@@ -14,7 +15,7 @@ relatedPrayers: ["novena-sao-tomas-aquino", "ladainha-santos"]
 
 Alberto nasceu por volta do ano 1200 na cidade de Lauingen, na Suábia, região do sul da atual Alemanha, em uma família ligada à nobreza local. Desde cedo demonstrou uma curiosidade insaciável diante do mundo natural, observando plantas, animais e os fenômenos da criação com a admiração de quem reconhecia neles a obra do Criador. Foi enviado a estudar em Pádua, na Itália, onde se aprofundou nas artes liberais e travou contato com os primeiros ecos do espírito que o levaria à vida religiosa.
 
-Em Pádua, sob a influência da pregação dos frades dominicanos, ele decidiu abraçar a Ordem dos Pregadores, fundada por são Domingos de Gusmão. A escolha contrariou os desejos de sua família, mas ele permaneceu firme, convencido de que era ali, no estudo unido à oração e à pregação, que serviria melhor ao Senhor.
+Em Pádua, sob a influência da pregação dos frades dominicanos, ele decidiu abraçar a Ordem dos Pregadores, fundada por São Domingos de Gusmão. A escolha contrariou os desejos de sua família, mas ele permaneceu firme, convencido de que era ali, no estudo unido à oração e à pregação, que serviria melhor ao Senhor.
 
 ## Mestre e investigador da criação
 

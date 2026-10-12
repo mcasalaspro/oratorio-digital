@@ -6,13 +6,14 @@ born: "c. 1170, Caleruega (Espanha)"
 died: "1221, Bolonha"
 patronage: "pregadores; astrônomos; falsamente acusados"
 tags: ["dominicano", "pregação", "rosário"]
+categorias: [religioso, fundador]
 summary: "Fundador dos Pregadores, apóstolo da verdade e difusor do Santo Rosário."
 featured: false
 relatedPrayers: ["novena-nossa-senhora-rosario", "santo-rosario-misterios-gozosos", "ladainha-santos"]
 ---
 ## Juventude em Caleruega
 
-Domingos nasceu por volta do ano 1170 na pequena vila de Caleruega, em Castela, no seio de uma família piedosa e de boa condição. Conta a tradição que sua mãe, beata Joana de Aza, antes de seu nascimento sonhou que dava à luz um cão que portava em sua boca uma tocha acesa, capaz de incendiar o mundo inteiro — sinal interpretado como anúncio do pregador ardente que iluminaria a Igreja com a luz do Evangelho. Ainda jovem foi enviado a Palência para estudar artes e teologia, e ali revelou tanto o vigor de sua inteligência quanto a ternura de seu coração: durante uma fome que assolava a região, vendeu seus preciosos livros para socorrer os famintos, dizendo que não suportaria estudar sobre peles mortas enquanto homens morriam de inanição.
+Domingos nasceu por volta do ano 1170 na pequena vila de Caleruega, em Castela, no seio de uma família piedosa e de boa condição. Conta a tradição que sua mãe, Beata Joana de Aza, antes de seu nascimento sonhou que dava à luz um cão que portava em sua boca uma tocha acesa, capaz de incendiar o mundo inteiro — sinal interpretado como anúncio do pregador ardente que iluminaria a Igreja com a luz do Evangelho. Ainda jovem foi enviado a Palência para estudar artes e teologia, e ali revelou tanto o vigor de sua inteligência quanto a ternura de seu coração: durante uma fome que assolava a região, vendeu seus preciosos livros para socorrer os famintos, dizendo que não suportaria estudar sobre peles mortas enquanto homens morriam de inanição.
 
 ## Cônego e a chamada à pregação
 

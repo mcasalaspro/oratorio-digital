@@ -6,6 +6,7 @@ born: "séc. I a.C., Judeia"
 died: "c. 30, fortaleza de Maqueronte"
 patronage: "batismo; convertidos; gráficos"
 tags: ["precursor", "profeta", "batismo"]
+categorias: [profeta, martir]
 summary: "O precursor que preparou o caminho do Senhor e O apontou como Cordeiro de Deus."
 featured: false
 relatedPrayers: ["novena-natividade-sao-joao-batista", "ladainha-santos"]

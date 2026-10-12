@@ -1,8 +1,22 @@
 ---
+import { getCollection } from 'astro:content';
 import { site, ui } from '../config/site';
-const { title, description } = Astro.props;
+// noindex: a página não entra no Google nem no sitemap (ex.: 404, páginas internas)
+// idioma: língua do CONTEÚDO, para os dados estruturados (ex.: 'en' numa oração em inglês)
+const { title, description, noindex = false, idioma = 'pt-BR' } = Astro.props;
+// Segurança do contador: em site.ts vai a chave PÚBLICA do Supabase (sb_publishable_…). Uma "Secret key"
+// (ou a antiga "service_role") abriria o banco inteiro para qualquer visitante — o build para aqui,
+// antes de publicar, e o site no ar continua como estava.
+{
+  const k = String((site.counter as { supabaseKey?: string }).supabaseKey ?? '').trim();
+  let papel = '';
+  try { papel = JSON.parse(Buffer.from(k.split('.')[1] ?? '', 'base64').toString('utf-8')).role ?? ''; } catch { papel = ''; }
+  if (/^sb_secret_/i.test(k) || papel === 'service_role') {
+    throw new Error('src/config/site.ts → counter.supabaseKey: use a "Publishable key" (começa com sb_publishable_), NUNCA a "Secret key". Troque a chave, gere uma Secret key nova no Supabase (Settings → API Keys) e publique de novo.');
+  }
+}
 const pageTitle = title ? `${title} · ${site.name}` : site.name;
-const desc = description ?? site.tagline;
+const desc = description || site.tagline; // descrição vazia ('') também cai no lema do site
 const base = import.meta.env.BASE_URL;
 // dados expostos ao cliente
 const clientConfig = {
@@ -11,6 +25,60 @@ const clientConfig = {
   turnstile: site.turnstile,
   defaultLang: site.defaultLang,
 };
+// Link "Liturgia" (topo e rodapé): só aparece quando a coleção 'liturgia' tiver ao menos
+// uma entrada — volta sozinho quando houver conteúdo. Conta uma vez por build: com a
+// coleção vazia, cada getCollection() imprime um aviso no log, e este layout roda em
+// todas as páginas. (No "npm run dev" conta a cada página, para refletir arquivos novos.)
+const _g = globalThis as { __odLiturgias?: number };
+if (import.meta.env.DEV || _g.__odLiturgias === undefined) _g.__odLiturgias = (await getCollection('liturgia')).length;
+const temLiturgia = _g.__odLiturgias > 0;
+
+// ── Google e prévias de link: endereço canônico, Open Graph e dados estruturados ──
+const SITE = (Astro.site?.href ?? 'https://www.oratoriodigital.com/').replace(/\/$/, '');
+const raiz = SITE + base.replace(/\/$/, '');          // https://www.oratoriodigital.com
+// endereço da página sempre com barra final: é como o GitHub Pages serve (/oracao/pai-nosso/)
+let caminho = Astro.url.pathname;
+if (!caminho.endsWith('/') && !/\.[a-z0-9]+$/i.test(caminho)) caminho += '/';
+const rel = '/' + caminho.slice(base.length).replace(/^\//, '');   // sem o "base": /oracao/pai-nosso/
+const canonical = SITE + caminho;
+// fora do Google: 404, páginas internas (/ferramentas/) e a Liturgia enquanto não tiver conteúdo
+const semIndice = noindex || /^\/(404|ferramentas\/)/.test(rel) || (!temLiturgia && rel.startsWith('/liturgia/'));
+// orações, biografias e textos são "artigos" e têm prévia própria, gerada no build por
+// scripts/og/previas.mjs em /og/<seção>/<slug>.jpg (mesmas seções de lá); o resto usa a padrão
+const ehArtigo = /^\/(oracao|biografia|textos)\/.+\/$/.test(rel);
+const ogImagem = raiz + (ehArtigo ? `/og${rel.replace(/\/$/, '')}.jpg` : '/og/padrao.jpg');
+const ogTitulo = title || site.name;
+// JSON-LD (schema.org): site com busca, organização, trilha (Início › Seção › Página) e artigo
+const ORG = raiz + '/#organizacao', WEB = raiz + '/#site';
+const SECOES: Record<string, [string, string]> = {
+  oracao: ['Catálogo', '/#catalogo'], biografia: ['Biografias', '/biografias/'], textos: ['Textos', '/textos/'],
+  cantos: ['Cantos', '/cantos/'], liturgia: ['Liturgia', '/liturgia/'],
+};
+const partes = rel.split('/').filter(Boolean);
+const trilha: [string, string][] = [];
+if (partes.length) {
+  trilha.push(['Início', raiz + '/']);
+  const secao = partes.length > 1 ? SECOES[partes[0]] : undefined;
+  if (secao) trilha.push([secao[0], raiz + secao[1]]);
+  trilha.push([ogTitulo, canonical]);
+}
+const corta = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s);
+const grafo: Record<string, unknown>[] = [
+  { '@type': 'WebSite', '@id': WEB, url: raiz + '/', name: site.name, description: site.tagline, inLanguage: 'pt-BR',
+    publisher: { '@id': ORG },
+    potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: raiz + '/?q={search_term_string}' }, 'query-input': 'required name=search_term_string' } },
+  { '@type': 'Organization', '@id': ORG, name: site.name, url: raiz + '/',
+    logo: { '@type': 'ImageObject', url: raiz + '/logo.png', width: 512, height: 512 } },
+];
+if (!semIndice && trilha.length) grafo.push({ '@type': 'BreadcrumbList',
+  itemListElement: trilha.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) });
+if (!semIndice && ehArtigo) grafo.push({ '@type': 'Article', headline: corta(ogTitulo, 110), description: desc,
+  image: ogImagem, inLanguage: idioma, author: { '@id': ORG }, publisher: { '@id': ORG },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical }, isPartOf: { '@id': WEB } });
+// todo "<" vira o código de escape do JSON (barra-u-003c): nenhum texto consegue fechar o <script> antes da hora
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grafo }).replace(/</g, '\\u003c');
+// Cloudflare Web Analytics: só entra se houver token em site.ts (analytics.cloudflareToken)
+const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
 ---
 <!doctype html>
 <html lang="pt-BR" data-theme="dark" data-lang="pt-BR">
@@ -19,6 +87,21 @@ const clientConfig = {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
   <meta name="description" content={desc} />
+  {semIndice ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+  <!-- prévia de link (WhatsApp, Facebook, Telegram…): imagens geradas no build por scripts/og/previas.mjs -->
+  <meta property="og:site_name" content={site.name} />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content={ehArtigo ? 'article' : 'website'} />
+  <meta property="og:title" content={ogTitulo} />
+  <meta property="og:description" content={desc} />
+  {!semIndice && <meta property="og:url" content={canonical} />}
+  <meta property="og:image" content={ogImagem} />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={ogTitulo === site.name ? site.name : `${ogTitulo} — ${site.name}`} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json" is:inline set:html={jsonLd} />
   <link rel="icon" type="image/png" sizes="32x32" href={`${base.replace(/\/$/,'')}/favicon-32.png`} />
   <link rel="icon" type="image/png" sizes="48x48" href={`${base.replace(/\/$/,'')}/favicon-48.png`} />
   <link rel="apple-touch-icon" href={`${base.replace(/\/$/,'')}/apple-touch-icon.png`} />
@@ -140,6 +223,10 @@ const clientConfig = {
       return { key: key, color: COLORS[key] };
     })();
   </script>
+  <!-- espaço para uma página acrescentar algo ao <head>: <Fragment slot="head">…</Fragment> -->
+  <slot name="head" />
+  <!-- contador da comunidade (Supabase ou Abacus): window.odContador — ver public/js/contador.js -->
+  <script is:inline src={`${base.replace(/\/$/,'')}/js/contador.js`}></script>
 </head>
 <body>
   <div class="texture" aria-hidden="true"></div>
@@ -147,7 +234,7 @@ const clientConfig = {
   <header class="topbar">
     <a class="brand" href={base}>
       <span class="brand-mark" aria-hidden="true">
-        <img src={`${base.replace(/\/$/,'')}/logo.png`} alt="" width="30" height="30" />
+        <img src={`${base.replace(/\/$/,'')}/logo-64.webp`} alt="" width="30" height="30" />
       </span>
       <span class="brand-text">{site.name}</span>
     </a>
@@ -155,6 +242,7 @@ const clientConfig = {
       <div class="topnav-links" id="navLinks">
       <a href={base} data-i18n="nav_home">Início</a>
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
+      {temLiturgia && <a href={`${base.replace(/\/$/,'')}/liturgia`} data-i18n="nav_liturgia">Liturgia</a>}
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
@@ -193,10 +281,12 @@ const clientConfig = {
     <nav class="footnav" aria-label="Seções">
       <a href={base} data-i18n="nav_home">Início</a>
       <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
+      {temLiturgia && <a href={`${base.replace(/\/$/,'')}/liturgia`} data-i18n="nav_liturgia">Liturgia</a>}
       <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
       <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
       <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
       <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
+      <a href={`${base.replace(/\/$/,'')}/cantos`} data-i18n="nav_cantos">Cantos</a>
       <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
     </nav>
     <p>{site.name}</p>
@@ -235,13 +325,16 @@ const clientConfig = {
       document.documentElement.setAttribute('lang', l);
       const code = document.getElementById('langCode');
       if (code) code.textContent = l.slice(0, 2).toUpperCase();
+      // chave ainda sem tradução em site.ts: odt devolve a própria chave — aí fica o texto do HTML (reserva em PT)
       document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
         const k = el.getAttribute('data-i18n')!;
-        el.textContent = (window as any).odt(k);
+        const v = (window as any).odt(k);
+        if (v !== k) el.textContent = v;
       });
       document.querySelectorAll<HTMLElement>('[data-i18n-ph]').forEach((el) => {
         const k = el.getAttribute('data-i18n-ph')!;
-        (el as HTMLInputElement).placeholder = (window as any).odt(k);
+        const v = (window as any).odt(k);
+        if (v !== k) (el as HTMLInputElement).placeholder = v;
       });
       document.dispatchEvent(new CustomEvent('od:lang', { detail: l }));
     }
@@ -268,7 +361,11 @@ const clientConfig = {
       toggle.addEventListener('click', () => setOpen(!topbar.classList.contains('nav-open')));
       links.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
       links.querySelector('#searchBtn')?.addEventListener('click', () => setOpen(false));
-      window.addEventListener('resize', () => { if (window.innerWidth > 1024) setOpen(false); });
+      // mesma media query do CSS (@media do menu ☰): ao passar para o layout de desktop, fecha o menu
+      const mq = window.matchMedia('(max-width: 1279px)');
+      const onMq = () => { if (!mq.matches) setOpen(false); };
+      if (typeof mq.addEventListener === 'function') mq.addEventListener('change', onMq);
+      else mq.addListener(onMq); // Safari antigo (< 14)
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
     })();
 
@@ -330,6 +427,9 @@ const clientConfig = {
     }
 
     * { box-sizing: border-box; }
+    /* o atributo hidden SEMPRE esconde — sem isto, classes com display próprio
+       (.btn, .show-more, .beads…) anulam o padrão do navegador e o elemento aparece */
+    [hidden] { display: none !important; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
@@ -367,12 +467,13 @@ const clientConfig = {
     .brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); }
     .brand-mark { color: var(--gold); display: inline-flex; }
     .brand-mark img { width: 30px; height: 30px; display: block; }
-    .brand-text { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: .02em; }
+    .brand-text { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
     .topnav { display: flex; align-items: center; gap: .35rem; }
     .topnav a {
       text-decoration: none; color: var(--ink-soft);
       font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
       padding: .55rem .7rem; border-radius: 8px; transition: color .2s;
+      white-space: nowrap; /* "Próximas festas" nunca quebra em duas linhas */
     }
     .topnav a:hover { color: var(--gold); }
     .topnav-links { display: flex; align-items: center; gap: .2rem; }
@@ -780,10 +881,16 @@ const clientConfig = {
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
       [data-parallax], .hero-bg, .reader-bg, .reader-parallax { transform: none !important; }
+      /* a chama do overlay "nasce" com scale(0) e só aparece pela animação: sem animação, fica acesa e parada */
+      .ov-flame { transform: translateX(-50%); }
     }
 
     /* ════════ MOBILE ════════ */
-    @media (max-width: 1024px) {
+    /* Ponto de troca para o menu ☰: marca + links só cabem numa linha a partir de
+       ~1244 px (medido com as fontes do site, 8 links com "Liturgia"; 7 links ≈ 1144 px).
+       Até 1279 px usa o ☰ (folga para a barra de rolagem). O JS do menu usa a MESMA
+       media query — se mudar aqui, mude lá também (procure "max-width: 1279px"). */
+    @media (max-width: 1279px) {
       .topbar .topnav-actions .nav-toggle { display: inline-grid; }
       .topnav { gap: .3rem; }
       .topnav-links {
@@ -889,5 +996,7 @@ const clientConfig = {
       });
     })();
   </script>
+  <!-- Cloudflare Web Analytics (sem cookies): só aparece com o token em site.ts → analytics.cloudflareToken -->
+  {cfToken && <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: cfToken })}></script>}
 </body>
 </html>

@@ -6,7 +6,6 @@ saint: "Natividade de Nossa Senhora"
 language: "pt-BR"
 image: "/saints/novena-natividade-nossa-senhora.webp"
 thumbnail: "/saints/novena-natividade-nossa-senhora.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["Maria", "natividade", "nascimento de Maria", "aurora", "esperança"]
 description: "Novena tradicional ao Nascimento de Nossa Senhora, a aurora que precede o Sol da Justiça."
 featured: true

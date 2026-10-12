@@ -5,7 +5,6 @@ saint: "Via Lucis"
 language: "pt-BR"
 image: "/saints/via-lucis-caminho-luz.webp"
 thumbnail: "/saints/via-lucis-caminho-luz.webp"
-parallaxImage: "/textures/rays.svg"
 tags: ["ressurreição", "páscoa", "luz", "alegria", "salesianos"]
 description: "Devoção pascal das catorze estações, da Ressurreição a Pentecostes — a contraparte luminosa da Via-Sacra."
 featured: false
