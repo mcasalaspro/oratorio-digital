@@ -18,9 +18,9 @@ Estava a Mãe dolorosa<br>
 junto à Cruz, lacrimosa,<br>
 vendo o Filho que pendia.
 
-Sua alma agoniada,<br>
-contristada e traspassada,<br>
-crua espada a transfixia.
+Sua alma, que gemia,<br>
+contristada e dolorida,<br>
+uma espada transpassou.
 
 Oh, quão triste e quão aflita<br>
 se viu a Mãe bendita<br>
@@ -38,7 +38,7 @@ Quem podê-la-á ver assim,<br>
 sem a dor sentir também,<br>
 vendo a Mãe junto ao Filho?
 
-Por amor de seu povo<br>
+Pelos pecados de seu povo<br>
 viu Jesus em tanto opróbrio<br>
 e aos flagelos entregue.
 

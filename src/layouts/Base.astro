@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { site, ui, withBase } from '../config/site';
+import { oracoesMovidas } from '../config/redirecionamentos';
 // noindex: a página não entra no Google nem no sitemap (ex.: 404, páginas internas)
 // idioma: língua do CONTEÚDO, para os dados estruturados (ex.: 'en' numa oração em inglês)
 const { title, description, noindex = false, idioma = 'pt-BR' } = Astro.props;
@@ -24,6 +25,7 @@ const clientConfig = {
   counter: site.counter,
   turnstile: site.turnstile,
   defaultLang: site.defaultLang,
+  movidas: oracoesMovidas, // orações duplicadas que saíram: favoritos antigos passam para a que ficou
 };
 // Link "Liturgia" (topo e rodapé): só aparece quando a coleção 'liturgia' tiver ao menos
 // uma entrada — volta sozinho quando houver conteúdo. Conta uma vez por build: com a
@@ -146,7 +148,14 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     };
     window.odFav = {
       key: 'od-favs',
-      all: function () { try { return JSON.parse(localStorage.getItem(this.key) || '[]'); } catch (e) { return []; } },
+      all: function () {
+        var a; try { a = JSON.parse(localStorage.getItem(this.key) || '[]'); } catch (e) { return []; }
+        // favorito de uma oração duplicada que saiu do site: passa para a oração que ficou
+        var mov = (window.__SITE__ && window.__SITE__.movidas) || {}, novo = [], mudou = false;
+        for (var i = 0; i < a.length; i++) { var s = mov[a[i]] || a[i]; if (s !== a[i]) mudou = true; if (novo.indexOf(s) < 0) novo.push(s); else mudou = true; }
+        if (mudou) { try { localStorage.setItem(this.key, JSON.stringify(novo)); } catch (e) {} }
+        return novo;
+      },
       has: function (s) { return this.all().indexOf(s) >= 0; },
       toggle: function (s) { var a = this.all(); var i = a.indexOf(s); if (i >= 0) a.splice(i, 1); else a.push(s); try { localStorage.setItem(this.key, JSON.stringify(a)); } catch (e) {} return i < 0; }
     };

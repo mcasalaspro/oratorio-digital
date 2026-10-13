@@ -20,8 +20,8 @@ Reza-se uma saudação a cada coro, seguida de um Pai-Nosso e três Ave-Marias. 
 
 Ó Deus, vinde em meu auxílio.<br>
 Senhor, apressai-Vos em socorrer-me.<br>
-Glória ao Pai, ao Filho e ao Espírito Santo,<br>
-como era no princípio, agora e sempre. Amém.
+Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+Como era no princípio, agora e sempre. Amém.
 
 ## Primeira saudação — Coro dos Serafins
 

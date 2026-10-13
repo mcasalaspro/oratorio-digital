@@ -20,27 +20,30 @@ A forma estruturada do Rosário foi difundida pelo Beato Alano de la Roche OP (�
 Pelo sinal da Santa Cruz, livrai-nos, Deus, Nosso Senhor, dos nossos inimigos.<br>
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
-Creio em Deus Pai todo-poderoso, Criador do céu e da terra;<br>
-e em Jesus Cristo, Seu único Filho, Nosso Senhor,<br>
+Creio em Deus Pai todo-poderoso,<br>
+Criador do céu e da terra.<br>
+E em Jesus Cristo, Seu único Filho, nosso Senhor,<br>
 que foi concebido pelo poder do Espírito Santo;<br>
 nasceu da Virgem Maria;<br>
-padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado;<br>
-desceu à mansão dos mortos;<br>
-ressuscitou ao terceiro dia;<br>
-subiu aos céus, está sentado à direita de Deus Pai todo-poderoso,<br>
+padeceu sob Pôncio Pilatos,<br>
+foi crucificado, morto e sepultado.<br>
+Desceu à mansão dos mortos;<br>
+ressuscitou ao terceiro dia,<br>
+subiu aos céus;<br>
+está sentado à direita de Deus Pai todo-poderoso,<br>
 donde há de vir a julgar os vivos e os mortos.<br>
-Creio no Espírito Santo,<br>
+Creio no Espírito Santo;<br>
 na santa Igreja Católica,<br>
-na comunhão dos santos,<br>
-na remissão dos pecados,<br>
-na ressurreição da carne,<br>
+na comunhão dos santos;<br>
+na remissão dos pecados;<br>
+na ressurreição da carne;<br>
 na vida eterna. Amém.
 
-1x Pai-Nosso que estais nos céus...
+1x Pai nosso que estais nos céus...
 
 3x Ave Maria, cheia de graça...
 
-1x Glória ao Pai, ao Filho e ao Espírito Santo...
+1x Glória ao Pai e ao Filho e ao Espírito Santo...
 
 ## Primeiro Mistério Gozoso — A Anunciação do Anjo a Maria
 
@@ -48,11 +51,11 @@ O Anjo Gabriel é enviado por Deus à Virgem Maria,<br>
 que concebe pelo poder do Espírito Santo o Verbo encarnado.<br>
 Contemplemos a humildade de Maria, que se faz serva do Senhor.
 
-1x Pai-Nosso que estais nos céus...
+1x Pai nosso que estais nos céus...
 
 10x Ave Maria, cheia de graça...
 
-1x Glória ao Pai, ao Filho e ao Espírito Santo...
+1x Glória ao Pai e ao Filho e ao Espírito Santo...
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -64,11 +67,11 @@ Maria, levando em Seu seio o Salvador,<br>
 visita sua prima Isabel e é proclamada bendita entre as mulheres.<br>
 Contemplemos a caridade de Maria que serve com alegria.
 
-1x Pai-Nosso que estais nos céus...
+1x Pai nosso que estais nos céus...
 
 10x Ave Maria, cheia de graça...
 
-1x Glória ao Pai, ao Filho e ao Espírito Santo...
+1x Glória ao Pai e ao Filho e ao Espírito Santo...
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -80,11 +83,11 @@ O Filho de Deus nasce na pobreza de uma manjedoura,<br>
 e os anjos anunciam a paz aos homens de boa vontade.<br>
 Contemplemos a pobreza e a humildade do Salvador que nasce por nós.
 
-1x Pai-Nosso que estais nos céus...
+1x Pai nosso que estais nos céus...
 
 10x Ave Maria, cheia de graça...
 
-1x Glória ao Pai, ao Filho e ao Espírito Santo...
+1x Glória ao Pai e ao Filho e ao Espírito Santo...
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -96,11 +99,11 @@ Maria e José apresentam o Menino Jesus no Templo,<br>
 e o ancião Simeão O reconhece como luz para iluminar as nações.<br>
 Contemplemos a obediência à Lei e a oferta de Jesus ao Pai.
 
-1x Pai-Nosso que estais nos céus...
+1x Pai nosso que estais nos céus...
 
 10x Ave Maria, cheia de graça...
 
-1x Glória ao Pai, ao Filho e ao Espírito Santo...
+1x Glória ao Pai e ao Filho e ao Espírito Santo...
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -112,11 +115,11 @@ Após três dias de busca,<br>
 Maria e José encontram Jesus no Templo, entre os doutores.<br>
 Contemplemos Jesus que cuida das coisas de Seu Pai.
 
-1x Pai-Nosso que estais nos céus...
+1x Pai nosso que estais nos céus...
 
 10x Ave Maria, cheia de graça...
 
-1x Glória ao Pai, ao Filho e ao Espírito Santo...
+1x Glória ao Pai e ao Filho e ao Espírito Santo...
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu

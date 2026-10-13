@@ -19,10 +19,10 @@ O Ângelus é uma antiga oração mariana cuja origem remonta ao século XIII, g
 O Anjo do Senhor anunciou a Maria.<br>
 E ela concebeu do Espírito Santo.
 
-> Ave Maria, cheia de graça, o Senhor é Convosco.<br>
-> Bendita sois Vós entre as mulheres,<br>
-> e bendito é o fruto do Vosso ventre, Jesus.<br>
->
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
@@ -30,10 +30,10 @@ E ela concebeu do Espírito Santo.
 Eis aqui a serva do Senhor.<br>
 Faça-se em mim segundo a Vossa palavra.
 
-> Ave Maria, cheia de graça, o Senhor é Convosco.<br>
-> Bendita sois Vós entre as mulheres,<br>
-> e bendito é o fruto do Vosso ventre, Jesus.<br>
->
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
@@ -41,10 +41,10 @@ Faça-se em mim segundo a Vossa palavra.
 E o Verbo se fez carne.<br>
 E habitou entre nós.
 
-> Ave Maria, cheia de graça, o Senhor é Convosco.<br>
-> Bendita sois Vós entre as mulheres,<br>
-> e bendito é o fruto do Vosso ventre, Jesus.<br>
->
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.

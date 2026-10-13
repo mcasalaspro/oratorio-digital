@@ -142,7 +142,7 @@ ensinai-me a viver na Sua presença,<br>
 buscando-O em cada momento da minha jornada.
 
 Que o amor de Jesus seja o tesouro da minha alma,<br>
-e que eu O carregue sempre comigo, como Vós o fizestes.
+e que eu O carregue sempre comigo, como vós o fizestes.
 
 > Santo Antônio, rogai por nós.
 
@@ -156,7 +156,7 @@ ajudai-me a percorrer o meu caminho com fé e esperança,<br>
 até alcançar a recompensa prometida aos servos fiéis.
 
 Que eu chegue ao fim da minha vida em paz com o Senhor,<br>
-para contemplar com Vós a Sua glória no Céu.
+para contemplar convosco a Sua glória no Céu.
 
 > Santo Antônio, rogai por nós.
 

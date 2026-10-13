@@ -66,5 +66,5 @@ Renovação das promessas batismais, segundo a liturgia da Vigília Pascal e o R
 > revestido da túnica branca da Vossa graça.<br>
 > Amém.
 
-> Glória ao Pai, e ao Filho, e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.

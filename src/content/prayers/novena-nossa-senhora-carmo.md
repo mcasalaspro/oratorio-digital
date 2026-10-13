@@ -175,6 +175,6 @@ se for da vontade de Deus e para o bem da nossa alma.
 
 Reza-se ao final:
 
-3x Ave Maria, cheia de graça, o Senhor é convosco, bendita sois Vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 > Flor do Carmelo, vide florida, esplendor do Céu, Virgem Mãe singular, ó Mãe suave, mostrai-Vos sempre Mãe.

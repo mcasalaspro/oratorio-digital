@@ -36,7 +36,7 @@ desde o presépio até a cruz.
 
 Contemplemos a Encarnação, o nascimento e a vida oculta e pública de Cristo.
 
-11x Pai-Nosso que estais nos Céus, santificado seja o Vosso nome; venha a nós o Vosso Reino; seja feita a Vossa vontade, assim na terra como no Céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+11x Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
 
 > Bendito e louvado seja Jesus Cristo, que por nós Se fez homem.
 
@@ -44,7 +44,7 @@ Contemplemos a Encarnação, o nascimento e a vida oculta e pública de Cristo.
 
 Contemplemos a agonia, a flagelação, a coroação de espinhos e a crucifixão de Cristo.
 
-11x Pai-Nosso que estais nos Céus, santificado seja o Vosso nome; venha a nós o Vosso Reino; seja feita a Vossa vontade, assim na terra como no Céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+11x Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
 
 > Bendito e louvado seja Jesus Cristo, que por nós padeceu e morreu.
 
@@ -52,7 +52,7 @@ Contemplemos a agonia, a flagelação, a coroação de espinhos e a crucifixão 
 
 Contemplemos a Ressurreição, a Ascensão e a glória eterna de Cristo.
 
-11x Pai-Nosso que estais nos Céus, santificado seja o Vosso nome; venha a nós o Vosso Reino; seja feita a Vossa vontade, assim na terra como no Céu. O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+11x Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
 
 > Bendito e louvado seja Jesus Cristo, que ressuscitou e reina glorioso.
 
@@ -60,7 +60,7 @@ Contemplemos a Ressurreição, a Ascensão e a glória eterna de Cristo.
 
 Em memória das cinco Chagas que o Senhor sofreu na cruz por amor de nós.
 
-5x Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+5x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 > Adoramos-Vos, ó Cristo, e bendizemos-Vos, porque pela Vossa Santa Cruz remistes o mundo.
 

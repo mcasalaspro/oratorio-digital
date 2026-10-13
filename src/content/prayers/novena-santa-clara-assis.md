@@ -169,6 +169,6 @@ mereçamos contemplar-Vos na glória eterna.
 
 Por Cristo, nosso Senhor. Amém.
 
-3x Glória ao Pai, ao Filho e ao Espírito Santo, como era no princípio, agora e sempre. Amém.
+3x Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
 
 *Fonte: oração de tradição franciscana, inspirada na vida e nos escritos de Santa Clara de Assis (Ordem das Irmãs Pobres — Clarissas, séc. XIII; canonizada em 1255).*

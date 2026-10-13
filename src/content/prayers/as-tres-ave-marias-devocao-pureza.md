@@ -22,7 +22,7 @@ que jamais se ouviu dizer<br>
 que algum daqueles que recorreram à Vossa proteção<br>
 fosse por Vós desamparado.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 > Ó Maria, concebida sem pecado, guardai-me puro nesta manhã e durante todo este dia.
 
@@ -35,7 +35,7 @@ Por Vossa Imaculada Conceição,<br>
 ó Maria, purificai o meu corpo<br>
 e santificai a minha alma.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 > Ó Maria, concebida sem pecado, guardai-me puro nesta noite e alcançai-me a graça da perseverança final.
 

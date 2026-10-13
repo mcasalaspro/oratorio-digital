@@ -37,7 +37,7 @@ com firmeza e amor.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 2 — A fidelidade a Cristo
 
@@ -58,7 +58,7 @@ a paz que não se acaba.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 3 — O zelo pelos irmãos
 
@@ -79,7 +79,7 @@ de todos os necessitados.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 4 — A proteção contra as epidemias
 
@@ -100,7 +100,7 @@ e esperança aos desesperados.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 5 — A paciência nas provações
 
@@ -121,7 +121,7 @@ aqueles que O amam.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 6 — O perdão aos inimigos
 
@@ -142,7 +142,7 @@ a Sua paz verdadeira.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 7 — A perseverança até o fim
 
@@ -163,13 +163,13 @@ a coroa da vida eterna.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 8 — A proteção das cidades e do Brasil
 
 Glorioso São Sebastião,<br>
-padroeiro de cidades e povos,<br>
-co-padroeiro da nossa terra,<br>
+padroeiro do Rio de Janeiro<br>
+e de tantas cidades do Brasil,<br>
 defensor escolhido por Deus.
 
 Velai pelo nosso país e pelas nossas famílias,<br>
@@ -184,7 +184,7 @@ e no amor a Deus.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 ## Dia 9 — A coroa do martírio
 
@@ -205,4 +205,4 @@ contemplar para sempre a face de Deus.
 
 > São Sebastião, rogai por nós.
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco. Bendita sois Vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.

@@ -75,17 +75,16 @@ O Exame de Consciência diário é uma das práticas mais preciosas dos *Exercí
 > e criai em mim um coração puro.<br>
 > Amém.
 
-> Pai nosso, que estais nos Céus,<br>
-> santificado seja o Vosso nome,<br>
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
 > venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no Céu.<br>
-> O pão nosso de cada dia nos dai hoje,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
-> assim como nós perdoamos a quem nos tem ofendido,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
-> mas livrai-nos do mal.<br>
-> Amém.
+> mas livrai-nos do mal. Amém.
 
 ## Passo 5 — Propor a emenda
 
@@ -104,14 +103,13 @@ O Exame de Consciência diário é uma das práticas mais preciosas dos *Exercí
 
 *Conclua confiando-se à intercessão de Nossa Senhora.*
 
-> Ave Maria, cheia de graça, o Senhor é convosco,<br>
-> bendita sois vós entre as mulheres<br>
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
-> agora e na hora da nossa morte.<br>
-> Amém.
+> agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, e ao Filho, e ao Espírito Santo.<br>
-> Como era no princípio, agora e sempre.<br>
-> Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

@@ -37,5 +37,5 @@ conforme prometera a nossos pais,<br>
 em favor de Abraão e de sua descendência,<br>
 para sempre.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo,
-> como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.
+> Como era no princípio, agora e sempre. Amém.

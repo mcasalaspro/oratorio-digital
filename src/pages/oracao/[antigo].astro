@@ -1,0 +1,32 @@
+---
+// Endereços antigos de orações duplicadas que saíram do site (ver src/config/redirecionamentos.ts):
+// a página só leva para a oração que ficou, com a mesma parte depois do "?" (ex.: ?dia=3).
+import { withBase } from '../../config/site';
+import { oracoesMovidas } from '../../config/redirecionamentos';
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  // se o arquivo antigo ainda estiver na pasta (não foi apagado), a página dele continua valendo
+  const existentes = new Set((await getCollection('prayers')).map((p) => p.id));
+  return Object.entries(oracoesMovidas)
+    .filter(([antigo]) => !existentes.has(antigo))
+    .map(([antigo, novo]) => ({ params: { antigo }, props: { novo } }));
+}
+const { novo } = Astro.props;
+const destino = withBase(`/oracao/${novo}/`);
+const canonico = new URL(destino, Astro.site ?? 'https://www.oratoriodigital.com').href;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oratório Digital</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonico} />
+    <meta http-equiv="refresh" content={`0; url=${destino}`} />
+    <script is:inline define:vars={{ destino }}>location.replace(destino + location.search + location.hash);</script>
+  </head>
+  <body style="font-family: Georgia, serif; padding: 2rem; background: #14110d; color: #efe6d4;">
+    <p>Esta oração mudou de endereço: <a href={destino} style="color: #d8b35a;">abrir a oração</a>.</p>
+  </body>
+</html>

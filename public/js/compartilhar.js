@@ -21,7 +21,7 @@
      citacao               true = põe aspas no trecho
      linhas                linhas extras em itálico (ex.: "numa corrente de 120 orações")
      banner, bannerReserva imagem de fundo (mesma origem) e a de reserva
-     caminho               ex.: /oracao/pai-nosso (vai no rodapé e no link)
+     caminho               ex.: /oracao/pai-nosso (vai no link; a imagem mostra só o domínio)
      dominio               ex.: oratoriodigital.com
      arquivo               nome do arquivo sem extensão
    }
@@ -191,27 +191,18 @@
       r.addColorStop(0, '#3a2812'); r.addColorStop(0.55, '#1a1208'); r.addColorStop(1, '#0d0904');
       c.fillStyle = r; c.fillRect(0, 0, W, H);
     }
-    // degradê escuro: alto (marca) e metade de baixo (texto)
+    // degradê escuro: leve no alto (só para a barra dos Stories) e forte na metade de baixo (texto)
     c.fillStyle = 'rgba(10,7,3,.2)'; c.fillRect(0, 0, W, H);
     var g = c.createLinearGradient(0, 0, 0, H);
-    g.addColorStop(0, 'rgba(10,7,3,.82)');
-    g.addColorStop(0.2, 'rgba(10,7,3,.2)');
+    g.addColorStop(0, 'rgba(10,7,3,.45)');
+    g.addColorStop(0.14, 'rgba(10,7,3,.12)');
     g.addColorStop(0.38, 'rgba(10,7,3,.28)');
     g.addColorStop(0.56, 'rgba(10,7,3,.8)');
     g.addColorStop(0.74, 'rgba(10,7,3,.93)');
     g.addColorStop(1, 'rgba(10,7,3,.97)');
     c.fillStyle = g; c.fillRect(0, 0, W, H);
 
-    // marca no alto (abaixo da faixa coberta pelos Stories)
-    c.textAlign = 'left';
-    c.font = '600 50px ' + F_TIT;
-    var nome = 'Oratório Digital', tl = 64, gap = 18;
-    var lw = c.measureText(nome).width, gw = (logo ? tl + gap : 0) + lw, gx = (W - gw) / 2, gy = SEGURO_TOPO + 44;
-    if (logo) c.drawImage(logo, gx, gy, tl, tl);
-    c.fillStyle = '#f3e7cf';
-    c.shadowColor = 'rgba(0,0,0,.5)'; c.shadowBlur = 14;
-    c.fillText(nome, gx + (logo ? tl + gap : 0), gy + 46);
-    c.shadowBlur = 0;
+    // a marca vai no rodapé (no alto ela caía sobre o rosto do santo); o alto fica livre para a imagem
 
     // bloco de texto: rótulo · título · enfeite · trecho / linhas — ancorado embaixo
     c.textAlign = 'center';
@@ -239,8 +230,8 @@
       extras.forEach(function (t) { le = le.concat(quebrar(c, t, LARG)); });
       itens.push({ tipo: 'txt', fonte: c.font, linhas: limitar(c, le, 4, LARG), lh: 70, cor: '#f6ecd6', apos: trecho ? 24 : 0 });
     }
-    var topoMin = SEGURO_TOPO + 220; // abaixo da marca
-    var fimTexto = SEGURO_BASE - 150; // acima do rodapé
+    var topoMin = SEGURO_TOPO + 40; // abaixo da faixa coberta pelos Stories
+    var fimTexto = SEGURO_BASE - 170; // acima do rodapé (marca e endereço)
     if (trecho) {
       c.font = 'italic 400 46px ' + F_TXT;
       var lt = quebrar(c, trecho, LARG);
@@ -264,16 +255,19 @@
     });
     c.shadowBlur = 0;
 
-    // rodapé: domínio e, se couber, o caminho
-    c.font = '600 46px ' + F_TIT; c.fillStyle = '#f0c264';
-    c.fillText(d.dominio || 'oratoriodigital.com', W / 2, SEGURO_BASE - 70);
-    if (d.caminho) {
-      var cam = String(d.caminho).replace(/\/+$/, '');
-      for (var ft = 32; ft >= 24; ft -= 2) {
-        c.font = '400 ' + ft + 'px ' + F_TXT;
-        if (c.measureText(cam).width <= LARG) { c.fillStyle = '#d8c8a8'; c.fillText(cam, W / 2, SEGURO_BASE - 22); break; }
-      }
-    }
+    // rodapé: a marca (logo + nome) e, embaixo, só o domínio — o caminho da página vai no link, não na imagem
+    c.textAlign = 'left';
+    c.font = '600 50px ' + F_TIT;
+    var nome = 'Oratório Digital', tl = 58, gap = 16;
+    var lw = c.measureText(nome).width, gw = (logo ? tl + gap : 0) + lw, gx = (W - gw) / 2, gy = SEGURO_BASE - 128;
+    if (logo) c.drawImage(logo, gx, gy, tl, tl);
+    c.fillStyle = '#f3e7cf';
+    c.shadowColor = 'rgba(0,0,0,.5)'; c.shadowBlur = 14;
+    c.fillText(nome, gx + (logo ? tl + gap : 0), gy + 44);
+    c.shadowBlur = 0;
+    c.textAlign = 'center';
+    c.font = '500 36px ' + F_TXT; c.fillStyle = '#f0c264';
+    escreverEsp(c, d.dominio || 'oratoriodigital.com', W / 2, SEGURO_BASE - 26, 2);
     return cv;
   }
   function jpeg(cv) {

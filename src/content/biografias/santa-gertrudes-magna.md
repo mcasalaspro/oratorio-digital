@@ -9,7 +9,7 @@ tags: ["beneditina", "mística", "sagrado coração"]
 categorias: [virgem, religioso]
 summary: "A mística de Helfta, precursora da devoção ao Sagrado Coração e amiga das almas."
 featured: false
-relatedPrayers: ["oracao-santa-gertrudes-pelas-almas-purgatorio", "ladainha-santos"]
+relatedPrayers: ["oracao-santa-gertrudes-almas", "ladainha-santos"]
 ---
 ## A menina entregue ao mosteiro
 

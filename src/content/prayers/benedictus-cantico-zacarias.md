@@ -42,7 +42,7 @@ que das alturas nos visita como sol nascente,
 para iluminar os que jazem nas trevas e na sombra da morte<br>
 e dirigir os nossos passos no caminho da paz.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo,<br>
-> como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 *Cântico de Zacarias, pai de João Batista (Lc 1,68-79) — Séc. I d.C. Texto tradicional da Liturgia das Horas, rezado diariamente nas Laudes.*

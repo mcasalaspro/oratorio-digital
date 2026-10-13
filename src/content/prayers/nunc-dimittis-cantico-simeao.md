@@ -21,5 +21,5 @@ que preparaste diante de todos os povos:<br>
 luz para iluminar as nações<br>
 e glória do Teu povo Israel.
 
-> Glória ao Pai, e ao Filho, e ao Espírito Santo,
-> como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.
+> Como era no princípio, agora e sempre., e por todos os séculos dos séculos. Amém.

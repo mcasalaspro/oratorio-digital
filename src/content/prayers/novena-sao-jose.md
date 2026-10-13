@@ -23,26 +23,26 @@ alcança-me um coração dócil<br>
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -58,26 +58,26 @@ e guarda o amor que Deus uniu.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -93,26 +93,26 @@ no amor e na verdade.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -127,26 +127,26 @@ e dá pão a quem dele precisa.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -161,26 +161,26 @@ e afasta de nós todo mal.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -195,26 +195,26 @@ e a buscar a Deus na quietude.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -230,26 +230,26 @@ as necessidades que ninguém mais conhece.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -265,26 +265,26 @@ contra toda adversidade.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > São José, rogai por nós.
@@ -300,26 +300,26 @@ e de morrer em paz com o Senhor.
 
 *Apresente a Deus a sua intenção.*
 
-> Pai nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
-> bendita sois vós entre as mulheres<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo.<br>
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
 > Como era no princípio, agora e sempre. Amém.
 
 > A vós, ó bem-aventurado São José,<br>

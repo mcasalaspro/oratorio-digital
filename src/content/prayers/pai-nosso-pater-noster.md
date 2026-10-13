@@ -17,15 +17,15 @@ conservada nos Evangelhos de São Mateus (6,9-13) e São Lucas (11,2-4).
 
 ## Oração
 
-Pai Nosso, que estais nos Céus,<br>
-santificado seja o Vosso nome.<br>
-Venha a nós o Vosso Reino,<br>
+Pai nosso que estais nos céus,<br>
+santificado seja o Vosso nome;<br>
+venha a nós o Vosso reino,<br>
 seja feita a Vossa vontade,<br>
-assim na terra como no Céu.
+assim na terra como no céu;
 
-O pão nosso de cada dia nos dai hoje,<br>
+o pão nosso de cada dia nos dai hoje;<br>
 perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido,<br>
+assim como nós perdoamos a quem nos tem ofendido;<br>
 e não nos deixeis cair em tentação,<br>
 mas livrai-nos do mal.
 

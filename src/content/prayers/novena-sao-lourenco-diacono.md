@@ -224,4 +224,4 @@ convosco louvar o Senhor no Céu.
 
 > São Lourenço, diácono e mártir, rogai por nós.
 
-> Glória ao Pai, ao Filho e ao Espírito Santo, como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.

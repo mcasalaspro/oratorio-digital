@@ -18,6 +18,6 @@ em união com todas as Missas que hoje se celebram em todo o mundo,<br>
 por todas as santas almas do purgatório,<br>
 pelos pecadores de todos os lugares,<br>
 pelos pecadores de toda a Igreja,<br>
-e pelos de minha casa e de meus vizinhos.
+e pelos de minha casa e de minha família.
 
 Amém.

@@ -12,9 +12,11 @@ liturgicalColor: "festa"
 ---
 A Coroa das Santas Chagas foi revelada à Irmã Maria Marta Chambon, religiosa da Visitação de Chambéry, na França, no século XIX. Nesta devoção reparadora oferecemos ao Pai Eterno as Chagas e o Sangue de Nosso Senhor Jesus Cristo, para alcançar misericórdia para os vivos, alívio para as almas do purgatório e a conversão dos pecadores.
 
-Reza-se nas contas comuns de um terço. No crucifixo e nas contas grandes, recita-se a oração ao Pai Eterno; nas contas pequenas, a invocação às Chagas.
+Reza-se num terço comum, de cinco dezenas. No crucifixo e nas primeiras contas, fazem-se as invocações iniciais; em cada conta grande, a oração ao Pai Eterno; em cada uma das dez contas pequenas, a invocação às Chagas. No final, repete-se três vezes a oração ao Pai Eterno.
 
 ## Sinal da Cruz e oferecimento
+
+*No crucifixo e nas primeiras contas:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.<br>
 
@@ -32,29 +34,29 @@ Pai Eterno, usai de misericórdia,<br>
 pelo Sangue de Jesus Cristo, Vosso único Filho;<br>
 usai de misericórdia, nós Vos suplicamos. Amém.
 
-## Nas contas grandes — Oração ao Pai Eterno
+## 5x Dezenas
+
+*Repete-se a sequência das contas grandes e pequenas por cinco dezenas, meditando a Paixão do Senhor.*
+
+### Nas contas grandes
+
+*Em cada conta grande do terço, reza-se uma vez:*
 
 Pai Eterno,<br>
 eu Vos ofereço as Chagas de Nosso Senhor Jesus Cristo,<br>
 para curar as de nossas almas.
 
-## Nas contas pequenas — Invocação às Chagas
+### Nas contas pequenas
 
-Meu Jesus,<br>
-perdão e misericórdia,<br>
-pelos méritos de Vossas Santas Chagas.
+*Em cada uma das dez contas pequenas, reza-se:*
 
-## Como se reza a Coroa
+10x Meu Jesus, perdão e misericórdia, pelos méritos de Vossas Santas Chagas.
 
-No crucifixo e em cada uma das três contas grandes, reze a oração ao Pai Eterno:
+## Conclusão
 
-> Pai Eterno, eu Vos ofereço as Chagas de Nosso Senhor Jesus Cristo, para curar as de nossas almas.
+*No final, reza-se três vezes:*
 
-Em cada conta pequena (são cinco contas em cada dezena, recordando as cinco Chagas), reze a invocação:
-
-> Meu Jesus, perdão e misericórdia, pelos méritos de Vossas Santas Chagas.
-
-Repita por todas as dezenas, meditando a Paixão do Senhor.
+3x Pai Eterno, eu Vos ofereço as Chagas de Nosso Senhor Jesus Cristo, para curar as de nossas almas.
 
 ## Oração final
 
@@ -73,5 +75,3 @@ Pai Santo,<br>
 olhai para o rosto do Vosso Cristo<br>
 e pelo Seu Preciosíssimo Sangue<br>
 tende misericórdia de nós e do mundo inteiro. Amém.
-
-> Meu Jesus, perdão e misericórdia, pelos méritos de Vossas Santas Chagas.

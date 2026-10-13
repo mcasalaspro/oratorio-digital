@@ -31,7 +31,7 @@ Contemplo a primeira dor: quando Maria apresentou o Menino Jesus no Templo, o ju
 
 Pai-Nosso...
 
-> 7x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 7x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 Santíssima Virgem, pela dor que sentistes ao ouvir a profecia de Simeão, alcançai-me o temor santo de Deus.
 
@@ -41,7 +41,7 @@ Contemplo a segunda dor: quando Maria, avisada por José, fugiu para o Egito com
 
 Pai-Nosso...
 
-> 7x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 7x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 Santíssima Virgem, pela angústia da fuga para o Egito, alcançai-me a coragem de seguir a Jesus em todas as provações.
 
@@ -51,7 +51,7 @@ Contemplo a terceira dor: quando Maria e José, voltando de Jerusalém, deram fa
 
 Pai-Nosso...
 
-> 7x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 7x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 Santíssima Virgem, pela tristeza de procurar Jesus por três dias, alcançai-me a graça de nunca O perder pelo pecado.
 
@@ -61,7 +61,7 @@ Contemplo a quarta dor: quando Maria encontrou seu Filho carregando a cruz, feri
 
 Pai-Nosso...
 
-> 7x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 7x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 Santíssima Virgem, pela dor do encontro doloroso na Via-Sacra, alcançai-me paciência nos sofrimentos da vida.
 
@@ -71,7 +71,7 @@ Contemplo a quinta dor: quando Maria permaneceu de pé junto à cruz, vendo seu 
 
 Pai-Nosso...
 
-> 7x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 7x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 Santíssima Virgem, pela dor imensa de ver Jesus morrer na cruz, alcançai-me o amor à cruz e o ódio ao pecado.
 
@@ -81,7 +81,7 @@ Contemplo a sexta dor: quando o corpo de Jesus foi descido da cruz e depositado 
 
 Pai-Nosso...
 
-> 7x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 7x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 Santíssima Virgem, pela dor de receber o corpo de Jesus em vossos braços, alcançai-me a compaixão pelos sofrimentos do meu próximo.
 
@@ -91,7 +91,7 @@ Contemplo a sétima dor: quando Maria acompanhou o corpo de Jesus ao sepulcro e 
 
 Pai-Nosso...
 
-> 7x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 7x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 Santíssima Virgem, pela solidão que sentistes após o sepultamento de Jesus, alcançai-me a esperança firme na vida eterna.
 
@@ -99,7 +99,7 @@ Santíssima Virgem, pela solidão que sentistes após o sepultamento de Jesus, a
 
 Em honra das lágrimas que a Virgem Maria derramou em suas dores, rezemos:
 
-> 3x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois vós entre as mulheres e bendito é o fruto do Vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.
+> 3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
 V. Rogai por nós, Virgem das Dores.<br>
 R. Para que sejamos dignos das promessas de Cristo.

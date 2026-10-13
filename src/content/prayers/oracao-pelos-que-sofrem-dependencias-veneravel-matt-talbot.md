@@ -60,26 +60,24 @@ O Venerável Matt Talbot (1856–1925) foi um operário irlandês de Dublin que,
 
 *Concluamos com confiança filial:*
 
-> Pai Nosso, que estais nos céus,<br>
+> Pai nosso que estais nos céus,<br>
 > santificado seja o Vosso nome;<br>
-> venha a nós o Vosso reino;<br>
+> venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no céu.<br>
-> O pão nosso de cada dia nos dai hoje;<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
 > assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
-> mas livrai-nos do mal.<br>
-> Amém.
+> mas livrai-nos do mal. Amém.
 
-> Ave Maria, cheia de graça,<br>
+> Ave, Maria, cheia de graça,<br>
 > o Senhor é convosco;<br>
 > bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
-> agora e na hora da nossa morte.<br>
-> Amém.
+> agora e na hora da nossa morte. Amém.
 
 > V. Venerável Matt Talbot,<br>
 > R. rogai por nós que recorremos a vós.

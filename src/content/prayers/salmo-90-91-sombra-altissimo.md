@@ -59,6 +59,6 @@ hei de livrá-lo e glorificá-lo.
 Saciá-lo-ei com longos dias<br>
 e mostrar-lhe-ei a Minha salvação."
 
-> Glória ao Pai, ao Filho e ao Espírito Santo,
-> como era no princípio, agora e sempre,
+> Glória ao Pai e ao Filho e ao Espírito Santo.
+> Como era no princípio, agora e sempre.,
 > e por todos os séculos dos séculos. Amém.

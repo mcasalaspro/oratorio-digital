@@ -22,47 +22,47 @@ Em Vós confiei, ó Senhor, jamais ficarei confundido para sempre.
 
 Reza-se uma vez:
 
-Pai Nosso que estais no Céu,<br>
-santificado seja o Vosso Nome,<br>
-venha a nós o Vosso Reino,<br>
+Pai nosso que estais nos céus,<br>
+santificado seja o Vosso nome;<br>
+venha a nós o Vosso reino,<br>
 seja feita a Vossa vontade,<br>
-assim na terra como no Céu.<br>
-O pão nosso de cada dia nos dai hoje,<br>
+assim na terra como no céu;<br>
+o pão nosso de cada dia nos dai hoje;<br>
 perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido,<br>
+assim como nós perdoamos a quem nos tem ofendido;<br>
 e não nos deixeis cair em tentação,<br>
 mas livrai-nos do mal. Amém.
 
 Reza-se uma vez:
 
-Ave Maria, cheia de graça,<br>
-o Senhor é Convosco,<br>
-bendita sois Vós entre as mulheres<br>
-e bendito é o fruto do Vosso ventre, Jesus.<br>
+Ave, Maria, cheia de graça,<br>
+o Senhor é convosco;<br>
+bendita sois vós entre as mulheres,<br>
+e bendito é o fruto do vosso ventre, Jesus.<br>
 Santa Maria, Mãe de Deus,<br>
-rogai por nós pecadores,<br>
+rogai por nós, pecadores,<br>
 agora e na hora da nossa morte. Amém.
 
 Reza-se uma vez:
 
 Creio em Deus Pai todo-poderoso,<br>
-Criador do Céu e da Terra,<br>
-e em Jesus Cristo, Seu único Filho, Nosso Senhor,<br>
-que foi concebido pelo poder do Espírito Santo,<br>
-nasceu da Virgem Maria,<br>
+Criador do céu e da terra.<br>
+E em Jesus Cristo, Seu único Filho, nosso Senhor,<br>
+que foi concebido pelo poder do Espírito Santo;<br>
+nasceu da Virgem Maria;<br>
 padeceu sob Pôncio Pilatos,<br>
 foi crucificado, morto e sepultado.<br>
-Desceu à mansão dos mortos,<br>
+Desceu à mansão dos mortos;<br>
 ressuscitou ao terceiro dia,<br>
-subiu aos Céus,<br>
+subiu aos céus;<br>
 está sentado à direita de Deus Pai todo-poderoso,<br>
 donde há de vir a julgar os vivos e os mortos.<br>
-Creio no Espírito Santo,<br>
-na Santa Igreja Católica,<br>
-na comunhão dos santos,<br>
-na remissão dos pecados,<br>
-na ressurreição da carne<br>
-e na vida eterna. Amém.
+Creio no Espírito Santo;<br>
+na santa Igreja Católica,<br>
+na comunhão dos santos;<br>
+na remissão dos pecados;<br>
+na ressurreição da carne;<br>
+na vida eterna. Amém.
 
 ## 5x Dezenas
 

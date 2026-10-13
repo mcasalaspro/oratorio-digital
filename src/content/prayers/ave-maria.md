@@ -9,9 +9,9 @@ featured: true
 featuredOrder: 2
 ---
 
-Ave Maria, cheia de graça,<br>
+Ave, Maria, cheia de graça,<br>
 o Senhor é convosco;<br>
-bendita sois vós entre as mulheres<br>
+bendita sois vós entre as mulheres,<br>
 e bendito é o fruto do vosso ventre, Jesus.
 
 Santa Maria, Mãe de Deus,<br>

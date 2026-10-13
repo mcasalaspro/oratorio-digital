@@ -53,21 +53,21 @@ Sinal da Cruz e ato de contrição.
 
 Creio em Deus Pai...
 
-Pai-Nosso que estais nos céus...
+Pai nosso que estais nos céus...
 
-3x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois Vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
-Glória ao Pai, ao Filho e ao Espírito Santo...
+Glória ao Pai e ao Filho e ao Espírito Santo...
 
 ### 5x Dezenas
 
 *Em cada dezena, anuncia-se o mistério, reza-se um Pai-Nosso, dez Ave-Marias e um Glória:*
 
-Pai-Nosso que estais nos céus...
+Pai nosso que estais nos céus...
 
-10x Ave Maria, cheia de graça, o Senhor é Convosco; bendita sois Vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
 
-Glória ao Pai, ao Filho e ao Espírito Santo, como era no princípio, agora e sempre. Amém.
+Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
 

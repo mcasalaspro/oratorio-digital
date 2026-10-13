@@ -35,7 +35,7 @@ abri os olhos paternais para os interesses de Vossos filhos.
 
 Reza-se a oração principal e, em cada conta, a invocação:
 
-> Glória ao Pai, e ao Filho, e ao Espírito Santo, como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
 
 > Bendito e louvado seja São José, Patriarca venerável.
 

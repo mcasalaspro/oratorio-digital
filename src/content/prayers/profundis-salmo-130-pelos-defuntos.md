@@ -9,6 +9,7 @@ tags: ["defuntos", "fiéis falecidos", "salmo", "penitência", "liturgia", "espe
 description: "Das profundezas a Vós clamo, Senhor: salmo penitencial tradicional rezado pelos fiéis defuntos."
 featured: false
 liturgicalColor: "ordinario"
+liturgicalFeast: "11-02"
 ---
 
 O *De Profundis* é o Salmo 130 (129 na numeração da Septuaginta), um dos sete salmos penitenciais.

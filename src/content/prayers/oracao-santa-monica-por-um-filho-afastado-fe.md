@@ -61,27 +61,27 @@ liturgicalColor: "festa"
 
 *Reze, pela intenção desta oração:*
 
-> 1x Pai-Nosso, que estais nos Céus,<br>
-> santificado seja o Vosso nome,<br>
+> 1x Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
 > venha a nós o Vosso reino,<br>
 > seja feita a Vossa vontade,<br>
-> assim na terra como no Céu.<br>
-> O pão nosso de cada dia nos dai hoje,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
 > perdoai-nos as nossas ofensas,<br>
-> assim como nós perdoamos a quem nos tem ofendido,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
 > e não nos deixeis cair em tentação,<br>
 > mas livrai-nos do mal. Amém.
 
-> 1x Ave Maria, cheia de graça,<br>
-> o Senhor é convosco,<br>
-> bendita sois vós entre as mulheres<br>
+> 1x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
 > e bendito é o fruto do vosso ventre, Jesus.<br>
 > Santa Maria, Mãe de Deus,<br>
 > rogai por nós, pecadores,<br>
 > agora e na hora da nossa morte. Amém.
 
-> 1x Glória ao Pai, ao Filho e ao Espírito Santo,<br>
-> como era no princípio, agora e sempre. Amém.
+> 1x Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 *Conclua com o Sinal da Cruz:*
 
