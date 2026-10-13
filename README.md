@@ -1,108 +1,63 @@
-# 🕯️ Oratório Digital
+# Oratório Digital
 
-Um site estático e contemplativo para rezar com calma — orações, terços e
-novenas. Feito em **Astro**, publica sozinho no **GitHub Pages** e cresce
-apenas com arquivos Markdown. Sem login, sem banco de dados, sem servidor.
+Site de orações católicas para rezar com calma: **https://www.oratoriodigital.com**.
+Feito em Astro. O GitHub confere, compila e publica sozinho a cada envio.
 
-> **Quer colocar no ar agora?** Siga o [`PASSO_A_PASSO.md`](./PASSO_A_PASSO.md).
-> **Quer criar uma nova oração?** Use o [`PROMPT_NOVA_ORACAO.md`](./PROMPT_NOVA_ORACAO.md).
-> **Quer gerar as imagens (arte bizantina)?** Use o [`PROMPT_IMAGENS.md`](./PROMPT_IMAGENS.md).
-> **Quer adicionar uma biografia de santo?** Use o [`PROMPT_NOVA_BIOGRAFIA.md`](./PROMPT_NOVA_BIOGRAFIA.md).
+## Publicar
 
----
+1. Dê dois cliques em **`subir-site.bat`** (na pasta do projeto).
+2. Escreva em poucas palavras o que mudou e aperte ENTER.
+3. No fim ele diz **PRONTO** (enviado) ou **ERRO** (o que falhou; nada foi publicado).
+4. Em uns 3 minutos o site atualiza. Para acompanhar: repositório no GitHub → aba **Actions**.
 
-## ✨ O que ele faz
-- **Catálogo por Markdown:** cada arquivo `.md` em `src/content/prayers/` vira uma oração. Adicionou arquivo = adicionou conteúdo.
-- **Novenas com seletor de dias** em formato de contas de rosário, com progresso salvo no aparelho.
-- **Destaque litúrgico automático:** novenas com data de festa entram em evidência na época certa, já sugerindo o dia correto.
-- **Assistente de leitura:** destaca o texto progressivamente, com ritmo lento/médio/rápido e rolagem automática.
-- **Contador da comunidade:** ao concluir uma oração, uma vela se acende e o site mostra quantas orações já foram elevadas por todos.
-- **Modo claro/escuro**, layout para celular, textura e paralaxe suaves, multi-idioma (PT-BR e EN inclusos).
+Se um arquivo tiver erro (por exemplo, aspas faltando no cabeçalho), **só ele fica fora do site**: o resto é publicado e o GitHub manda um e-mail com o arquivo, a linha e o que corrigir. Corrigiu e publicou de novo, ele volta.
 
----
+## Onde fica cada coisa
 
-## 🗂️ Estrutura
 ```
-src/
-├─ config/site.ts          ← painel: destaques, contador, idioma, CAPTCHA
-├─ content/prayers/        ← AS ORAÇÕES (só arquivos .md)
-├─ components/             ← cartão, contador (vela)
-├─ layouts/Base.astro      ← visual, temas, paralaxe, textos de interface
-└─ pages/
-   ├─ index.astro          ← home (destaques + catálogo + busca)
-   └─ oracao/[...slug].astro ← leitura + novena + assistente + conclusão
-public/
-├─ saints/                 ← imagens das orações (WebP) — veja PROMPT_IMAGENS.md
-│  └─ biografias/             ← imagens das biografias (WebP)
-└─ textures/               ← textura de fundo e brilho do paralaxe
-.github/workflows/deploy.yml ← publicação automática
+src/content/prayers/      orações (.md) — o nome do arquivo vira o endereço
+src/content/biografias/   biografias dos santos
+src/content/textos/       textos · cantos/ · liturgia/ (AAAAMMDD_Liturgia.md)
+src/config/site.ts        painel: destaques da abertura, contador, textos da interface
+src/data/produtos.yaml    produtos (instruções no topo do arquivo)
+public/saints/            imagem de cada oração: <nome-do-arquivo>.webp
+public/biografias/        imagem de cada biografia
+public/textos/ e cantos/  fundos das páginas (veja o LEIA-ME.txt da pasta)
+supabase/                 banco do contador (veja supabase/LEIA-ME.md)
+scripts/                  ferramentas do build (não precisa mexer)
+.github/workflows/        robôs do GitHub: publicação, contador diário e links
 ```
 
----
+**Novenas:** os dias são títulos `## Dia 1`, `## Dia 2`…, e o `totalDays` do cabeçalho é o mesmo número.
+**Data de festa** (`liturgicalFeast`): `"MM-DD"` entre aspas (ex.: `"12-08"`) ou uma festa móvel, como `"pentecostes"` ou `"corpus-christi"` (lista completa no topo de `public/js/calendario.js`).
 
-## ➕ Adicionar uma oração
-1. Crie `src/content/prayers/minha-oracao.md`.
-2. Preencha o frontmatter e o texto (modelos no [`PROMPT_NOVA_ORACAO.md`](./PROMPT_NOVA_ORACAO.md)).
-3. `git add . && git commit -m "add: minha oração" && git push`
-4. Em ~2 minutos está no ar. **Nenhum código precisa ser alterado.**
+**Imagens:** coloque só a imagem grande (.webp, até 1600 px de largura). As versões menores, para o celular e para os cartões, são feitas na publicação e não vão para o GitHub. Para reduzir uma imagem acima de 500 KB sem diferença visível: `node scripts/otimizar-imagens.mjs`.
 
-**Novenas:** os títulos dos dias precisam ser `## Dia 1 — ...`, `## Dia 2 — ...`
-(ou `## Day 1 — ...` em inglês), e a quantidade deve bater com `totalDays`.
+## Relatório do conteúdo
 
----
+**https://www.oratoriodigital.com/ferramentas/relatorio/**, refeito a cada publicação, só para você (fora do Google): arquivos fora do site, avisos, imagens que faltam ou sobram, orações sem data, festas por mês, categorias das biografias e produtos.
 
-## 🎛️ Mudar destaques e configurações
-Tudo em **`src/config/site.ts`**:
-- `pinnedPrayers` — orações sempre em destaque na home (use o nome do arquivo sem `.md`).
-- `maxLiturgicalHighlights` — quantos destaques litúrgicos mostrar de uma vez.
-- `counter` — o contador da comunidade (troque o `namespace` por um nome só seu).
-- `turnstile.siteKey` — o CAPTCHA (veja abaixo).
+## Contador e robôs do GitHub
 
----
+- **Contador da comunidade:** Supabase. Endereço e *Publishable key* em `src/config/site.ts`; como montar o banco: `supabase/LEIA-ME.md`.
+- **Robô diário** (`contador-diario.yml`, 06:17): mantém o Supabase acordado (o plano grátis pausa depois de 7 dias sem uso) e guarda uma cópia dos números no ramo `dados`. A publicação usa essa cópia se o contador estiver fora do ar.
+- **Links quebrados** (`links.yml`, todo dia 3): manda e-mail se um link do site quebrar ou um link externo deixar de existir.
+- O GitHub desliga os robôs agendados depois de **60 dias sem nenhum envio** ao repositório. Ele avisa por e-mail; para religar: aba Actions → o robô → **Enable workflow**.
 
-## 🔢 Contador da comunidade
-Usa o serviço gratuito **[Abacus](https://abacus.jasoncameron.dev)** — sem cadastro,
-sem chave. Cada conclusão soma no contador **daquela oração** (mostrado ao concluir)
-e também num total geral (a frase da home: "Esse site já guiou X orações…").
+## No seu computador (opcional)
 
-⚠️ **Troque `counter.namespace`** em `src/config/site.ts` por algo único seu
-(ex.: `oratorio-da-paroquia-x`), senão sua contagem se mistura com a de outra pessoa.
+Precisa do Node 22.
 
-Para desligar o contador: `counter.enabled = false`.
-
----
-
-## 🤖 CAPTCHA (anti-bot) — opcional
-Já vem **desligado** (`turnstile.siteKey: ''`). Sem ele, há uma proteção simples
-que registra no máximo 1 conclusão por oração por dia, por aparelho.
-
-Para ligar o **Cloudflare Turnstile** (gratuito):
-1. Crie um widget em <https://dash.cloudflare.com> → **Turnstile**.
-2. Cole a *Site Key* em `turnstile.siteKey` no `src/config/site.ts`.
-3. `git push`. O desafio aparece antes do botão "Concluir oração".
-
-> Observação: no GitHub Pages (site estático) a validação é só no navegador.
-> Para validação 100% à prova de fraude seria preciso uma função de servidor
-> (Cloudflare Workers/Netlify) — fora do escopo deste projeto.
-
----
-
-## 💻 Rodar no seu computador (opcional)
-Requer Node 20+.
-```bash
+```
 npm install
-npm run dev      # abre em http://localhost:4321
-npm run build    # gera a pasta dist/ (o que vai pro ar)
-npm run preview  # pré-visualiza o site já compilado
+npm run dev        abre o site em http://localhost:4321
+npm run validar    confere o conteúdo (arquivo e linha de cada erro)
+npm run build      gera a pasta dist/, igual ao que vai para o ar
+npm run links      depois do build: confere os links
 ```
 
----
+## Guias
 
-## 🚀 Publicar
-Veja o [`PASSO_A_PASSO.md`](./PASSO_A_PASSO.md). Em resumo: crie um repositório
-`oratorio-digital`, troque `SEU-USUARIO` no `astro.config.mjs`, dê `git push`
-e ative **Settings → Pages → Source: GitHub Actions**.
-
----
-
-*Textos das orações são tradicionais/de domínio público. Feito com cuidado para rezar com calma.* 🕊️
+- `supabase/LEIA-ME.md` — o banco do contador.
+- `public/textos/LEIA-ME.txt`, `public/cantos/LEIA-ME.txt`, `public/liturgia/LEIA-ME.txt` — fundos das páginas.
+- Os guias para criar orações, imagens e biografias (`PROMPT_*.md`) ficam no seu computador. Se você colocá-los nesta pasta, eles passam a ir junto para o GitHub.

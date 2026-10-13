@@ -15,7 +15,7 @@ import { withBase } from '../config/site';
 
       <!-- sem JS, a busca vai para a abertura (/?q=…); com JS, abre a busca do site aqui mesmo -->
       <form class="nf-busca" id="nfBusca" action={withBase('/')} method="get" role="search">
-        <input class="search" id="nfTermo" type="search" name="q" autocomplete="off" placeholder="Buscar orações e santos…" data-i18n-ph="global_search_ph" aria-label="Buscar" />
+        <input class="search" id="nfTermo" type="search" name="q" autocomplete="off" placeholder="Buscar orações, santos, textos…" data-i18n-ph="busca_ph" aria-label="Buscar" data-i18n-aria="search_label" />
         <button class="btn btn-primary" type="submit" data-i18n="search_label">Buscar</button>
       </form>
 
@@ -23,25 +23,23 @@ import { withBase } from '../config/site';
       <nav class="nf-links" aria-label="Caminhos de volta">
         <a class="btn" href={withBase('/')} data-i18n="nav_home">Início</a>
         <a class="btn" href={withBase('/#catalogo')} data-i18n="nav_catalog">Catálogo</a>
-        <a class="btn" href={withBase('/proximas-festas/')} data-i18n="nav_feasts">Próximas festas</a>
-        <a class="btn" href={withBase('/biografias/')} data-i18n="nav_bio">Biografias</a>
+        <a class="btn" href={withBase('/proximas-festas')} data-i18n="nav_feasts">Próximas festas</a>
+        <a class="btn" href={withBase('/biografias')} data-i18n="nav_bio">Biografias</a>
       </nav>
     </div>
   </section>
 
   <script>
-    // busca: abre a mesma busca do topo (Base.astro) já com o termo digitado
+    // busca: abre a mesma busca do topo (Base.astro: window.odBusca) já com o termo digitado
     (function () {
       const form = document.getElementById('nfBusca') as HTMLFormElement | null;
       const termo = document.getElementById('nfTermo') as HTMLInputElement | null;
-      const abrir = document.getElementById('searchBtn');
-      const campo = document.getElementById('globalSearch') as HTMLInputElement | null;
-      if (!form || !termo || !abrir || !campo) return;
+      if (!form || !termo) return;
       form.addEventListener('submit', (e) => {
+        const busca = (window as any).odBusca;
+        if (!busca) return;            // sem a busca do topo, segue o formulário (/?q=…)
         e.preventDefault();
-        abrir.click();
-        campo.value = termo.value.trim();
-        campo.dispatchEvent(new Event('input'));
+        busca.abrir(termo.value.trim());
       });
     })();
   </script>

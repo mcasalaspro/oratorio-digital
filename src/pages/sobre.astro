@@ -1,10 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import { withBase } from '../config/site';
+import { banner } from './textos/_banner';
+// fundo: os mesmos raios do topo do site (o antigo sobre-bg.webp era uma cópia idêntica deles)
+const bg = banner('/textures/rays.webp');
 ---
 <Base title="Sobre o projeto" description="Sobre o Oratório Digital — um espaço para rezar com calma.">
   <section class="about-hero">
-    <div class="about-bg" style={`background-image: url('${withBase('/sobre-bg.webp')}')`} aria-hidden="true"></div>
+    <img class="about-bg" src={bg.src} srcset={bg.srcset} sizes={bg.srcset ? '100vw' : undefined} width={bg.width} height={bg.height} alt="" aria-hidden="true" fetchpriority="high" />
     <div class="about-shade" aria-hidden="true"></div>
 
     <div class="about-wrap">
@@ -15,11 +17,13 @@ import { withBase } from '../config/site';
         <p data-i18n="about_p2">É um projeto pessoal, feito com cuidado e mantido com tempo e recursos próprios. Por isso, é possível que você encontre algum erro ou veja algo que possa melhorar. Me avise! Toda ajuda é muito bem-vinda.</p>
 
         <p class="about-contact-lead" data-i18n="about_contact">Tem uma sugestão, uma correção ou só quer compartilhar algo? Fale comigo:</p>
-        <div class="about-links">
-          <a class="about-link" href="mailto:maurizio.casalaspro@gmail.com">
+        <div class="about-links" id="contato">
+          <!-- e-mail protegido contra robôs de spam: no HTML só "nome (arroba) domínio";
+               o Base.astro troca por um link mailto (sem JS, fica este texto legível) -->
+          <span class="about-link" data-email>
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5C3 5.7 3.7 5 4.5 5h15c.8 0 1.5.7 1.5 1.5v11c0 .8-.7 1.5-1.5 1.5h-15C3.7 19 3 18.3 3 17.5v-11z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 6.5l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-            <span>maurizio.casalaspro@gmail.com</span>
-          </a>
+            <span data-email-txt>maurizio.casalaspro (arroba) gmail.com</span>
+          </span>
           <a class="about-link" href="https://instagram.com/mcasalaspro" target="_blank" rel="noopener noreferrer">
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
             <span>@mcasalaspro</span>
@@ -41,7 +45,7 @@ import { withBase } from '../config/site';
       /* fundo reserva (caso a imagem ainda não exista) */
       background: radial-gradient(120% 100% at 50% 0%, #2a1d0e 0%, #1a1208 55%, #120c06 100%);
     }
-    .about-bg { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
+    .about-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
     .about-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,5,2,.5) 0%, rgba(8,5,2,.4) 45%, rgba(8,5,2,.66) 100%); }
 
     .about-wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 4rem clamp(1rem, 4vw, 2.2rem); }
@@ -57,7 +61,7 @@ import { withBase } from '../config/site';
     .about-card p { font-size: 1.1rem; line-height: 1.7; color: #e7ddc9; margin: 0 0 1.1rem; }
     .about-contact-lead { margin-top: 1.6rem; color: #efe6d3; }
     .about-links { display: flex; flex-wrap: wrap; gap: .7rem; margin: 0 0 1.6rem; }
-    .about-link { display: inline-flex; align-items: center; gap: .6rem; padding: .6rem 1rem; border: 1px solid rgba(200,162,74,.4); border-radius: 12px; text-decoration: none; color: #f0e7d4; font-size: .95rem; transition: border-color .2s, color .2s, transform .2s, background .2s; }
+    .about-link { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; padding: .6rem 1rem; border: 1px solid rgba(200,162,74,.4); border-radius: 12px; text-decoration: none; color: #f0e7d4; font-size: .95rem; transition: border-color .2s, color .2s, transform .2s, background .2s; }
     .about-link:hover { border-color: var(--gold); color: #fff; background: rgba(200,162,74,.12); transform: translateY(-1px); }
     .about-link svg { color: var(--gold); flex: 0 0 auto; }
     .about-support { border-left: 2px solid var(--gold); padding: .1rem 0 .1rem 1.1rem; color: #d8cdb6; font-style: italic; }

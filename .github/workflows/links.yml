@@ -1,0 +1,60 @@
+# ════════════════════════════════════════════════════════════════
+#  Conferência dos links — roda sozinha todo dia 3 (07:23 em Brasília)
+#  e quando você quiser: aba Actions → "Links quebrados" → Run workflow.
+#  Compila o site (sem publicar nada) e confere os links internos (páginas e
+#  imagens do próprio site) e os externos (Amazon e outros).
+#  Só falha — e o GitHub manda um e-mail — se houver link interno quebrado
+#  ou link externo que não existe mais (404). Site que bloqueia robôs ou não
+#  responde (429, 503…) fica como "não deu para verificar".
+#  A lista sai no resumo desta execução (aba Actions → a execução → Summary).
+# ════════════════════════════════════════════════════════════════
+name: Links quebrados
+
+on:
+  schedule:
+    - cron: '23 10 3 * *' # dia 3 de cada mês, 10:23 UTC = 07:23 em Brasília
+  workflow_dispatch: # permite rodar manualmente pela aba Actions
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v7
+
+      - name: Instalar o Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Reaproveitar as imagens já geradas
+        # usa o que a última publicação guardou (só lê, não grava)
+        uses: actions/cache/restore@v6
+        with:
+          path: |
+            .cache/imagens-derivadas.json
+            public/**/*_thumb.webp
+            public/**/*_w800.webp
+            public/**/*_w1200.webp
+            node_modules/.astro/previas
+          key: imagens-${{ hashFiles('public/**/*.webp', 'public/**/*.jpg', 'public/**/*.jpeg', 'public/**/*.png', 'scripts/gerar-thumbs.mjs', 'scripts/og/**') }}
+          restore-keys: imagens-
+
+      - name: Tirar da compilação os arquivos com erro
+        # os mesmos que a publicação deixa fora do site (o e-mail dela já avisa deles)
+        continue-on-error: true
+        run: node scripts/validar-conteudo.mjs --quarentena
+
+      - name: Compilar o site
+        run: npm run build
+
+      - name: Conferir os links
+        run: node scripts/checar-links.mjs dist

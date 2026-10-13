@@ -9,6 +9,7 @@ tags: ["Espírito Santo", "Pentecostes", "sequência", "luz", "consolação"]
 description: "Sequência da Missa de Pentecostes, atribuída a Estêvão Langton (c. 1200), que invoca o Espírito Santo como Pai dos pobres e luz dos corações."
 featured: false
 liturgicalColor: "festa"
+liturgicalFeast: "pentecostes"
 ---
 
 Sequência da Missa de Pentecostes, conhecida como *Sequência Áurea* pela beleza de seus versos. É atribuída a Estêvão Langton (Stephen Langton), arcebispo de Cantuária, por volta do ano 1200. Nela, a Igreja implora ao Espírito Santo Sua luz, Seu consolo e Seus dons.

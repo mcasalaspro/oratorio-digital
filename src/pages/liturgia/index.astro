@@ -91,14 +91,14 @@ const reservaLiturgias = reserva(site.counter.liturgiasKey ?? 'liturgias');
 
 <script is:inline>
   (function () {
-    // botão "Liturgia de hoje" (data completa AAAAMMDD)
+    // botão "Liturgia de hoje" (data completa AAAAMMDD; endereço com barra final, como as páginas)
     var el = document.getElementById('litHoje');
     if (el) {
       var base = el.getAttribute('data-base') || '/';
       var map = {}; try { map = JSON.parse(el.getAttribute('data-map') || '{}'); } catch (e) {}
-      var now = new Date();
+      var now = window.odCalendario ? window.odCalendario.hoje() : new Date();
       var key = '' + now.getFullYear() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
-      if (map[key]) { el.setAttribute('href', base.replace(/\/$/, '') + '/liturgia/' + map[key]); el.hidden = false; }
+      if (map[key]) { el.setAttribute('href', base.replace(/\/$/, '') + '/liturgia/' + map[key] + '/'); el.hidden = false; }
     }
     // contador de liturgias lidas (window.odContador — public/js/contador.js).
     // Nunca mostra "0": o número vivo; sem ele, o maior entre o guardado neste aparelho

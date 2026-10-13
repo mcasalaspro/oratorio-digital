@@ -1,0 +1,85 @@
+---
+// Privacidade (LGPD): curta e clara. O conteúdo é em português (lang="pt-BR");
+// os trechos sobre serviços opcionais só aparecem quando eles estão ligados em site.ts.
+import Base from '../layouts/Base.astro';
+import { site, withBase } from '../config/site';
+
+const c = site.counter ?? ({} as Record<string, any>);
+const contadorLigado = !!c.enabled;
+const comSupabase = contadorLigado && !!(c.supabaseUrl && c.supabaseKey);
+const comAnalytics = !!(site.analytics?.cloudflareToken ?? '').trim();
+const comTurnstile = !!(site.turnstile?.siteKey ?? '').trim();
+---
+<Base title="Privacidade" description="Como o Oratório Digital trata os seus dados: o que fica só no seu aparelho, o que é enviado e o que o site não faz. Sem cadastro, sem cookies.">
+  <section class="section priv">
+    <div class="wrap priv-wrap">
+      <p class="eyebrow" data-i18n="nav_privacidade">Privacidade</p>
+      <h1 class="section-title" data-i18n="nav_privacidade">Privacidade</h1>
+
+      <div class="priv-texto" lang="pt-BR">
+        <p class="priv-lead">Em resumo: o Oratório Digital <strong>não tem cadastro, não usa cookies e não tem anúncios nem rastreadores</strong>. O que você escolhe no site fica guardado no seu próprio aparelho.</p>
+
+        <h2>O que fica só no seu aparelho</h2>
+        <p>O navegador guarda, no seu celular ou computador, para o site lembrar das suas escolhas:</p>
+        <ul>
+          <li>as orações e biografias favoritas;</li>
+          <li>o tema (claro ou escuro) e o idioma;</li>
+          <li>o tamanho da letra e o modo foco da leitura;</li>
+          <li>o ritmo do assistente de leitura;</li>
+          <li>o progresso das novenas (os dias já rezados);</li>
+          <li>as marcas de oração “já contada” no dia (apagadas depois de 30 dias);</li>
+          <li>os últimos números do contador, para a página abrir mais depressa.</li>
+        </ul>
+        <p>Nada disso é enviado a ninguém. Para apagar tudo, limpe os dados deste site nas configurações do navegador.</p>
+
+        <h2>O que sai do seu aparelho</h2>
+        <ul>
+          {comSupabase && (
+            <li><strong>Contador da comunidade.</strong> Quando você conclui uma oração, o site envia ao nosso banco de dados (Supabase) só o nome da oração, para somar 1 ao contador; as visitas e as leituras da Liturgia do dia também viram só +1 num número. Para evitar abuso, o banco guarda por alguns dias um código embaralhado, calculado a partir do endereço IP e diferente a cada dia. <strong>O IP em si nunca é gravado no banco</strong>, e nada disso identifica você.</li>
+          )}
+          {contadorLigado && !comSupabase && (
+            <li><strong>Contador da comunidade.</strong> Quando você conclui uma oração, o site pede a um serviço externo de contagem (Abacus) para somar 1 ao número daquela oração. Só o nome da oração é enviado.</li>
+          )}
+          {comTurnstile && (
+            <li><strong>Verificação anti-robô.</strong> Antes de contar uma oração, o Cloudflare Turnstile confere se é uma pessoa, sem cookies de publicidade.</li>
+          )}
+          {comAnalytics && (
+            <li><strong>Estatísticas de visitas.</strong> O Cloudflare Web Analytics conta as páginas vistas de forma agregada (página, país, tipo de aparelho), sem cookies e sem identificar você.</li>
+          )}
+          <li><strong>Links da Amazon.</strong> Na página de Produtos, os links levam ao site da Amazon. Nada é enviado antes do clique; depois, vale a política de privacidade da Amazon.</li>
+          <li><strong>Hospedagem.</strong> As páginas são entregues pelo GitHub Pages{comSupabase && ', e o contador funciona no Supabase'}; como em qualquer site, {comSupabase ? 'esses servidores recebem' : 'o servidor recebe'} o endereço IP para poder responder.</li>
+        </ul>
+
+        <h2>O que o site não faz</h2>
+        <ul>
+          <li>não usa cookies;</li>
+          <li>não usa fontes do Google — as letras vêm do próprio site;</li>
+          <li>não pede nome, e-mail nem senha;</li>
+          <li>não vende nem repassa dados a ninguém.</li>
+        </ul>
+
+        <h2>Seus direitos (LGPD)</h2>
+        <p>Como o site não guarda dados que identifiquem você, não há cadastro para consultar ou apagar — e os dados do aparelho ficam sob o seu controle. Se tiver qualquer dúvida ou pedido, fale comigo:</p>
+        <p class="priv-contato">
+          <!-- e-mail protegido contra robôs de spam (o Base.astro monta o link mailto) -->
+          <span class="priv-email" data-email><span data-email-txt>maurizio.casalaspro (arroba) gmail.com</span></span>
+          · <a href={withBase('/sobre')}>página Sobre</a>
+        </p>
+        <p class="priv-data">Atualizada em outubro de 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .priv-wrap { max-width: calc(var(--read) + 4.4rem); }
+    .priv-texto { font-size: 1.08rem; }
+    .priv-texto h2 { font-size: 1.6rem; font-weight: 600; color: var(--gold); margin: 2rem 0 .6rem; }
+    .priv-texto p { margin: 0 0 1rem; }
+    .priv-texto ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+    .priv-texto li { margin: 0 0 .5rem; }
+    .priv-lead { font-size: 1.15rem; padding: 1rem 1.2rem; border-left: 3px solid var(--gold); background: color-mix(in srgb, var(--gold) 7%, transparent); border-radius: 0 10px 10px 0; }
+    .priv-contato a, .priv-email { color: var(--gold); }
+    .priv-contato a { display: inline-flex; align-items: center; min-height: 44px; }
+    .priv-data { color: var(--ink-soft); font-size: .9rem; font-style: italic; margin-top: 2rem; }
+  </style>
+</Base>

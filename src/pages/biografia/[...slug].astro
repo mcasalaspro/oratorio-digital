@@ -5,6 +5,7 @@ import { withBase } from '../../config/site';
 import { produtosForPage, produtoImagem, catLabelPt } from '../../config/produtos';
 import { oracoesDaBio } from '../../config/relacoes';
 import CompartilharStories from '../../components/CompartilharStories.astro';
+import { srcsetDoBanner, SIZES_BANNER } from '../../scripts/oracao/banner';
 
 export async function getStaticPaths() {
   const bios = await getCollection('biografias');
@@ -16,8 +17,13 @@ const d = entry.data;
 const name = d.name || entry.id.split(/[-_]/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 if (!d.name) console.warn(`\n⚠️  Biografia "${entry.id}" sem 'name' — usando "${name}".\n`);
 const relatedProducts = produtosForPage(entry.id, name);
-const banner = withBase(d.image ?? `/biografias/${entry.id}.webp`);
+const imagem = d.image ?? `/biografias/${entry.id}.webp`;
+const banner = withBase(imagem);
 const fallback = withBase('/biografias/default.webp');
+// E4: banner responsivo — srcset só com as variantes que existem (src/scripts/oracao/banner.ts)
+const bannerSrcset = srcsetDoBanner(imagem);
+// H3: o texto declara a própria língua, mesmo com a interface em outro idioma
+const lingua = d.language || 'pt-BR';
 const feastValid = !!d.feast && /^\d{2}-\d{2}$/.test(d.feast);
 const feastDM = feastValid ? `${d.feast!.slice(3, 5)}/${d.feast!.slice(0, 2)}` : '';
 
@@ -34,14 +40,16 @@ if (missingRel.length) console.warn(`\n⚠️  Biografia "${entry.id}": oraçõe
 // descrição própria da página (busca e prévia de links): o summary; reserva: título + nome
 const descricao = d.summary?.trim() || [d.title, name].filter(Boolean).join(' — ');
 ---
-<Base title={name} description={descricao}>
+<Base title={name} description={descricao} idioma={lingua}>
   <article>
     <header class="reader-hero">
-      <img class="reader-bg" src={banner} alt={name} width="1600" height="1000" onerror={`this.onerror=null;this.src='${fallback}'`} />
+      <img class="reader-bg" src={banner} srcset={bannerSrcset || undefined} sizes={bannerSrcset ? SIZES_BANNER : undefined}
+        alt={name} width="1600" height="1000" fetchpriority="high"
+        onerror={`this.onerror=null;this.removeAttribute('srcset');this.src='${fallback}'`} />
       <div class="reader-shade"></div>
       <div class="reader-head">
         {d.title && <p class="reader-type">{d.title}</p>}
-        <h1 class="reader-title">{name}</h1>
+        <h1 class="reader-title" lang={lingua}>{name}</h1>
         {(d.born || d.died) && <p class="reader-saint">{[d.born, d.died].filter(Boolean).join(' — ')}</p>}
       </div>
     </header>
@@ -78,7 +86,7 @@ const descricao = d.summary?.trim() || [d.title, name].filter(Boolean).join(' �
         </div>
       )}
 
-      <div class="prayer-body">
+      <div class="prayer-body" lang={lingua}>
         <Content />
       </div>
 

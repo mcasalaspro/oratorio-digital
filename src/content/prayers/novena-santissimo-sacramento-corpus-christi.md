@@ -11,6 +11,7 @@ description: "Novena tradicional de preparação para a Solenidade do Corpo e Sa
 featured: true
 liturgicalColor: "festa"
 novenaSuggestedStart: -9
+liturgicalFeast: "corpus-christi"
 ---
 
 Esta novena prepara o coração para a Solenidade do Corpo e Sangue de Cristo (Corpus Christi), festa de data móvel celebrada após a Santíssima Trindade. Instituída em 1264 pelo Papa Urbano IV, teve seu ofício litúrgico composto por São Tomás de Aquino, no século XIII. Nestes nove dias, adoramos a presença real de Jesus na Eucaristia, fonte e ápice de toda a vida cristã.

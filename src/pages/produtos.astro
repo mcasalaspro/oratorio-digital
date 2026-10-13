@@ -18,7 +18,7 @@ const total = grupos.reduce((n, g) => n + g.items.length, 0);
         grupos.map((g) => (
           <section class="prod-group">
             <h2 class="prod-group-title" data-i18n={`prodcat_${g.key}`}>{g.pt}</h2>
-            <div class="prod-list">
+            <div class="prod-list" lang="pt-BR">
               {g.items.map((p) => (
                 <a class="prod-card" href={p.link} target="_blank" rel="noopener noreferrer sponsored">
                   <img class="prod-thumb" src={produtoImagem(p)} alt={p.nome} loading="lazy" onerror="this.style.display='none'" />

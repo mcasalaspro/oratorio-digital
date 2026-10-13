@@ -32,9 +32,11 @@ que nos dão as lágrimas de Vossa Mãe Santíssima,<br>
 a fim de cumprirmos a Vossa santa vontade<br>
 na terra, para Vos louvarmos eternamente no céu.
 
-## Invocação nas contas grandes
+## 7x Mistérios
 
-Nas contas grandes, reza-se uma vez em cada mistério:
+### Invocação nas contas grandes
+
+*Nas contas grandes, reza-se uma vez em cada mistério:*
 
 Ó Jesus, olhai as lágrimas daquela<br>
 que mais Vos amou na terra<br>
@@ -43,9 +45,9 @@ e mais ardentemente Vos ama no céu.
 ℟. Ó Jesus, escutai as nossas preces,<br>
 pelas lágrimas de Vossa Santíssima Mãe.
 
-## Invocação nas contas pequenas
+### Invocação nas contas pequenas
 
-Nas contas pequenas, repete-se sete vezes em cada mistério:
+*Nas contas pequenas, repete-se sete vezes em cada mistério:*
 
 7x Ó Jesus, escutai as nossas preces, pelas lágrimas de Vossa Santíssima Mãe.
 

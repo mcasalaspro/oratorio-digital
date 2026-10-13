@@ -9,6 +9,7 @@ tags: ["misericórdia", "Jesus", "Santa Faustina", "conversão", "Hora da Miseri
 description: "Coroa da Divina Misericórdia, revelada por Jesus a Santa Faustina, rezada especialmente às 15h."
 featured: false
 liturgicalColor: "ordinario"
+liturgicalFeast: "divina-misericordia"
 ---
 
 A Coroa da Divina Misericórdia foi revelada por Nosso Senhor Jesus Cristo a Santa Faustina Kowalska, em 1935, na cidade de Vilnius, na Lituânia. Jesus prometeu graças extraordinárias a quem a rezasse, em especial pelos pecadores endurecidos e pelos agonizantes. É tradicionalmente rezada às 15h, a Hora da Misericórdia, e tem lugar de destaque no Domingo da Misericórdia. Reza-se no terço comum.
@@ -63,9 +64,13 @@ na remissão dos pecados,<br>
 na ressurreição da carne<br>
 e na vida eterna. Amém.
 
-## Nas contas grandes
+## 5x Dezenas
 
-Em cada conta grande do terço, reza-se uma vez:
+*Repete-se a sequência das contas grandes e pequenas por cinco dezenas.*
+
+### Nas contas grandes
+
+*Em cada conta grande do terço, reza-se uma vez:*
 
 Eterno Pai, eu Vos ofereço<br>
 o Corpo e o Sangue,<br>
@@ -75,13 +80,11 @@ Nosso Senhor Jesus Cristo,<br>
 em expiação dos nossos pecados<br>
 e dos do mundo inteiro.
 
-## Nas contas pequenas
+### Nas contas pequenas
 
-Em cada uma das dez contas pequenas, reza-se:
+*Em cada uma das dez contas pequenas, reza-se:*
 
 10x Pela Sua dolorosa Paixão, tende misericórdia de nós e do mundo inteiro.
-
-Repete-se a sequência das contas grandes e pequenas por cinco dezenas.
 
 ## Conclusão
 

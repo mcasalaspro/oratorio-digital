@@ -41,10 +41,6 @@ const pinned = site.pinnedPrayers
   .map((p) => byId.get(p.id))
   .filter(Boolean);
 
-// candidatas à "Oração do dia" (têm data de festa). As devoções de mês ("mes-…",
-// ex.: Mês de Maria) ficam de fora: a data delas marca o início do mês, não uma festa.
-const liturgical = all.filter((p) => p.data.liturgicalFeast && !p.id.startsWith('mes-'));
-
 // "Santo do dia": SOMENTE biografias com data de festa (campo feast "MM-DD").
 // Santos do mesmo dia aparecem juntos ("São Pedro e São Paulo"), nesta ordem:
 // a tradicional para os pares conhecidos, depois os destaques (featured/order) e o nome.
@@ -61,17 +57,36 @@ const santos = bios
     rank: b.data.featured ? (b.data.order ?? 50) : 999,
   }))
   .sort((a, b) => a.feast.localeCompare(b.feast) || _trad(a.id) - _trad(b.id) || a.rank - b.rank || a.name.localeCompare(b.name, 'pt-BR'));
+const santosDados = santos.map((s) => ({ f: s.feast, n: s.name, u: s.url }));
+
+// dados embutidos em <script type="application/json">: nenhum texto fecha o <script> antes da hora
+const json = (v: unknown) => JSON.stringify(v).replace(/</g, '\\u003c');
 
 // números de reserva do contador (src/data/contadores.json, se o build tiver trazido):
 // aparecem quando o serviço não responde e não há número guardado no aparelho
 const reservaTotal = reserva(site.counter.totalKey ?? 'total');
 const reservaVisitas = reserva(site.counter.visitsKey ?? 'visits');
 
-// filtros disponíveis
-const types = [...new Set(all.map((p) => p.data.type))];
-const langs = [...new Set(all.map((p) => p.data.language))];
+// filtros do catálogo: os tipos numa ordem fixa ("Outro" por último)
+const ORDEM_TIPOS = ['oracao', 'novena', 'terco', 'rosario', 'dezena', 'ladainha', 'hino', 'devocional', 'liturgia', 'bizantina', 'outro'];
+const presentes = new Set(all.map((p) => p.data.type));
+const types = [...ORDEM_TIPOS.filter((t) => presentes.has(t)), ...[...presentes].filter((t) => !ORDEM_TIPOS.includes(t))];
+// a linha "Idioma" só aparece quando houver mais de uma oração fora do português
+const langs = [...new Set(all.map((p) => p.data.language ?? 'pt-BR'))];
+const outrasLinguas = all.filter((p) => (p.data.language ?? 'pt-BR') !== 'pt-BR').length;
+const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
 ---
 <Base>
+  <Fragment slot="head">
+    <!-- com JavaScript, o catálogo já nasce mostrando só os 50 primeiros cartões (os outros
+         continuam no HTML, com os links, para o Google e para quem está sem JavaScript) -->
+    <script is:inline>document.documentElement.classList.add('od-catalogo-js');</script>
+  </Fragment>
+  <!-- ícones usados muitas vezes na página (o coração de cada cartão: <use href="#i-coracao">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-coracao" viewBox="0 0 24 24"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke-width="2" /></symbol>
+  </svg>
+
   <!-- ════════ HERO ════════ -->
   <section class="hero">
     <img class="hero-bg" src={withBase('/textures/rays.webp')} alt="" aria-hidden="true" data-parallax="0.12" onerror="this.style.display='none'" />
@@ -123,14 +138,14 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         <span class="santo-dia-date" id="santoDiaDate"></span>
         <span class="santo-dia-arrow" aria-hidden="true">&rarr;</span>
       </a>
-      <div id="santoData" hidden>
-        {santos.map((sv) => <i data-feast={sv.feast} data-name={sv.name} data-url={sv.url}></i>)}
-      </div>
+      <script type="application/json" id="santoDados" set:html={json(santosDados)}></script>
     </div>
   )}
 
   <!-- ════════ ORAÇÃO DO DIA (destaque revelado conforme a data) ════════ -->
-  <section class="section today-section" id="today">
+  <!-- os dados vêm dos próprios cartões do catálogo (data-feast, data-offset, data-total);
+       a imagem grande é a da oração escolhida: só ela é baixada -->
+  <section class="section today-section" id="today" data-imgs={withBase('/saints/')} data-fallback={withBase('/saints/default.webp')}>
     <div class="wrap">
       <a class="today-card" id="todayCard" href="#">
         <img class="today-bg" id="todayImg" alt="" aria-hidden="true" />
@@ -140,29 +155,17 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           <h2 class="today-title" id="todayTitle"></h2>
           <span class="today-meta" id="todayMeta"></span>
           <span class="today-reason" id="todayReason"></span>
+          <span class="today-brasil" id="todayBrasil" hidden></span>
           <span class="today-cta" data-i18n="today_cta">Rezar agora</span>
         </span>
       </a>
+      <!-- outras novenas em curso hoje (cada uma no dia certo) -->
+      <div class="andamento" id="andamento" data-festas={withBase('/proximas-festas')} hidden>
+        <p class="andamento-k" id="andamentoK"></p>
+        <ul class="andamento-lista" id="andamentoLista"></ul>
+      </div>
     </div>
   </section>
-
-  <!-- dados das orações com festa: alimentam a "Oração do dia" (sem seção visível).
-       A imagem fica só como endereço (data-img): o script baixa apenas a da oração escolhida.
-       (Uma imagem aqui seria baixada mesmo escondida: eram ~125 imagens grandes, ~52 MB.) -->
-  <div id="litData" hidden data-fallback={withBase('/saints/default.webp')}>
-    {liturgical.map((p) => (
-      <a class="lit-card"
-         href={withBase(`/oracao/${p.id}`)}
-         data-feast={p.data.liturgicalFeast}
-         data-start={p.data.novenaSuggestedStart ?? 0}
-         data-total={p.data.totalDays ?? 1}
-         data-type={p.data.type}
-         data-img={withBase(p.data.image ?? `/saints/${p.id}.webp`)}>
-        <h3>{p.data.title}</h3>
-        <span class="lit-meta">{p.data.saint}</span>
-      </a>
-    ))}
-  </div>
 
   <!-- ════════ ORAÇÕES FIXAS ════════ -->
   {pinned.length > 0 && (
@@ -187,7 +190,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
   </section>
 
   <!-- ════════ CATÁLOGO ════════ -->
-  <section class="section" id="catalogo">
+  <section class="section" id="catalogo" data-img-reserva={withBase('/saints/default.webp')}>
     <div class="wrap">
       <p class="eyebrow" data-i18n="catalog_title">Catálogo</p>
       <h2 class="section-title" data-i18n="catalog_title">Catálogo</h2>
@@ -212,7 +215,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
             <button class="chip" data-date="month" aria-pressed="false" data-i18n="filter_month">Este mês</button>
           </div>
         </div>
-        {langs.length > 1 && (
+        {mostrarIdioma && (
           <div class="filter-row">
             <span class="filter-label" data-i18n="lbl_lang">Idioma</span>
             <div class="chips" id="langChips" role="group" aria-label="Idioma">
@@ -230,6 +233,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       <p class="empty" id="emptyMsg" hidden data-i18n="no_results">Nenhuma oração encontrada com esses filtros.</p>
     </div>
   </section>
+  <!-- marca "vezes rezada" para os cartões que ainda não têm (número vivo do contador) -->
+  <template id="tplReza"><span class="pill pill-reza"><span class="pill-reza-n"></span><span class="sr-only"> <span class="pill-reza-lab"></span></span></span></template>
 
 
   <script>
@@ -243,6 +248,28 @@ const langs = [...new Set(all.map((p) => p.data.language))];
     }
     // texto da interface com reserva em português (para chaves ainda fora do site.ts)
     function tr(k: string, pt: string) { const f = (window as any).odt; const v = f ? f(k) : k; return v && v !== k ? v : pt; }
+    // dados embutidos na página (<script type="application/json">)
+    function dados<T>(id: string): T[] {
+      try { return JSON.parse(document.getElementById(id)?.textContent || '[]'); } catch (e) { return []; }
+    }
+    // calendário litúrgico do site inteiro (public/js/calendario.js): datas fixas e festas móveis
+    const CAL = (window as any).odCalendario;
+    const dm = (d: Date) => String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0');
+
+    // ── imagem de cartão que não carregou → a imagem padrão (um ouvinte só para todos) ──
+    (function () {
+      const reserva = document.getElementById('catalogo')?.dataset.imgReserva || '';
+      if (!reserva) return;
+      const troca = (img: HTMLImageElement) => { if (img.getAttribute('src') !== reserva) img.src = reserva; };
+      document.addEventListener('error', (e) => {
+        const t = e.target;
+        if (t instanceof HTMLImageElement && t.classList.contains('card-img')) troca(t);
+      }, true);
+      // alguma pode ter falhado antes deste script rodar
+      document.querySelectorAll<HTMLImageElement>('img.card-img').forEach((img) => {
+        if (img.complete && img.currentSrc && img.naturalWidth === 0) troca(img);
+      });
+    })();
 
     // ── Contadores da comunidade: vela, visitas, "hoje" e os cartões do catálogo ──
     // Uma leitura só (window.odContador — public/js/contador.js): no Supabase vem tudo de
@@ -289,21 +316,28 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         elHoje.append(b, ' ' + (hoje === 1 ? tr('community_today_one', 'oração hoje') : tr('community_today', 'orações hoje')));
         elHoje.hidden = false;
       }
-      // marca "N vezes rezada" dos cartões (PrayerCard): mostra se > 0, some com 0
-      function setReza(pill: HTMLElement, n: number) {
-        pill.dataset.n = n > 0 ? String(n) : '';
-        if (!(n > 0)) { pill.hidden = true; return; }
+      // marca "N vezes rezada" do cartão (PrayerCard): cria a partir do <template> se faltar
+      const tpl = document.getElementById('tplReza') as HTMLTemplateElement | null;
+      function setReza(card: HTMLElement, n: number) {
+        if (!(n > 0)) return;
+        let pill = card.querySelector<HTMLElement>('.pill-reza');
+        if (!pill) {
+          const foot = card.querySelector('.card-foot');
+          const novo = tpl?.content.firstElementChild?.cloneNode(true) as HTMLElement | undefined;
+          if (!foot || !novo) return;
+          foot.append(novo); pill = novo;
+        }
         const num = pill.querySelector<HTMLElement>('.pill-reza-n');
         const lab = pill.querySelector<HTMLElement>('.pill-reza-lab');
         let txt: string;
         if (n === 1) { txt = tr('count_short_one', 'vez rezada'); lab?.removeAttribute('data-i18n'); }
         else { txt = tr('count_short', 'vezes rezada'); lab?.setAttribute('data-i18n', 'count_short'); }
+        pill.dataset.n = String(n);
         if (num) num.textContent = fmtCount(n);
         if (lab) lab.textContent = txt;
         pill.title = `${fmtCount(n)} ${txt}`;
-        pill.hidden = false;
       }
-      const pills = () => Array.from(document.querySelectorAll<HTMLElement>('.card[data-slug] .pill-reza'));
+      const cartoes = () => Array.from(document.querySelectorAll<HTMLElement>('.card-oracao[data-slug]'));
 
       // a visita conta uma vez por sessão; no Abacus, a própria contagem já traz as visitas
       let contar = false;
@@ -323,11 +357,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           hoje = vivo('hoje');
           renderHoje();
           // cartões: no Supabase a leitura traz todas as orações de uma vez; o número vivo
-          // substitui a reserva (sem número vivo, fica a reserva — ou a marca segue oculta)
-          if (m) for (const p of pills()) {
-            const v = vivo(p.closest<HTMLElement>('.card')?.dataset.slug || '');
-            if (v) setReza(p, v);
-          }
+          // substitui a reserva (sem número vivo, fica a reserva — ou o cartão segue sem marca)
+          if (m) for (const c of cartoes()) { const v = vivo(c.dataset.slug || ''); if (v) setReza(c, v); }
         }
       });
       Promise.all([pLer, pVisita]).then(([m, nv]) => {
@@ -346,76 +377,125 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         if (elTotal && total) elTotal.textContent = fmtCount(total);
         if (elVis && visitas) elVis.textContent = fmtCount(visitas);
         renderHoje();
-        for (const p of pills()) { const n = Number(p.dataset.n); if (n > 0) setReza(p, n); }
+        for (const c of cartoes()) { const n = Number(c.querySelector<HTMLElement>('.pill-reza')?.dataset.n); if (n > 0) setReza(c, n); }
       });
     })();
 
-    // ── Oração do dia (calculada na data atual do visitante) ──
+    // ── Oração do dia + novenas em andamento (na data do visitante, pelo odCalendario) ──
     (function () {
-      const cards = Array.from(document.querySelectorAll<HTMLElement>('#litData .lit-card'));
+      type Lit = { u: string; f: string; s: number; n: number; t: string; i: string; h: string; m: string };
+      type Ativa = { d: Lit; feast: Date; start: Date; daysToFeast: number; suggestedDay: number };
       const todaySec = document.getElementById('today');
-      if (cards.length === 0 || !todaySec) return;
-      const DAY = 86400000;
-      const now = new Date(); now.setHours(0, 0, 0, 0);
-      const active: { card: HTMLElement; daysToFeast: number; suggestedDay: number; total: number; feast: Date; start: Date; novena: boolean; title: string }[] = [];
-
-      for (const card of cards) {
-        const m = (card.dataset.feast || '').match(/^(\d{2})-(\d{2})$/);
-        if (!m) continue;
-        const mm = +m[1], dd = +m[2];
-        let feast = new Date(now.getFullYear(), mm - 1, dd);
-        if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
-        const offset = parseInt(card.dataset.start || '0', 10);
-        const total = parseInt(card.dataset.total || '1', 10);
-        const start = new Date(feast.getTime() + offset * DAY);
-        if (now.getTime() >= start.getTime() && now.getTime() <= feast.getTime()) {
-          const daysToFeast = Math.round((feast.getTime() - now.getTime()) / DAY);
-          const suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - start.getTime()) / DAY) + 1));
-          const title = card.querySelector('h3')?.textContent || '';
-          active.push({ card, daysToFeast, suggestedDay, total, feast, start, novena: card.dataset.type === 'novena', title });
-        }
+      if (!todaySec || !CAL) return;
+      // candidatas: cartões do catálogo com data de festa ('MM-DD' ou o nome de uma festa
+      // móvel, ex.: 'pentecostes'). As devoções de mês ("mes-…", ex.: Mês de Maria) ficam
+      // de fora: a data delas marca o início do mês, não uma festa.
+      const imgs = todaySec.dataset.imgs || '';
+      const lista: Lit[] = [];
+      document.querySelectorAll<HTMLElement>('#catalogGrid .card[data-feast]').forEach((c) => {
+        const slug = c.dataset.slug || '', link = c.querySelector<HTMLAnchorElement>('.card-link');
+        if (!slug || slug.startsWith('mes-') || !link) return;
+        lista.push({
+          u: link.getAttribute('href') || '', f: c.dataset.feast || '',
+          s: parseInt(c.dataset.offset || '0', 10) || 0, n: parseInt(c.dataset.total || '1', 10) || 1,
+          t: c.dataset.type || '', i: c.dataset.img || `${imgs}${slug}.webp`,
+          h: (link.textContent || '').trim(), m: (c.querySelector('.card-saint')?.textContent || '').trim(),
+        });
+      });
+      const hojeD: Date = CAL.hoje();
+      const active: Ativa[] = [];
+      for (const d of lista) {
+        if (!CAL.valido(d.f)) continue;
+        const feast: Date | null = CAL.proxima(d.f, hojeD);   // a própria data da festa conta como "hoje"
+        if (!feast) continue;
+        const start: Date = CAL.somarDias(feast, d.s || 0);
+        const desde = CAL.dias(start, hojeD), faltam = CAL.dias(hojeD, feast);
+        if (desde < 0 || faltam < 0) continue;
+        const total = d.n || 1;
+        active.push({ d, feast, start, daysToFeast: faltam, suggestedDay: Math.min(total, Math.max(1, desde + 1)) });
       }
       if (active.length === 0) return;
       // 1º a festa de HOJE (no empate, a novena vence os demais tipos);
       // depois, a novena em andamento vence devoções de vários dias que não são novena
       // (ex.: Antífonas Ó, de 17 a 23/12, não tiram a Novena de Natal do destaque);
       // depois, a festa mais próxima; por fim, a ordem alfabética do título
-      const hoje = (x: { daysToFeast: number }) => (x.daysToFeast === 0 ? 0 : 1);
+      // devoção de vários dias que NÃO é novena (ex.: Antífonas Ó, de 17 a 23/12): a data dela é o último
+      // dia do período, não uma festa — não passa à frente da novena em curso nem diz "A festa é hoje!"
+      const periodo = (x: Ativa) => (x.d.s || 0) < 0 && (x.d.n || 1) <= 1;
+      const ehHoje = (x: Ativa) => (x.daysToFeast === 0 && !periodo(x) ? 0 : 1);
+      const ehNovena = (x: Ativa) => (x.d.t === 'novena' ? 1 : 0);
       active.sort((a, b) =>
-        hoje(a) - hoje(b) ||
-        Number(b.novena) - Number(a.novena) ||
+        ehHoje(a) - ehHoje(b) ||
+        ehNovena(b) - ehNovena(a) ||
         a.daysToFeast - b.daysToFeast ||
-        a.title.localeCompare(b.title, 'pt-BR'));
+        a.d.h.localeCompare(b.d.h, 'pt-BR'));
 
       const today = active[0];
-      const src = today.card as HTMLAnchorElement;
+      const total = today.d.n || 1;
+      // link para o dia certo da novena (endereço com barra final + ?dia=N)
+      const linkDia = (x: Ativa) => x.d.u + ((x.d.n || 1) > 1 && x.daysToFeast > 0 ? `?dia=${x.suggestedDay}` : '');
       // só agora baixa uma imagem: a da oração escolhida (com a padrão de reserva)
       const tImg = document.getElementById('todayImg') as HTMLImageElement | null;
-      const imgUrl = src.dataset.img || '';
-      if (tImg && imgUrl) {
-        const fallback = (document.getElementById('litData') as HTMLElement | null)?.dataset.fallback || '';
+      if (tImg && today.d.i) {
+        const fallback = todaySec.dataset.fallback || '';
         tImg.addEventListener('error', () => { if (fallback && tImg.getAttribute('src') !== fallback) tImg.src = fallback; });
-        tImg.src = imgUrl;
+        tImg.src = today.d.i;
       }
-      const tTitle = src.querySelector('h3');
-      const tEl = document.getElementById('todayTitle'); if (tEl) tEl.textContent = tTitle ? tTitle.textContent : '';
-      const mEl = src.querySelector('.lit-meta');
-      const tM = document.getElementById('todayMeta'); if (tM) tM.textContent = mEl ? (mEl.textContent || '') : '';
+      const tEl = document.getElementById('todayTitle'); if (tEl) tEl.textContent = today.d.h;
+      const tM = document.getElementById('todayMeta'); if (tM) tM.textContent = today.d.m;
       const tCard = document.getElementById('todayCard') as HTMLAnchorElement | null;
-      if (tCard) tCard.href = src.href.split('?')[0] + (today.total > 1 ? `?dia=${today.suggestedDay}` : '');
+      if (tCard) tCard.href = total > 1 ? today.d.u + `?dia=${today.suggestedDay}` : today.d.u;
 
-      const dm = (d: Date) => String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0');
-      const fillToday = () => {
+      // no Brasil a solenidade pode ir para o domingo (Assunção, Todos os Santos, S. Pedro e S. Paulo…)
+      const noBr: Date | null = CAL.noBrasil(today.d.f, today.feast.getFullYear());
+      // outras novenas em curso (não as que já chegaram ao dia da festa), a mais perto da festa primeiro;
+      // no celular, no máximo 2 (o catálogo não vai para longe); o resto fica em "Próximas festas"
+      const MAX = window.matchMedia('(max-width: 560px)').matches ? 2 : 3;
+      const outras = active.filter((x) => x !== today && (x.d.n || 1) > 1 && x.daysToFeast > 0)
+        .sort((a, b) => a.daysToFeast - b.daysToFeast || a.d.h.localeCompare(b.d.h, 'pt-BR'));
+      const caixa = document.getElementById('andamento'), ul = document.getElementById('andamentoLista'), cab = document.getElementById('andamentoK');
+
+      const fill = () => {
         const tt = (window as any).odt;
         const feastStr = dm(today.feast), startStr = dm(today.start);
         let reason: string;
-        if (today.daysToFeast === 0) reason = `${tt('feast_today')} (${feastStr})`;
-        else if (today.total > 1) reason = `${tt('day')} ${today.suggestedDay} ${tt('day_of')} ${today.total} · ${startStr}–${feastStr}`;
+        if (periodo(today)) reason = `${startStr}–${feastStr}`;
+        else if (today.daysToFeast === 0) reason = `${tt('feast_today')} (${feastStr})`;
+        else if (total > 1) reason = `${tt('day')} ${today.suggestedDay} ${tt('day_of')} ${total} · ${startStr}–${feastStr}`;
         else reason = feastStr;
         const rEl = document.getElementById('todayReason'); if (rEl) rEl.textContent = reason;
+        const br = document.getElementById('todayBrasil');
+        if (br) {
+          br.hidden = !noBr;
+          // "Assunção: no Brasil, celebrada no domingo 20/08"
+          if (noBr) br.textContent = tr('brasil_festa', '{festa}: no Brasil, celebrada no domingo {data}')
+            .replace('{festa}', CAL.nomeBrasil(today.d.f)).replace('{data}', dm(noBr));
+        }
+
+        if (!caixa || !ul || !cab) return;
+        caixa.hidden = outras.length === 0;
+        if (!outras.length) return;
+        const destaqueEmCurso = total > 1 && today.daysToFeast > 0;
+        cab.textContent = destaqueEmCurso ? tr('novenas_outras', 'Outras novenas em andamento') : tr('novenas_andamento', 'Novenas em andamento');
+        ul.textContent = '';
+        // a linha inteira é o link (área de toque grande): "Novena de … · Dia 5 de 9"
+        for (const x of outras.slice(0, MAX)) {
+          const li = document.createElement('li');
+          const a = document.createElement('a'); a.href = linkDia(x);
+          const nome = document.createElement('span'); nome.className = 'andamento-t'; nome.textContent = x.d.h;
+          const dia = document.createElement('span'); dia.className = 'andamento-dia';
+          dia.textContent = `${tt('day')} ${x.suggestedDay} ${tt('day_of')} ${x.d.n}`;
+          a.append(nome, ' ', dia); li.append(a); ul.append(li);
+        }
+        if (outras.length > MAX) {
+          const li = document.createElement('li'); li.className = 'andamento-mais';
+          const a = document.createElement('a'); a.href = caixa.dataset.festas || '';
+          a.textContent = `+ ${outras.length - MAX} · ${tt('nav_feasts')} →`;
+          li.append(a); ul.append(li);
+        }
       };
-      fillToday();
-      document.addEventListener('od:lang', fillToday);
+      fill();
+      document.addEventListener('od:lang', fill);
       todaySec.style.display = 'block';
     })();
 
@@ -431,33 +511,37 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       // sinônimos de uso comum: muita gente chama a "Coroa" de "Terço" (Terço da Misericórdia)
       const SINONIMOS: Record<string, string[]> = { terco: ['terco', 'coroa'], coroa: ['coroa', 'terco'] };
       const norm = (x: string) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-      const hay = new WeakMap<HTMLElement, string>();   // texto de busca de cada cart\u00e3o, j\u00e1 sem acentos
-      for (const c of cards) hay.set(c, norm(c.dataset.search || ''));
+      // texto de busca de cada cartão, já sem acentos: título + santo + o resto (data-search)
+      const hay = new WeakMap<HTMLElement, string>();
+      for (const c of cards) {
+        const tit = c.querySelector('.card-title')?.textContent || '', santo = c.querySelector('.card-saint')?.textContent || '';
+        hay.set(c, norm(`${tit} ${santo} ${c.dataset.search || ''}`));
+      }
       const STEP = 50;
       let limit = STEP;
       const moreBtn = document.getElementById('showMore');
 
-      // calcula uma vez se a festa de cada oração é hoje / nesta semana / neste mês
-      const DAY = 86400000;
-      const now = new Date(); now.setHours(0, 0, 0, 0);
-      const curMonth = now.getMonth();
-      const weekEnd = now.getTime() + 7 * DAY;
+      // calcula uma vez se a festa de cada oração é hoje / nesta semana / neste mês (odCalendario)
+      const vazio = { today: false, week: false, month: false };
       const dflag = new WeakMap<HTMLElement, { today: boolean; week: boolean; month: boolean }>();
+      const hojeD: Date | null = CAL ? CAL.hoje() : null;
+      const mesmoMes = (d: Date | null) => !!d && !!hojeD && d.getMonth() === hojeD.getMonth() && d.getFullYear() === hojeD.getFullYear();
       for (const c of cards) {
-        const m = (c.dataset.feast || '').match(/^(\d{2})-(\d{2})$/);
-        if (!m) { dflag.set(c, { today: false, week: false, month: false }); continue; }
-        const mm = +m[1], dd = +m[2];
-        let feast = new Date(now.getFullYear(), mm - 1, dd);
-        if (feast.getTime() + DAY < now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
+        const codigo = c.dataset.feast || '';
+        if (!hojeD || !CAL.valido(codigo)) { dflag.set(c, vazio); continue; }
+        const feast: Date | null = CAL.proxima(codigo, hojeD);
+        if (!feast) { dflag.set(c, vazio); continue; }
         const total = parseInt(c.dataset.total || '1', 10);
-        const offset = parseInt(c.dataset.offset || '0', 10);
         // a janela (novenaSuggestedStart) vale também para devoções de vários dias que não são novena (Antífonas Ó)
-        const start = new Date(feast.getTime() + offset * DAY);
-        const daysToFeast = Math.round((feast.getTime() - now.getTime()) / DAY);
-        const inWindow = now.getTime() >= start.getTime() && now.getTime() <= feast.getTime();
-        const isToday = daysToFeast === 0 || inWindow;
-        const isWeek = (daysToFeast >= 0 && daysToFeast <= 7) || (start.getTime() <= weekEnd && feast.getTime() >= now.getTime());
-        const isMonth = feast.getMonth() === curMonth || (total > 1 && start.getMonth() === curMonth);
+        const offset = parseInt(c.dataset.offset || '0', 10);
+        const start: Date = CAL.somarDias(feast, offset);
+        const faltam = CAL.dias(hojeD, feast), desde = CAL.dias(start, hojeD);
+        const inWindow = desde >= 0 && faltam >= 0;
+        const isToday = faltam === 0 || inWindow;
+        const isWeek = (faltam >= 0 && faltam <= 7) || (CAL.dias(hojeD, start) <= 7 && faltam >= 0);
+        // "este mês": a festa deste ano cai neste mês, ou a próxima (ou a janela dela) começa nele
+        const desteAno: Date | null = CAL.data(codigo, hojeD.getFullYear());
+        const isMonth = mesmoMes(desteAno) || mesmoMes(feast) || (total > 1 && mesmoMes(start));
         dflag.set(c, { today: isToday, week: isWeek, month: isMonth });
       }
 
@@ -465,9 +549,9 @@ const langs = [...new Set(all.map((p) => p.data.language))];
         let matched = 0;
         for (const c of cards) {
           const okType = !fType || c.dataset.type === fType;
-          const okLang = !fLang || c.dataset.lang === fLang;
+          const okLang = !fLang || (c.dataset.lang || 'pt-BR') === fLang;
           const okText = !fWords.length || fWords.every((w) => (SINONIMOS[w] || [w]).some((s) => (hay.get(c) || '').includes(s)));
-          const f = dflag.get(c) || { today: false, week: false, month: false };
+          const f = dflag.get(c) || vazio;
           const okDate = !fDate || (fDate === 'today' && f.today) || (fDate === 'week' && f.week) || (fDate === 'month' && f.month);
           const show = okType && okLang && okText && okDate;
           if (show) { matched++; c.style.display = matched <= limit ? '' : 'none'; }
@@ -496,11 +580,12 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       search?.addEventListener('input', () => { fWords = norm(search.value).split(/[^a-z0-9]+/).filter(Boolean); limit = STEP; apply(); });
       moreBtn?.addEventListener('click', () => { limit += STEP; apply(); });
       apply();
+      grid.classList.add('pronto');   // daqui em diante quem esconde é o filtro (ver o CSS do fim)
     })();
     // ── Favoritos ("Minhas orações") ──
     (function () {
-      if (!(window as any).odFav) return;
       const odFav = (window as any).odFav;
+      if (!odFav) return;
       const favGrid = document.getElementById('favGrid');
       const favSec = document.getElementById('favSection');
       const source: Record<string, HTMLElement> = {};
@@ -513,60 +598,70 @@ const langs = [...new Set(all.map((p) => p.data.language))];
           if (card) btn.setAttribute('aria-pressed', odFav.has(card.dataset.slug) ? 'true' : 'false');
         });
       }
+      // nome do botão para o leitor de tela: "Salvar Pai Nosso nos favoritos" (o estado vem do aria-pressed)
+      function rotulos() {
+        const modelo = tr('fav_add_label', 'Salvar {nome} nos favoritos');
+        document.querySelectorAll<HTMLElement>('.card-oracao .fav-btn').forEach((btn) => {
+          const nome = btn.closest('.card')?.querySelector('.card-link')?.textContent || '';
+          btn.setAttribute('aria-label', modelo.replace('{nome}', nome));
+        });
+      }
+      // monta "Minhas orações" sem recriar as cópias que continuam salvas (o foco do teclado não se perde)
       function build() {
         if (!favGrid || !favSec) return;
-        favGrid.innerHTML = '';
-        let n = 0;
-        odFav.all().forEach((slug: string) => {
-          const orig = source[slug];
-          if (!orig) return;
-          const clone = orig.cloneNode(true) as HTMLElement;
+        const salvas: string[] = odFav.all().filter((s: string) => source[s]);
+        const ja = new Set<string>();
+        favGrid.querySelectorAll<HTMLElement>('.card[data-slug]').forEach((c) => {
+          const s = c.dataset.slug || '';
+          if (salvas.includes(s) && !ja.has(s)) ja.add(s); else c.remove();
+        });
+        for (const s of salvas) {
+          if (ja.has(s)) continue;
+          const clone = source[s].cloneNode(true) as HTMLElement;
           clone.style.display = '';
           favGrid.appendChild(clone);
-          n++;
-        });
-        (favSec as HTMLElement).hidden = n === 0;
+        }
+        favSec.hidden = salvas.length === 0;
         refreshHearts();
       }
+      // o coração é um botão ao lado do link (não dentro dele): clicar não abre a oração
       document.addEventListener('click', (e) => {
-        const t = e.target as HTMLElement;
-        const btn = t.closest ? t.closest('.fav-btn') : null;
+        const btn = (e.target as Element | null)?.closest?.('.fav-btn') as HTMLElement | null;
         if (!btn) return;
-        e.preventDefault(); e.stopPropagation();
         const card = btn.closest('.card') as HTMLElement | null;
-        if (!card) return;
-        odFav.toggle(card.dataset.slug);
+        const slug = card?.dataset.slug;
+        if (!card || !slug) return;
+        e.preventDefault();
+        // se o cartão sair de "Minhas orações", o foco vai para o vizinho (ou para o cartão do catálogo)
+        const viz = favGrid?.contains(card) ? (card.nextElementSibling || card.previousElementSibling) as HTMLElement | null : null;
+        odFav.toggle(slug);
         build();
+        if (!document.body.contains(btn)) {
+          const alvo = viz && document.body.contains(viz) ? viz : source[slug];
+          alvo?.querySelector<HTMLElement>('.fav-btn')?.focus();
+        }
       });
       build();
+      document.addEventListener('od:lang', rotulos);
     })();
     // ── Santo do dia (calculado na data do visitante; só biografias) ──
     (function () {
       const link = document.getElementById('santoDia');
-      const dataEl = document.getElementById('santoData');
-      if (!link || !dataEl) return;
-      const items = Array.from(dataEl.querySelectorAll<HTMLElement>('i')).map((el) => ({
-        feast: el.dataset.feast || '', name: el.dataset.name || '', url: el.dataset.url || '',
-      })).filter((x) => /^\d{2}-\d{2}$/.test(x.feast));
+      if (!link || !CAL) return;
+      const items = dados<{ f: string; n: string; u: string }>('santoDados')
+        .map((x) => ({ feast: x.f, name: x.n, url: x.u }))
+        .filter((x) => CAL.valido(x.feast));
       if (!items.length) return;
 
-      const DAY = 86400000;
-      const now = new Date(); now.setHours(0, 0, 0, 0);
-      const mmdd = String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
-
       // hoje? senão, a próxima data que tiver santo
-      let feast = items.some((x) => x.feast === mmdd) ? mmdd : '';
-      const isToday = !!feast;
-      if (!feast) {
-        let bestDelta = Infinity;
-        for (const x of items) {
-          const mm = +x.feast.slice(0, 2), dd = +x.feast.slice(3, 5);
-          let d = new Date(now.getFullYear(), mm - 1, dd);
-          if (d.getTime() < now.getTime()) d = new Date(now.getFullYear() + 1, mm - 1, dd);
-          const delta = Math.round((d.getTime() - now.getTime()) / DAY);
-          if (delta < bestDelta) { bestDelta = delta; feast = x.feast; }
-        }
+      const hojeD: Date = CAL.hoje();
+      let feast = '', bestDelta = Infinity;
+      for (const x of items) {
+        const d: Date | null = CAL.proxima(x.feast, hojeD);
+        const delta = d ? CAL.dias(hojeD, d) : Infinity;
+        if (delta < bestDelta) { bestDelta = delta; feast = x.feast; }
       }
+      const isToday = bestDelta === 0;
       // todos os santos dessa data, juntos (a ordem já vem pronta do build)
       const group = items.filter((x) => x.feast === feast);
       if (!group.length) return;
@@ -589,7 +684,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       const dateEl = strip.querySelector<HTMLElement>('#santoDiaDate');
       const labEl = strip.querySelector<HTMLElement>('#santoDiaLabel');
       if (dateEl) dateEl.textContent = feast.slice(3, 5) + '/' + feast.slice(0, 2);
-      // o rótulo plural usa chaves novas: tira o data-i18n para o Base não trocá-lo pela chave crua
+      // o rótulo plural usa chaves próprias: tira o data-i18n para o Base não trocá-lo
       if (labEl) { if (many) labEl.removeAttribute('data-i18n'); else labEl.setAttribute('data-i18n', isToday ? 'santo_today' : 'santo_next'); }
       const render = () => {
         if (labEl) labEl.textContent = many
@@ -614,6 +709,7 @@ const langs = [...new Set(all.map((p) => p.data.language))];
 
     // ── Busca pelo endereço: /?q=termo (é o endereço que o Google usa) ──
     // preenche a busca do catálogo, aplica o filtro e rola até o catálogo
+    // (o scroll-margin-top do #catalogo deixa o título abaixo do topo fixo)
     (function () {
       let q = '';
       try { q = (new URLSearchParams(location.search).get('q') || '').trim().slice(0, 100); } catch (e) {}
@@ -622,11 +718,8 @@ const langs = [...new Set(all.map((p) => p.data.language))];
       if (!q || !input || !cat) return;
       input.value = q;
       input.dispatchEvent(new Event('input'));
-      // o topo fixo cobriria o título: desconta a altura dele
-      const rolar = () => {
-        const topo = (document.querySelector('.topbar') as HTMLElement | null)?.offsetHeight || 0;
-        window.scrollTo({ top: cat.getBoundingClientRect().top + window.scrollY - topo - 8, behavior: 'auto' });
-      };
+      // 'instant': o html tem scroll-behavior: smooth, e aqui a rolagem é parte da chegada à página
+      const rolar = () => cat.scrollIntoView({ block: 'start', behavior: 'instant' as ScrollBehavior });
       rolar();
       // quando imagens e fontes terminarem de chegar, confere de novo (se a pessoa ainda não rolou)
       let mexeu = false;
@@ -638,21 +731,29 @@ const langs = [...new Set(all.map((p) => p.data.language))];
 </Base>
 
 <script>
+  // botão "Ler a Liturgia do dia": leva direto à de hoje, se houver (endereço com barra final)
   (function () {
     var el = document.getElementById('liturgiaCta');
     if (!el) return;
     var base = el.getAttribute('data-base') || '/';
     var map = {};
     try { map = JSON.parse(el.getAttribute('data-map') || '{}'); } catch (e) {}
-    var now = new Date();
+    var now = (window as any).odCalendario ? (window as any).odCalendario.hoje() : new Date();
     var key = '' + now.getFullYear() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
     if (map[key]) {
-      el.setAttribute('href', base.replace(/\/$/, '') + '/liturgia/' + map[key]);
+      el.setAttribute('href', base.replace(/\/$/, '') + '/liturgia/' + map[key] + '/');
     }
   })();
 </script>
 
 <style>
+  /* atalho "Catálogo" e busca ?q=: o título para abaixo do topo fixo */
+  #catalogo { scroll-margin-top: 76px; }
+
+  /* antes do filtro rodar, só os 50 primeiros cartões (o mesmo STEP do script) entram no
+     cálculo da página: os outros 180 e poucos nem passam por estilo e layout */
+  :global(.od-catalogo-js #catalogGrid:not(.pronto) > .card:nth-child(n+51)) { display: none; }
+
   .liturgia-cta {
     display: flex; align-items: center; gap: 1rem;
     margin: 0 auto 1rem; padding: 1.15rem 1.5rem; max-width: 40rem;
@@ -678,4 +779,31 @@ const langs = [...new Set(all.map((p) => p.data.language))];
   .santo-dia-name :global(a) { color: inherit; text-decoration: none; }
   .santo-dia-name :global(a:hover) { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
   div.santo-dia .santo-dia-name { line-height: 1.2; }
+
+  /* Oração do dia: aviso discreto quando no Brasil a festa vai para o domingo */
+  .today-brasil { font-size: .86rem; font-style: italic; color: #cdbf9d; }
+
+  /* novenas em andamento (além da Oração do dia): lista curta, cada uma no dia certo */
+  .andamento { margin: .8rem 0 0; padding: .6rem .95rem .5rem; border: 1px solid var(--hair); border-radius: 12px; background: color-mix(in srgb, var(--gold) 4%, transparent); }
+  .andamento-k { margin: 0 0 .1rem; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .andamento-lista { list-style: none; margin: 0; padding: 0; }
+  .andamento-lista :global(li) { border-top: 1px solid color-mix(in srgb, var(--hair) 60%, transparent); }
+  .andamento-lista :global(li:first-child) { border-top: none; }
+  .andamento-lista :global(a) { display: flex; align-items: center; gap: .6rem; min-height: 44px; color: var(--ink); text-decoration: none; }
+  .andamento-lista :global(.andamento-t) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'Cormorant', serif; font-size: 1.1rem; font-weight: 600; }
+  .andamento-lista :global(a:hover .andamento-t) { color: var(--gold); }
+  .andamento-lista :global(.andamento-dia) { flex: 0 0 auto; font-size: .82rem; color: var(--ink-soft); white-space: nowrap; }
+  .andamento-lista :global(.andamento-mais a) { min-height: 36px; font-size: .9rem; color: var(--ink-soft); }
+  .andamento-lista :global(.andamento-mais a:hover) { color: var(--gold); }
+
+  /* filtros no celular: cada linha de chips rola para o lado em vez de quebrar em várias */
+  @media (max-width: 560px) {
+    #catalogo .chips {
+      flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      margin-right: calc(-1 * clamp(1rem, 4vw, 2.2rem)); padding: 3px clamp(1rem, 4vw, 2.2rem) 4px 3px;
+    }
+    #catalogo .chips::-webkit-scrollbar { display: none; }
+    #catalogo .chip { flex: 0 0 auto; white-space: nowrap; }
+  }
 </style>

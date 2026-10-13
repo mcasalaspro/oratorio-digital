@@ -9,6 +9,7 @@ tags: ["reparação", "desagravo", "Sagrado Coração", "Jesus"]
 description: "Ato de desagravo ao Sagrado Coração de Jesus, indulgenciado por Pio XI em 1928."
 featured: false
 liturgicalColor: "festa"
+liturgicalFeast: "sagrado-coracao"
 ---
 Ato de reparação ao Sagrado Coração de Jesus, indulgenciado pelo Papa Pio XI na encíclica *Miserentissimus Redemptor* (1928). Tradicionalmente rezado na festa do Sagrado Coração, em desagravo pelos pecados cometidos contra o amor de Cristo.
 

@@ -11,6 +11,7 @@ description: "A primeira novena cristã: nove dias entre a Ascensão e Pentecost
 featured: true
 liturgicalColor: "festa"
 novenaSuggestedStart: -9
+liturgicalFeast: "pentecostes"
 ---
 
 Esta é considerada a primeira novena cristã. Segundo a tradição apostólica (cf. Atos 1,4.14), por volta do ano 33 d.C., após a Ascensão do Senhor, os apóstolos reunidos com Maria, a Mãe de Jesus, perseveraram em oração no Cenáculo durante os nove dias que antecederam Pentecostes, aguardando o cumprimento da promessa do Pai. Reze esta novena com o mesmo espírito de expectativa, súplica e confiança.

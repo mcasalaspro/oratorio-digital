@@ -24,7 +24,11 @@ Reze um Pai-Nosso.<br>
 Reze três Ave-Marias pelas virtudes da fé, esperança e caridade.<br>
 Reze um Glória ao Pai.
 
-Anuncie o primeiro mistério e reze um Pai-Nosso.<br>
+### 5x Dezenas
+
+*Repita o mesmo para cada um dos cinco mistérios do dia.*
+
+Anuncie o mistério e reze um Pai-Nosso.<br>
 Em seguida, rezando uma dezena de Ave-Marias, contemple o mistério.
 
 1x Pai-Nosso, que estais nos Céus, santificado seja o Vosso nome, venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no Céu. O pão nosso de cada dia nos dai hoje, perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido, e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
@@ -36,8 +40,6 @@ Em seguida, rezando uma dezena de Ave-Marias, contemple o mistério.
 Após cada dezena, reze a oração de Fátima:
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o Céu e socorrei principalmente as que mais precisarem da Vossa misericórdia.
-
-Repita o mesmo para cada um dos cinco mistérios do dia.
 
 ## Os Mistérios Gozosos (segunda e sábado)
 

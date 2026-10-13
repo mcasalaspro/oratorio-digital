@@ -3,14 +3,15 @@ import Base from '../../layouts/Base.astro';
 import { withBase } from '../../config/site';
 import { getCollection } from 'astro:content';
 import fs from 'node:fs';
+import { banner } from '../textos/_banner';
 
 const entries = await getCollection('cantos');
 entries.sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
-const bg = fs.existsSync('public/cantos/index.webp') ? withBase('/cantos/index.webp') : withBase('/textures/rays.webp');
+const bg = banner(fs.existsSync('public/cantos/index.webp') ? '/cantos/index.webp' : '/textures/rays.webp');
 ---
 <Base title="Cantos litúrgicos" description="O repertório das partes cantadas da Missa — o Ordinário e os cantos próprios.">
   <section class="txs-hero">
-    <div class="txs-bg" style={`background-image: url('${bg}')`} aria-hidden="true"></div>
+    <div class="txs-bgwrap" aria-hidden="true"><img class="txs-bg" src={bg.src} srcset={bg.srcset} sizes={bg.srcset ? '100vw' : undefined} width={bg.width} height={bg.height} alt="" fetchpriority="high" /></div>
     <div class="txs-shade" aria-hidden="true"></div>
     <div class="txs-wrap">
       <p class="txs-eyebrow" data-i18n="nav_cantos">Cantos</p>
@@ -20,13 +21,13 @@ const bg = fs.existsSync('public/cantos/index.webp') ? withBase('/cantos/index.w
       {entries.length === 0 ? (
         <p class="txs-empty" data-i18n="cantos_empty">Em breve, os cantos litúrgicos.</p>
       ) : (
-        <div class="txs-grid">
+        <div class="txs-grid" lang="pt-BR">
           {entries.map((e) => (
             <a class="txs-card" href={withBase(`/cantos/${e.id}`)}>
               {e.data.icon && <span class="txs-card-icon" aria-hidden="true">{e.data.icon}</span>}
               <span class="txs-card-title">{e.data.title}</span>
               {e.data.summary && <span class="txs-card-summary">{e.data.summary}</span>}
-              <span class="txs-card-more">Ler <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="txs-card-more"><span data-i18n="ler">Ler</span> <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </a>
           ))}
         </div>
@@ -36,8 +37,10 @@ const bg = fs.existsSync('public/cantos/index.webp') ? withBase('/cantos/index.w
 </Base>
 
 <style>
-  .txs-hero { position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center; background: radial-gradient(120% 100% at 50% 0%, #2a1d0e 0%, #1a1208 55%, #120c06 100%); }
-  .txs-bg { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
+  .txs-hero { position: relative; overflow: hidden; overflow: clip; min-height: 100vh; display: flex; align-items: center; background: radial-gradient(120% 100% at 50% 0%, #2a1d0e 0%, #1a1208 55%, #120c06 100%); }
+  /* fundo parado enquanto a página rola (no lugar do background-attachment: fixed, que o iPhone ignora) */
+  .txs-bgwrap { position: absolute; inset: 0; }
+  .txs-bg { position: sticky; top: 0; width: 100%; height: 100vh; object-fit: cover; object-position: center; }
   .txs-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,5,2,.6) 0%, rgba(8,5,2,.5) 40%, rgba(8,5,2,.72) 100%); }
   .txs-wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: clamp(2.6rem, 7vw, 5rem) clamp(1rem, 4vw, 2.2rem); }
   .txs-eyebrow { color: var(--season, var(--gold)); font-size: .8rem; letter-spacing: .26em; text-transform: uppercase; margin: 0 0 .7rem; }

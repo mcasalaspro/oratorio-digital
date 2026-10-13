@@ -9,11 +9,14 @@
     "build": "node scripts/gerar-thumbs.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "validar": "node scripts/validar-conteudo.mjs",
+    "links": "node scripts/checar-links.mjs",
     "thumbs": "node scripts/gerar-thumbs.mjs",
     "thumbs:force": "node scripts/gerar-thumbs.mjs --force"
   },
   "dependencies": {
     "astro": "^5.6.0",
-    "js-yaml": "^5.0.0"
+    "js-yaml": "^5.0.0",
+    "sharp": "^0.34.5"
   }
 }

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { site, ui } from '../config/site';
+import { site, ui, withBase } from '../config/site';
 // noindex: a página não entra no Google nem no sitemap (ex.: 404, páginas internas)
 // idioma: língua do CONTEÚDO, para os dados estruturados (ex.: 'en' numa oração em inglês)
 const { title, description, noindex = false, idioma = 'pt-BR' } = Astro.props;
@@ -84,7 +84,8 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
 <html lang="pt-BR" data-theme="dark" data-lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- viewport-fit=cover: no iPhone, a página usa a tela toda e as margens seguras (env(safe-area-inset-*)) valem -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>{pageTitle}</title>
   <meta name="description" content={desc} />
   {semIndice ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
@@ -105,9 +106,10 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
   <link rel="icon" type="image/png" sizes="32x32" href={`${base.replace(/\/$/,'')}/favicon-32.png`} />
   <link rel="icon" type="image/png" sizes="48x48" href={`${base.replace(/\/$/,'')}/favicon-48.png`} />
   <link rel="apple-touch-icon" href={`${base.replace(/\/$/,'')}/apple-touch-icon.png`} />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <!-- fontes servidas pelo próprio site (public/fonts/, @font-face no CSS abaixo): sem Google Fonts.
+       Pré-carrega só as duas que toda página mostra logo de cara: o texto e a marca/títulos. -->
+  <link rel="preload" href={`${base.replace(/\/$/,'')}/fonts/eb-garamond-latin-400-normal.woff2`} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={`${base.replace(/\/$/,'')}/fonts/cormorant-latin-600-normal.woff2`} as="font" type="font/woff2" crossorigin />
 
   <!-- evita "flash" de tema/idioma errados antes da página pintar -->
   <script is:inline>
@@ -131,11 +133,16 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
       var dict = (window.__UI__[l] || window.__UI__['pt-BR']);
       return dict[key] != null ? dict[key] : key;
     };
+    // E9: endereço de PÁGINA sempre com barra final (antes de ? e #), como o GitHub Pages serve;
+    // arquivos (search-index.json, imagens…) ficam como estão
     window.odBase = function (p) {
       var b = (window.__SITE__.base || '/').replace(/\/$/, '');
       if (!p) return b || '/';
       if (/^https?:\/\//.test(p)) return p;
-      return b + (p.charAt(0) === '/' ? p : '/' + p);
+      var m = /^([^?#]*)(.*)$/.exec(p.charAt(0) === '/' ? p : '/' + p);
+      var c = m[1];
+      if (c.slice(-1) !== '/' && !/\.[a-z0-9]+$/i.test(c)) c += '/';
+      return b + c + m[2];
     };
     window.odFav = {
       key: 'od-favs',
@@ -149,82 +156,49 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
       has: function (s) { return this.all().indexOf(s) >= 0; },
       toggle: function (s) { var a = this.all(); var i = a.indexOf(s); if (i >= 0) a.splice(i, 1); else a.push(s); try { localStorage.setItem(this.key, JSON.stringify(a)); } catch (e) {} return i < 0; }
     };
-    // ── Tempo litúrgico (a cor de destaque acompanha a estação) ──
-    window.odSeason = (function () {
-      function easter(y) {
-        var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4,
-            f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3),
-            h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4,
-            l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451),
-            mo = Math.floor((h + l - 7 * m + 114) / 31), da = ((h + l - 7 * m + 114) % 31) + 1;
-        return new Date(y, mo - 1, da);
-      }
-      function add(dt, n) { var x = new Date(dt); x.setDate(x.getDate() + n); return x; }
-      function firstAdvent(y) { var d = new Date(y, 10, 30), w = d.getDay(); if (w === 0) return d; return w <= 3 ? add(d, -w) : add(d, 7 - w); }
-      function baptism(y) { var d = new Date(y, 0, 6), w = d.getDay(); return w === 0 ? add(d, 7) : add(d, 7 - w); }
-      function transitions(y) {
-        var E = easter(y);
-        return [
-          { d: add(baptism(y), 1), k: 'comum' },
-          { d: add(E, -46), k: 'quaresma' },
-          { d: E, k: 'pascoa' },
-          { d: add(E, 50), k: 'comum' },
-          { d: firstAdvent(y), k: 'advento' },
-          { d: new Date(y, 11, 25), k: 'natal' }
-        ];
-      }
-      function nextSeason(dd) {
-        var today = new Date(dd.getFullYear(), dd.getMonth(), dd.getDate());
-        var list = transitions(today.getFullYear() - 1)
-          .concat(transitions(today.getFullYear()))
-          .concat(transitions(today.getFullYear() + 1));
-        list = list.filter(function (e) { return e.d.getTime() > today.getTime(); })
-                   .sort(function (a, b) { return a.d.getTime() - b.d.getTime(); });
-        return list[0];
-      }
-      function season(dd) {
-        var d = new Date(dd.getFullYear(), dd.getMonth(), dd.getDate()), y = d.getFullYear(), t = d.getTime();
-        if (t >= new Date(y - 1, 11, 25).getTime() && t <= baptism(y).getTime()) return 'natal';
-        var E = easter(y), ash = add(E, -46), pent = add(E, 49);
-        if (t === pent.getTime()) return 'pentecostes';
-        if (t >= ash.getTime() && t < E.getTime()) return 'quaresma';
-        if (t >= E.getTime() && t <= pent.getTime()) return 'pascoa';
-        if (t >= firstAdvent(y).getTime() && t < new Date(y, 11, 25).getTime()) return 'advento';
-        if (t >= new Date(y, 11, 25).getTime()) return 'natal';
-        return 'comum';
-      }
-      var COLORS = { advento: '#9a86d4', natal: '#e6c876', quaresma: '#8f7bbf', pascoa: '#e6c876', comum: '#6fae84', pentecostes: '#c0563f' };
-      var key = 'comum';
-      try {
-        key = season(new Date());
-        document.documentElement.dataset.season = key;
-        document.documentElement.style.setProperty('--season', COLORS[key] || '#c8a24a');
-      } catch (e) {}
-      var nxt = null;
-      try { nxt = nextSeason(new Date()); } catch (e) {}
-      var applyTag = function () {
-        var lang = document.documentElement.getAttribute('data-lang') || 'pt-BR';
-        var name = window.odt('season_' + key);
-        var ft = document.getElementById('seasonTag'); if (ft) ft.textContent = name;
-        var bt = document.getElementById('seasonBadgeText'); if (bt) bt.textContent = name;
-        var bg = document.getElementById('seasonBadge'); if (bg) bg.hidden = false;
-        var nx = document.getElementById('seasonNext');
-        if (nx && nxt && nxt.d) {
-          var opts = { day: 'numeric', month: 'long' };
-          if (nxt.d.getFullYear() !== new Date().getFullYear()) opts.year = 'numeric';
-          var dateStr = nxt.d.toLocaleDateString(lang, opts);
-          var nextName = window.odt('season_' + nxt.k);
-          nx.innerHTML = window.odt('season_until') + ' ' + dateStr + ' · ' + window.odt('season_then') + ' <b>' + nextName + '</b>';
-          nx.hidden = false;
-        }
-      };
-      if (document.readyState !== 'loading') applyTag(); else document.addEventListener('DOMContentLoaded', applyTag);
-      document.addEventListener('od:lang', applyTag);
-      return { key: key, color: COLORS[key] };
-    })();
   </script>
   <!-- espaço para uma página acrescentar algo ao <head>: <Fragment slot="head">…</Fragment> -->
   <slot name="head" />
+  <!-- calendário litúrgico (datas fixas e móveis, regras do Brasil): window.odCalendario — ver public/js/calendario.js -->
+  <script is:inline src={`${base.replace(/\/$/,'')}/js/calendario.js`}></script>
+  <!-- tempo litúrgico do dia (cor de destaque, selo da abertura, rodapé): tudo pelo odCalendario, sem contas próprias -->
+  <script is:inline>
+    window.odSeason = (function () {
+      // cor de destaque de cada tempo; o Tríduo Pascal tem a sua (vermelho, mais escuro que o de Pentecostes)
+      var CORES = { advento: '#9a86d4', natal: '#e6c876', quaresma: '#8f7bbf', triduo: '#b4463e', pascoa: '#e6c876', comum: '#6fae84', pentecostes: '#c0563f' };
+      var CAL = window.odCalendario, t = null;
+      try { t = CAL ? CAL.tempo(CAL.hoje()) : null; } catch (e) { t = null; }
+      var key = t ? t.chave : 'comum';
+      try {
+        document.documentElement.dataset.season = key;
+        document.documentElement.style.setProperty('--season', CORES[key] || '#c8a24a');
+      } catch (e) {}
+      function tr(k, pt) { var v = window.odt ? window.odt(k) : k; return v && v !== k ? v : pt; }
+      function aplica() {
+        var lang = document.documentElement.getAttribute('data-lang') || 'pt-BR';
+        var nome = window.odt('season_' + key);
+        var ft = document.getElementById('seasonTag'); if (ft) ft.textContent = nome;
+        var bt = document.getElementById('seasonBadgeText'); if (bt) bt.textContent = nome;
+        var bg = document.getElementById('seasonBadge'); if (bg) bg.hidden = false;
+        var nx = document.getElementById('seasonNext');
+        if (nx && t && t.fim && t.proximo) {
+          // "até" = ÚLTIMO dia do tempo atual; quando ele acaba hoje (ex.: Pentecostes), "até hoje"
+          var hoje = CAL.hoje(), quando;
+          if (CAL.dias(hoje, t.fim) === 0) quando = tr('season_hoje', 'hoje');
+          else {
+            var o = { day: 'numeric', month: 'long' };
+            if (t.fim.getFullYear() !== hoje.getFullYear()) o.year = 'numeric';
+            quando = t.fim.toLocaleDateString(lang, o);
+          }
+          nx.innerHTML = window.odt('season_until') + ' ' + quando + ' · ' + window.odt('season_then') + ' <b>' + window.odt('season_' + t.proximo.chave) + '</b>';
+          nx.hidden = false;
+        }
+      }
+      if (document.readyState !== 'loading') aplica(); else document.addEventListener('DOMContentLoaded', aplica);
+      document.addEventListener('od:lang', aplica);
+      return { key: key, color: CORES[key] };
+    })();
+  </script>
   <!-- contador da comunidade (Supabase ou Abacus): window.odContador — ver public/js/contador.js -->
   <script is:inline src={`${base.replace(/\/$/,'')}/js/contador.js`}></script>
 </head>
@@ -232,7 +206,7 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
   <div class="texture" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href={base}>
+    <a class="brand" href={withBase('/')}>
       <span class="brand-mark" aria-hidden="true">
         <img src={`${base.replace(/\/$/,'')}/logo-64.webp`} alt="" width="30" height="30" />
       </span>
@@ -240,29 +214,33 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     </a>
     <nav class="topnav" aria-label="Principal">
       <div class="topnav-links" id="navLinks">
-      <a href={base} data-i18n="nav_home">Início</a>
-      <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
-      {temLiturgia && <a href={`${base.replace(/\/$/,'')}/liturgia`} data-i18n="nav_liturgia">Liturgia</a>}
-      <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
-      <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
-      <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
-      <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
-      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
-      <button id="themeBtn" class="icon-btn nav-theme" type="button" aria-label="Modo claro/escuro" title="Modo claro/escuro">
+      <a href={withBase('/')} data-i18n="nav_home">Início</a>
+      <a href={withBase('/#catalogo')} data-i18n="nav_catalog">Catálogo</a>
+      {temLiturgia && <a href={withBase('/liturgia')} data-i18n="nav_liturgia">Liturgia</a>}
+      <a href={withBase('/proximas-festas')} data-i18n="nav_feasts">Próximas festas</a>
+      <a href={withBase('/biografias')} data-i18n="nav_bio">Biografias</a>
+      <a href={withBase('/textos')} data-i18n="nav_textos">Textos</a>
+      <a href={withBase('/produtos')} data-i18n="nav_produtos">Produtos</a>
+      <a href={withBase('/sobre')} data-i18n="nav_about">Sobre</a>
+      <button id="themeBtn" class="icon-btn nav-theme" type="button" aria-label="Modo claro/escuro" title="Modo claro/escuro" data-i18n-aria="theme_toggle">
         <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.2" y1="5.2" x2="6.9" y2="6.9"/><line x1="17.1" y1="17.1" x2="18.8" y2="18.8"/><line x1="5.2" y1="18.8" x2="6.9" y2="17.1"/><line x1="17.1" y1="6.9" x2="18.8" y2="5.2"/></g></svg>
         <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
               <span class="nav-theme-label" data-i18n="theme_toggle">Modo claro/escuro</span>
       </button>
-      <button id="searchBtn" class="icon-btn nav-util" type="button" aria-label="Buscar" title="Buscar">
+      <button id="searchBtn" class="icon-btn nav-util" type="button" aria-label="Buscar" title="Buscar" data-i18n-aria="search_label" data-abre-busca>
         <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <span class="nav-btn-label" data-i18n="search_label">Buscar</span>
       </button>
-      <button id="langBtn" class="icon-btn nav-util" type="button" aria-label="Idioma" title="Idioma">
+      <button id="langBtn" class="icon-btn nav-util" type="button" aria-label="Idioma" title="Idioma" data-i18n-aria="lang_label">
         <span class="nav-btn-label" data-i18n="lang_label">Idioma</span>
         <span id="langCode">PT</span>
       </button>
       </div>
       <div class="topnav-actions">
+        <!-- celular/tablet: a lupa fica ao lado do ☰ (um toque só); no desktop ela está no menu acima -->
+        <button id="searchBtnMob" class="icon-btn nav-search-mob" type="button" aria-label="Buscar" title="Buscar" data-i18n-aria="search_label" data-abre-busca>
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
         <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
           <svg class="i-menu" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <svg class="i-close" viewBox="0 0 24 24" width="20" height="20"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -279,32 +257,33 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     <p class="foot-mark">✦</p>
     <p class="season-tag" id="seasonTag"></p>
     <nav class="footnav" aria-label="Seções">
-      <a href={base} data-i18n="nav_home">Início</a>
-      <a href={`${base.replace(/\/$/,'')}/#catalogo`} data-i18n="nav_catalog">Catálogo</a>
-      {temLiturgia && <a href={`${base.replace(/\/$/,'')}/liturgia`} data-i18n="nav_liturgia">Liturgia</a>}
-      <a href={`${base.replace(/\/$/,'')}/proximas-festas`} data-i18n="nav_feasts">Próximas festas</a>
-      <a href={`${base.replace(/\/$/,'')}/biografias`} data-i18n="nav_bio">Biografias</a>
-      <a href={`${base.replace(/\/$/,'')}/produtos`} data-i18n="nav_produtos">Produtos</a>
-      <a href={`${base.replace(/\/$/,'')}/textos`} data-i18n="nav_textos">Textos</a>
-      <a href={`${base.replace(/\/$/,'')}/cantos`} data-i18n="nav_cantos">Cantos</a>
-      <a href={`${base.replace(/\/$/,'')}/sobre`} data-i18n="nav_about">Sobre</a>
+      <a href={withBase('/')} data-i18n="nav_home">Início</a>
+      <a href={withBase('/#catalogo')} data-i18n="nav_catalog">Catálogo</a>
+      {temLiturgia && <a href={withBase('/liturgia')} data-i18n="nav_liturgia">Liturgia</a>}
+      <a href={withBase('/proximas-festas')} data-i18n="nav_feasts">Próximas festas</a>
+      <a href={withBase('/biografias')} data-i18n="nav_bio">Biografias</a>
+      <a href={withBase('/produtos')} data-i18n="nav_produtos">Produtos</a>
+      <a href={withBase('/textos')} data-i18n="nav_textos">Textos</a>
+      <a href={withBase('/cantos')} data-i18n="nav_cantos">Cantos</a>
+      <a href={withBase('/sobre')} data-i18n="nav_about">Sobre</a>
+      <a href={withBase('/privacidade')} data-i18n="nav_privacidade">Privacidade</a>
     </nav>
     <p>{site.name}</p>
     <p class="foot-small" data-i18n="progress_saved">Progresso salvo neste aparelho.</p>
   </footer>
 
-  <!-- Busca global (orações + biografias) -->
+  <!-- Busca global (orações, biografias, textos e cantos) -->
   <div id="searchOverlay" class="search-overlay" hidden>
-    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Buscar">
+    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Buscar" data-i18n-aria="search_label">
       <div class="search-bar">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input id="globalSearch" type="search" autocomplete="off" placeholder="Buscar orações e santos…" data-i18n-ph="global_search_ph" aria-label="Buscar" />
-        <button id="searchClose" class="icon-btn" type="button" aria-label="Fechar">
+        <input id="globalSearch" type="search" autocomplete="off" enterkeyhint="search" placeholder="Buscar orações, santos, textos…" data-i18n-ph="busca_ph" aria-label="Buscar" data-i18n-aria="search_label" />
+        <button id="searchClose" class="icon-btn" type="button" aria-label="Fechar" data-i18n-aria="close">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </div>
       <div id="searchResults" class="search-results"></div>
-      <p id="searchHint" class="search-hint" data-i18n="global_search_hint">Digite para buscar orações e biografias.</p>
+      <p id="searchHint" class="search-hint" data-i18n="busca_dica">Digite para buscar orações, santos, textos e cantos.</p>
     </div>
   </div>
 
@@ -331,6 +310,15 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
         const v = (window as any).odt(k);
         if (v !== k) el.textContent = v;
       });
+      // rótulos de botões só com ícone (aria-label e title); a reserva é o próprio rótulo do HTML
+      document.querySelectorAll<HTMLElement>('[data-i18n-aria]').forEach((el) => {
+        const k = el.getAttribute('data-i18n-aria')!;
+        if (el.dataset.ariaPt === undefined) el.dataset.ariaPt = el.getAttribute('aria-label') || '';
+        const v = (window as any).odt(k);
+        const txt = v !== k ? v : el.dataset.ariaPt;
+        el.setAttribute('aria-label', txt);
+        if (el.hasAttribute('title')) el.setAttribute('title', txt);
+      });
       document.querySelectorAll<HTMLElement>('[data-i18n-ph]').forEach((el) => {
         const k = el.getAttribute('data-i18n-ph')!;
         const v = (window as any).odt(k);
@@ -348,6 +336,41 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     });
     applyLang(document.documentElement.getAttribute('data-lang') || 'pt-BR');
 
+    // ── Chegada por âncora (/#catalogo, /oracao/terco/#3ª-dezena…) ──
+    // O html rola suave (scroll-behavior: smooth) e o conteúdo acima do alvo ainda muda de altura
+    // durante a chegada (imagens, seções que o JS revela): o pulo do navegador para no lugar errado.
+    // Aqui o alvo é alinhado de novo, sem animação, até a página terminar de carregar — só enquanto
+    // a pessoa não rolou por conta própria. O scroll-margin-top deixa o alvo abaixo do topo fixo.
+    (function () {
+      if (location.hash.length < 2) return;
+      let alvo: HTMLElement | null = null;
+      try { alvo = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+      if (!alvo) return;
+      let mexeu = false;
+      const marca = () => { mexeu = true; };
+      for (const ev of ['wheel', 'touchstart', 'keydown', 'mousedown']) window.addEventListener(ev, marca, { once: true, passive: true });
+      const alinhar = () => { if (!mexeu) alvo!.scrollIntoView({ block: 'start', behavior: 'instant' as ScrollBehavior }); };
+      alinhar();
+      const depois = () => { alinhar(); setTimeout(alinhar, 250); document.fonts?.ready.then(alinhar); };
+      if (document.readyState === 'complete') depois(); else window.addEventListener('load', depois, { once: true });
+    })();
+
+    // ── E-mail protegido contra robôs de spam (Sobre, Privacidade) ──
+    // O HTML traz só "nome (arroba) domínio" num <span data-email>; aqui ele vira um link mailto
+    // com os mesmos atributos (classe e o atributo de estilo do Astro). Sem JS, fica o texto.
+    document.querySelectorAll<HTMLElement>('[data-email]').forEach((el) => {
+      const txt = el.querySelector<HTMLElement>('[data-email-txt]');
+      if (!txt) return;
+      const end = (txt.textContent || '').replace(/\s*\(arroba\)\s*/, '@').replace(/\s+/g, '');
+      if (!/^[^@]+@[^@]+\.[a-z]{2,}$/i.test(end)) return;
+      const a = document.createElement('a');
+      for (const at of Array.from(el.attributes)) if (at.name !== 'data-email') a.setAttribute(at.name, at.value);
+      a.href = 'mailto:' + end;
+      txt.textContent = end;
+      while (el.firstChild) a.appendChild(el.firstChild);
+      el.replaceWith(a);
+    });
+
     // ── Menu mobile (hambúrguer) ──
     (function () {
       const topbar = document.querySelector('.topbar');
@@ -360,7 +383,7 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
       };
       toggle.addEventListener('click', () => setOpen(!topbar.classList.contains('nav-open')));
       links.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
-      links.querySelector('#searchBtn')?.addEventListener('click', () => setOpen(false));
+      document.querySelectorAll('[data-abre-busca]').forEach((b) => b.addEventListener('click', () => setOpen(false)));
       // mesma media query do CSS (@media do menu ☰): ao passar para o layout de desktop, fecha o menu
       const mq = window.matchMedia('(max-width: 1279px)');
       const onMq = () => { if (!mq.matches) setOpen(false); };
@@ -392,6 +415,30 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
   </script>
 
   <style is:global>
+    /* ════════ FONTES (servidas pelo próprio site: public/fonts/, licença OFL lá dentro) ════════
+       Arquivos do @fontsource, em dois pedaços cada: "latin" (português, inglês, latim) e "latin-ext"
+       (letras raras; o navegador só baixa se a página tiver alguma). São só os pesos que o site usa —
+       negrito (<b>, <strong>) é 600, para nunca cair em negrito "imitado" pelo navegador.
+       compartilhar.js desenha o cartão com estes mesmos nomes de família: não renomeie. */
+    @font-face { font-family: 'Cormorant'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/cormorant-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Cormorant'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/cormorant-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Cormorant'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/cormorant-latin-500-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Cormorant'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/cormorant-latin-ext-500-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Cormorant'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/cormorant-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Cormorant'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/cormorant-latin-ext-600-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Cormorant'; font-style: italic; font-weight: 600; font-display: swap; src: url('/fonts/cormorant-latin-600-italic.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Cormorant'; font-style: italic; font-weight: 600; font-display: swap; src: url('/fonts/cormorant-latin-ext-600-italic.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/eb-garamond-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/eb-garamond-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/eb-garamond-latin-500-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/eb-garamond-latin-ext-500-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/eb-garamond-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/eb-garamond-latin-ext-600-normal.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/eb-garamond-latin-ext-400-italic.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 600; font-display: swap; src: url('/fonts/eb-garamond-latin-600-italic.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 600; font-display: swap; src: url('/fonts/eb-garamond-latin-ext-600-italic.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
     /* ════════ TOKENS ════════ */
     :root {
       --paper: #efe7d6;
@@ -452,6 +499,10 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
 
     h1, h2, h3, .display { font-family: 'Cormorant', Georgia, serif; font-weight: 500; line-height: 1.12; letter-spacing: .01em; }
     a { color: inherit; }
+    b, strong { font-weight: 600; }
+    :where(button, input, select, textarea) { font-family: inherit; }
+    /* âncoras (#catalogo, mistérios do terço…) não ficam escondidas sob o topo fixo; regras das páginas têm prioridade */
+    :where([id]) { scroll-margin-top: 76px; }
     img { max-width: 100%; display: block; }
     ::selection { background: var(--glow); }
 
@@ -464,7 +515,7 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
       backdrop-filter: blur(10px);
       border-bottom: 1px solid color-mix(in srgb, var(--season, var(--hair)) 38%, var(--hair));
     }
-    .brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); }
+    .brand { display: inline-flex; align-items: center; gap: .55rem; min-height: 44px; text-decoration: none; color: var(--ink); }
     .brand-mark { color: var(--gold); display: inline-flex; }
     .brand-mark img { width: 30px; height: 30px; display: block; }
     .brand-text { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
@@ -482,6 +533,7 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     .topnav-links .icon-btn { width: 38px; height: 38px; min-width: 38px; }
     .topnav-links .nav-theme { margin-left: .5rem; }
     .topnav-actions .nav-toggle { display: none; }
+    .topnav-actions .nav-search-mob { display: none; }
     .nav-toggle .i-close { display: none; }
     .topbar.nav-open .nav-toggle .i-menu { display: none; }
     .topbar.nav-open .nav-toggle .i-close { display: block; }
@@ -647,7 +699,7 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
     .chip {
       border: 1px solid var(--hair); background: transparent; color: var(--ink-soft);
-      border-radius: 999px; padding: .4rem .85rem; min-height: 40px;
+      border-radius: 999px; padding: .4rem .85rem; min-height: 44px;
       font-family: 'EB Garamond', serif; font-size: .9rem; cursor: pointer; transition: all .18s;
     }
     .chip:hover { border-color: var(--gold); color: var(--gold); }
@@ -713,8 +765,8 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     body.reader-focus .footsite { display: none; }
     body.reader-focus .reader-hero { min-height: 26vh; }
 
-    .footnav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.1rem; margin: .5rem 0 .9rem; }
-    .footnav a { color: var(--ink-soft); text-decoration: none; font-size: .9rem; transition: color .2s; }
+    .footnav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 .35rem; margin: .5rem 0 .9rem; }
+    .footnav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .4rem; color: var(--ink-soft); text-decoration: none; font-size: .9rem; transition: color .2s; }
     .footnav a:hover { color: var(--gold); }
     .visit-counter { text-align: center; font-size: .72rem; letter-spacing: .05em; color: var(--ink-soft); opacity: .55; margin: 0 0 1.6rem; }
     .visit-counter[hidden] { display: none; }
@@ -726,14 +778,17 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     .search-bar { display: flex; align-items: center; gap: .5rem; padding: .65rem .85rem; border-bottom: 1px solid var(--hair); }
     .search-bar > svg { color: var(--ink-soft); flex: 0 0 auto; }
     .search-bar input { flex: 1; min-width: 0; background: transparent; border: none; outline: none; color: var(--ink); font-family: 'EB Garamond', serif; font-size: 1.1rem; }
-    .search-bar .icon-btn { width: 34px; height: 34px; }
+    /* sem o "x" azul do navegador ao lado do nosso botão de fechar (dois "x" confundem) */
+    .search-bar input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+    .search-bar .icon-btn { width: 44px; height: 44px; border-color: transparent; }
+    .search-bar .icon-btn:hover { border-color: var(--gold); }
     .search-results { max-height: 56vh; overflow-y: auto; }
     .search-item { display: flex; align-items: center; gap: .8rem; padding: .65rem .85rem; text-decoration: none; color: var(--ink); border-top: 1px solid color-mix(in srgb, var(--hair) 55%, transparent); }
     .search-item:hover { background: color-mix(in srgb, var(--gold) 9%, transparent); }
-    .search-item-tag { flex: 0 0 auto; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--hair); border-radius: 999px; padding: .2rem .5rem; min-width: 4.6rem; text-align: center; }
+    .search-item-tag { flex: 0 0 auto; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--hair); border-radius: 999px; padding: .2rem .5rem; min-width: 5.9rem; text-align: center; } /* mesma largura: os títulos ficam alinhados */
     .search-item-main { display: flex; flex-direction: column; min-width: 0; }
     .search-item-title { font-family: 'Cormorant', serif; font-size: 1.12rem; font-weight: 600; line-height: 1.1; }
-    .search-item-sub { font-size: .8rem; color: var(--ink-soft); font-style: italic; }
+    .search-item-sub { font-size: .8rem; color: var(--ink-soft); font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .search-hint, .search-empty { padding: 1.4rem .9rem; color: var(--ink-soft); font-style: italic; text-align: center; margin: 0; }
 
     /* bead day selector */
@@ -764,21 +819,11 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
       float: left; font-family: 'Cormorant', serif; font-weight: 600;
       font-size: 3.6rem; line-height: .8; padding: .25rem .5rem .1rem 0; color: var(--gold);
     }
-    /* leitura: destaque LINHA A LINHA ("luz" passando pelas palavras) */
     .filters { display: flex; flex-direction: column; gap: .55rem; margin-top: .9rem; }
     #catalogGrid { margin-top: 10px; }
     .filter-row { display: flex; align-items: baseline; gap: .55rem .7rem; flex-wrap: wrap; }
     .filter-label { flex: 0 0 auto; min-width: 4.2rem; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
     @media (max-width: 560px) { .filter-label { min-width: 100%; margin-bottom: -.2rem; } }
-    .rg-line { border-radius: 6px; transition: background-color .3s ease; }
-    .rg-line.rg-active { background: color-mix(in srgb, var(--flame) 9%, transparent); }   /* contexto da linha */
-    .rg-word { border-radius: 5px; padding: 0 .06em; transition: background-color .15s ease, color .15s ease, text-shadow .15s ease; }
-    .rg-word.rg-word-active {                                                              /* palavra sendo lida */
-      background: linear-gradient(90deg, color-mix(in srgb, var(--flame) 42%, transparent), color-mix(in srgb, var(--flame) 24%, transparent));
-      color: var(--gold-bright);
-      font-weight: 600;
-      text-shadow: 0 0 12px var(--glow);
-    }
     /* rubricas (orientações) — não são lidas pelo assistente */
     .prayer-body p.rubric { font-style: italic; color: var(--ink-soft); font-size: 1rem; text-align: center; margin: .1rem 0 1.05rem; opacity: .92; }
     .prayer-body p.rubric em, .prayer-body p.rubric i { font-style: italic; }
@@ -892,6 +937,9 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
        media query — se mudar aqui, mude lá também (procure "max-width: 1279px"). */
     @media (max-width: 1279px) {
       .topbar .topnav-actions .nav-toggle { display: inline-grid; }
+      /* a lupa sai do menu e fica ao lado do ☰ (um toque só) */
+      .topbar .topnav-actions .nav-search-mob { display: inline-grid; }
+      .topnav-links #searchBtn { display: none; }
       .topnav { gap: .3rem; }
       .topnav-links {
         position: absolute; top: 100%; left: 0; right: 0;
@@ -940,49 +988,113 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
   </style>
 
   <script>
+    // ── Busca global (lupa do topo): orações, biografias, textos e cantos ──
+    // Palavra por palavra, sem acento nem maiúscula; TODAS as palavras precisam aparecer
+    // (no título, no santo, nas tags ou na descrição). Pontos: título > santo > tags > descrição,
+    // e o começo do título vale mais ("maria" traz Maria Santíssima antes da Ave-Maria).
     (function () {
-      var btn = document.getElementById('searchBtn');
-      var overlay = document.getElementById('searchOverlay');
-      var input = document.getElementById('globalSearch');
-      var results = document.getElementById('searchResults');
-      var hint = document.getElementById('searchHint');
-      var closeBtn = document.getElementById('searchClose');
-      if (!btn || !overlay || !input) return;
-      var index = null, loaded = false;
-      var T = function (k) { return (window).odt ? (window).odt(k) : k; };
-      var esc = function (s) { return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
-      var norm = function (s) { return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); };
+      const overlay = document.getElementById('searchOverlay');
+      const input = document.getElementById('globalSearch') as HTMLInputElement | null;
+      const results = document.getElementById('searchResults');
+      const hint = document.getElementById('searchHint');
+      const closeBtn = document.getElementById('searchClose');
+      if (!overlay || !input || !results) return;
+      // item do search-index.json: k tipo (o oração, b biografia, t texto, c canto), y tipo da oração,
+      // u endereço, ti título, su subtítulo; t/n/g/d = título, santo, tags e descrição já normalizados
+      type Item = { k: string; y: string; u: string; ti: string; su: string; t: string; n: string; g: string; d: string; w?: string[][]; f?: string };
+      let index: Item[] | null = null, loaded = false, voltaFoco: HTMLElement | null = null;
+      const W = window as any;
+      const T = (k: string) => (W.odt ? W.odt(k) : k);
+      const tr = (k: string, pt: string) => { const v = T(k); return v && v !== k ? v : pt; };
+      const esc = (s: string) => (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      const norm = (s: string) => (s || '').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+      // palavras que não ajudam a achar nada ("novena DE natal")
+      const VAZIAS = new Set(['a', 'o', 'as', 'os', 'de', 'da', 'do', 'das', 'dos', 'e', 'em', 'na', 'no', 'nas', 'nos', 'um', 'uma', 'ao', 'aos', 'para', 'pra', 'por', 'com']);
+      // sinônimos: quem procura "terço" também quer as coroas (Coroa da Divina Misericórdia…)
+      const SINONIMOS: Record<string, string[]> = { terco: ['terco', 'coroa'], tercos: ['terco', 'coroa'] };
+      const PESOS = [100, 50, 25, 10];   // título, santo, tags, descrição
+      const ROTULO: Record<string, () => string> = {
+        b: () => T('search_kind_bio'), t: () => tr('search_kind_texto', 'Texto'), c: () => tr('search_kind_canto', 'Canto'),
+      };
 
-      function openSearch() {
-        overlay.hidden = false;
-        document.body.style.overflow = 'hidden';
-        setTimeout(function () { input.focus(); }, 30);
-        if (!loaded) load();
+      function preparar(it: Item) {
+        it.w = [it.t, it.n, it.g, it.d].map((c) => (c ? c.split(' ') : []));
+        it.f = it.w[0].filter((x) => !VAZIAS.has(x)).join(' ');
       }
-      function closeSearch() { overlay.hidden = true; document.body.style.overflow = ''; }
+      function pontos(it: Item, termos: string[][], frase: string): number {
+        let total = 0, tudoNoTitulo = true;
+        for (const alts of termos) {
+          let melhor = 0;
+          for (let f = 0; f < 4; f++) {
+            const ws = it.w![f];
+            for (let i = 0; i < ws.length; i++) {
+              for (const a of alts) {
+                if (!ws[i].startsWith(a)) continue;
+                let p = PESOS[f] + (ws[i] === a ? PESOS[f] / 5 : 0);
+                if (f === 0 && i === 0) p += 60;          // começo do título
+                if (p > melhor) melhor = p;
+              }
+            }
+          }
+          if (!melhor) return 0;                         // faltou uma das palavras
+          if (melhor < PESOS[0]) tudoNoTitulo = false;
+          total += melhor;
+        }
+        if (tudoNoTitulo) total += 40;
+        if (frase && it.f!.startsWith(frase)) total += 80; // o título começa pela busca inteira
+        return total;
+      }
+      function buscar(q: string): Item[] {
+        let palavras = norm(q).split(' ').filter(Boolean);
+        const uteis = palavras.filter((x) => !VAZIAS.has(x));
+        if (uteis.length) palavras = uteis;
+        if (!palavras.length || !index) return [];
+        // plural: "novenas" também acha "novena" (a comparação é pelo começo da palavra)
+        const termos = palavras.map((x) => SINONIMOS[x] || (x.length > 3 && x.endsWith('s') ? [x, x.slice(0, -1)] : [x]));
+        const frase = palavras.join(' ');
+        const achados: { it: Item; p: number }[] = [];
+        for (const it of index) { const p = pontos(it, termos, frase); if (p) achados.push({ it, p }); }
+        achados.sort((a, b) => b.p - a.p || a.it.ti.length - b.it.ti.length || a.it.ti.localeCompare(b.it.ti, 'pt-BR'));
+        return achados.slice(0, 40).map((x) => x.it);
+      }
+
+      function openSearch(termo?: string) {
+        voltaFoco = document.activeElement as HTMLElement | null;
+        overlay!.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (typeof termo === 'string') input!.value = termo;
+        setTimeout(function () { input!.focus(); }, 30);
+        if (!loaded) load(); else render();
+      }
+      function closeSearch() {
+        overlay!.hidden = true; document.body.style.overflow = '';
+        if (voltaFoco && document.contains(voltaFoco)) { try { voltaFoco.focus(); } catch (e) {} }
+      }
       function load() {
         loaded = true;
-        var url = (window).odBase ? (window).odBase('/search-index.json') : '/search-index.json';
-        fetch(url).then(function (r) { return r.json(); }).then(function (data) { index = data; render(); }).catch(function () { loaded = false; });
+        const url = W.odBase ? W.odBase('/search-index.json') : '/search-index.json';
+        fetch(url).then(function (r) { return r.json(); }).then(function (data: Item[]) { data.forEach(preparar); index = data; render(); }).catch(function () { loaded = false; });
       }
       function render() {
         if (!index) return;
-        var q = norm((input.value || '').trim());
-        if (!q) { results.innerHTML = ''; if (hint) hint.hidden = false; return; }
+        const q = (input!.value || '').trim();
+        if (!q) { results!.innerHTML = ''; if (hint) hint.hidden = false; return; }
         if (hint) hint.hidden = true;
-        var matches = [];
-        for (var i = 0; i < index.length && matches.length < 40; i++) { if (index[i].s.indexOf(q) >= 0) matches.push(index[i]); }
-        if (!matches.length) { results.innerHTML = '<p class="search-empty">' + esc(T('no_results')) + '</p>'; return; }
-        results.innerHTML = matches.map(function (it) {
-          var tag = it.kind === 'biografia' ? T('search_kind_bio') : T('type_' + it.type);
-          return '<a class="search-item" href="' + it.url + '">' +
+        const lista = buscar(q);
+        if (!lista.length) { results!.innerHTML = '<p class="search-empty">' + esc(tr('search_vazio', 'Nada encontrado — tente outra palavra.')) + '</p>'; return; }
+        // os títulos são conteúdo em português (lang), o rótulo segue a interface
+        results!.innerHTML = lista.map(function (it) {
+          const tag = ROTULO[it.k] ? ROTULO[it.k]() : T('type_' + it.y);
+          return '<a class="search-item" href="' + esc(it.u) + '">' +
             '<span class="search-item-tag">' + esc(tag) + '</span>' +
-            '<span class="search-item-main"><span class="search-item-title">' + esc(it.title) + '</span>' +
-            (it.sub ? '<span class="search-item-sub">' + esc(it.sub) + '</span>' : '') +
+            '<span class="search-item-main" lang="pt-BR"><span class="search-item-title">' + esc(it.ti) + '</span>' +
+            (it.su ? '<span class="search-item-sub">' + esc(it.su) + '</span>' : '') +
             '</span></a>';
         }).join('');
       }
-      btn.addEventListener('click', openSearch);
+      // botões que abrem a busca: a lupa do menu (desktop) e a do lado do ☰ (celular)
+      document.querySelectorAll('[data-abre-busca]').forEach((b) => b.addEventListener('click', () => openSearch()));
+      W.odBusca = { abrir: openSearch, buscar: function (q: string) { return buscar(q); } };
       if (closeBtn) closeBtn.addEventListener('click', closeSearch);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closeSearch(); });
       input.addEventListener('input', render);
@@ -990,8 +1102,8 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && !overlay.hidden) closeSearch();
         else if (e.key === '/' && overlay.hidden) {
-          var a = document.activeElement; var tag = a ? a.tagName : '';
-          if (tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); openSearch(); }
+          const a = document.activeElement; const tag = a ? a.tagName : '';
+          if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') { e.preventDefault(); openSearch(); }
         }
       });
     })();

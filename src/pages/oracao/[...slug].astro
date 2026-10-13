@@ -7,6 +7,9 @@ import { produtosForPage, produtoImagem, catLabelPt } from '../../config/produto
 import { bioDaOracao, nomeDaBio } from '../../config/relacoes';
 import { reserva } from '../../config/contadores';
 import CompartilharStories from '../../components/CompartilharStories.astro';
+import { prepararOracao } from '../../scripts/oracao/preparar';
+import { modoMisterios } from '../../scripts/oracao/misterios';
+import { srcsetDoBanner, SIZES_BANNER } from '../../scripts/oracao/banner';
 
 export async function getStaticPaths() {
   const entries = await getCollection('prayers');
@@ -16,24 +19,41 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
+// H3: o texto declara a própria língua (Hail Mary = en), mesmo com a interface em outro idioma
+const lingua = data.language || 'pt-BR';
 
-const banner = withBase(data.image ?? `/saints/${entry.id}.webp`);
+const imagem = data.image ?? `/saints/${entry.id}.webp`;
+const banner = withBase(imagem);
 const imgFallback = withBase('/saints/default.webp');
+// E4: banner responsivo — srcset só com as variantes que existem (src/scripts/oracao/banner.ts)
+const bannerSrcset = srcsetDoBanner(imagem);
+
 // camada de paralaxe só se o arquivo existir em public/ (antes: /textures/rays.svg dava 404 em 31 orações)
 const _px = data.parallaxImage ?? '';
 const _pxOk = !!_px && (/^https?:\/\//.test(_px) || fs.existsSync(`public${_px.startsWith('/') ? '' : '/'}${_px}`));
 if (_px && !_pxOk) console.warn(`⚠️  Oração "${entry.id}": parallaxImage "${_px}" não existe em public/ — camada omitida.`);
 const parallax = _pxOk ? withBase(_px) : '';
 
-// dados que o cliente precisa
+// E3/E8: o texto sai do build já preparado (rubricas, contas "Nx", seções repetidas, dias da
+// novena, capitular, mistérios) — o navegador não reescreve mais nada ao abrir
+const misterios = modoMisterios(entry.id);
+const ehNovena = data.type === 'novena' && (data.totalDays ?? 0) > 1;
+const htmlBruto = (entry as any).rendered?.html as string | undefined;
+const prep = htmlBruto ? prepararOracao(htmlBruto, { novena: ehNovena, misterios }) : null;
+if (!prep) console.warn(`⚠️  Oração "${entry.id}": sem HTML renderizado — texto sem preparação.`);
+for (const a of prep?.avisos ?? []) console.warn(`⚠️  Oração "${entry.id}": ${a}`);
+const dias = prep && prep.dias > 1 ? prep.dias : 0;
+// 1º dia da novena = festa + início (sem o campo: termina na véspera da festa)
+const inicioNovena = data.novenaSuggestedStart ?? -dias;
+if (ehNovena && dias !== data.totalDays) console.warn(`⚠️  Novena "${entry.id}": totalDays ${data.totalDays}, mas o texto tem ${prep?.dias ?? 0} "## Dia N" — vale o texto.`);
+
+// dados que o módulo da página precisa (src/scripts/oracao/leitor.ts)
 const caminho = withBase(`/oracao/${entry.id}`);
 const rotuloTipo = (ui['pt-BR'] as Record<string, string>)[`type_${data.type}`] ?? data.type;
-const meta = {
+const dados = {
   slug: entry.id,
   type: data.type,
-  totalDays: data.totalDays ?? 0,
-  feast: data.liturgicalFeast ?? '',
-  startOffset: data.novenaSuggestedStart ?? 0,
+  dias,
   // imagem "Rezei hoje" (D2)
   titulo: data.title,
   banner,
@@ -42,7 +62,10 @@ const meta = {
   dominio: (Astro.site?.host ?? 'oratoriodigital.com').replace(/^www\./, ''),
   // número de reserva da capa, se o contador estiver fora do ar (src/data/contadores.json)
   reserva: reserva(entry.id),
+  misterios,
+  lingua,
 };
+const dadosJson = JSON.stringify(dados).replace(/</g, '\\u003c');
 
 // ligação automática para a biografia — regra única em src/config/relacoes.ts
 // (pelo nome do santo; a data da festa só desempata) — sem editar os .md
@@ -53,24 +76,38 @@ const relatedBio: { id: string; name: string } | null = _bio ? { id: _bio.id, na
 // produtos relacionados (por slug da página ou por santo) — sem editar os .md
 const relatedProducts = produtosForPage(entry.id, data.saint);
 ---
-<Base title={data.title} description={data.description || site.tagline} idioma={data.language || 'pt-BR'}>
+<Base title={data.title} description={data.description || site.tagline} idioma={lingua}>
+  <Fragment slot="head">
+    <!-- antes de pintar: tamanho da letra e Modo Foco salvos (o resto fica no módulo da página) -->
+    <script is:inline>
+      (function () {
+        try {
+          var s = parseFloat(localStorage.getItem('od-fontscale'));
+          if (s >= 0.8 && s <= 1.6) document.documentElement.style.setProperty('--reader-scale', String(s));
+          if (localStorage.getItem('od-foco') === '1') document.documentElement.classList.add('od-foco');
+        } catch (e) {}
+      })();
+    </script>
+  </Fragment>
   <article>
     <!-- ░░ Banner com paralaxe ░░ -->
     <header class="reader-hero">
-      <img class="reader-bg" src={banner} alt={data.saint ?? data.title} width="1600" height="1000" onerror={`this.onerror=null;this.src='${imgFallback}'`} />
+      <img class="reader-bg" src={banner} srcset={bannerSrcset || undefined} sizes={bannerSrcset ? SIZES_BANNER : undefined}
+        alt={data.saint ?? data.title} width="1600" height="1000" fetchpriority="high"
+        onerror={`this.onerror=null;this.removeAttribute('srcset');this.src='${imgFallback}'`} />
       {parallax && <div class="reader-parallax" data-parallax="0.34" style={`background-image:url(${parallax})`}></div>}
       <div class="reader-shade"></div>
       <div class="reader-head">
         <p class="reader-type" data-i18n={`type_${data.type}`}>{data.type}</p>
-        <h1 class="reader-title">{data.title}</h1>
-        {data.saint && <p class="reader-saint">{data.saint}</p>}
+        <h1 class="reader-title" lang={lingua}>{data.title}</h1>
+        {data.saint && <p class="reader-saint" lang={lingua}>{data.saint}</p>}
         <p class="reader-count" id="readerCount" hidden><span class="rc-num" id="readerCountNum">—</span> <span class="rc-label" data-i18n="count_short">vezes rezada</span></p>
       </div>
     </header>
 
     <div class="reader-body">
       <!-- ░░ Ferramentas de leitura ░░ -->
-      <div class="reader-tools" role="group" aria-label="Ferramentas de leitura">
+      <div class="reader-tools" role="group" aria-label="Ferramentas de leitura" data-i18n-aria="reader_tools">
         <button id="favBtn" class="rtool" type="button" aria-pressed="false">
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path class="hpath" d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke-width="2"/></svg>
           <span data-i18n="fav_save">Salvar</span>
@@ -82,11 +119,16 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
         <CompartilharStories modo="oracao" titulo={data.title} rotulo={rotuloTipo} rotuloChave={`type_${data.type}`}
           banner={banner} bannerReserva={imgFallback} caminho={caminho} corpo={entry.body} destaque={data.destaque} />
         <span class="rtool-sep" aria-hidden="true"></span>
-        <button id="fsDown" class="rtool rtool-sq" type="button" aria-label="Diminuir letra">A−</button>
-        <button id="fsUp" class="rtool rtool-sq" type="button" aria-label="Aumentar letra">A+</button>
+        <button id="fsDown" class="rtool rtool-sq" type="button" aria-label="Diminuir letra" data-i18n-aria="font_smaller">A−</button>
+        <button id="fsUp" class="rtool rtool-sq" type="button" aria-label="Aumentar letra" data-i18n-aria="font_larger">A+</button>
         <button id="focusBtn" class="rtool" type="button" aria-pressed="false">
           <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <span data-i18n="focus_mode">Foco</span>
+        </button>
+        <!-- G1: só aparece onde o navegador permite manter a tela acesa (Wake Lock API) -->
+        <button id="wakeBtn" class="rtool" type="button" aria-pressed="false" hidden>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span data-i18n="keep_awake">Manter tela acesa</span>
         </button>
       </div>
 
@@ -97,17 +139,60 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
         </a>
       )}
 
-      <!-- ░░ Seletor de dia (novena) — contas de rosário ░░ -->
-      <nav id="beads" class="beads" hidden aria-label="Dias da novena"></nav>
-      <p id="dayCaption" class="day-caption" hidden></p>
+      <!-- ░░ Seletor de dia (novena) — contas de rosário; dias rezados marcados pelo script logo abaixo do texto ░░ -->
+      {dias > 0 && (
+        <nav id="beads" class="beads" aria-label="Dias da novena" data-i18n-aria="novena_days">
+          {Array.from({ length: dias }, (_, i) => (
+            <button type="button" class={i === 0 ? 'bead current' : 'bead'} data-dia={i + 1} aria-pressed={i === 0 ? 'true' : 'false'} aria-label={`Dia ${i + 1}`}>{i + 1}</button>
+          ))}
+        </nav>
+      )}
+      {dias > 0 && <p id="dayCaption" class="day-caption" aria-live="polite">1º dia · faltam {dias - 1}</p>}
 
-      <!-- ░░ Texto da oração ░░ -->
-      <div id="prayer-content" class="prayer-body">
-        <Content />
-      </div>
+      <!-- ░░ Texto da oração (preparado no build; o assistente não reescreve o HTML) ░░ -->
+      {prep
+        ? <div id="prayer-content" class="prayer-body" lang={lingua} data-slug={entry.id} data-dias={dias || undefined}
+            data-festa={dias ? (data.liturgicalFeast ?? '') : undefined} data-inicio={dias ? inicioNovena : undefined}
+            set:html={prep.html}></div>
+        : <div id="prayer-content" class="prayer-body" lang={lingua}><Content /></div>}
+
+      {/* Novena: o dia é escolhido ANTES de pintar (sem "piscar" o dia 1), e contas e legenda saem prontas.
+          Ordem: ?dia=N > 1º dia ainda não rezado neste ciclo > dia do calendário > 1.
+          Progresso (B3): só dias CONCLUÍDOS (gravados pelo módulo ao concluir), por ciclo = a festa que a
+          novena prepara (vale até 7 dias depois dela); sem festa válida, ciclo "livre" (30 dias desde a
+          última conclusão). Datas sempre por window.odCalendario (festas móveis e horário de verão — J2).
+          window.__odNovena.pintar() é reaproveitado pelo módulo (src/scripts/oracao/novena.ts). */}
+      {dias > 0 && (
+        <script is:inline>
+(function () {
+var c = document.getElementById('prayer-content'); if (!c) return;
+var N = +c.getAttribute('data-dias'), slug = c.getAttribute('data-slug'), festa = c.getAttribute('data-festa') || '', ini = +c.getAttribute('data-inicio') || 0;
+var K = window.odCalendario, ciclo = 'livre', sug = 0, feitos = [];
+try { if (K && festa && K.valido(festa)) { var hoje = K.hoje(), f = K.proxima(festa, K.somarDias(hoje, -7));
+  if (f) { ciclo = f.getFullYear() + '-' + (f.getMonth() + 1) + '-' + f.getDate(); var d = K.dias(K.somarDias(f, ini), hoje) + 1; if (d >= 1 && d <= N) sug = d; } } } catch (e) {}
+try { var p = JSON.parse(localStorage.getItem('od-novena:' + slug) || 'null');
+  if (p && p.ciclo === ciclo && (ciclo !== 'livre' || Date.now() - (p.em || 0) < 2592e6)) feitos = (p.feitos || []).filter(function (x) { return x >= 1 && x <= N; }); } catch (e) {}
+var q = +(new URLSearchParams(location.search).get('dia') || 0), dia = sug || 1;
+if (q >= 1 && q <= N) dia = q; else if (feitos.length) { dia = N; for (var i = N; i >= 1; i--) if (feitos.indexOf(i) < 0) dia = i; }
+function tx(k, pt) { var v = window.odt ? window.odt(k) : k; return v == null || v === k ? pt : v; }
+var nv = window.__odNovena = { N: N, ciclo: ciclo, feitos: feitos, dia: dia, sugerido: sug, pintar: function () {
+  var a = nv.dia, fe = nv.feitos, j, els = c.querySelectorAll('[data-dia]'), bs = document.querySelectorAll('#beads .bead');
+  for (j = 0; j < els.length; j++) els[j].hidden = +els[j].getAttribute('data-dia') !== a;
+  for (j = 0; j < bs.length; j++) { var n = j + 1, ok = fe.indexOf(n) >= 0;
+    bs[j].className = 'bead' + (ok ? ' done' : '') + (n === a ? ' current' : '');
+    bs[j].setAttribute('aria-pressed', n === a ? 'true' : 'false');
+    bs[j].setAttribute('aria-label', tx('day', 'Dia') + ' ' + n + (ok ? ', ' + tx('novena_prayed', 'rezado') : '')); }
+  var cap = document.getElementById('dayCaption'), feito = fe.indexOf(a) >= 0, r = N - fe.length - (feito ? 0 : 1);
+  if (cap) cap.textContent = tx('novena_day', '{n}º dia').replace('{n}', a) + (feito ? ' ✓' : '') + ' · ' + (fe.length >= N ? tx('novena_done', 'novena concluída')
+    : r <= 0 ? tx('novena_last', 'último dia') : r === 1 ? tx('novena_left_one', 'falta 1') : tx('novena_left', 'faltam {n}').replace('{n}', r));
+} };
+nv.pintar();
+})();
+        </script>
+      )}
 
       <!-- ░░ Assistente de leitura ░░ -->
-      <div class="rg-bar" role="group" aria-label="Assistente de leitura">
+      <div class="rg-bar" role="group" aria-label="Assistente de leitura" data-i18n-aria="reading_assistant">
         <span class="rg-title" data-i18n="reading_assistant">Assistente de leitura</span>
         <div class="rg-controls">
           <button id="rgPlay" class="rg-btn" type="button" aria-label="Iniciar">
@@ -115,18 +200,18 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
             <svg class="i-pause" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z" fill="currentColor"/></svg>
             <span id="rgPlayLabel">Iniciar</span>
           </button>
-          <button id="rgRestart" class="rg-btn" type="button" aria-label="Reiniciar">
+          <button id="rgRestart" class="rg-btn" type="button" aria-label="Reiniciar" data-i18n-aria="restart">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z" fill="currentColor"/></svg>
             <span data-i18n="restart">Reiniciar</span>
           </button>
-          <button id="rgNext" class="rg-btn" type="button" aria-label="Próximo">
+          <button id="rgNext" class="rg-btn" type="button" aria-label="Próximo" data-i18n-aria="next">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5l9 7-9 7zM16 5h2.4v14H16z" fill="currentColor"/></svg>
             <span data-i18n="next">Próximo</span>
           </button>
         </div>
         <label class="rg-speed">
           <span data-i18n="speed">Ritmo</span>
-          <select id="rgSpeed" aria-label="Ritmo de leitura">
+          <select id="rgSpeed" aria-label="Ritmo de leitura" data-i18n-aria="speed">
             <option value="slow" data-i18n="speed_slow">Lento</option>
             <option value="medium" selected data-i18n="speed_medium">Médio</option>
             <option value="fast" data-i18n="speed_fast">Rápido</option>
@@ -170,21 +255,21 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
     </div>
   </article>
 
-  <!-- ░░ Overlay de conclusão ░░ -->
+  <!-- ░░ Overlay de conclusão (título, subtítulo e avisos traduzidos pelo módulo) ░░ -->
   <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="ovTitle">
     <div class="overlay-card">
-      <button id="ovClose" class="ov-close" type="button" aria-label="Fechar">×</button>
+      <button id="ovClose" class="ov-close" type="button" aria-label="Fechar" data-i18n-aria="close">×</button>
       <div class="motes" id="motes" aria-hidden="true"></div>
       <div class="ov-candle"><span class="ov-flame"></span><span class="ov-body"></span></div>
-      <h2 id="ovTitle" class="ov-title" data-i18n="completed_title">Oração concluída</h2>
-      <p class="ov-sub" data-i18n="completed_sub">Você faz parte de uma corrente de oração.</p>
+      <h2 id="ovTitle" class="ov-title">Oração concluída</h2>
+      <p id="ovSub" class="ov-sub">Você faz parte de uma corrente de oração.</p>
       <div id="ovNumber" class="ov-number">—</div>
       <div class="ov-number-label" data-i18n="times_prayed">vezes que esta oração já foi rezada</div>
-      <!-- aviso da 2ª conclusão no mesmo dia (texto via JS: chave already_counted) -->
+      <!-- aviso da 2ª conclusão no mesmo dia (chave already_counted) -->
       <p id="ovNote" class="ov-sub" style="margin:.7rem 0 0" hidden></p>
       <div class="ov-actions">
         <button id="ovNext" class="btn btn-primary" type="button" data-i18n="next_day" hidden>Próximo dia</button>
-        <!-- imagem "Rezei hoje" para Stories/Status (texto via JS: chave share_prayed) -->
+        <!-- imagem "Rezei hoje" para Stories/Status (chave share_prayed) -->
         <button id="ovShare" class="btn" type="button" hidden>Compartilhar que rezei</button>
         <button id="ovAgain" class="btn" type="button" data-i18n="pray_again">Rezar de novo</button>
         <a id="ovBack" class="btn" data-i18n="back_catalog">Voltar ao catálogo</a>
@@ -192,619 +277,112 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
     </div>
   </div>
 
-  <script is:inline define:vars={{ meta }}>
-    (function () {
-      var S = window.__SITE__ || {};
-      var C = window.odContador || null; // contador da comunidade (Supabase ou Abacus) — public/js/contador.js
-      var contadorAtivo = !!(C && C.ativo);
-      var turnstileKey = (S.turnstile && S.turnstile.siteKey) || '';
-      var t = window.odt || function (k) { return k; };
-      var base = window.odBase || function (p) { return p; };
-
-      var content = document.getElementById('prayer-content');
-      if (!content) return;
-
-      // ───────── util ─────────
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function fmt(n) {
-        var l = document.documentElement.getAttribute('data-lang') || 'pt-BR';
-        try { return new Intl.NumberFormat(l).format(n); } catch (e) { return String(n); }
-      }
-      function todayKey() {
-        var d = new Date();
-        return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-      }
-
-      // ───────── dia sugerido pelo calendário litúrgico ─────────
-      function suggestedDay() {
-        if (!meta.feast || meta.type !== 'novena' || meta.totalDays < 1) return 0;
-        var parts = meta.feast.split('-');
-        if (parts.length < 2) return 0;
-        var mm = parseInt(parts[parts.length - 2], 10);
-        var dd = parseInt(parts[parts.length - 1], 10);
-        var now = new Date(); now.setHours(0, 0, 0, 0);
-        var year = now.getFullYear();
-        var feast = new Date(year, mm - 1, dd);
-        if (now > feast) feast = new Date(year + 1, mm - 1, dd);
-        var start = new Date(feast); start.setDate(start.getDate() + (meta.startOffset || 0));
-        var day = Math.floor((now - start) / 86400000) + 1;
-        if (day < 1) day = 1;
-        if (day > meta.totalDays) day = meta.totalDays;
-        return day;
-      }
-
-      // ───────── divisão em dias (novena) ─────────
-      var isNovena = meta.type === 'novena' && meta.totalDays > 1;
-      var dayOfNode = new Map(); // elemento -> nº do dia (0 = comum a todos)
-      var current = 1;
-
-      if (isNovena) {
-        var dayHead = /^\s*(dia|day)\s+\d+/i;
-        var d = 0;
-        Array.prototype.forEach.call(content.children, function (el) {
-          if (el.tagName === 'H2' && dayHead.test((el.textContent || '').trim())) d += 1;
-          dayOfNode.set(el, d); // tudo antes do 1º "Dia" fica no grupo 0 (intro comum)
-        });
-        if (d < 1) isNovena = false; // não achou marcadores -> trata como oração simples
-      }
-
-      function showDay(n) {
-        current = n;
-        content.querySelectorAll('.lead').forEach(function (e) { e.classList.remove('lead'); });
-        dayOfNode.forEach(function (grp, el) {
-          el.style.display = (grp === 0 || grp === n) ? '' : 'none';
-        });
-        buildBeads();
-        var cap = document.getElementById('dayCaption');
-        if (cap) { cap.hidden = false; cap.textContent = t('day') + ' ' + n + ' ' + t('day_of') + ' ' + meta.totalDays; }
-        try { localStorage.setItem('od-progress:' + meta.slug, String(n)); } catch (e) {}
-        rgReset();
-        togglePostNext();
-      }
-
-      function buildBeads() {
-        var wrap = document.getElementById('beads');
-        if (!wrap) return;
-        wrap.hidden = false;
-        wrap.innerHTML = '';
-        for (var i = 1; i <= meta.totalDays; i++) {
-          (function (i) {
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'bead' + (i < current ? ' done' : '') + (i === current ? ' current' : '');
-            b.textContent = i;
-            b.setAttribute('aria-label', t('day') + ' ' + i);
-            if (i === current) b.setAttribute('aria-current', 'true');
-            b.addEventListener('click', function () { showDay(i); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
-            wrap.appendChild(b);
-          })(i);
-        }
-      }
-
-      // ───────── rubricas (orientações) + escopo de leitura ─────────
-      function isRubric(el) {
-        return !!(el.classList && (el.classList.contains('rubric') || el.classList.contains('terco-mystery')));
-      }
-      function markRubrics() {
-        // parágrafo inteiramente em itálico = orientação ("rubrica") -> o assistente pula
-        var ps = content.querySelectorAll('p');
-        Array.prototype.forEach.call(ps, function (pe) {
-          var em = pe.querySelector(':scope > em, :scope > i');
-          var txt = (pe.textContent || '').trim();
-          if (em && txt.length && em.textContent.trim() === txt) pe.classList.add('rubric');
-        });
-      }
-      // onde ficam as linhas de um bloco: no blockquote, CADA <p> (antes só o 1º era lido);
-      // o blockquote continua sendo a unidade de leitura e de repetição
-      function lineHosts(el) {
-        if (el.tagName !== 'BLOCKQUOTE') return [el];
-        var ps = el.querySelectorAll('p');
-        if (!ps.length) return [el];
-        return Array.prototype.filter.call(ps, function (p) { return !isRubric(p); });
-      }
-      function readBlocks() {
-        var all = content.querySelectorAll('p, li, blockquote');
-        var out = [];
-        Array.prototype.forEach.call(all, function (el) {
-          if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return; // o blockquote é a unidade
-          if (el.offsetParent === null) return;                  // invisível (outro dia da novena)
-          if ((el.textContent || '').trim().length <= 1) return;
-          if (isRubric(el)) return;                              // pula orientações
-          out.push(el);
-        });
-        return out;
-      }
-      function setLead() {
-        content.querySelectorAll('.lead').forEach(function (e) { e.classList.remove('lead'); });
-        var bl = readBlocks();
-        for (var i = 0; i < bl.length; i++) { if (bl[i].tagName === 'P') { bl[i].classList.add('lead'); break; } }
-      }
-
-      // ───────── repetições ("10x") ─────────
-      var REP_RE = /^\s*\{?\s*(\d{1,2})\s*[x×]\s*\}?\s*[·.\-:]?\s*/i;
-      function repRender(el) {
-        var st = el._rep; if (!st) return;
-        for (var i = 0; i < st.dots.length; i++) st.dots[i].className = 'rep-dot' + (i < st.k ? ' on' : '');
-        st.label.textContent = st.k + ' / ' + st.n;
-        el.classList.toggle('rep-done', st.k >= st.n);
-      }
-      function repReset(el) { if (el._rep) { el._rep.k = 0; repRender(el); } }
-      function setupRepeats() {
-        var blocks = content.querySelectorAll('blockquote, p');
-        Array.prototype.forEach.call(blocks, function (el) {
-          if (el.dataset.repInit) return;
-          if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return; // o blockquote é a unidade
-          var tc = el.tagName === 'BLOCKQUOTE' ? (el.querySelector('p') || el) : el;
-          var m = (tc.textContent || '').match(REP_RE);
-          if (!m) return;
-          var n = parseInt(m[1], 10);
-          if (n === 1) { tc.innerHTML = tc.innerHTML.replace(REP_RE, ''); return; } // "1x": só tira o marcador, sem contas
-          if (!(n >= 2 && n <= 99)) return;
-          el.dataset.repInit = '1';
-          tc.innerHTML = tc.innerHTML.replace(REP_RE, '');
-          var bar = document.createElement('div');
-          bar.className = 'rep'; bar.setAttribute('role', 'button'); bar.setAttribute('tabindex', '0');
-          bar.setAttribute('aria-label', t('count_tap'));
-          var dotsWrap = document.createElement('span'); dotsWrap.className = 'rep-dots';
-          var dots = [];
-          for (var i = 0; i < n; i++) { var d = document.createElement('i'); d.className = 'rep-dot'; dotsWrap.appendChild(d); dots.push(d); }
-          var lab = document.createElement('span'); lab.className = 'rep-count';
-          var hint = document.createElement('span'); hint.className = 'rep-hint'; hint.setAttribute('data-i18n','count_tap'); hint.textContent = t('count_tap');
-          bar.appendChild(dotsWrap); bar.appendChild(lab); bar.appendChild(hint);
-          el.appendChild(bar);
-          el._rep = { n: n, k: 0, dots: dots, label: lab };
-          repRender(el);
-          function tap() { el._rep.k = (el._rep.k < el._rep.n) ? el._rep.k + 1 : 0; repRender(el); }
-          bar.addEventListener('click', tap);
-          bar.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); tap(); } });
-        });
-      }
-      function wrapLines(host) {
-        if (host.dataset.lined) return;
-        host.dataset.lined = '1';
-        // a barra de contas ("10x") sai antes e volta depois: reescrever o HTML com ela dentro
-        // a recriava sem os eventos e o texto "0 / 10 toque para contar" virava parte da oração
-        var reps = Array.prototype.slice.call(host.querySelectorAll(':scope > .rep'));
-        reps.forEach(function (r) { host.removeChild(r); });
-        var parts = host.innerHTML.split(/<br\s*\/?>/i);
-        if (parts.length <= 1) {
-          host.innerHTML = '<span class="rg-line">' + host.innerHTML + '</span>';
-        } else {
-          var out = '';
-          for (var i = 0; i < parts.length; i++) {
-            var seg = parts[i];
-            if (seg.replace(/<[^>]*>/g, '').trim().length === 0) { out += seg; continue; }
-            out += '<span class="rg-line">' + seg + '</span>';
-            if (i < parts.length - 1) out += '<br>';
-          }
-          host.innerHTML = out;
-        }
-        reps.forEach(function (r) { host.appendChild(r); });
-      }
-      function setupLines() {
-        var bl = content.querySelectorAll('p, blockquote, li');
-        Array.prototype.forEach.call(bl, function (el) {
-          if (el.tagName !== 'BLOCKQUOTE' && el.closest('blockquote')) return;
-          if (isRubric(el)) return;
-          lineHosts(el).forEach(wrapLines);
-        });
-      }
-      function wrapWords(lineSpan) {
-        if (lineSpan.dataset.worded) return;
-        lineSpan.dataset.worded = '1';
-        var tokens = (lineSpan.textContent || '').split(/(\s+)/);
-        var out = '';
-        for (var i = 0; i < tokens.length; i++) {
-          var tk = tokens[i];
-          if (!tk) continue;
-          if (/^\s+$/.test(tk)) { out += tk; continue; }
-          out += '<span class="rg-word">' + tk.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
-        }
-        lineSpan.innerHTML = out;
-      }
-      function setupWords() { content.querySelectorAll('.rg-line').forEach(function (ln) { wrapWords(ln); }); }
-      markRubrics();
-      setupRepeats();
-      setupLines();
-      setupWords();
-
-      // ───────── assistente de leitura (palavra a palavra) ─────────
-      var blocks = [], bi = 0, li = 0, wi = 0, playing = false, timer = null;
-      // conclusão: "concluindo" = registro em andamento (não deixa contar 2×);
-      // "concluidaNaLeitura" = esta leitura já foi concluída (o fim do assistente não conclui de novo)
-      var concluindo = false, concluidaNaLeitura = false;
-      // [base ms, ms por caractere, mínimo] por PALAVRA
-      var SPEED = { slow: [240, 60, 300], medium: [150, 45, 220], fast: [90, 32, 150] };
-      function buildBlocks() {
-        return readBlocks().map(function (el) {
-          var lines = [];
-          lineHosts(el).forEach(function (h) {
-            Array.prototype.forEach.call(h.querySelectorAll('.rg-line'), function (ln) {
-              lines.push({ span: ln, words: ln.querySelectorAll('.rg-word') });
-            });
-          });
-          return { el: el, lines: lines, rep: el._rep || null };
-        }).filter(function (b) { return b.lines.length > 0; });
-      }
-      function wordDwell(w) {
-        var sel = document.getElementById('rgSpeed');
-        var sp = SPEED[sel ? sel.value : 'medium'] || SPEED.medium;
-        var len = ((w && w.textContent) || '').length || 3;
-        return Math.max(sp[2], sp[0] + len * sp[1]);
-      }
-      function clearActive() {
-        content.querySelectorAll('.rg-active').forEach(function (e) { e.classList.remove('rg-active'); });
-        content.querySelectorAll('.rg-word-active').forEach(function (e) { e.classList.remove('rg-word-active'); });
-      }
-      function paint() {
-        clearActive();
-        var b = blocks[bi]; if (!b) return;
-        var line = b.lines[li]; if (!line) return;
-        line.span.classList.add('rg-active');
-        var w = line.words[wi];
-        if (w) w.classList.add('rg-word-active');
-        if (!reduce && line.span !== _lastCentered) {
-          _lastCentered = line.span;
-          centerOn(line.span);
-        }
-      }
-      var _lastCentered = null;
-      function centerOn(el) {
-        var r = el.getBoundingClientRect();
-        // mantém a linha por volta de 42% da altura da tela (acima do centro, livre da barra)
-        var target = window.scrollY + r.top - (window.innerHeight * 0.42 - r.height / 2);
-        window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
-      }
-      function enterBlock() { var b = blocks[bi]; if (b && b.rep) { b.rep.k = 1; repRender(b.el); } }
-      function playLabel() {
-        var lab = document.getElementById('rgPlayLabel');
-        if (lab) lab.textContent = playing ? t('pause') : ((bi > 0 || li > 0 || wi > 0) ? t('resume') : t('start'));
-        var btn = document.getElementById('rgPlay');
-        if (btn) { btn.classList.toggle('is-playing', playing); btn.setAttribute('aria-label', lab ? lab.textContent : ''); }
-      }
-      function onReadingEnd() {
-        playing = false;
-        var lastB = blocks.length - 1;
-        if (lastB >= 0) {
-          bi = lastB; li = blocks[lastB].lines.length - 1;
-          var lw = blocks[lastB].lines[li]; wi = lw ? Math.max(0, lw.words.length - 1) : 0;
-        }
-        playLabel();
-        doFinish(true); // marca como rezada automaticamente (conta na oração e no total)
-      }
-      function step() {
-        if (!playing) return;
-        var b = blocks[bi];
-        if (!b) { onReadingEnd(); return; }
-        var line = b.lines[li];
-        if (!line) { onReadingEnd(); return; }
-        paint();
-        var w = line.words[wi];
-        timer = setTimeout(function () {
-          if (wi < line.words.length - 1) { wi++; step(); return; }                 // próxima palavra
-          if (li < b.lines.length - 1) { li++; wi = 0; step(); return; }             // próxima linha
-          if (b.rep && b.rep.k < b.rep.n) { b.rep.k++; repRender(b.el); li = 0; wi = 0; step(); return; } // repetição
-          bi++; li = 0; wi = 0;                                                      // próximo bloco
-          if (bi >= blocks.length) { onReadingEnd(); return; }
-          enterBlock(); step();
-        }, wordDwell(w));
-      }
-      function play() {
-        blocks = buildBlocks();
-        if (!blocks.length) return;
-        if (bi >= blocks.length) { bi = 0; li = 0; wi = 0; }
-        playing = true; playLabel();
-        if (li === 0 && wi === 0) enterBlock();
-        step();
-      }
-      function pause() { playing = false; if (timer) clearTimeout(timer); playLabel(); }
-      function rgReset() {
-        pause(); bi = 0; li = 0; wi = 0; _lastCentered = null; blocks = buildBlocks();
-        concluidaNaLeitura = false; // nova leitura
-        clearActive();
-        blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
-        setLead();
-      }
-      document.getElementById('rgPlay').addEventListener('click', function () { playing ? pause() : play(); });
-      document.getElementById('rgRestart').addEventListener('click', function () {
-        pause(); bi = 0; li = 0; wi = 0; _lastCentered = null; blocks = buildBlocks();
-        concluidaNaLeitura = false; // nova leitura
-        blocks.forEach(function (b) { if (b.rep) repReset(b.el); });
-        if (blocks.length) { enterBlock(); paint(); } playLabel();
-      });
-      document.getElementById('rgNext').addEventListener('click', function () {
-        pause(); blocks = buildBlocks(); if (!blocks.length) return;
-        bi = Math.min(bi + 1, blocks.length - 1); li = 0; wi = 0;
-        enterBlock(); paint(); playLabel();
-      });
-
-      // ───────── Terço: mistérios por dia da semana (exclusivo desta oração) ─────────
-      if (meta.slug === 'terco') {
-        var MYS = {
-          gozosos: ['A Anunciação do Anjo a Maria', 'A Visitação de Maria a Isabel', 'O Nascimento de Jesus em Belém', 'A Apresentação do Menino Jesus no Templo', 'O Encontro do Menino Jesus no Templo'],
-          dolorosos: ['A Agonia de Jesus no Horto', 'A Flagelação do Senhor', 'A Coroação de Espinhos', 'Jesus a caminho do Calvário', 'A Crucifixão e Morte de Jesus'],
-          gloriosos: ['A Ressurreição de Jesus', 'A Ascensão do Senhor ao Céu', 'A Vinda do Espírito Santo', 'A Assunção de Maria ao Céu', 'A Coroação de Maria, Rainha do Céu'],
-          luminosos: ['O Batismo de Jesus no Jordão', 'A revelação de Jesus nas Bodas de Caná', 'O Anúncio do Reino de Deus', 'A Transfiguração do Senhor', 'A Instituição da Eucaristia']
-        };
-        var ADJ = { gozosos: 'Gozoso', dolorosos: 'Doloroso', gloriosos: 'Glorioso', luminosos: 'Luminoso' };
-        var BYDAY = ['gloriosos', 'gozosos', 'dolorosos', 'gloriosos', 'luminosos', 'dolorosos', 'gozosos']; // 0=Dom..6=Sáb
-        var ABBR = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-        var FULL = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
-        var tSlots = content.querySelectorAll('.terco-mystery');
-        var tHost = document.getElementById('terco-days');
-        var tBtns = [];
-        function tFill(setKey) {
-          var arr = MYS[setKey], adj = ADJ[setKey];
-          for (var i = 0; i < tSlots.length && i < arr.length; i++) tSlots[i].textContent = (i + 1) + 'º Mistério ' + adj + ' — ' + arr[i];
-        }
-        function tSelect(d) {
-          tFill(BYDAY[d]);
-          for (var i = 0; i < tBtns.length; i++) {
-            var on = (i === d); tBtns[i].classList.toggle('day-on', on);
-            if (on) tBtns[i].setAttribute('aria-current', 'true'); else tBtns[i].removeAttribute('aria-current');
-          }
-        }
-        if (tHost) {
-          tHost.innerHTML = '';
-          var lbl = document.createElement('div'); lbl.className = 'terco-days-label'; lbl.textContent = 'Toque no dia para ver os mistérios:';
-          var rowEl = document.createElement('div'); rowEl.className = 'terco-days-row';
-          for (var d = 0; d < 7; d++) (function (d) {
-            var b = document.createElement('button'); b.type = 'button'; b.className = 'day-chip';
-            b.textContent = ABBR[d]; b.setAttribute('aria-label', FULL[d]);
-            b.addEventListener('click', function () { tSelect(d); });
-            rowEl.appendChild(b); tBtns.push(b);
-          })(d);
-          tHost.appendChild(lbl); tHost.appendChild(rowEl);
-        }
-        tSelect(new Date().getDay()); // dia de hoje já selecionado
-      }
-
-      // ───────── Turnstile (CAPTCHA) opcional ─────────
-      var turnstileReady = false;
-      if (turnstileKey) {
-        var box = document.getElementById('turnstileBox');
-        var s = document.createElement('script');
-        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-        s.async = true; s.defer = true;
-        s.onload = function () {
-          try {
-            window.turnstile.render(box, { sitekey: turnstileKey, theme: 'auto' });
-            turnstileReady = true;
-          } catch (e) {}
-        };
-        document.head.appendChild(s);
-      }
-
-      // ───────── contador + conclusão ─────────
-      // texto de interface com reserva em PT (chave que ainda não está no site.ts)
-      function tt(k, pt) { var v = t(k); return (v == null || v === k) ? pt : v; }
-      // valor do contador desta oração; null = não deu para saber (a capa fica oculta, nunca "0").
-      // odContador já tem prazo e nunca rejeita (rede caída, bloqueador ou serviço fora → null)
-      function readCount(slug) {
-        if (!contadorAtivo) return Promise.resolve(null);
-        return C.ler([slug]).then(function (m) { return (m && typeof m[slug] === 'number') ? m[slug] : null; }, function () { return null; });
-      }
-      // últimos números do serviço (nunca a reserva): 2ª conclusão do dia e imagem "Rezei hoje"
-      var numVivo = null, numOverlay = null;
-      function animateNumber(el, to) {
-        if (reduce || to == null) { el.textContent = to == null ? '—' : fmt(to); return; }
-        var from = 0, dur = 1300, t0 = performance.now();
-        function frame(now) {
-          var p = Math.min(1, (now - t0) / dur);
-          var e = 1 - Math.pow(1 - p, 3);
-          el.textContent = fmt(Math.round(from + (to - from) * e));
-          if (p < 1) requestAnimationFrame(frame);
-        }
-        requestAnimationFrame(frame);
-      }
-      function spawnMotes() {
-        var box = document.getElementById('motes');
-        if (!box || reduce) return;
-        box.innerHTML = '';
-        for (var i = 0; i < 18; i++) {
-          var m = document.createElement('span');
-          m.className = 'mote';
-          m.style.left = Math.random() * 100 + '%';
-          m.style.animationDuration = (2 + Math.random() * 2.5) + 's';
-          m.style.animationDelay = (Math.random() * 1.2) + 's';
-          m.style.setProperty('--dx', (Math.random() * 60 - 30) + 'px');
-          box.appendChild(m);
-        }
-      }
-      function togglePostNext() {
-        var show = isNovena && current < meta.totalDays;
-        // style.display além do hidden: o CSS .btn{display:inline-flex} anula o atributo hidden
-        ['paNext', 'ovNext'].forEach(function (id) { var b = document.getElementById(id); if (b) { b.hidden = !show; b.style.display = show ? '' : 'none'; } });
-      }
-      function updateReaderCount(v) {
-        if (v == null || !(v > 0)) return; // sem número confiável (ou zero): a capa continua oculta
-        var n = document.getElementById('readerCountNum');
-        var box = document.getElementById('readerCount');
-        if (n) n.textContent = fmt(v);
-        if (box) box.hidden = false;
-      }
-      // o overlay abre na hora; o número chega depois (fillOverlay) ou fica "—"
-      function openOverlay() {
-        var ov = document.getElementById('overlay');
-        numOverlay = null;
-        document.getElementById('ovNumber').textContent = '…';
-        document.querySelector('.ov-number-label').style.display = 'none';
-        if (ovShare) { ovShare.hidden = !window.odCompartilhar; rotularOvShare(); }
-        ov.classList.add('show');
-        spawnMotes();
-        togglePostNext();
-      }
-      function fillOverlay(total) {
-        if (!(total > 0)) total = null; // falhou (ou zero): "—", sem inventar número
-        numOverlay = total;
-        if (total != null) numVivo = total;
-        document.querySelector('.ov-number-label').style.display = (total == null) ? 'none' : '';
-        animateNumber(document.getElementById('ovNumber'), total);
-        updateReaderCount(total);
-      }
-      // "Compartilhar que rezei": imagem "Rezei hoje" para Stories/Status (public/js/compartilhar.js)
-      var ovShare = document.getElementById('ovShare');
-      function rotularOvShare() { if (ovShare) ovShare.textContent = tt('share_prayed', 'Compartilhar que rezei'); }
-      if (ovShare) ovShare.addEventListener('click', function () {
-        if (!window.odCompartilhar) return;
-        var n = numOverlay != null ? numOverlay : numVivo; // contagem da oração (sem número: sem a linha)
-        window.odCompartilhar.abrir({
-          rotulo: isNovena ? tt('prayed_day', 'Rezei o {n}º dia da').replace('{n}', current) : tt('prayed_today', 'Rezei hoje'),
-          titulo: meta.titulo,
-          linhas: n > 1 ? [tt('prayed_with', 'numa corrente de {n} orações').replace('{n}', fmt(n))] : [],
-          banner: meta.banner, bannerReserva: meta.bannerReserva,
-          caminho: meta.caminho, dominio: meta.dominio,
-          arquivo: 'rezei-' + meta.slug + (isNovena ? '-dia-' + current : '')
-        });
-      });
-      // aviso da 2ª conclusão no mesmo dia
-      function setNote(on) {
-        var n = document.getElementById('ovNote');
-        if (!n) return;
-        n.hidden = !on;
-        n.textContent = on ? tt('already_counted', 'Sua oração de hoje já foi contada.') : '';
-      }
-      function closeOverlay() { document.getElementById('overlay').classList.remove('show'); }
-
-      var finishBtn = document.getElementById('finishBtn');
-      function doFinish(auto) {
-        pause();                                // o assistente para: nada avança nem rola atrás do overlay
-        var hint = document.getElementById('finishHint');
-        if (hint) hint.hidden = true;
-        if (concluindo) return;                 // já há um registro em andamento (evita contar 2×)
-        if (auto && concluidaNaLeitura) return; // o assistente chegou ao fim depois de "Concluir": não conclui de novo
-        if (turnstileKey) {
-          var tok = '';
-          try { tok = window.turnstile ? window.turnstile.getResponse() : ''; } catch (e) {}
-          if (!tok) { if (!auto && hint) { hint.hidden = false; hint.textContent = t('captcha_needed'); } return; }
-        }
-        var guardKey = 'od-done:' + meta.slug + ':' + (isNovena ? current : 0) + ':' + todayKey();
-        var already = false;
-        try { already = !!localStorage.getItem(guardKey); } catch (e) {}
-        concluidaNaLeitura = true;
-        document.getElementById('postActions').style.display = 'flex';
-        openOverlay();
-        setNote(contadorAtivo && already);
-        if (!contadorAtivo) { fillOverlay(null); return; }
-        // já contada hoje: mostra o número mais novo que a página conhece (a leitura do
-        // odContador é guardada por página e seria a de antes da contagem)
-        if (already) { if (numVivo != null) fillOverlay(numVivo); else readCount(meta.slug).then(fillOverlay); return; }
-        concluindo = true;
-        finishBtn.disabled = true;
-        var old = finishBtn.textContent;
-        finishBtn.textContent = t('finishing');
-        C.contarOracao(meta.slug)
-          .then(function (r) {
-            var mine = r ? r.oracao : null;
-            // só marca "já contada hoje" quando a contagem desta oração deu certo
-            if (mine != null) { try { localStorage.setItem(guardKey, '1'); } catch (e) {} }
-            if (r && r.total != null) { try { localStorage.setItem('od-total-cache', String(r.total)); } catch (e) {} }
-            fillOverlay(mine); // falhou → "—" (não finge que contou)
-          }, function () { fillOverlay(null); })
-          .finally(function () { concluindo = false; finishBtn.disabled = false; finishBtn.textContent = old; });
-      }
-      finishBtn.addEventListener('click', function () { doFinish(false); });
-
-      // ── Ferramentas: favoritar, compartilhar, tamanho da fonte, foco ──
-      (function () {
-        var favBtn = document.getElementById('favBtn');
-        if (favBtn && window.odFav) {
-          var setFav = function () {
-            var on = window.odFav.has(meta.slug);
-            favBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-            var lab = favBtn.querySelector('span');
-            if (lab) lab.textContent = t(on ? 'fav_saved' : 'fav_save');
-          };
-          setFav();
-          favBtn.addEventListener('click', function () { window.odFav.toggle(meta.slug); setFav(); });
-          document.addEventListener('od:lang', setFav);
-        }
-        var shareBtn = document.getElementById('shareBtn');
-        if (shareBtn) {
-          shareBtn.addEventListener('click', function () {
-            var url = location.href.split('#')[0];
-            // menu do aparelho; se falhar (sem ser cancelamento), copia o link; "Link copiado!" só se
-            // copiou; sem área de transferência, mostra o endereço — ver public/js/compartilhar.js
-            if (window.odCompartilhar) { window.odCompartilhar.link({ url: url, titulo: document.title, botao: shareBtn }); return; }
-            if (navigator.share) navigator.share({ title: document.title, url: url }).catch(function () {});
-          });
-        }
-        var FKEY = 'od-fontscale';
-        var STEPS = [0.9, 1, 1.15, 1.3, 1.45];
-        var fi = 1;
-        try { var sv = parseFloat(localStorage.getItem(FKEY)); if (sv) { var k = STEPS.indexOf(sv); fi = k >= 0 ? k : 1; } } catch (e) {}
-        function applyScale() {
-          document.documentElement.style.setProperty('--reader-scale', String(STEPS[fi]));
-          try { localStorage.setItem(FKEY, String(STEPS[fi])); } catch (e) {}
-        }
-        applyScale();
-        var up = document.getElementById('fsUp'), down = document.getElementById('fsDown');
-        if (up) up.addEventListener('click', function () { fi = Math.min(STEPS.length - 1, fi + 1); applyScale(); });
-        if (down) down.addEventListener('click', function () { fi = Math.max(0, fi - 1); applyScale(); });
-        var focusBtn = document.getElementById('focusBtn');
-        if (focusBtn) focusBtn.addEventListener('click', function () {
-          var on = document.body.classList.toggle('reader-focus');
-          focusBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-      })();
-
-      // ações pós-oração
-      function goNext() { if (current < meta.totalDays) { showDay(current + 1); } closeOverlay(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }
-      function again() { closeOverlay(); rgReset(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); play(); }
-      var catalogHref = base('/') + '#catalogo';
-      ['ovBack', 'paBack'].forEach(function (id) { var a = document.getElementById(id); if (a) a.setAttribute('href', catalogHref); });
-      document.getElementById('ovNext').addEventListener('click', goNext);
-      document.getElementById('paNext').addEventListener('click', goNext);
-      document.getElementById('ovAgain').addEventListener('click', again);
-      document.getElementById('paAgain').addEventListener('click', again);
-      document.getElementById('ovClose').addEventListener('click', closeOverlay);
-      document.getElementById('overlay').addEventListener('click', function (e) { if (e.target === this) closeOverlay(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeOverlay(); });
-
-      // atualiza textos dinâmicos ao trocar idioma
-      document.addEventListener('od:lang', function () {
-        playLabel();
-        if (isNovena) { var cap = document.getElementById('dayCaption'); if (cap) cap.textContent = t('day') + ' ' + current + ' ' + t('day_of') + ' ' + meta.totalDays; }
-        var nt = document.getElementById('ovNote'); if (nt && !nt.hidden) setNote(true);
-        rotularOvShare();
-      });
-
-      // ───────── início ─────────
-      var startDay = 1;
-      if (isNovena) {
-        var q = new URLSearchParams(location.search).get('dia');
-        var saved = null; try { saved = localStorage.getItem('od-progress:' + meta.slug); } catch (e) {}
-        if (q && +q >= 1 && +q <= meta.totalDays) startDay = +q;
-        else if (saved && +saved >= 1 && +saved <= meta.totalDays) startDay = +saved;
-        else { var sg = suggestedDay(); startDay = sg || 1; }
-        showDay(startDay);
-      } else {
-        setLead();
-        blocks = buildBlocks();
-      }
-
-      // contagem desta oração, mostrada na capa. Se a leitura falhar, usa o número de reserva
-      // do build (src/data/contadores.json); sem reserva, a capa fica oculta (nunca "0")
-      if (contadorAtivo) {
-        readCount(meta.slug).then(function (v) {
-          if (v > 0 && numVivo == null) numVivo = v;
-          if (v == null && meta.reserva > 0) v = meta.reserva;
-          updateReaderCount(v);
-        });
-      }
-
-      // limpeza: marcas "od-done:…" com mais de 30 dias (antes cresciam para sempre)
-      // e as antigas "od-mine:…" (não são mais usadas)
-      try {
-        var limite = Date.now() - 30 * 86400000;
-        for (var ki = localStorage.length - 1; ki >= 0; ki--) {
-          var kk = localStorage.key(ki);
-          if (kk && kk.indexOf('od-mine:') === 0) { localStorage.removeItem(kk); continue; }
-          if (!kk || kk.indexOf('od-done:') !== 0) continue;
-          var kd = kk.slice(kk.lastIndexOf(':') + 1).split('-');
-          if (!(new Date(+kd[0], +kd[1] - 1, +kd[2]).getTime() >= limite)) localStorage.removeItem(kk);
-        }
-      } catch (e) {}
-    })();
+  <!-- dados da página para o módulo (E3) -->
+  <script type="application/json" id="oracao-dados" is:inline set:html={dadosJson}></script>
+  <script>
+    import '../../scripts/oracao/leitor';
   </script>
 </Base>
+
+<style is:global>
+  /* ════════ Leitor da oração (Fases 3 e 4) — complementa o CSS do Base.astro ════════ */
+
+  /* E8: destaque pela API nativa de realce — só fundo e cor (sem negrito: o texto não "treme").
+     Cores literais: ::highlight() não lê var() em todos os navegadores. Contraste ≥ 9:1. */
+  ::highlight(od-linha) { background-color: rgba(231, 178, 76, .14); }
+  ::highlight(od-palavra) { background-color: rgba(231, 178, 76, .5); color: #2b2117; }
+  :root[data-theme="dark"] ::highlight(od-linha) { background-color: rgba(255, 215, 132, .1); }
+  :root[data-theme="dark"] ::highlight(od-palavra) { background-color: rgba(255, 215, 132, .85); color: #1a130a; }
+  /* reserva sem a API (só no bloco que está sendo lido) */
+  .rg-w { border-radius: 4px; }
+  .rg-w-linha { background-color: rgba(231, 178, 76, .14); }
+  .rg-w-ativa { background-color: rgba(231, 178, 76, .5); color: #2b2117; }
+  :root[data-theme="dark"] .rg-w-linha { background-color: rgba(255, 215, 132, .1); }
+  :root[data-theme="dark"] .rg-w-ativa { background-color: rgba(255, 215, 132, .85); color: #1a130a; }
+  /* G6: tocar num parágrafo/verso começa a leitura dali */
+  #prayer-content :is(p, blockquote):not(.rubric):not(.terco-mystery) { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  #prayer-content :is(.od-misterios, .terco-days) :is(p, li) { cursor: auto; }
+
+  /* B15: A+ e A− valem para tudo no texto (antes rubricas, mistérios e títulos ficavam fixos) */
+  #prayer-content h2 { font-size: calc(1.9rem * var(--reader-scale, 1)); }
+  #prayer-content p.rubric { font-size: calc(1rem * var(--reader-scale, 1)); }
+  #prayer-content .terco-mystery { font-size: calc(1.28rem * var(--reader-scale, 1)); }
+  #prayer-content .lead::first-letter { font-size: calc(3.6rem * var(--reader-scale, 1)); }
+  #prayer-content .rep-count { font-size: calc(1.1rem * var(--reader-scale, 1)); }
+  #prayer-content .rep-hint { font-size: calc(.72rem * var(--reader-scale, 1)); }
+  #prayer-content .rep-dot { width: calc(13px * var(--reader-scale, 1)); height: calc(13px * var(--reader-scale, 1)); }
+  .rtool[aria-disabled="true"] { opacity: .45; cursor: default; }
+
+  /* G8: seção repetida (ex.: "## 5x Dezenas") — a barra de continhas fica logo abaixo do título */
+  #prayer-content section.od-secao { margin: 0 0 1.2rem; padding: 0 0 0 .9rem; border-left: 2px dotted color-mix(in srgb, var(--gold) 55%, transparent); }
+  #prayer-content section.od-secao > .rep-secao { margin: -.4rem 0 1rem; }
+  #prayer-content section.od-secao.rep-done { border-left-style: solid; }
+
+  /* G7: mistérios do dia (Terço, Rosário completo e as quatro páginas) */
+  #prayer-content .od-misterios { margin: .4rem 0 1.8rem; padding: .9rem 1.1rem; border: 1px solid var(--hair); border-radius: 12px; background: color-mix(in srgb, var(--gold) 5%, transparent); font-size: calc(1rem * var(--reader-scale, 1)); }
+  #prayer-content .od-misterios.od-hoje { border-color: color-mix(in srgb, var(--gold) 60%, var(--hair)); }
+  #prayer-content .od-mist-titulo { margin: 0 0 .35rem; font-size: .78em; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+  #prayer-content .od-mist-titulo .od-mist-dias { text-transform: none; letter-spacing: .02em; color: var(--ink-soft); }
+  #prayer-content .od-mist-hoje { margin: 0 0 .5rem; color: var(--ink); font-style: italic; min-height: 1.5em; }
+  #prayer-content .od-mist-hoje a { color: var(--gold); }
+  #prayer-content .od-mist-sumario { margin: 0; padding-left: 1.4rem; display: grid; gap: .25rem; }
+  #prayer-content .od-mist-sumario a { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+  #prayer-content .od-mist-sumario a:hover { color: var(--gold); }
+  #prayer-content .od-mist-sumario .od-mist-dias { color: var(--ink-soft); font-size: .85em; }
+  #prayer-content .od-mist-sumario li.od-hoje { color: var(--gold); font-weight: 500; }
+  #prayer-content :is(li, h2).od-hoje::after { content: attr(data-hoje-rotulo); display: inline-block; margin-left: .5rem; padding: .05rem .5rem; border-radius: 999px; border: 1px solid var(--gold); font-family: 'EB Garamond', serif; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); vertical-align: middle; font-weight: 400; }
+  #prayer-content .terco-days .od-mist-hoje { margin: .8rem 0 .3rem; }
+  #prayer-content .terco-days .od-mist-sumario { font-size: .95em; }
+  #prayer-content .day-chip.od-hoje:not(.day-on) { border-color: var(--gold); }
+
+  /* G11: Modo Foco — além de topo e rodapé (Base.astro), esconde ferramentas, biografia e produtos.
+     A classe no <html> vem do script curto do <head> (sem "piscar"); só o botão Foco fica para sair. */
+  html.od-foco .topbar, html.od-foco .footsite,
+  html.od-foco .reader-tools > :not(#focusBtn), html.od-foco .bio-link, html.od-foco .prod-related { display: none !important; }
+  html.od-foco .reader-hero { min-height: 26vh; }
+  html.od-foco .reader-tools { justify-content: flex-end; margin-bottom: .8rem; }
+
+  /* B17: a barra do assistente respeita a área segura do iPhone e se recolhe enquanto as
+     contas/legenda da novena estão na faixa de baixo da tela (parada; tocando, ela fica) */
+  :root { --od-seguro: env(safe-area-inset-bottom, 0px); }
+  .rg-bar { padding-bottom: calc(.7rem + var(--od-seguro)); transition: transform .25s ease, opacity .25s ease; }
+  .rg-bar.rg-recolhida { transform: translateY(calc(100% + 16px)); opacity: 0; pointer-events: none; }
+  @media (max-width: 560px) { .rg-bar { padding-bottom: calc(.55rem + var(--od-seguro)); } }
+  /* contas da novena abaixo do topo fixo ao rolar até elas; no modo foco o topo some e basta uma folga */
+  .beads, .day-caption { scroll-margin-top: 84px; }
+  html.od-foco .beads, html.od-foco .day-caption { scroll-margin-top: 1rem; }
+
+  /* G10: impressão — papel branco, sem barras nem botões; a novena sai com todos os dias */
+  @media print {
+    :root, :root[data-theme="dark"] {
+      --paper: #fff; --paper-raised: #fff; --ink: #111; --ink-soft: #444; --hair: #bbb;
+      --gold: #6b4a12; --gold-bright: #6b4a12; --flame: #6b4a12; --glow: transparent; --reader-scale: 1;
+      color-scheme: light;
+    }
+    html, body { background: #fff !important; color: #111 !important; }
+    .texture, .topbar, .footsite, .search-overlay, .reader-tools, .bio-link, #beads, .day-caption, .rg-bar,
+    .finish-zone, .prod-related, .overlay, .reader-bg, .reader-shade, .reader-parallax, .reader-count,
+    .rep-hint, .rep-count, .rep-dots, .terco-days-row, .terco-days-label, #prayer-content .od-mist-hoje { display: none !important; }
+    .reader-hero { min-height: 0 !important; background: none !important; display: block; overflow: visible; }
+    .reader-head { color: #111 !important; padding: 0 0 .6rem !important; max-width: none; }
+    .reader-type, .reader-title, .reader-saint { color: #111 !important; text-shadow: none !important; }
+    .reader-title { font-size: 26pt !important; }
+    .reader-body { max-width: none; padding: 0; }
+    #prayer-content { font-size: 12.5pt !important; }
+    #prayer-content [data-dia][hidden] { display: block !important; }
+    #prayer-content h2[data-dia]:not([data-dia="1"]) { break-before: page; }
+    #prayer-content h2, #prayer-content h3 { break-after: avoid; color: #111; }
+    #prayer-content blockquote { background: none !important; border-left: 2px solid #999; break-inside: avoid; }
+    #prayer-content p { orphans: 3; widows: 3; }
+    #prayer-content .rep { display: block !important; margin: .2rem 0 0; padding: 0; }
+    #prayer-content .rep::before { content: attr(data-n) "×"; font-weight: 600; font-size: 10pt; color: #6b4a12; }
+    #prayer-content .lead::first-letter { color: #111; }
+    #prayer-content .od-misterios { background: none; border-color: #bbb; break-inside: avoid; }
+    #prayer-content :is(li, h2).od-hoje::after { display: none; }
+    :root ::highlight(od-linha), :root ::highlight(od-palavra),
+    :root[data-theme] ::highlight(od-linha), :root[data-theme] ::highlight(od-palavra) { background-color: transparent; color: #111; }
+    #prayer-content .rg-w-linha, #prayer-content .rg-w-ativa { background: none !important; color: inherit !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+    @page { margin: 16mm 15mm; }
+  }
+</style>

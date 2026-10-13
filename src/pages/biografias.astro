@@ -12,11 +12,14 @@ const bios = (await getCollection('biografias')).sort((a, b) => {
   return (a.data.name ?? a.id).localeCompare(b.data.name ?? b.id);
 });
 const prettify = (slug: string) => slug.split(/[-_]/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+// miniatura em pé (360×480, <id>_thumb.webp) quando existe; senão a imagem própria (campo image ou <id>.webp)
 function bioImg(id: string, image?: string) {
-  const hasThumb = fs.existsSync(`public/biografias/${id}_thumb.webp`);
-  return withBase(image ?? (hasThumb ? `/biografias/${id}_thumb.webp` : `/biografias/${id}.webp`));
+  if ((!image || image === `/biografias/${id}.webp`) && fs.existsSync(`public/biografias/${id}_thumb.webp`)) return withBase(`/biografias/${id}_thumb.webp`);
+  return withBase(image ?? `/biografias/${id}.webp`);
 }
-const fallback = withBase('/biografias/default.webp');
+const fallback = withBase(fs.existsSync('public/biografias/default_thumb.webp') ? '/biografias/default_thumb.webp' : '/biografias/default.webp');
+// texto extra da busca da página: só o que NÃO aparece no cartão (o nome, o título e o resumo o script lê do próprio cartão)
+const extraBusca = (b: CollectionEntry<'biografias'>) => `${b.data.patronage ?? ''} ${b.data.tags.join(' ')}`.trim().toLowerCase() || undefined;
 // Categorias (filtro "Categoria"). Vêm do campo 'categorias' do .md (chaves fixas em
 // src/content.config.ts). Biografia SEM o campo cai numa dedução SEGURA: só PALAVRAS
 // INTEIRAS e só nas TAGS — nunca no título nem no padroado (o título "Esposo da Virgem"
@@ -46,7 +49,7 @@ const _catDefs: { key: Cat; pt: string; kw: string[]; ignora?: (w: string[], i: 
   { key: 'realeza', pt: 'Realeza', kw: ['realeza', 'rainha', 'imperador', 'imperatriz'], ignora: (w, i) => w[i] === 'rainha' && ['da', 'das', 'do', 'dos'].includes(w[i + 1]) },
   { key: 'maria', pt: 'Nossa Senhora', kw: ['nossa senhora', 'mae de deus', 'theotokos'] },
 ];
-const _palavras = (x: string) => (x ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+const _palavras = (x: string) => (x ?? '').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
 const _temPalavra = (w: string[], kw: string, ignora?: (w: string[], i: number) => boolean) => {
   const k = kw.split(' ');
   for (let i = 0; i + k.length <= w.length; i++) {
@@ -73,12 +76,16 @@ const cats = _catDefs.filter((c) => _present.has(c.key)); // só as categorias p
 }
 ---
 <Base title="Biografias" description="Vidas de santos, mártires e testemunhas da fé — com festa litúrgica, padroado e orações relacionadas.">
+  <!-- o coração de cada cartão (<use href="#i-coracao">): o desenho vem uma vez só -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-coracao" viewBox="0 0 24 24"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke-width="2" /></symbol>
+  </svg>
   <!-- ════════ MINHAS BIOGRAFIAS (favoritos, revelado se houver) ════════ -->
   <section class="section" id="favBioSection" hidden>
     <div class="wrap">
       <p class="eyebrow" data-i18n="fav_bio_title">Minhas biografias</p>
       <h2 class="section-title" data-i18n="fav_bio_title">Minhas biografias</h2>
-      <div class="grid grid--pinned" id="favBioGrid"></div>
+      <div class="grid grid--pinned" id="favBioGrid" lang="pt-BR"></div>
     </div>
   </section>
 
@@ -107,23 +114,15 @@ const cats = _catDefs.filter((c) => _present.has(c.key)); // só as categorias p
             </div>
           )}
 
-          <div class="grid" id="bioGrid">
-            {bios.map((b) => (
-              <a class="card" href={withBase(`/biografia/${b.id}`)}
-                 data-slug={b.id}
-                 data-cats={catsOf(b).join(' ')}
-                 data-search={`${b.data.name ?? prettify(b.id)} ${b.data.title ?? ''} ${b.data.patronage ?? ''} ${b.data.tags.join(' ')} ${b.data.summary}`.toLowerCase()}>
-                <img class="card-img" src={bioImg(b.id, b.data.image)} alt={b.data.name || prettify(b.id)} loading="lazy" width="600" height="800" onerror={`this.onerror=null;this.src='${fallback}'`} />
-                <button class="fav-btn" type="button" aria-label="Favoritar" aria-pressed="false">
-                  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path class="hpath" d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke-width="2"/></svg>
-                </button>
-                <div class="card-body">
-                  {b.data.title && <span class="card-type">{b.data.title}</span>}
-                  <h3 class="card-title">{b.data.name || prettify(b.id)}</h3>
-                  {b.data.summary && <p class="bio-card-sum">{b.data.summary}</p>}
-                </div>
-              </a>
-            ))}
+          <!-- cartão como o das orações (PrayerCard): o link fica no NOME e cobre o cartão inteiro;
+               o coração é um botão irmão do link (botão dentro de link é HTML inválido) -->
+          <div class="grid" id="bioGrid" lang="pt-BR" data-fallback={fallback}>
+            {bios.map((b) => {
+              const nome = b.data.name || prettify(b.id);
+              return (
+                <article class="card card-bio" data-slug={b.id} data-cats={catsOf(b).join(' ') || undefined} data-search={extraBusca(b)}><img class="card-img" src={bioImg(b.id, b.data.image)} alt="" loading="lazy" width="360" height="480" /><div class="card-body">{b.data.title && <span class="card-type">{b.data.title}</span>}<h3 class="card-title"><a class="card-link" href={withBase(`/biografia/${b.id}`)}>{nome}</a></h3>{b.data.summary && <p class="bio-card-sum">{b.data.summary}</p>}</div><button class="fav-btn" type="button" aria-pressed="false" aria-label={`Salvar ${nome} nos favoritos`}><svg width="20" height="20" aria-hidden="true"><use href="#i-coracao" /></svg></button></article>
+              );
+            })}
           </div>
           <button class="btn show-more" id="bioShowMore" type="button" hidden data-i18n="show_more">Mostrar mais</button>
           <p class="bio-empty" id="bioEmpty" hidden data-i18n="bio_no_results">Nenhuma biografia encontrada.</p>
@@ -145,14 +144,27 @@ const cats = _catDefs.filter((c) => _present.has(c.key)); // só as categorias p
       const cards = Array.from(grid.querySelectorAll<HTMLElement>('.card'));
       const source: Record<string, HTMLElement> = {};
       cards.forEach((c) => { if (!source[c.dataset.slug!]) source[c.dataset.slug!] = c; });
-      const norm = (x: string) => (x || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const norm = (x: string) => (x || '').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+      // texto de busca de cada cartão: o que se vê (nome, título, resumo) + padroado e tags (data-search)
+      const textos = new Map<HTMLElement, string>();
+      cards.forEach((c) => textos.set(c, norm((c.textContent || '') + ' ' + (c.dataset.search || ''))));
       const STEP = 50;
-      let limit = STEP, fText = '', fCat = '';
+      let limit = STEP, palavras: string[] = [], fCat = '';
+
+      // imagem que falhou: a padrão (um ouvinte só, em vez de um onerror por cartão)
+      const reserva = grid.dataset.fallback || '';
+      const trocar = (img: HTMLImageElement) => { if (reserva && !img.dataset.reserva) { img.dataset.reserva = '1'; img.src = reserva; } };
+      document.addEventListener('error', (e) => {
+        const img = e.target as HTMLImageElement;
+        if (img && img.tagName === 'IMG' && img.classList.contains('card-img')) trocar(img);
+      }, true);
+      document.querySelectorAll<HTMLImageElement>('.card-bio .card-img').forEach((img) => { if (img.complete && !img.naturalWidth) trocar(img); });
 
       function apply() {
         let matched = 0;
         for (const c of cards) {
-          const okText = !fText || norm(c.dataset.search || '').includes(fText);
+          const t = textos.get(c) || '';
+          const okText = palavras.every((w) => t.includes(w));     // todas as palavras, em qualquer ordem
           const okCat = !fCat || (' ' + (c.dataset.cats || '') + ' ').includes(' ' + fCat + ' ');
           const show = okText && okCat;
           if (show) { matched++; c.style.display = matched <= limit ? '' : 'none'; }
@@ -170,7 +182,7 @@ const cats = _catDefs.filter((c) => _present.has(c.key)); // só as categorias p
         btn.setAttribute('aria-pressed', 'true');
         fCat = btn.dataset.cat || ''; limit = STEP; apply();
       });
-      search?.addEventListener('input', () => { fText = norm(search.value.trim().toLowerCase()); limit = STEP; apply(); });
+      search?.addEventListener('input', () => { palavras = norm(search.value).split(/\s+/).filter(Boolean); limit = STEP; apply(); });
       moreBtn?.addEventListener('click', () => { limit += STEP; apply(); });
 
       function refreshHearts() {
@@ -195,9 +207,8 @@ const cats = _catDefs.filter((c) => _present.has(c.key)); // só as categorias p
         refreshHearts();
       }
       document.addEventListener('click', (e) => {
-        const btn = (e.target as HTMLElement).closest('.fav-btn');
+        const btn = (e.target as HTMLElement).closest('.card-bio .fav-btn');
         if (!btn) return;
-        e.preventDefault(); e.stopPropagation();
         const card = btn.closest('.card') as HTMLElement | null;
         if (!card) return;
         odFav.toggle(card.dataset.slug);
@@ -209,9 +220,23 @@ const cats = _catDefs.filter((c) => _present.has(c.key)); // só as categorias p
     })();
   </script>
 
-  <style>
+  <style is:global>
+    /* global de propósito: estilo com escopo espalharia um atributo extra por todos os cartões */
     .bio-lead { color: var(--ink-soft); margin: .2rem 0 1.2rem; font-size: 1.05rem; }
     .bio-empty { color: var(--ink-soft); font-style: italic; padding: 1.4rem 0; }
     .bio-card-sum { font-size: .8rem; color: var(--ink-soft); line-height: 1.4; margin: .15rem 0 0; }
+    .grid--pinned .bio-card-sum { display: none; }
+    .card-bio .card-link { color: inherit; text-decoration: none; }
+    /* o cartão inteiro leva ao link do nome (o coração fica por cima, em outra camada) */
+    .card-bio .card-link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+    .card-bio .card-link:focus-visible { outline: none; }
+    .card-bio .card-link:focus-visible::after { outline: 2px solid var(--gold-bright); outline-offset: -3px; border-radius: 12px; }
+    /* coração: o círculo continua com 36 px, mas a área de toque tem 44 px */
+    .card-bio .fav-btn { width: 44px; height: 44px; top: .25rem; right: .25rem; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+    .card-bio .fav-btn::before { content: ''; position: absolute; inset: 4px; z-index: -1; border-radius: 50%; background: rgba(10,7,3,.45); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); transition: background .2s; }
+    .card-bio .fav-btn:hover { background: transparent; }
+    .card-bio .fav-btn:hover::before { background: rgba(10,7,3,.66); }
+    .card-bio .fav-btn svg { fill: none; stroke: #fff; transition: fill .2s, stroke .2s; }
+    .card-bio .fav-btn[aria-pressed="true"] svg { fill: var(--gold-bright); stroke: var(--gold-bright); }
   </style>
 </Base>

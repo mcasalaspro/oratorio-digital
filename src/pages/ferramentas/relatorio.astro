@@ -1,0 +1,372 @@
+---
+// ════════════════════════════════════════════════════════════════
+//  RELATÓRIO DO CONTEÚDO — página interna, para o dono do site
+//  Endereço: /ferramentas/relatorio/ — sem links no site e fora do Google
+//  (o Base.astro marca /ferramentas/ como noindex e o sitemap deixa de fora).
+//  Refeito a cada publicação. Mostra o que pede atenção: arquivos fora do site
+//  (quarentena), avisos do conteúdo, imagens (faltando, sem página, repetidas,
+//  pesadas), orações sem data, festas por mês, categorias das biografias,
+//  produtos e os avisos do build.
+//  De onde vêm os dados: as coleções do site; o validador (scripts/validar-conteudo.mjs
+//  — na publicação, o resultado gravado antes do build em .relatorio/conteudo.json);
+//  o gerador de imagens (.relatorio/imagens.json); src/config/produtos.ts; e, só na
+//  publicação, o log do build (scripts/relatorio-avisos.mjs completa a última seção).
+// ════════════════════════════════════════════════════════════════
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { pathToFileURL } from 'node:url';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { site, withBase } from '../../config/site';
+import { getProdutos, problemasProdutos, produtosForPage } from '../../config/produtos';
+
+type Problema = { arquivo: string; linha: number; msg: string };
+const naPublicacao = !!process.env.GITHUB_ACTIONS;
+const lerJson = (arq: string): any => { try { return JSON.parse(fs.readFileSync(arq, 'utf8')); } catch { return null; } };
+const agora = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long', timeStyle: 'short', timeZone: 'America/Sao_Paulo' }).format(new Date());
+const kb = (n: number) => `${new Intl.NumberFormat('pt-BR').format(Math.round(n / 1024))} KB`;
+const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+
+// ── coleções ──
+const oracoes = (await getCollection('prayers')).sort((a, b) => a.data.title.localeCompare(b.data.title, 'pt-BR'));
+const bios = (await getCollection('biografias')).sort((a, b) => (a.data.name || a.id).localeCompare(b.data.name || b.id, 'pt-BR'));
+const textos = await getCollection('textos');
+const cantos = await getCollection('cantos');
+const nLiturgias = (() => { try { return fs.readdirSync('src/content/liturgia', { recursive: true }).map(String).filter((f) => f.endsWith('.md')).length; } catch { return 0; } })();
+const nomeBio = (b: any) => b.data.name || b.id.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+// ── validador (na publicação: o resultado de antes do build, com a quarentena) ──
+let validacao: any = naPublicacao ? lerJson('.relatorio/conteudo.json') : null;
+let falhaValidador = '';
+if (!validacao) {
+  try {
+    const mod: any = await import(/* @vite-ignore */ pathToFileURL(path.resolve('scripts/validar-conteudo.mjs')).href);
+    validacao = await mod.validarConteudo();
+  } catch (e: any) {
+    falhaValidador = String(e?.message || e);
+    validacao = { erros: [], avisos: [] };
+  }
+}
+const quarentena: { arquivo: string; problemas: string[] }[] = validacao.quarentena || [];
+const errosConteudo: Problema[] = quarentena.length ? [] : (validacao.erros || []); // na publicação, os erros já estão na quarentena
+const avisosConteudo: Problema[] = validacao.avisos || [];
+
+// ── imagens ──
+const DERIV = /_(thumb|w800|w1200)\.webp$/i;
+const IMG = /\.(webp|png|jpe?g|gif|avif|svg)$/i;
+const PASTAS = ['saints', 'biografias', 'textos', 'cantos', 'liturgia', 'produtos'];
+const originais: string[] = []; // caminhos públicos: /saints/x.webp
+for (const p of PASTAS) {
+  try { for (const n of fs.readdirSync(`public/${p}`).sort()) if (IMG.test(n) && !DERIV.test(n)) originais.push(`/${p}/${n}`); } catch {}
+}
+const soltas: string[] = []; // raiz de public/ e textures/ (logos, ícones, fundos)
+for (const p of ['', 'textures']) {
+  try { for (const n of fs.readdirSync(`public/${p}`).sort()) if (IMG.test(n) && !DERIV.test(n) && fs.statSync(`public/${p}/${n}`).isFile()) soltas.push(`${p ? `/${p}` : ''}/${n}`); } catch {}
+}
+// imagens que as páginas usam
+const usadas = new Set<string>(['/saints/default.webp', '/biografias/default.webp', '/produtos/default.webp']);
+const faltando: { pagina: string; arquivo: string; imagem: string }[] = [];
+const imagemDe = (img: unknown, padrao: string) => (typeof img === 'string' && img.trim() ? img.trim() : padrao);
+for (const o of oracoes) {
+  const img = imagemDe(o.data.image, `/saints/${o.id}.webp`);
+  if (/^https?:/i.test(img)) continue;
+  usadas.add(img); usadas.add(`/saints/${o.id}.webp`); // o cartão do catálogo procura sempre /saints/<id>.webp
+  if (!fs.existsSync(`public${img}`)) faltando.push({ pagina: o.data.title, arquivo: `src/content/prayers/${o.id}.md`, imagem: img });
+}
+for (const b of bios) {
+  const img = imagemDe(b.data.image, `/biografias/${b.id}.webp`);
+  if (/^https?:/i.test(img)) continue;
+  usadas.add(img);
+  if (!fs.existsSync(`public${img}`)) faltando.push({ pagina: nomeBio(b), arquivo: `src/content/biografias/${b.id}.md`, imagem: img });
+}
+for (const t of textos) usadas.add(`/textos/${t.id}.webp`);
+for (const c of cantos) usadas.add(`/cantos/${c.id}.webp`);
+['/textos/index.webp', '/cantos/index.webp', '/liturgia/index.webp'].forEach((x) => usadas.add(x));
+const produtos = getProdutos();
+for (const p of produtos) if (p.imagem && !/^https?:/i.test(p.imagem)) usadas.add(p.imagem.startsWith('/') ? p.imagem : `/produtos/${p.imagem}`);
+const semPagina = originais.filter((i) => !usadas.has(i));
+// raiz e textures: "usada" se o nome aparece no código do site
+const codigo = (() => {
+  const partes: string[] = [];
+  const ler = (dir: string) => { try { for (const f of fs.readdirSync(dir, { recursive: true }).map(String)) if (/\.(astro|ts|js|mjs|css)$/.test(f)) partes.push(fs.readFileSync(path.join(dir, f), 'utf8')); } catch {} };
+  ler('src'); ler('public/js'); ler('scripts');
+  try { partes.push(fs.readFileSync('astro.config.mjs', 'utf8')); } catch {}
+  return partes.join('\n');
+})();
+const soltasSemUso = soltas.filter((s) => !codigo.includes(path.basename(s)));
+// repetidas (mesmo conteúdo) e pesadas
+const porHash = new Map<string, string[]>();
+const pesadas: { img: string; tam: number }[] = [];
+for (const img of [...originais, ...soltas]) {
+  try {
+    const buf = fs.readFileSync(`public${img}`);
+    const h = crypto.createHash('sha1').update(buf).digest('hex');
+    porHash.set(h, [...(porHash.get(h) || []), img]);
+    if (buf.length > 500 * 1024) pesadas.push({ img, tam: buf.length });
+  } catch {}
+}
+const repetidas = [...porHash.values()].filter((g) => g.length > 1);
+pesadas.sort((a, b) => b.tam - a.tam);
+const gerador = lerJson('.relatorio/imagens.json');
+
+// ── datas ──
+let CAL: any = null;
+try {
+  const mod: any = await import(/* @vite-ignore */ pathToFileURL(path.resolve('public/js/calendario.js')).href);
+  CAL = mod?.default?.data ? mod.default : (globalThis as any).odCalendario;
+} catch {}
+const ano = new Date().getFullYear();
+const semData = oracoes.filter((o) => !o.data.liturgicalFeast);
+type Festa = { dia: number; mes: number; codigo: string; titulo: string; tipo: string; id: string };
+const porMes: Festa[][] = Array.from({ length: 12 }, () => []);
+const moveis: (Festa & { quando: string })[] = [];
+for (const o of oracoes) {
+  const c = o.data.liturgicalFeast;
+  if (!c) continue;
+  const m = /^(\d{2})-(\d{2})$/.exec(c);
+  const f = { codigo: c, titulo: o.data.title, tipo: o.data.type, id: o.id, dia: 0, mes: 0 };
+  if (m) { f.mes = +m[1]; f.dia = +m[2]; if (f.mes >= 1 && f.mes <= 12) porMes[f.mes - 1].push(f); }
+  else {
+    const d: Date | null = CAL?.data ? CAL.data(c, ano) : null;
+    moveis.push({ ...f, quando: d ? `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}` : '—' });
+  }
+}
+porMes.forEach((l) => l.sort((a, b) => a.dia - b.dia || a.titulo.localeCompare(b.titulo, 'pt-BR')));
+moveis.sort((a, b) => a.quando.split('/').reverse().join('').localeCompare(b.quando.split('/').reverse().join('')));
+
+// ── biografias por categoria ──
+const ROTULO: Record<string, string> = {
+  martir: 'Mártir', doutor: 'Doutor da Igreja', virgem: 'Virgem', bispo: 'Bispo', papa: 'Papa', apostolo: 'Apóstolo',
+  anjo: 'Anjo', diacono: 'Diácono', religioso: 'Religioso(a)', fundador: 'Fundador(a)', profeta: 'Profeta',
+  vidente: 'Vidente', realeza: 'Realeza', maria: 'Nossa Senhora',
+};
+const porCategoria = Object.keys(ROTULO).map((k) => ({ k, rotulo: ROTULO[k], nomes: bios.filter((b) => (b.data.categorias || []).includes(k as any)).map(nomeBio) }));
+const semCategoria = bios.filter((b) => !(b.data.categorias || []).length).map(nomeBio);
+
+// ── produtos ──
+const ondeAparece = new Map<string, string[]>();
+const marcar = (lista: any[], pagina: string) => lista.forEach((p) => ondeAparece.set(p.id, [...(ondeAparece.get(p.id) || []), pagina]));
+for (const o of oracoes) marcar(produtosForPage(o.id, o.data.saint), o.data.title);
+for (const b of bios) marcar(produtosForPage(b.id, nomeBio(b)), nomeBio(b));
+const ids = new Set([...oracoes.map((o) => o.id), ...bios.map((b) => b.id)]);
+const produtosInfo = produtos.map((p) => ({
+  ...p,
+  paginasQueNaoExistem: p.paginas.filter((s) => !ids.has(s)),
+  aparece: [...new Set(ondeAparece.get(p.id) || [])],
+}));
+const probProdutos = problemasProdutos();
+const destaquesQueFaltam = (site.pinnedPrayers || []).map((x: any) => x.id).filter((id: string) => !oracoes.some((o) => o.id === id));
+
+const total = { erros: quarentena.length + errosConteudo.length, avisos: avisosConteudo.length + destaquesQueFaltam.length + probProdutos.length + (gerador?.falhas?.length || 0) };
+const linkOracao = (id: string) => withBase(`/oracao/${id}/`);
+---
+<Base title="Relatório do conteúdo" description="Ferramenta interna do Oratório Digital." noindex>
+  <section class="section">
+    <div class="wrap rel">
+      <p class="eyebrow">Ferramenta interna</p>
+      <h1 class="section-title">Relatório do conteúdo</h1>
+      <p class="rel-lead">
+        {naPublicacao ? 'Gerado na publicação de' : 'Gerado no build do seu computador em'} {agora} (horário de Brasília).
+        Só você vê esta página: ela não tem links no site e fica fora do Google.
+      </p>
+
+      <ul class="rel-resumo">
+        <li><b>{oracoes.length}</b> orações</li>
+        <li><b>{oracoes.filter((o) => o.data.type === 'novena').length}</b> novenas</li>
+        <li><b>{bios.length}</b> biografias</li>
+        <li><b>{textos.length}</b> textos</li>
+        <li><b>{cantos.length}</b> cantos</li>
+        <li><b>{nLiturgias}</b> liturgias</li>
+        <li><b>{produtos.length}</b> produtos</li>
+        <li><b>{originais.length}</b> imagens</li>
+        <li class={total.erros ? 'rel-ruim' : 'rel-bom'}><b>{total.erros}</b> {naPublicacao ? 'fora do site' : 'erros'}</li>
+        <li class={total.avisos ? 'rel-atencao' : 'rel-bom'}><b>{total.avisos}</b> avisos</li>
+      </ul>
+
+      <nav class="rel-indice" aria-label="Seções do relatório">
+        <a href="#quarentena">Arquivos fora do site</a> · <a href="#avisos-conteudo">Avisos do conteúdo</a> ·
+        <a href="#imagens">Imagens</a> · <a href="#sem-data">Orações sem data</a> · <a href="#festas">Festas por mês</a> ·
+        <a href="#categorias">Categorias</a> · <a href="#produtos">Produtos</a> · <a href="#avisos">Avisos do build</a>
+      </nav>
+
+      <!-- ░░ 1. quarentena ░░ -->
+      <section class="rel-sec" id="quarentena">
+        <h2>{naPublicacao ? 'Arquivos fora do site (quarentena)' : 'Erros no conteúdo'}</h2>
+        {quarentena.length > 0 && (
+          <>
+            <p class="rel-alerta">Estes arquivos têm erro e ficaram <b>fora do site</b> nesta publicação. O resto foi publicado. Corrija e publique de novo: eles voltam sozinhos.</p>
+            <ul class="rel-lista">
+              {quarentena.map((q) => <li><code>{q.arquivo}</code><ul>{q.problemas.map((p) => <li>{p}</li>)}</ul></li>)}
+            </ul>
+          </>
+        )}
+        {errosConteudo.length > 0 && (
+          <>
+            <p class="rel-alerta">Na próxima publicação, estes arquivos ficariam <b>fora do site</b> até serem corrigidos.</p>
+            <table class="rel-tab"><thead><tr><th>Arquivo</th><th>Linha</th><th>O que fazer</th></tr></thead>
+              <tbody>{errosConteudo.map((p) => <tr><td><code>{p.arquivo}</code></td><td>{p.linha}</td><td>{p.msg}</td></tr>)}</tbody></table>
+          </>
+        )}
+        {!quarentena.length && !errosConteudo.length && <p class="rel-ok">Nenhum. Todos os arquivos passaram na conferência.</p>}
+        {falhaValidador && <p class="rel-alerta">Não deu para rodar a conferência do conteúdo: {falhaValidador}</p>}
+      </section>
+
+      <!-- ░░ 2. avisos do conteúdo ░░ -->
+      <section class="rel-sec" id="avisos-conteudo">
+        <h2>Avisos do conteúdo <span class="rel-n">{avisosConteudo.length + destaquesQueFaltam.length}</span></h2>
+        <p class="rel-nota">O site publica normalmente; vale corrigir com calma.</p>
+        {avisosConteudo.length + destaquesQueFaltam.length === 0 ? <p class="rel-ok">Nenhum aviso.</p> : (
+          <table class="rel-tab"><thead><tr><th>Arquivo</th><th>Linha</th><th>O que fazer</th></tr></thead>
+            <tbody>
+              {destaquesQueFaltam.map((id: string) => <tr><td><code>src/config/site.ts</code></td><td>—</td><td>pinnedPrayers cita "{id}", que não é uma oração do site</td></tr>)}
+              {avisosConteudo.map((p) => <tr><td><code>{p.arquivo}</code></td><td>{p.linha}</td><td>{p.msg}</td></tr>)}
+            </tbody></table>
+        )}
+      </section>
+
+      <!-- ░░ 3. imagens ░░ -->
+      <section class="rel-sec" id="imagens">
+        <h2>Imagens</h2>
+        <h3>Páginas sem imagem própria <span class="rel-n">{faltando.length}</span></h3>
+        {faltando.length === 0 ? <p class="rel-ok">Todas as orações e biografias têm imagem.</p> : (
+          <ul class="rel-lista">{faltando.map((f) => <li>{f.pagina} — falta <code>public{f.imagem}</code> (usa a imagem padrão)</li>)}</ul>
+        )}
+        <h3>Imagens sem página <span class="rel-n">{semPagina.length + soltasSemUso.length}</span></h3>
+        <p class="rel-nota">Arquivos em public/ que nenhuma página usa. Podem ser apagados (ou ganhar uma página).</p>
+        {semPagina.length + soltasSemUso.length === 0 ? <p class="rel-ok">Nenhuma.</p> : (
+          <ul class="rel-lista">{[...semPagina, ...soltasSemUso].map((i) => <li><code>public{i}</code></li>)}</ul>
+        )}
+        <h3>Imagens repetidas (mesmo arquivo) <span class="rel-n">{repetidas.length}</span></h3>
+        {repetidas.length === 0 ? <p class="rel-ok">Nenhuma.</p> : (
+          <ul class="rel-lista">{repetidas.map((g) => <li>{g.map((i, k) => <>{k > 0 && ' = '}<code>public{i}</code></>)}</li>)}</ul>
+        )}
+        <h3>Imagens acima de 500 KB <span class="rel-n">{pesadas.length}</span></h3>
+        {pesadas.length === 0 ? <p class="rel-ok">Nenhuma.</p> : (
+          <ul class="rel-lista">{pesadas.map((p) => <li><code>public{p.img}</code> — {kb(p.tam)}</li>)}</ul>
+        )}
+        <h3>Versões menores (geradas no build)</h3>
+        {gerador ? (
+          <p class="rel-nota">
+            {gerador.semSharp ? 'O gerador não rodou (sharp indisponível): as páginas usam as imagens originais.' :
+              `${gerador.originais ?? 0} imagens originais · ${gerador.refeitas ?? 0} refeitas nesta vez · ${gerador.reaproveitadas ?? 0} reaproveitadas · ${gerador.segundos ?? 0} s.`}
+          </p>
+        ) : <p class="rel-nota">Sem o resumo do gerador (rode npm run build).</p>}
+        {gerador?.falhas?.length > 0 && (
+          <ul class="rel-lista rel-ruim-lista">{gerador.falhas.map((f: any) => <li><code>{f.arquivo}</code>: {f.motivo}</li>)}</ul>
+        )}
+      </section>
+
+      <!-- ░░ 4. orações sem data ░░ -->
+      <section class="rel-sec" id="sem-data">
+        <h2>Orações sem data de festa <span class="rel-n">{semData.length}</span></h2>
+        <p class="rel-nota">Sem o campo liturgicalFeast, a oração não entra em "Próximas festas" nem vira "Oração do dia" por data. Muitas são do dia a dia e não precisam de data.</p>
+        <details><summary>Ver a lista</summary>
+          <ul class="rel-colunas">{semData.map((o) => <li><a href={linkOracao(o.id)}>{o.data.title}</a> <span class="rel-tipo">{o.data.type}</span></li>)}</ul>
+        </details>
+      </section>
+
+      <!-- ░░ 5. festas por mês ░░ -->
+      <section class="rel-sec" id="festas">
+        <h2>Datas de festa por mês <span class="rel-n">{oracoes.length - semData.length}</span></h2>
+        <div class="rel-meses">
+          {porMes.map((lista, i) => (
+            <div class="rel-mes">
+              <h3>{MESES[i]} <span class="rel-n">{lista.length}</span></h3>
+              {lista.length === 0 ? <p class="rel-vazio">—</p> : (
+                <ul>{lista.map((f) => <li><span class="rel-dia">{String(f.dia).padStart(2, '0')}</span> <a href={linkOracao(f.id)}>{f.titulo}</a>{f.tipo === 'novena' && <span class="rel-tipo">novena</span>}</li>)}</ul>
+              )}
+            </div>
+          ))}
+        </div>
+        {moveis.length > 0 && (
+          <>
+            <h3>Festas móveis (data em {ano}) <span class="rel-n">{moveis.length}</span></h3>
+            <ul class="rel-lista">{moveis.map((f) => <li><span class="rel-dia">{f.quando}</span> <a href={linkOracao(f.id)}>{f.titulo}</a> <span class="rel-tipo">{f.codigo}{f.tipo === 'novena' ? ' · novena' : ''}</span></li>)}</ul>
+          </>
+        )}
+      </section>
+
+      <!-- ░░ 6. categorias ░░ -->
+      <section class="rel-sec" id="categorias">
+        <h2>Biografias por categoria</h2>
+        <table class="rel-tab"><thead><tr><th>Categoria</th><th>Quantas</th><th>Quem</th></tr></thead>
+          <tbody>
+            {porCategoria.map((c) => <tr><td>{c.rotulo}</td><td>{c.nomes.length}</td><td>{c.nomes.join(', ') || '—'}</td></tr>)}
+            <tr class={semCategoria.length ? 'rel-atencao-linha' : ''}><td>Sem categoria</td><td>{semCategoria.length}</td><td>{semCategoria.join(', ') || '—'}</td></tr>
+          </tbody></table>
+      </section>
+
+      <!-- ░░ 7. produtos ░░ -->
+      <section class="rel-sec" id="produtos">
+        <h2>Produtos <span class="rel-n">{produtos.length}</span></h2>
+        {probProdutos.length > 0 && (
+          <>
+            <p class="rel-alerta">Problemas em <code>src/data/produtos.yaml</code> (o site publica os outros produtos normalmente):</p>
+            <ul class="rel-lista">{probProdutos.map((p) => <li>linha {p.linha}: {p.msg}</li>)}</ul>
+          </>
+        )}
+        {produtos.length === 0 ? <p class="rel-nota">Nenhum produto cadastrado.</p> : (
+          <table class="rel-tab"><thead><tr><th>Produto</th><th>Linha</th><th>Aparece em</th></tr></thead>
+            <tbody>{produtosInfo.map((p) => (
+              <tr class={!p.aparece.length || p.paginasQueNaoExistem.length ? 'rel-atencao-linha' : ''}>
+                <td>{p.nome}</td><td>{p.linha ?? '—'}</td>
+                <td>
+                  {p.aparece.length ? p.aparece.join(', ') : 'nenhuma página (só na página Produtos)'}
+                  {p.paginasQueNaoExistem.length > 0 && <><br /><b>paginas cita o que não existe:</b> {p.paginasQueNaoExistem.join(', ')}</>}
+                </td>
+              </tr>
+            ))}</tbody></table>
+        )}
+      </section>
+
+      <!-- ░░ 8. avisos do build ░░ -->
+      <section class="rel-sec" id="avisos">
+        <h2>Avisos do build</h2>
+        <div id="avisos-build" data-relatorio="avisos-build"><p class="rel-nota">{naPublicacao
+          ? 'O log desta publicação não foi juntado (veja a aba Actions no GitHub).'
+          : 'Na versão publicada, aqui aparecem os avisos do build (a publicação junta o log). No seu computador, eles ficam no terminal.'}</p></div>
+      </section>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .rel { max-width: 62rem; }
+  .rel-lead { color: var(--ink-soft); margin: 0 0 1.2rem; }
+  .rel-resumo { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0 0 1rem; }
+  .rel-resumo li { border: 1px solid var(--hair); border-radius: 10px; padding: .45rem .75rem; background: var(--paper-raised); }
+  .rel-resumo b { font-size: 1.15rem; margin-right: .2rem; }
+  .rel-bom b { color: inherit; }
+  .rel-ruim { border-color: #b3261e !important; } .rel-ruim b { color: #b3261e; }
+  .rel-atencao b { color: var(--gold); }
+  .rel-indice { font-size: .95rem; margin: 0 0 1.6rem; color: var(--ink-soft); }
+  .rel-sec { border-top: 1px solid var(--hair); padding: 1.2rem 0 .4rem; }
+  .rel-sec h2 { font-size: 1.55rem; margin: 0 0 .6rem; }
+  .rel-sec h3 { font-size: 1.15rem; margin: 1.1rem 0 .4rem; text-transform: none; }
+  .rel-n { font-size: .8em; color: var(--ink-soft); border: 1px solid var(--hair); border-radius: 999px; padding: 0 .5em; margin-left: .3em; }
+  .rel-nota { color: var(--ink-soft); font-size: .97rem; margin: 0 0 .6rem; }
+  .rel-ok { color: var(--ink-soft); font-style: italic; }
+  .rel-alerta { color: #b3261e; margin: 0 0 .5rem; }
+  .rel-lista { margin: 0 0 .6rem; padding-left: 1.2rem; }
+  .rel-lista li { margin: .2rem 0; overflow-wrap: anywhere; }
+  .rel-colunas { columns: 2 18rem; padding-left: 1.2rem; }
+  .rel-tipo { font-size: .8rem; color: var(--ink-soft); margin-left: .35rem; }
+  .rel-dia { font-variant-numeric: tabular-nums; color: var(--gold); }
+  .rel-meses { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: .4rem 1.4rem; }
+  .rel-mes h3 { text-transform: capitalize; }
+  .rel-mes ul { list-style: none; padding: 0; margin: 0; }
+  .rel-mes li { margin: .15rem 0; }
+  .rel-vazio { color: var(--ink-soft); margin: 0; }
+  .rel-tab { border-collapse: collapse; width: 100%; font-size: .93rem; margin: 0 0 .6rem; }
+  .rel-tab th, .rel-tab td { text-align: left; vertical-align: top; padding: .35rem .5rem; border-bottom: 1px solid var(--hair); overflow-wrap: break-word; }
+  .rel-tab th { white-space: nowrap; }
+  .rel-tab td:nth-child(2) { white-space: nowrap; }
+  .rel-tab code { overflow-wrap: anywhere; }
+  .rel-atencao-linha td { color: var(--gold); }
+  .rel code { font-size: .88em; overflow-wrap: anywhere; }
+  details summary { cursor: pointer; color: var(--gold); margin: .2rem 0 .5rem; }
+  #avisos-build :global(ul) { padding-left: 1.2rem; }
+  #avisos-build :global(li) { margin: .25rem 0; overflow-wrap: anywhere; }
+  #avisos-build :global(.rel-vezes) { color: var(--ink-soft); font-size: .85em; }
+</style>

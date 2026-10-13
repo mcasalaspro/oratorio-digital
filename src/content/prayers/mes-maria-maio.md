@@ -59,7 +59,9 @@ Pai-Nosso que estais nos céus...
 
 Glória ao Pai, ao Filho e ao Espírito Santo...
 
-Em cada dezena, anuncia-se o mistério, reza-se um Pai-Nosso, dez Ave-Marias e um Glória:
+### 5x Dezenas
+
+*Em cada dezena, anuncia-se o mistério, reza-se um Pai-Nosso, dez Ave-Marias e um Glória:*
 
 Pai-Nosso que estais nos céus...
 

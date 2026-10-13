@@ -9,6 +9,7 @@ tags: ["eucaristia", "Corpus Christi", "São Tomás de Aquino", "hino", "santís
 description: "Sequência de Corpus Christi composta por São Tomás de Aquino (c. 1264), exposição poética da fé eucarística."
 featured: false
 liturgicalColor: "festa"
+liturgicalFeast: "corpus-christi"
 ---
 
 *Sequência da Missa de Corpus Christi, composta por São Tomás de Aquino por volta de 1264, a pedido do Papa Urbano IV. É uma exposição poética e teológica da fé na presença real de Cristo na Eucaristia.*

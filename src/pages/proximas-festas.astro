@@ -1,29 +1,57 @@
 ---
+// Próximas festas: TODAS as datas vêm do calendário do site (public/js/calendario.js —
+// window.odCalendario no navegador; aqui no build, o mesmo arquivo): datas fixas 'MM-DD' e
+// festas móveis por nome (pentecostes, corpus-christi…), com o aviso das solenidades que no
+// Brasil vão para o domingo. O build já entrega a lista em ordem (vale sem JS); no navegador
+// o script refaz tudo com a data de hoje.
 import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { withBase } from '../config/site';
 
+const mod: any = await import(/* @vite-ignore */ pathToFileURL(path.resolve('public/js/calendario.js')).href);
+const CAL = mod?.default?.proxima ? mod.default : (globalThis as any).odCalendario;
+
+const fallback = withBase(fs.existsSync('public/saints/default_thumb.webp') ? '/saints/default_thumb.webp' : '/saints/default.webp');
+// miniatura em pé (360×480, <id>_thumb.webp); sem ela, a imagem normal; sem nada, a padrão
 function thumbOf(id: string) {
   if (fs.existsSync(`public/saints/${id}_thumb.webp`)) return withBase(`/saints/${id}_thumb.webp`);
   if (fs.existsSync(`public/saints/${id}.webp`)) return withBase(`/saints/${id}.webp`);
-  return withBase('/saints/default.webp');
+  return fallback;
 }
+const semAcento = (x: string) => (x || '').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 
-const all = await getCollection('prayers');
-const feasts = all
-  .filter((p) => p.data.liturgicalFeast && /^\d{2}-\d{2}$/.test(p.data.liturgicalFeast))
-  .map((p) => ({
-    id: p.id,
-    title: p.data.title,
-    saint: p.data.saint ?? '',
-    feast: p.data.liturgicalFeast as string,
-    offset: p.data.novenaSuggestedStart ?? 0,
-    total: p.data.totalDays ?? 1,
-    href: withBase(`/oracao/${p.id}`),
-    thumb: thumbOf(p.id),
-  }));
-const fallback = withBase('/saints/default.webp');
+const hojeBuild: Date = CAL.hoje();
+const feasts = (await getCollection('prayers'))
+  .filter((p) => p.data.liturgicalFeast && CAL.valido(p.data.liturgicalFeast))
+  .map((p) => {
+    const titulo = p.data.title, santo = p.data.saint ?? '';
+    const festa: Date = CAL.proxima(p.data.liturgicalFeast, hojeBuild);
+    return {
+      titulo,
+      // o santo só aparece quando acrescenta algo ("Novena a São José" já diz "São José")
+      santo: santo && !semAcento(titulo).includes(semAcento(santo)) ? santo : '',
+      codigo: p.data.liturgicalFeast as string,
+      inicio: p.data.novenaSuggestedStart ?? 0,
+      total: p.data.totalDays ?? 1,
+      href: withBase(`/oracao/${p.id}`),
+      thumb: thumbOf(p.id),
+      festa,
+    };
+  })
+  .sort((a, b) => a.festa.getTime() - b.festa.getTime() || a.titulo.localeCompare(b.titulo, 'pt-BR'));
+
+// grupos por mês, na ordem a partir da data do build (o navegador refaz com a data de hoje)
+const meses: { nome: string; itens: typeof feasts }[] = [];
+for (const f of feasts) {
+  const nome = f.festa.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+  const ult = meses[meses.length - 1];
+  if (ult && ult.nome === nome) ult.itens.push(f);
+  else meses.push({ nome, itens: [f] });
+}
+const dd = (d: Date) => String(d.getDate()).padStart(2, '0');
 ---
 <Base title="Próximas festas" description="Calendário das próximas festas litúrgicas e das novenas — acompanhe as celebrações da Igreja ao longo do ano.">
   <section class="section">
@@ -35,19 +63,16 @@ const fallback = withBase('/saints/default.webp');
       {feasts.length === 0 ? (
         <p class="empty" data-i18n="feasts_empty">Nenhuma festa cadastrada ainda.</p>
       ) : (
-        <div id="feastCal" class="feast-cal">
-          {feasts.map((f) => (
-            <a class="feast-card" href={f.href} data-feast={f.feast} data-start={f.offset} data-total={f.total}>
-              <img class="feast-thumb" src={f.thumb} alt={f.saint || f.title} loading="lazy" width="96" height="96" onerror={`this.onerror=null;this.src='${fallback}'`} />
-              <span class="feast-body">
-                <span class="feast-date"><span class="fd-day">{f.feast.slice(3, 5)}</span></span>
-                <span class="feast-info">
-                  <span class="feast-title">{f.title}</span>
-                  {f.saint && <span class="feast-saint">{f.saint}</span>}
-                  <span class="feast-status" data-feast-status></span>
-                </span>
-              </span>
-            </a>
+        <div id="feastCal" class="feast-cal" lang="pt-BR" data-fallback={fallback}>
+          {meses.map((m) => (
+            <Fragment>
+              <h2 class="feast-month-title">{m.nome.charAt(0).toUpperCase() + m.nome.slice(1)}</h2>
+              <div class="feast-list">
+                {m.itens.map((f) => (
+                  <a class="feast-card" href={f.href} data-feast={f.codigo} data-start={f.inicio ? f.inicio : undefined} data-total={f.total > 1 ? f.total : undefined}><img class="feast-thumb" src={f.thumb} alt="" loading="lazy" width="66" height="88" /><span class="fd-day">{dd(f.festa)}</span><span class="feast-info"><span class="feast-title">{f.titulo}</span>{f.santo && <span class="feast-saint">{f.santo}</span>}<span class="feast-status"></span></span></a>
+                ))}
+              </div>
+            </Fragment>
           ))}
         </div>
       )}
@@ -56,89 +81,129 @@ const fallback = withBase('/saints/default.webp');
 
   <script>
     (function () {
-      const t = (window as any).odt || function (k: string) { return k; };
+      const W = window as any;
+      const CAL = W.odCalendario;
       const cal = document.getElementById('feastCal');
-      if (!cal) return;
-      const cards = Array.prototype.slice.call(cal.querySelectorAll('.feast-card')) as HTMLElement[];
+      if (!cal || !CAL) return;
+      const T = (k: string) => (W.odt ? W.odt(k) : k);
+      const temChave = (k: string) => { const v = T(k); return !!v && v !== k; };
+      const tr = (k: string, pt: string) => (temChave(k) ? T(k) : pt);
+      const dm = (d: Date) => String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0');
+      const cards = Array.from(cal.querySelectorAll<HTMLAnchorElement>('.feast-card'));
       if (!cards.length) return;
-      const DAY = 86400000;
-      function lang() { return document.documentElement.getAttribute('data-lang') || 'pt-BR'; }
+      cards.forEach((c) => { c.dataset.href = c.getAttribute('href') || ''; });
 
+      // imagem que falhou: a padrão (um ouvinte só, em vez de um onerror por cartão)
+      const reserva = cal.dataset.fallback || '';
+      const trocar = (img: HTMLImageElement) => { if (reserva && !img.dataset.reserva) { img.dataset.reserva = '1'; img.src = reserva; } };
+      cal.addEventListener('error', (e) => { const img = e.target as HTMLImageElement; if (img && img.tagName === 'IMG') trocar(img); }, true);
+      cal.querySelectorAll<HTMLImageElement>('img').forEach((img) => { if (img.complete && !img.naturalWidth) trocar(img); });
+
+      type Item = { c: HTMLAnchorElement; festa: Date };
       function build() {
-        const now = new Date(); now.setHours(0, 0, 0, 0);
-        cards.forEach(function (card: any) {
-          const m = (card.getAttribute('data-feast') || '').match(/^(\d{2})-(\d{2})$/);
-          if (!m) { card._k = 9e15; card._feast = null; return; }
-          const mm = +m[1], dd = +m[2];
-          // próxima ocorrência a partir de hoje (festas já passadas vão para o ano seguinte)
-          let feast = new Date(now.getFullYear(), mm - 1, dd);
-          if (feast.getTime() + DAY <= now.getTime()) feast = new Date(now.getFullYear() + 1, mm - 1, dd);
-          const offset = parseInt(card.getAttribute('data-start') || '0', 10);
-          const total = parseInt(card.getAttribute('data-total') || '1', 10);
-          const start = new Date(feast.getTime() + (total > 1 ? offset : 0) * DAY);
-          const dtf = Math.round((feast.getTime() - now.getTime()) / DAY);
-          const inWin = total > 1 && now.getTime() >= start.getTime() && now.getTime() <= feast.getTime();
-          const suggestedDay = Math.min(total, Math.max(1, Math.floor((now.getTime() - start.getTime()) / DAY) + 1));
-          card._feast = feast; card._k = feast.getTime();
-          const st = card.querySelector('[data-feast-status]');
-          if (st) {
-            let txt;
-            if (dtf === 0) txt = t('feast_today');
-            else if (inWin) txt = t('day') + ' ' + suggestedDay + ' ' + t('day_of') + ' ' + total + ' · ' + t('novena_active');
-            else {
-              txt = dtf + ' ' + t('days_to_feast');
-              if (total > 1) {
-                const sd = String(start.getDate()).padStart(2, '0') + '/' + String(start.getMonth() + 1).padStart(2, '0');
-                txt += ' · ' + t('novena_from') + ' ' + sd;
-              }
-            }
-            st.textContent = txt;
+        const lang = document.documentElement.getAttribute('data-lang') || 'pt-BR';
+        const uiLang = lang === 'pt-BR' ? '' : lang;           // textos da interface dentro da lista em português
+        const hoje: Date = CAL.hoje();
+        const itens: Item[] = [];
+        for (const c of cards) {
+          const cod = c.dataset.feast || '';
+          const festa: Date | null = CAL.valido(cod) ? CAL.proxima(cod, hoje) : null;   // a própria data conta como "hoje"
+          if (!festa) { c.remove(); continue; }
+          itens.push({ c, festa });
+          const total = parseInt(c.dataset.total || '1', 10) || 1;
+          const ini = parseInt(c.dataset.start || '0', 10) || 0;
+          // devoção de vários dias que NÃO é novena (ex.: Antífonas Ó, de 17 a 23/12): a data dela é o
+          // ÚLTIMO dia do período, não uma festa (nunca "A festa é hoje!")
+          const periodo = total <= 1 && ini < 0;
+          const inicio: Date = CAL.somarDias(festa, total > 1 || periodo ? ini : 0);
+          const faltam: number = CAL.dias(hoje, festa), desde: number = CAL.dias(inicio, hoje);
+          const emCurso = total > 1 && desde >= 0 && faltam > 0;
+          const diaSug = Math.min(total, Math.max(1, desde + 1));
+          const dia = c.querySelector('.fd-day'); if (dia) dia.textContent = String(festa.getDate()).padStart(2, '0');
+          // novena em andamento: o link já abre no dia certo (como na página inicial)
+          c.href = c.dataset.href + (emCurso ? `?dia=${diaSug}` : '');
+          // devoção de mês ("mes-…", ex.: Mês de Maria): a data marca o início do mês, não uma festa
+          const mes = /\/oracao\/mes-/.test(c.dataset.href || '');
+          // "Começa hoje / amanhã / em N dias" (devoções de mês e de período)
+          const comeca = (n: number) => n === 0 ? tr('month_starts_today', 'Começa hoje')
+            : n === 1 ? tr('month_starts_tomorrow', 'Começa amanhã')
+            : tr('month_starts_in', 'Começa em {n} dias').replace('{n}', String(n));
+          let txt: string;
+          if (mes) txt = comeca(faltam);
+          else if (periodo) txt = desde < 0 ? `${comeca(-desde)} · ${dm(inicio)}–${dm(festa)}`
+            : `${T('day')} ${desde + 1} ${T('day_of')} ${1 - ini} · ${dm(inicio)}–${dm(festa)}`;
+          else if (faltam === 0) txt = T('feast_today');
+          else if (emCurso) txt = `${T('day')} ${diaSug} ${T('day_of')} ${total} · ${T('novena_active')}`;
+          else {
+            // singular: chave nova (reserva em português; nas outras línguas, o plural até ela existir)
+            const um = temChave('days_to_feast_one') ? T('days_to_feast_one') : uiLang ? T('days_to_feast') : 'dia para a festa';
+            txt = `${faltam} ${faltam === 1 ? um : T('days_to_feast')}`;
+            if (total > 1) txt += ` · ${T('novena_from')} ${dm(inicio)}`;
           }
-          card.classList.toggle('is-today', dtf === 0);
-        });
-        // ordena por próxima ocorrência (hoje primeiro) e agrupa por mês, na ordem rolante
-        cards.sort(function (a: any, b: any) { return a._k - b._k; });
-        cal.innerHTML = '';
-        let curKey: string | null = null, curList: HTMLElement | null = null;
-        cards.forEach(function (card: any) {
-          const d: Date | null = card._feast;
-          const key = d ? d.getFullYear() + '-' + d.getMonth() : 'x';
-          if (key !== curKey) {
+          const st = c.querySelector<HTMLElement>('.feast-status');
+          if (st) { st.textContent = txt; if (uiLang) st.lang = uiLang; else st.removeAttribute('lang'); }
+          // no Brasil a solenidade pode ir para o domingo (Epifania, Ascensão, S. Pedro e S. Paulo, Assunção, Todos os Santos):
+          // o aviso diz o nome da solenidade ("Assunção: no Brasil, celebrada no domingo 20/08"), porque o cartão pode ser
+          // de uma oração ligada à data (ex.: Ladainha Lauretana). Devoções de mês ("mes-…") ficam sem aviso: a data delas
+          // marca o início do mês, não a festa (mesma regra da página inicial).
+          const noBr: Date | null = mes ? null : CAL.noBrasil(cod, festa.getFullYear());
+          let br = c.querySelector<HTMLElement>('.feast-br');
+          if (noBr) {
+            if (!br) { br = document.createElement('span'); br.className = 'feast-br'; c.querySelector('.feast-info')?.appendChild(br); }
+            br.textContent = tr('brasil_festa', '{festa}: no Brasil, celebrada no domingo {data}')
+              .replace('{festa}', CAL.nomeBrasil(cod)).replace('{data}', dm(noBr));
+            // só marca a língua da interface quando o aviso veio traduzido (a reserva é português)
+            if (uiLang && temChave('brasil_festa')) br.lang = uiLang; else br.removeAttribute('lang');
+          } else if (br) br.remove();
+          // destaque: dia da festa; nas devoções de período, o primeiro dia
+          c.classList.toggle('is-today', periodo ? desde === 0 : faltam === 0);
+        }
+        // ordem da próxima ocorrência (hoje primeiro), agrupada por mês
+        itens.sort((a, b) => a.festa.getTime() - b.festa.getTime() ||
+          (a.c.querySelector('.feast-title')?.textContent || '').localeCompare(b.c.querySelector('.feast-title')?.textContent || '', 'pt-BR'));
+        const frag = document.createDocumentFragment();
+        let chave = '', lista: HTMLElement | null = null;
+        for (const it of itens) {
+          const k = it.festa.getFullYear() + '-' + it.festa.getMonth();
+          if (k !== chave) {
             const h = document.createElement('h2');
             h.className = 'feast-month-title';
-            let name = d ? d.toLocaleDateString(lang(), { month: 'long', year: 'numeric' }) : '';
-            name = name.charAt(0).toUpperCase() + name.slice(1);
-            h.textContent = name;
-            cal.appendChild(h);
-            curList = document.createElement('div');
-            curList.className = 'feast-list';
-            cal.appendChild(curList);
-            curKey = key;
+            const nome = it.festa.toLocaleDateString(lang, { month: 'long', year: 'numeric' });
+            h.textContent = nome.charAt(0).toUpperCase() + nome.slice(1);
+            if (uiLang) h.lang = uiLang;
+            lista = document.createElement('div');
+            lista.className = 'feast-list';
+            frag.appendChild(h); frag.appendChild(lista);
+            chave = k;
           }
-          curList!.appendChild(card);
-        });
+          lista!.appendChild(it.c);
+        }
+        cal!.textContent = '';
+        cal!.appendChild(frag);
       }
       build();
       document.addEventListener('od:lang', build);
     })();
   </script>
 
-  <style>
+  <style is:global>
+    /* global de propósito: estilo com escopo espalharia um atributo extra por todos os cartões */
     .feasts-lead { color: var(--ink-soft); margin: .2rem 0 1.8rem; font-size: 1.05rem; }
     .feast-month-title { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; color: var(--gold); margin: 1.9rem 0 .85rem; padding-bottom: .4rem; border-bottom: 1px solid var(--hair); }
     .feast-month-title:first-child { margin-top: 0; }
     .feast-list { display: flex; flex-direction: column; gap: .7rem; }
-    .feast-card { display: flex; align-items: stretch; min-height: 86px; border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; text-decoration: none; color: var(--ink); background: var(--paper-raised); transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .feast-card { display: flex; align-items: center; gap: .9rem; min-height: 88px; padding-right: 1rem; border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; text-decoration: none; color: var(--ink); background: var(--paper-raised); transition: border-color .2s, transform .2s, box-shadow .2s; }
     .feast-card:hover { border-color: color-mix(in srgb, var(--gold) 45%, var(--hair)); transform: translateY(-2px); box-shadow: 0 10px 26px var(--shadow); }
     .feast-card.is-today { border-color: color-mix(in srgb, var(--gold) 60%, var(--hair)); box-shadow: 0 0 0 1px var(--glow); }
-    .feast-thumb { flex: 0 0 auto; width: 96px; align-self: stretch; display: block; object-fit: cover; object-position: center 20%; background: #1a1208; }
-    .feast-body { display: flex; align-items: center; gap: .9rem; padding: .7rem 1rem; flex: 1; min-width: 0; }
-    .feast-date { flex: 0 0 auto; width: 2.4rem; text-align: center; }
-    .fd-day { font-family: 'Cormorant', serif; font-weight: 700; font-size: 2rem; color: var(--gold); line-height: 1; }
-    .feast-info { display: flex; flex-direction: column; gap: .12rem; min-width: 0; }
+    /* miniatura em pé (3:4): ocupa a altura toda do cartão */
+    .feast-thumb { flex: 0 0 auto; width: 66px; height: auto; min-height: 88px; align-self: stretch; display: block; object-fit: cover; object-position: center 20%; background: #1a1208; }
+    .fd-day { flex: 0 0 auto; width: 2.4rem; text-align: center; font-family: 'Cormorant', serif; font-weight: 600; font-size: 2rem; color: var(--gold); line-height: 1; }
+    .feast-info { display: flex; flex-direction: column; gap: .12rem; min-width: 0; padding: .7rem 0; }
     .feast-title { font-family: 'Cormorant', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.05; }
     .feast-saint { font-style: italic; color: var(--ink-soft); font-size: .85rem; }
     .feast-status { font-size: .82rem; color: var(--flame); margin-top: .1rem; }
-    @media (max-width: 560px) { .feast-thumb { width: 78px; } }
+    .feast-status:empty { display: none; }
+    .feast-br { font-size: .8rem; color: var(--ink-soft); font-style: italic; }
+    @media (max-width: 560px) { .feast-thumb { width: 58px; min-height: 78px; } .feast-card { gap: .7rem; min-height: 78px; } .fd-day { width: 2rem; font-size: 1.75rem; } }
   </style>
 </Base>

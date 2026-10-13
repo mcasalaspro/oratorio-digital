@@ -21,3 +21,14 @@ npm-debug.log*
 
 # números de reserva do contador (trazidos do ramo "dados" só na publicação)
 src/data/contadores.json
+
+# versões menores das imagens (feitas a cada build por scripts/gerar-thumbs.mjs;
+# nunca vão para o git)
+public/**/*_thumb.webp
+public/**/*_w800.webp
+public/**/*_w1200.webp
+
+# arquivos de trabalho do build e da conferência do conteúdo
+.cache/
+.relatorio/
+quarentena/

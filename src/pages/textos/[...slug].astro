@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { withBase } from '../../config/site';
 import { getCollection, render } from 'astro:content';
 import fs from 'node:fs';
+import { banner } from './_banner';
 
 export async function getStaticPaths() {
   const entries = await getCollection('textos');
@@ -12,13 +13,12 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { title, description } = entry.data;
-const bg = fs.existsSync(`public/textos/${entry.id}.webp`)
-  ? withBase(`/textos/${entry.id}.webp`)
-  : withBase('/textures/rays.webp');
+// banner: a imagem do texto (public/textos/<id>.webp) ou, sem ela, os raios do site
+const bg = banner(fs.existsSync(`public/textos/${entry.id}.webp`) ? `/textos/${entry.id}.webp` : '/textures/rays.webp');
 ---
 <Base title={title} description={description}>
   <article class="txt-hero">
-    <div class="txt-bg" style={`background-image: url('${bg}')`} aria-hidden="true"></div>
+    <div class="txt-bgwrap" aria-hidden="true"><img class="txt-bg" src={bg.src} srcset={bg.srcset} sizes={bg.srcset ? '100vw' : undefined} width={bg.width} height={bg.height} alt="" fetchpriority="high" /></div>
     <div class="txt-shade" aria-hidden="true"></div>
 
     <div class="txt-wrap">
@@ -27,8 +27,8 @@ const bg = fs.existsSync(`public/textos/${entry.id}.webp`)
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span data-i18n="nav_textos">Textos</span>
         </a>
-        <h1 class="txt-h1">{title}</h1>
-        <div class="txt-prose">
+        <h1 class="txt-h1" lang="pt-BR">{title}</h1>
+        <div class="txt-prose" lang="pt-BR">
           <Content />
         </div>
       </div>
@@ -38,11 +38,14 @@ const bg = fs.existsSync(`public/textos/${entry.id}.webp`)
 
 <style>
   .txt-hero {
-    position: relative; overflow: hidden;
+    position: relative; overflow: hidden; overflow: clip; /* clip: corta sem virar área de rolagem (o sticky abaixo funciona) */
     min-height: 100vh; display: flex; align-items: center;
     background: radial-gradient(120% 100% at 50% 0%, #2a1d0e 0%, #1a1208 55%, #120c06 100%);
   }
-  .txt-bg { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; }
+  /* fundo parado enquanto o texto rola (como o antigo background-attachment: fixed, que o iPhone
+     ignora): a imagem tem a altura da tela e "gruda" no topo dentro da área do texto */
+  .txt-bgwrap { position: absolute; inset: 0; }
+  .txt-bg { position: sticky; top: 0; width: 100%; height: 100vh; object-fit: cover; object-position: center; }
   .txt-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,5,2,.62) 0%, rgba(8,5,2,.5) 40%, rgba(8,5,2,.72) 100%); }
 
   .txt-wrap { position: relative; z-index: 1; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: clamp(2.4rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.2rem); }
@@ -56,9 +59,9 @@ const bg = fs.existsSync(`public/textos/${entry.id}.webp`)
   }
 
   .txt-back {
-    display: inline-flex; align-items: center; gap: .4rem;
+    display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; /* área de toque */
     color: #cdbf9f; text-decoration: none; font-size: .82rem;
-    letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.4rem;
+    letter-spacing: .14em; text-transform: uppercase; margin: -.6rem 0 .8rem;
     transition: color .2s;
   }
   .txt-back:hover { color: var(--gold); }

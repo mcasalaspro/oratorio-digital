@@ -159,8 +159,10 @@ async function gerar(dist, base, cacheDir, logger) {
       try {
         const html = fs.readFileSync(t.html, 'utf8');
         // o banner que a própria página mostra: <img class="reader-bg" src=…> (orações e biografias)
-        // ou o fundo do texto: <div class="txt-bg" style="background-image: url('…')">
-        const url = (html.match(/<img\b[^>]*\bclass="reader-bg"[^>]*\bsrc="([^"]+)"/) ||
+        // ou o fundo do texto/canto: <img class="txt-bg" src=…> (o src é a imagem inteira; o srcset
+        // só traz versões menores); o formato antigo <div class="txt-bg" style="background-image: …">
+        // continua aceito
+        const url = (html.match(/<img\b[^>]*\bclass="(?:reader-bg|txt-bg)"[^>]*\bsrc="([^"]+)"/) ||
                      html.match(/class="txt-bg"[^>]*background-image:\s*url\(['"]?([^'")]+)/) || [])[1];
         let origem = url ? arquivoDe(url) : '';
         if (!existe(origem)) {

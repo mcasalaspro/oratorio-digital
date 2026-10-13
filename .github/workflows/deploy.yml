@@ -2,6 +2,12 @@
 #  Publica o Oratório Digital no GitHub Pages a cada "git push".
 #  Não é preciso mexer aqui. Só garanta, em Settings → Pages,
 #  que "Source" está como "GitHub Actions".
+#
+#  Antes de compilar, o conteúdo é conferido (scripts/validar-conteudo.mjs):
+#  arquivo com ERRO fica fora do site (quarentena), o resto é publicado e,
+#  depois da publicação, esta execução termina com falha DE PROPÓSITO para o
+#  GitHub mandar um e-mail com a lista. Corrigiu e publicou de novo: volta.
+#  Relatório do conteúdo: https://www.oratoriodigital.com/ferramentas/relatorio/
 # ════════════════════════════════════════════════════════════════
 name: Deploy no GitHub Pages
 
@@ -15,26 +21,43 @@ permissions:
   pages: write
   id-token: write
 
-# garante uma publicação por vez
+# uma publicação por vez; a que já começou vai até o fim (não é cancelada)
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      quarentena: ${{ steps.conteudo.outputs.quarentena }}
+      lista: ${{ steps.conteudo.outputs.lista }}
     steps:
       - name: Baixar o código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Instalar o Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Instalar dependências
         run: npm ci
+
+      - name: Reaproveitar as imagens já geradas
+        # versões menores das imagens e prévias de link da publicação anterior;
+        # só o que mudou é refeito (economiza ~1 minuto por publicação)
+        uses: actions/cache@v6
+        with:
+          path: |
+            .cache/imagens-derivadas.json
+            public/**/*_thumb.webp
+            public/**/*_w800.webp
+            public/**/*_w1200.webp
+            node_modules/.astro/previas
+          key: imagens-${{ hashFiles('public/**/*.webp', 'public/**/*.jpg', 'public/**/*.jpeg', 'public/**/*.png', 'scripts/gerar-thumbs.mjs', 'scripts/og/**') }}
+          restore-keys: imagens-
 
       - name: Trazer a reserva do contador
         # Copia o contadores.json do ramo "dados" (gravado pelo robô diário,
@@ -51,17 +74,30 @@ jobs:
             echo "Sem reserva do contador (o ramo dados ainda não existe): seguindo sem ela."
           fi
 
+      - name: Conferir o conteúdo
+        # arquivo com ERRO vai para a pasta quarentena/ e fica fora do site;
+        # se o próprio conferidor falhar, a publicação segue como antes
+        id: conteudo
+        continue-on-error: true
+        run: node scripts/validar-conteudo.mjs --quarentena
+
       - name: Compilar o site
-        run: npm run build
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee "$RUNNER_TEMP/build.log"
         # Se você ativar o CAPTCHA via segredo, descomente:
         # env:
         #   PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
 
+      - name: Juntar os avisos do build ao relatório
+        continue-on-error: true
+        run: node scripts/relatorio-avisos.mjs "$RUNNER_TEMP/build.log" dist
+
       - name: Configurar o GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Enviar o site compilado
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
@@ -74,4 +110,33 @@ jobs:
     steps:
       - name: Publicar no Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+
+  # Depois de publicar: se algum arquivo ficou fora do site, termina com falha
+  # de propósito, e o GitHub manda um e-mail. O site já está no ar.
+  avisar:
+    name: Arquivos com erro ficaram fora do site
+    needs: [build, deploy]
+    if: ${{ needs.build.outputs.quarentena != '' && needs.build.outputs.quarentena != '0' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar quais arquivos e por quê
+        env:
+          QUANTOS: ${{ needs.build.outputs.quarentena }}
+          LISTA: ${{ needs.build.outputs.lista }}
+        run: |
+          echo "O site foi publicado, mas $QUANTOS arquivo(s) com erro ficaram fora dele até serem corrigidos:"
+          echo "$LISTA"
+          {
+            echo "### $QUANTOS arquivo(s) com erro ficaram fora do site"
+            echo
+            echo "O resto do site foi publicado. Corrija estes arquivos e publique de novo (eles voltam sozinhos):"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+          while IFS= read -r linha; do
+            if [ -n "$linha" ]; then
+              echo "::error title=Arquivo fora do site::$linha"
+              echo "- $linha" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done <<< "$LISTA"
+          exit 1
