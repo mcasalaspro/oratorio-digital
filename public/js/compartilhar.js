@@ -24,6 +24,15 @@
      caminho               ex.: /oracao/pai-nosso (vai no link; a imagem mostra só o domínio)
      dominio               ex.: oratoriodigital.com
      arquivo               nome do arquivo sem extensão
+     tipo: 'site'          imagem do site inteiro ("Compartilhar o Oratório"): marca, uma frase
+                           sobre a oração e os números (ver desenharSite); usa também
+       frases              [{ texto, autor }] — "Outra frase" passa para a seguinte
+       numeros             [{ n, rotulo }] — orações e biografias (do build)
+       totalRotulo         rótulo do 3º número, o total de orações rezadas (lido ao abrir)
+       reservaTotal        número de reserva se o contador não responder
+       texto               legenda que vai junto ao compartilhar (WhatsApp)
+       url                 endereço copiado em "Copiar link"
+       formato             'story' (1080×1920) | 'post' (1080×1350, publicação e conversa)
    }
    Botões com data-od-stories='{dados}' ganham o clique sozinhos e
    aparecem (nascem com hidden: sem este arquivo, não há botão morto).
@@ -270,6 +279,101 @@
     escreverEsp(c, d.dominio || 'oratoriodigital.com', W / 2, SEGURO_BASE - 26, 2);
     return cv;
   }
+  // ───────── imagem do site inteiro (tipo 'site') ─────────
+  var FORMATOS = {
+    story: { h: 1920, topo: SEGURO_TOPO + 10, base: SEGURO_BASE, logo: 150, nome: 92, tag: 40, frase: 58, num: 124, rot: 32 },
+    post:  { h: 1350, topo: 84, base: 1350 - 70, logo: 112, nome: 78, tag: 36, frase: 50, num: 104, rot: 30 }
+  };
+  function cobrirEm(c, img, w, h) {
+    var s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+    var iw = img.naturalWidth * s, ih = img.naturalHeight * s;
+    c.drawImage(img, (w - iw) / 2, (h - ih) * 0.3, iw, ih);
+  }
+  function fmtNum(n) { try { return Number(n).toLocaleString('pt-BR'); } catch (e) { return String(n); } }
+  function desenharSite(d, fundo, logo) {
+    var F = FORMATOS[d.formato] || FORMATOS.story, h = F.h;
+    var cv = document.createElement('canvas');
+    cv.width = W; cv.height = h;
+    var c = cv.getContext('2d');
+    c.textBaseline = 'alphabetic';
+    if (fundo) cobrirEm(c, fundo, W, h);
+    else { c.fillStyle = '#1a1208'; c.fillRect(0, 0, W, h); }
+    // véu escuro, um pouco mais forte embaixo (números e endereço)
+    var g = c.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, 'rgba(10,7,3,.5)'); g.addColorStop(0.45, 'rgba(10,7,3,.62)'); g.addColorStop(1, 'rgba(10,7,3,.86)');
+    c.fillStyle = g; c.fillRect(0, 0, W, h);
+
+    // 1) marca no alto: logo, nome e a frase do site
+    var y = F.topo;
+    c.textAlign = 'center'; c.shadowColor = 'rgba(0,0,0,.55)';
+    if (logo) { c.shadowBlur = 24; c.drawImage(logo, (W - F.logo) / 2, y, F.logo, F.logo); y += F.logo + 18; }
+    c.shadowBlur = 18; c.font = '600 ' + F.nome + 'px ' + F_TIT; c.fillStyle = '#fbf2dd';
+    y += F.nome * 0.86; c.fillText('Oratório Digital', W / 2, y);
+    if (d.tagline) {
+      c.shadowBlur = 10; c.font = 'italic 400 ' + F.tag + 'px ' + F_TXT; c.fillStyle = '#e6d9bd';
+      var tl = limitar(c, quebrar(c, d.tagline, LARG - 40), 2, LARG - 40);
+      y += 14;
+      tl.forEach(function (ln) { y += F.tag * 1.3; c.fillText(ln, W / 2, y - F.tag * 0.3); });
+    }
+    var fimMarca = y;
+
+    // 2) rodapé: enfeite e o domínio
+    c.font = '600 46px ' + F_TIT;
+    var yDom = F.base - 24, yEnf = yDom - 86;
+
+    // 3) meio: frase (com autor) e números, distribuídos no espaço que sobra
+    var frase = (d.frases || [])[d.fraseIdx || 0] || null;
+    var lf = [], fTam = F.frase;
+    if (frase) {
+      for (; fTam >= 38; fTam -= 4) {
+        c.font = 'italic 400 ' + fTam + 'px ' + F_TXT;
+        lf = quebrar(c, aspas(frase.texto), LARG);
+        if (lf.length <= 5) break;
+      }
+      lf = limitar(c, lf, 6, LARG);
+    }
+    var altFrase = frase ? lf.length * Math.round(fTam * 1.34) + (frase.autor ? 64 : 0) : 0;
+    var nums = (d.numeros || []).filter(function (x) { return x && x.n != null && x.n !== ''; });
+    var col = nums.length ? LARG / nums.length : LARG;
+    // números grandes: o maior tamanho em que todos cabem na coluna
+    var numTam = F.num;
+    for (; numTam > 56; numTam -= 4) {
+      c.font = '600 ' + numTam + 'px ' + F_TIT;
+      if (nums.every(function (x) { return c.measureText(fmtNum(x.n)).width <= col - 28; })) break;
+    }
+    c.font = '500 ' + F.rot + 'px ' + F_TXT;
+    var rots = nums.map(function (x) { return limitar(c, quebrar(c, x.rotulo, col - 24), 2, col - 24); });
+    var maxRot = rots.reduce(function (m, r) { return Math.max(m, r.length); }, 0);
+    var altNum = nums.length ? numTam + 18 + maxRot * Math.round(F.rot * 1.3) : 0;
+    var livre = (yEnf - 40) - fimMarca - altFrase - altNum;
+    var gap = Math.max(36, livre / 3);
+    y = fimMarca + gap;
+
+    if (frase) {
+      c.shadowBlur = 12; c.font = 'italic 400 ' + fTam + 'px ' + F_TXT; c.fillStyle = '#f6ecd6';
+      lf.forEach(function (ln) { y += Math.round(fTam * 1.34); c.fillText(ln, W / 2, y - Math.round(fTam * 0.32)); });
+      if (frase.autor) { c.font = '500 30px ' + F_TXT; c.fillStyle = '#f0c264'; y += 64; escreverEsp(c, String(frase.autor).toUpperCase(), W / 2, y - 14, 4); }
+      y += gap;
+    }
+    if (nums.length) {
+      c.shadowBlur = 16;
+      nums.forEach(function (x, i) {
+        var cx = MX + col * i + col / 2;
+        c.font = '600 ' + numTam + 'px ' + F_TIT; c.fillStyle = '#f0c264';
+        c.fillText(fmtNum(x.n), cx, y + numTam * 0.8);
+        c.font = '500 ' + F.rot + 'px ' + F_TXT; c.fillStyle = '#eadfc8';
+        rots[i].forEach(function (ln, k) { c.fillText(ln, cx, y + numTam + 18 + (k + 1) * Math.round(F.rot * 1.3) - Math.round(F.rot * 0.3)); });
+        if (i > 0) { c.save(); c.shadowBlur = 0; c.strokeStyle = 'rgba(240,194,100,.35)'; c.lineWidth = 2; c.beginPath(); c.moveTo(MX + col * i, y + 10); c.lineTo(MX + col * i, y + altNum - 6); c.stroke(); c.restore(); }
+      });
+    }
+    c.shadowBlur = 0;
+    enfeite(c, yEnf);
+    c.font = '600 50px ' + F_TIT; c.fillStyle = '#f0c264';
+    c.shadowColor = 'rgba(0,0,0,.5)'; c.shadowBlur = 12;
+    escreverEsp(c, d.dominio || 'oratoriodigital.com', W / 2, yDom, 2);
+    c.shadowBlur = 0;
+    return cv;
+  }
   function jpeg(cv) {
     function blob(q) {
       return new Promise(function (res) {
@@ -287,6 +391,11 @@
   }
   function imagem(d) {
     d = d || {};
+    if (d.tipo === 'site') {
+      return Promise.all([fontes(), carregar(d.banner), carregar(base('/logo-340.webp'))])
+        .then(function (r) { return jpeg(desenharSite(d, r[1], r[2])); })
+        .catch(function () { return null; });
+    }
     return Promise.all([fontes(), carregar(d.banner), carregar(base('/logo-128.webp'))])
       .then(function (r) { return r[1] ? r : carregar(d.bannerReserva).then(function (im) { r[1] = im; return r; }); })
       .then(function (r) { return jpeg(desenhar(d, r[1], r[2])); })
@@ -305,6 +414,10 @@
       '<div class="odc-card">' +
         '<button type="button" class="odc-fechar">×</button>' +
         '<h2 id="odcTitulo" class="odc-titulo"></h2>' +
+        '<div class="odc-opcoes" hidden><div class="odc-formatos" role="group">' +
+          '<button type="button" class="rtool" data-formato="story" aria-pressed="true"></button>' +
+          '<button type="button" class="rtool" data-formato="post" aria-pressed="false"></button>' +
+        '</div><button type="button" class="rtool odc-frase"></button></div>' +
         '<div class="odc-previa"><img alt="" hidden /><p class="odc-espera"></p></div>' +
         '<div class="odc-acoes">' +
           '<button type="button" class="btn btn-primary odc-share" hidden></button>' +
@@ -321,8 +434,18 @@
       previa: dlg.querySelector('.odc-previa'), img: dlg.querySelector('.odc-previa img'), espera: dlg.querySelector('.odc-espera'),
       acoes: dlg.querySelector('.odc-acoes'), share: dlg.querySelector('.odc-share'), copiar: dlg.querySelector('.odc-copiar'), baixar: dlg.querySelector('.odc-baixar'),
       status: dlg.querySelector('.odc-status'), manual: dlg.querySelector('.odc-manual'), manualRot: dlg.querySelector('.odc-manual-rot'),
-      input: dlg.querySelector('.odc-manual input'), dica: dlg.querySelector('.odc-dica')
+      input: dlg.querySelector('.odc-manual input'), dica: dlg.querySelector('.odc-dica'),
+      opcoes: dlg.querySelector('.odc-opcoes'), formatos: dlg.querySelector('.odc-formatos'), frase: dlg.querySelector('.odc-frase')
     };
+    ui.formatos.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-formato]');
+      if (!b || !atual || atual.formato === b.dataset.formato) return;
+      atual.formato = b.dataset.formato; gerar();
+    });
+    ui.frase.addEventListener('click', function () {
+      if (!atual || !(atual.frases && atual.frases.length > 1)) return;
+      atual.fraseIdx = ((atual.fraseIdx || 0) + 1) % atual.frases.length; gerar();
+    });
     ui.fechar.addEventListener('click', fechar);
     dlg.addEventListener('click', function (e) { if (e.target === dlg) fechar(); }); // toque fora do cartão
     dlg.addEventListener('close', function () { if (!dlg.open) limpar(); }); // reaberta logo depois: não limpa
@@ -341,12 +464,19 @@
     if (!dlg) return;
     var soLink = atual && atual.modo === 'link';
     ui.fechar.setAttribute('aria-label', tt('close', 'Fechar'));
-    ui.titulo.textContent = soLink ? tt('share', 'Compartilhar') : tt('stories_title', 'Stories e Status');
+    var site = atual && atual.tipo === 'site';
+    ui.titulo.textContent = soLink ? tt('share', 'Compartilhar') : site ? tt('share_site', 'Compartilhar o Oratório') : tt('stories_title', 'Stories e Status');
+    ui.formatos.setAttribute('aria-label', tt('share_format', 'Formato da imagem'));
+    ui.formatos.querySelector('[data-formato="story"]').textContent = tt('fmt_story', 'Story e Status');
+    ui.formatos.querySelector('[data-formato="post"]').textContent = tt('fmt_post', 'Publicação e conversa');
+    ui.frase.textContent = tt('other_quote', 'Outra frase');
     ui.share.textContent = tt('stories_share', 'Compartilhar imagem');
     ui.copiar.textContent = tt('copy_link', 'Copiar link');
     ui.baixar.textContent = tt('download_image', 'Baixar imagem');
     ui.manualRot.textContent = tt('copy_manual', 'Copie o endereço:');
-    ui.dica.textContent = tt('stories_hint', 'Instagram: escolha Story, toque no adesivo Link e cole o endereço. WhatsApp: escolha Status.');
+    ui.dica.textContent = site
+      ? tt('share_site_hint', 'Instagram: Story no formato vertical; publicação no outro formato. WhatsApp: escolha uma conversa (o endereço vai junto na mensagem) ou o Status.')
+      : tt('stories_hint', 'Instagram: escolha Story, toque no adesivo Link e cole o endereço. WhatsApp: escolha Status.');
     ui.img.alt = tt('stories_preview', 'Prévia da imagem para Stories e Status');
     if (!arquivo && !soLink) ui.espera.textContent = atual && atual.falhou ? tt('image_failed', 'Não foi possível gerar a imagem.') : tt('preparing_image', 'Preparando a imagem…');
   }
@@ -364,7 +494,13 @@
   }
   function compartilharArquivo() {
     if (!arquivo || !navigator.share) return;
-    navigator.share({ files: [arquivo] }).catch(function (err) {
+    var dados = { files: [arquivo] };
+    // legenda com o endereço (vai junto na conversa do WhatsApp; o Instagram ignora)
+    if (atual && atual.texto) {
+      var comTexto = { files: [arquivo], text: atual.texto };
+      try { if (!navigator.canShare || navigator.canShare(comTexto)) dados = comTexto; } catch (e) {}
+    }
+    navigator.share(dados).catch(function (err) {
       if (err && err.name === 'AbortError') return; // cancelou
       avisar(tt('share_failed', 'Não foi possível compartilhar. Use “Baixar imagem”.'));
       ui.baixar.classList.add('btn-primary');
@@ -390,15 +526,52 @@
     ui.espera.hidden = false;
     ui.share.hidden = true; ui.share.disabled = true;
     ui.baixar.classList.add('btn-primary'); ui.baixar.removeAttribute('href'); ui.baixar.setAttribute('aria-disabled', 'true');
-    ui.manual.hidden = true; ui.status.textContent = '';
+    ui.manual.hidden = true; ui.status.textContent = ''; ui.opcoes.hidden = true;
     rotular();
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
     if (soLink) { mostrarManual(atual.url || location.href.split('#')[0]); return; }
-    var pedido = atual;
+    var site = atual.tipo === 'site';
+    ui.opcoes.hidden = !site;
+    if (site) {
+      if (!atual.formato) atual.formato = 'story';
+      if (atual.fraseIdx == null) atual.fraseIdx = Math.floor(Math.random() * Math.max(1, (atual.frases || []).length));
+      ui.frase.hidden = !(atual.frases && atual.frases.length > 1);
+      // 3º número: o total de orações rezadas, lido agora (sem resposta em 2,5 s: o último conhecido ou a reserva)
+      var pedidoTotal = atual;
+      var C = window.odContador;
+      var leitura = (C && C.ativo) ? C.ler([C.chaves.total]) : Promise.resolve(null);
+      Promise.race([leitura, espera(2500).then(function () { return null; })]).then(function (m) {
+        if (pedidoTotal !== atual) return;
+        var t = m && C ? m[C.chaves.total] : null;
+        if (!(t > 0)) { try { t = Number(localStorage.getItem('od-total-cache')) || null; } catch (e) {} }
+        if (!(t > 0)) t = Number(atual.reservaTotal) || null;
+        atual.numeros = (atual.numerosBase || atual.numeros || []).slice();
+        if (!atual.numerosBase) atual.numerosBase = atual.numeros.slice();
+        if (t > 0) atual.numeros.push({ n: t, rotulo: atual.totalRotulo || 'orações rezadas' });
+        gerar();
+      });
+      return;
+    }
+    gerar();
+  }
+  var geracao = 0;
+  function gerar() {
+    if (!atual) return;
+    var site = atual.tipo === 'site';
+    if (site) {
+      ui.formatos.querySelectorAll('[data-formato]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.formato === atual.formato)); });
+      ui.previa.classList.toggle('odc-previa-post', atual.formato === 'post');
+    } else ui.previa.classList.remove('odc-previa-post');
+    if (objUrl) { try { URL.revokeObjectURL(objUrl); } catch (e) {} objUrl = ''; }
+    arquivo = null; ui.img.hidden = true; ui.espera.hidden = false; atual.falhou = false;
+    ui.share.hidden = true; ui.share.disabled = true;
+    ui.baixar.removeAttribute('href'); ui.baixar.setAttribute('aria-disabled', 'true');
+    rotular();
+    var minha = ++geracao, pedido = atual;
     imagem(atual).then(function (b) {
-      if (pedido !== atual) return; // a janela foi fechada ou reaberta com outros dados
+      if (pedido !== atual || minha !== geracao) return; // fechada, reaberta ou trocada de formato/frase
       if (!b) { atual.falhou = true; rotular(); return; }
-      var nome = String(atual.arquivo || 'oratorio-digital').replace(/[^a-z0-9-]+/gi, '-') + '.jpg';
+      var nome = String(atual.arquivo || 'oratorio-digital').replace(/[^a-z0-9-]+/gi, '-') + (site && atual.formato === 'post' ? '-post' : '') + '.jpg';
       try { arquivo = new File([b], nome, { type: 'image/jpeg' }); } catch (e) { arquivo = b; arquivo.name = nome; }
       objUrl = URL.createObjectURL(b);
       ui.img.src = objUrl; ui.img.hidden = false; ui.espera.hidden = true;
@@ -414,7 +587,9 @@
   // botões "Stories e Status" declarados no HTML
   function rotularBotoes() {
     document.querySelectorAll('[data-od-stories]').forEach(function (b) {
-      var s = b.querySelector('span'); if (s) s.textContent = tt('stories_btn', 'Stories e Status');
+      var s = b.querySelector('span'); if (!s) return;
+      var k = b.getAttribute('data-od-rotulo'); // outro rótulo (ex.: share_site)
+      s.textContent = k ? tt(k, s.textContent) : tt('stories_btn', 'Stories e Status');
     });
   }
   function ligar() {

@@ -1,0 +1,30 @@
+---
+// Janela de compartilhar (imagem para Instagram e WhatsApp): o script e o estilo dela.
+// Usada pelo botão "Stories e Status" (oração, biografia) e pelo "Compartilhar o Oratório".
+import { withBase } from '../config/site';
+---
+<script is:inline src={withBase('/js/compartilhar.js')} defer></script>
+
+<style is:global>
+  /* janela "Stories e Status" (criada pelo public/js/compartilhar.js) */
+  .odc { border: none; padding: 0; background: transparent; color: var(--ink); width: min(28rem, calc(100vw - 1.6rem)); max-width: none; }
+  .odc::backdrop { background: var(--scrim); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .odc-card { position: relative; text-align: center; background: var(--paper-raised); border: 1px solid color-mix(in srgb, var(--gold) 40%, var(--hair)); border-radius: 20px; padding: 1.3rem 1.1rem 1.15rem; box-shadow: 0 24px 70px rgba(0,0,0,.4); max-height: calc(100dvh - 1.6rem); overflow-y: auto; }
+  .odc-titulo { font-size: 1.55rem; margin: .1rem 2.6rem .85rem; color: var(--gold); }
+  .odc-fechar { position: absolute; top: .6rem; right: .6rem; width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--hair); background: transparent; color: var(--ink-soft); cursor: pointer; font-size: 1.3rem; line-height: 1; }
+  .odc-fechar:hover { border-color: var(--gold); color: var(--gold); }
+  .odc-previa { position: relative; width: min(100%, 14.5rem); aspect-ratio: 9 / 16; margin: 0 auto .95rem; border-radius: 14px; overflow: hidden; background: #120c06; border: 1px solid var(--hair); }
+  .odc-previa img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .odc-espera { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; padding: 1rem; color: #cebf9d; font-style: italic; font-size: .92rem; }
+  .odc-acoes { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+  .odc-acoes .btn { min-height: 46px; }
+  .odc-acoes .btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+  .odc-status { min-height: 1.5em; margin: .55rem 0 0; color: var(--gold); font-size: .95rem; }
+  .odc-manual { margin: .3rem 0 0; text-align: left; font-size: .9rem; color: var(--ink-soft); }
+  .odc-manual input { display: block; width: 100%; margin-top: .3rem; min-height: 44px; padding: .5rem .7rem; border-radius: 10px; border: 1px solid var(--gold); background: var(--paper); color: var(--ink); font-family: 'EB Garamond', serif; font-size: 16px; }
+  .odc-opcoes { display: flex; flex-wrap: wrap; gap: .45rem; justify-content: center; margin: 0 0 .85rem; }
+  .odc-formatos { display: inline-flex; gap: .35rem; }
+  .odc-opcoes .rtool { min-height: 44px; }
+  .odc-previa-post { aspect-ratio: 4 / 5; width: min(100%, 17rem); }
+  .odc-dica { margin: .75rem 0 0; font-size: .86rem; line-height: 1.45; color: var(--ink-soft); }
+</style>

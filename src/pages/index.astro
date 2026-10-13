@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PrayerCard from '../components/PrayerCard.astro';
 import CommunityCounter from '../components/CommunityCounter.astro';
+import CompartilharOratorio from '../components/CompartilharOratorio.astro';
 import { site, withBase } from '../config/site';
 import { reserva } from '../config/contadores';
 
@@ -112,6 +113,8 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
           <p class="votive-today" id="communityToday" hidden></p>
         </Fragment>
       )}
+      <!-- imagem do site para Instagram e WhatsApp (aparece quando o compartilhar.js carrega) -->
+      <p class="hero-share"><CompartilharOratorio classe="btn hero-share-btn" /></p>
     </div>
   </section>
 
@@ -806,4 +809,6 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
     #catalogo .chips::-webkit-scrollbar { display: none; }
     #catalogo .chip { flex: 0 0 auto; white-space: nowrap; }
   }
+  .hero-share { margin: 1.1rem 0 0; }
+  .hero-share :global(.hero-share-btn) { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; background: rgba(10,7,3,.35); }
 </style>

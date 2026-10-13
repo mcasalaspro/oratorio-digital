@@ -55,6 +55,19 @@ export const site = {
   maxLiturgicalHighlights: 3,
 
   showCommunityCounter: true,
+
+  // ── "Compartilhar o Oratório" (abertura e Sobre): imagem do site para Instagram e WhatsApp ──
+  // A imagem leva uma destas frases (o botão "Outra frase" troca), os números de orações e
+  // biografias e o total de orações rezadas. Cite sempre a fonte em "autor".
+  compartilharSite: {
+    frases: [
+      { texto: 'Orar é uma necessidade vital.', autor: 'Catecismo da Igreja Católica, 2744' },
+      { texto: 'Nada se compara em valor à oração; ela torna possível o que é impossível, fácil o que é difícil.', autor: 'São João Crisóstomo' },
+      { texto: 'Orai sem cessar.', autor: '1 Tessalonicenses 5,17' },
+    ],
+    // legenda que vai junto na mensagem do WhatsApp (o endereço é acrescentado no fim)
+    texto: 'Oratório Digital: orações, terços, novenas e biografias de santos para rezar com calma.',
+  },
 };
 
 // ── Textos da interface (i18n leve). Adicione idiomas aqui. ──
@@ -282,6 +295,12 @@ export const ui = {
     search_kind_canto: 'Canto',
     ler: 'Ler',
     nav_privacidade: 'Privacidade',
+    share_site: 'Compartilhar o Oratório',
+    share_format: 'Formato da imagem',
+    fmt_story: 'Story e Status',
+    fmt_post: 'Publicação e conversa',
+    other_quote: 'Outra frase',
+    share_site_hint: 'Instagram: Story no formato vertical; publicação no outro formato. WhatsApp: escolha uma conversa (o endereço vai junto na mensagem) ou o Status.',
     month_starts_today: 'Começa hoje',
     month_starts_tomorrow: 'Começa amanhã',
     month_starts_in: 'Começa em {n} dias',
@@ -509,6 +528,12 @@ export const ui = {
     search_kind_canto: 'Chant',
     ler: 'Read',
     nav_privacidade: 'Privacy',
+    share_site: 'Share the Oratório',
+    share_format: 'Image format',
+    fmt_story: 'Story & Status',
+    fmt_post: 'Post & chat',
+    other_quote: 'Another quote',
+    share_site_hint: 'Instagram: Story uses the vertical format; a post uses the other one. WhatsApp: pick a chat (the address goes along in the message) or Status.',
     month_starts_today: 'Starts today',
     month_starts_tomorrow: 'Starts tomorrow',
     month_starts_in: 'Starts in {n} days',

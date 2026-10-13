@@ -1,0 +1,40 @@
+---
+// ════════════════════════════════════════════════════════════════
+//  Botão "Compartilhar o Oratório" (abertura e Sobre)
+//  Gera no aparelho uma imagem do site inteiro, em dois formatos (Story/Status
+//  1080×1920 e publicação/conversa 1080×1350): marca, uma frase sobre a oração
+//  (site.ts → compartilharSite.frases), o número de orações e de biografias e o
+//  total de orações já rezadas (lido do contador ao abrir). Ver public/js/compartilhar.js.
+// ════════════════════════════════════════════════════════════════
+import { getCollection } from 'astro:content';
+import { site, withBase } from '../config/site';
+import { reserva } from '../config/contadores';
+import JanelaCompartilhar from './JanelaCompartilhar.astro';
+
+interface Props { classe?: string }
+const { classe = 'btn' } = Astro.props;
+const oracoes = (await getCollection('prayers')).length;
+const biografias = (await getCollection('biografias')).length;
+const url = new URL(withBase('/'), Astro.site ?? 'https://www.oratoriodigital.com').href;
+const cfg = (site as any).compartilharSite ?? {};
+const fs = await import('node:fs');
+const fundo = fs.existsSync('public/textures/rays_w1200.webp') ? '/textures/rays_w1200.webp' : '/textures/rays.webp';
+const dados = {
+  tipo: 'site',
+  frases: cfg.frases ?? [],
+  tagline: site.tagline,
+  numeros: [{ n: oracoes, rotulo: 'orações' }, { n: biografias, rotulo: 'biografias de santos' }],
+  totalRotulo: 'orações rezadas no site',
+  reservaTotal: reserva(site.counter.totalKey ?? 'total') ?? null,
+  texto: `${cfg.texto ?? site.name} ${url}`,
+  url,
+  banner: withBase(fundo),
+  dominio: (Astro.site?.host ?? 'oratoriodigital.com').replace(/^www\./, ''),
+  arquivo: 'oratorio-digital',
+};
+---
+<button type="button" class={classe} hidden data-od-stories={JSON.stringify(dados)} data-od-rotulo="share_site">
+  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="19" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.3 10.8l7.4-4.3M8.3 13.2l7.4 4.3" stroke="currentColor" stroke-width="1.8"/></svg>
+  <span>Compartilhar o Oratório</span>
+</button>
+<JanelaCompartilhar />
