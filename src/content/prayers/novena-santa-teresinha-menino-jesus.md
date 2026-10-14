@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santa Teresinha do Menino Jesus, a "Florzinha de Lisieux", nasceu em Alençon, na França, em 1873, e entrou no Carmelo de Lisieux ainda muito jovem. Em sua breve vida, ensinou a "Pequena Via" da infância espiritual: o caminho da confiança total e do abandono nas mãos do Pai. Morreu em 1897, com apenas 24 anos. Foi canonizada em 1925, declarada co-padroeira das missões com São Francisco Xavier e proclamada Doutora da Igreja em 1997.
+*Santa Teresinha do Menino Jesus, a "Florzinha de Lisieux", nasceu em Alençon, na França, em 1873, e entrou no Carmelo de Lisieux ainda muito jovem. Em sua breve vida, ensinou a "Pequena Via" da infância espiritual: o caminho da confiança total e do abandono nas mãos do Pai. Morreu em 1897, com apenas 24 anos. Foi canonizada em 1925, declarada co-padroeira das missões com São Francisco Xavier e proclamada Doutora da Igreja em 1997.*
 
-Façamos esta novena com o coração simples de uma criança, confiando que Deus, em Seu amor infinito, nunca despreza um coração humilde.
+*Façamos esta novena com o coração simples de uma criança, confiando que Deus, em Seu amor infinito, nunca despreza um coração humilde.*
 
 ## Dia 1 — A confiança de uma criança
 

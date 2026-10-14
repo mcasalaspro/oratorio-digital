@@ -12,7 +12,7 @@ liturgicalFeast: "09-15"
 liturgicalColor: "festa"
 ---
 
-Sequência litúrgica atribuída a Jacopone da Todi OFM (c. 1230–1306), composta por volta de 1290. Inserida no Missal Romano por Bento XIII em 1727, este hino contempla Maria, a Mãe das Dores, junto à Cruz de seu Filho. Tradução tradicional em domínio público.
+*Sequência litúrgica atribuída a Jacopone da Todi OFM (c. 1230–1306), composta por volta de 1290. Inserida no Missal Romano por Bento XIII em 1727, este hino contempla Maria, a Mãe das Dores, junto à Cruz de seu Filho. Tradução tradicional em domínio público.*
 
 Estava a Mãe dolorosa<br>
 junto à Cruz, lacrimosa,<br>

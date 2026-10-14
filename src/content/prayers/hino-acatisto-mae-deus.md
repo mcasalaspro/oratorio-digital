@@ -10,7 +10,7 @@ description: "Extenso hino bizantino de louvor à Mãe de Deus, rezado em pé. A
 featured: false
 liturgicalColor: "festa"
 ---
-O Hino Acatisto (do grego *akáthistos*, "que não se senta") é um dos mais antigos e venerados hinos da tradição bizantina, atribuído a São Romano, o Melodista, e ao Patriarca Sérgio de Constantinopla (séc. VI). Recebe esse nome porque é cantado em pé, em sinal de reverência à Theotokos, a Mãe de Deus. Cada estrofe culmina na saudação *"Salve, ó Esposa sempre Virgem"*.
+_O Hino Acatisto (do grego *akáthistos*, "que não se senta") é um dos mais antigos e venerados hinos da tradição bizantina, atribuído a São Romano, o Melodista, e ao Patriarca Sérgio de Constantinopla (séc. VI). Recebe esse nome porque é cantado em pé, em sinal de reverência à Theotokos, a Mãe de Deus. Cada estrofe culmina na saudação *"Salve, ó Esposa sempre Virgem"*._
 
 ## Condákio inicial
 

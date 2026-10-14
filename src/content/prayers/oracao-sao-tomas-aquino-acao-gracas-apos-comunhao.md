@@ -12,7 +12,7 @@ liturgicalFeast: "01-28"
 liturgicalColor: "festa"
 ---
 
-Oração tradicional atribuída a São Tomás de Aquino (séc. XIII, c. 1264–1273), iniciada pelas palavras *Gratias tibi ago, Domine*. Recitada em ação de graças após receber a Sagrada Comunhão, ela agradece o dom do Corpo de Cristo e implora a graça da perseverança no bem.
+_Oração tradicional atribuída a São Tomás de Aquino (séc. XIII, c. 1264–1273), iniciada pelas palavras *Gratias tibi ago, Domine*. Recitada em ação de graças após receber a Sagrada Comunhão, ela agradece o dom do Corpo de Cristo e implora a graça da perseverança no bem._
 
 Eu Vos dou graças, Senhor, Pai santo, Deus eterno e onipotente,<br>
 que Vos dignastes alimentar-me, pecador e indigno servo Vosso,<br>

@@ -12,11 +12,11 @@ liturgicalFeast: "03-19"
 liturgicalColor: "festa"
 ---
 
-Devoção difundida pelos Carmelitas (séc. XIX–XX), o Terço de São José honra o castíssimo esposo da Virgem Maria e pai adotivo de Jesus.<br>
+*Devoção difundida pelos Carmelitas (séc. XIX–XX), o Terço de São José honra o castíssimo esposo da Virgem Maria e pai adotivo de Jesus.<br>
 Compõe-se de quinze grupos de invocações que recordam os privilégios e virtudes do santo Patriarca.<br>
-É rezado sobretudo no mês de março e às quartas-feiras, dia dedicado a São José.
+É rezado sobretudo no mês de março e às quartas-feiras, dia dedicado a São José.*
 
-Inicia-se com o Sinal da Cruz:
+*Inicia-se com o Sinal da Cruz:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.<br>
 São José, modelo e patrono dos que amam o Sagrado Coração de Jesus, rogai por nós.
@@ -33,16 +33,17 @@ abri os olhos paternais para os interesses de Vossos filhos.
 
 ## As invocações
 
-Reza-se a oração principal e, em cada conta, a invocação:
+*Reza-se a oração principal e, em cada conta, a invocação:*
 
-> Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Bendito e louvado seja São José, Patriarca venerável.
 
 15x Louvado seja São José, fiel guardião de Jesus e Maria.<br>
 Por seus méritos e intercessão, alcançai-nos as graças que necessitamos.
 
-A cada grupo, medite uma das grandezas de São José:
+*A cada grupo, medite uma das grandezas de São José:*
 
 São José, descendente de Davi.<br>
 São José, esposo virginal de Maria.<br>

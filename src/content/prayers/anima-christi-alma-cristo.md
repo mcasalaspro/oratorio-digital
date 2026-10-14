@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-Oração anônima do século XIV (c. 1350), por muito tempo atribuída erroneamente a Santo Inácio de Loyola, que a difundiu ao recomendá-la nos seus *Exercícios Espirituais*. É uma das mais belas orações eucarísticas e de devoção à Paixão de Cristo.
+_Oração anônima do século XIV (c. 1350), por muito tempo atribuída erroneamente a Santo Inácio de Loyola, que a difundiu ao recomendá-la nos seus *Exercícios Espirituais*. É uma das mais belas orações eucarísticas e de devoção à Paixão de Cristo._
 
 Alma de Cristo, santificai-me.<br>
 Corpo de Cristo, salvai-me.<br>

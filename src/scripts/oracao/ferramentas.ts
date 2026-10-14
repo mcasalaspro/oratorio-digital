@@ -5,7 +5,8 @@
 //    citações acompanharem. O valor salvo já foi aplicado antes de pintar (script curto
 //    da página).
 //  • Foco: esconde topo, rodapé, ferramentas, biografia e produtos; lembra a escolha
-//    ("od-foco") e mantém a tela acesa.
+//    ("od-foco") e mantém a tela acesa. Botão também na barra do assistente (liga no meio
+//    da leitura, sem parar e sem perder o lugar).
 //  • Tela acesa (Wake Lock API): enquanto o assistente toca, no Modo Foco ou pelo botão
 //    "Manter tela acesa"; libera ao pausar, ao sair do foco e ao deixar a página
 //    (o navegador libera sozinho ao esconder; ao voltar, pede de novo se ainda precisa).
@@ -93,16 +94,39 @@ export function iniciarFerramentas(slug: string, motor: Motor): Ferramentas {
   }
 
   // ── Modo Foco (G11) — o estado salvo já foi aplicado antes de pintar ──
-  const foco = $('focusBtn');
+  // Dois botões: nas ferramentas (topo do texto) e na barra do assistente (rgFoco), que fica
+  // sempre à mão durante a leitura. Ligar ou desligar não para o assistente e não perde o lugar:
+  // o bloco que está no meio da tela continua na mesma altura depois que topo e ferramentas somem.
+  const botoesFoco = [$('focusBtn'), $('rgFoco')].filter(Boolean) as HTMLElement[];
+  function ancora(): HTMLElement | null {
+    const conteudo = $('prayer-content');
+    if (!conteudo) return null;
+    const SEL = '#prayer-content p, #prayer-content blockquote, #prayer-content li, #prayer-content h2, #prayer-content h3';
+    const r0 = conteudo.getBoundingClientRect();
+    const sob = document.elementFromPoint(Math.round(r0.left + Math.min(40, r0.width / 2)), Math.round(window.innerHeight * 0.45));
+    const bloco = sob ? (sob as Element).closest<HTMLElement>(SEL) : null;
+    if (bloco) return bloco;
+    for (const b of Array.from(conteudo.querySelectorAll<HTMLElement>('p, blockquote, li, h2, h3'))) {
+      const r = b.getBoundingClientRect();
+      if (r.height && r.bottom > 0) return r.top < window.innerHeight ? b : null;
+    }
+    return null;
+  }
   function aplicarFoco(on: boolean, guardar: boolean): void {
+    const a = guardar ? ancora() : null;
+    const antes = a ? a.getBoundingClientRect().top : 0;
     document.documentElement.classList.toggle('od-foco', on);
     document.body.classList.toggle('reader-focus', on);
-    if (foco) foco.setAttribute('aria-pressed', on ? 'true' : 'false');
+    for (const b of botoesFoco) b.setAttribute('aria-pressed', on ? 'true' : 'false');
     if (guardar) guarda.gravar('od-foco', on ? '1' : '0');
+    if (a) {
+      const delta = a.getBoundingClientRect().top - antes;
+      if (Math.abs(delta) > 1) window.scrollBy(0, delta);
+    }
     atualizarTela();
   }
   aplicarFoco(emFoco(), false);
-  foco?.addEventListener('click', () => aplicarFoco(!emFoco(), true));
+  for (const b of botoesFoco) b.addEventListener('click', () => aplicarFoco(!emFoco(), true));
 
   return {
     atualizarTela() { atualizarTela(); },

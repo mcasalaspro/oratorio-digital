@@ -10,7 +10,7 @@ description: "Oração penitencial de Santo Efrém da Síria, rezada na Quaresma
 featured: false
 liturgicalColor: "festa"
 ---
-Atribuída a Santo Efrém da Síria (séc. IV), esta breve oração penitencial é tradicionalmente recitada na Quaresma da tradição bizantina, acompanhada de prostrações. Nela pedimos a Deus que afaste de nós os vícios da preguiça, do desânimo e da vaidade, e nos conceda as virtudes da humildade, da paciência e do amor.
+*Atribuída a Santo Efrém da Síria (séc. IV), esta breve oração penitencial é tradicionalmente recitada na Quaresma da tradição bizantina, acompanhada de prostrações. Nela pedimos a Deus que afaste de nós os vícios da preguiça, do desânimo e da vaidade, e nos conceda as virtudes da humildade, da paciência e do amor.*
 
 Senhor e Mestre da minha vida,<br>
 afastai de mim o espírito de preguiça,<br>

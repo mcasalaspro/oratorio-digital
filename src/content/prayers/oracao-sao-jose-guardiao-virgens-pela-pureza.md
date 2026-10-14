@@ -10,7 +10,7 @@ description: "Oração tradicional a São José, guardião da pureza de Jesus e 
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional a São José (*O Custos virginum*), recolhida na *Raccolta*, dirigida ao casto esposo da Virgem Maria e fiel guardião do Menino Jesus, implorando o dom da pureza e a vitória sobre as tentações da carne.
+_Oração tradicional a São José (*O Custos virginum*), recolhida na *Raccolta*, dirigida ao casto esposo da Virgem Maria e fiel guardião do Menino Jesus, implorando o dom da pureza e a vitória sobre as tentações da carne._
 
 *Apresente a Deus a sua intenção e reze com confiança:*
 

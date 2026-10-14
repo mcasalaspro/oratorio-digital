@@ -10,7 +10,7 @@ description: "Ladainha tradicional que invoca os títulos da Eucaristia: Pão vi
 featured: false
 liturgicalColor: "ordinario"
 ---
-Ladainha tradicional da tradição eucarística, aprovada para uso devocional, em louvor ao Santíssimo Sacramento do Altar. As invocações exaltam os títulos da Sagrada Eucaristia — Pão vivo, Cálice da bênção e Memorial da Paixão do Senhor — convidando à adoração de Cristo realmente presente sob as espécies do pão e do vinho.
+*Ladainha tradicional da tradição eucarística, aprovada para uso devocional, em louvor ao Santíssimo Sacramento do Altar. As invocações exaltam os títulos da Sagrada Eucaristia — Pão vivo, Cálice da bênção e Memorial da Paixão do Senhor — convidando à adoração de Cristo realmente presente sob as espécies do pão e do vinho.*
 
 Senhor, tende piedade de nós.<br>
 Cristo, tende piedade de nós.<br>

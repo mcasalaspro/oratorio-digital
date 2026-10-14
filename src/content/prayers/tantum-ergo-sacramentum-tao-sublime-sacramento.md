@@ -10,7 +10,7 @@ description: "Hino eucarístico de São Tomás de Aquino, cantado na Bênção d
 featured: false
 liturgicalColor: "festa"
 ---
-Hino composto por São Tomás de Aquino, por volta de 1264, formado pelas duas últimas estrofes do *Pange Lingua*. É tradicionalmente cantado na Bênção do Santíssimo Sacramento, em adoração e súplica diante da Eucaristia.
+_Hino composto por São Tomás de Aquino, por volta de 1264, formado pelas duas últimas estrofes do *Pange Lingua*. É tradicionalmente cantado na Bênção do Santíssimo Sacramento, em adoração e súplica diante da Eucaristia._
 
 ## Tão Sublime Sacramento
 

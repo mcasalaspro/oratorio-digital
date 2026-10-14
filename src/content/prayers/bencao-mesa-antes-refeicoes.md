@@ -10,7 +10,7 @@ description: "Oração tradicional para abençoar os alimentos antes das refeiç
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional de uso universal entre os cristãos, rezada em família ou individualmente para abençoar os alimentos e agradecer a Deus por Seus dons.
+*Oração tradicional de uso universal entre os cristãos, rezada em família ou individualmente para abençoar os alimentos e agradecer a Deus por Seus dons.*
 
 ## Antes da refeição
 

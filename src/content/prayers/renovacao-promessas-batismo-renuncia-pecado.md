@@ -10,7 +10,7 @@ description: "Renovação das promessas batismais: renunciar a Satanás e reafir
 featured: false
 liturgicalColor: "festa"
 ---
-Renovação das promessas batismais, segundo a liturgia da Vigília Pascal e o Rito do Batismo. Nela, o fiel renuncia a Satanás, às suas obras e seduções, e reafirma a fé que recebeu no dia do seu Batismo, renovando a vida da graça.
+*Renovação das promessas batismais, segundo a liturgia da Vigília Pascal e o Rito do Batismo. Nela, o fiel renuncia a Satanás, às suas obras e seduções, e reafirma a fé que recebeu no dia do seu Batismo, renovando a vida da graça.*
 
 *Faça o sinal da cruz e prepare o coração para renovar, diante de Deus, as promessas do seu Batismo.*
 

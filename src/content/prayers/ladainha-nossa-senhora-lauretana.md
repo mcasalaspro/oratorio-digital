@@ -12,7 +12,7 @@ liturgicalFeast: "08-15"
 liturgicalColor: "festa"
 ---
 
-A Ladainha de Nossa Senhora, também chamada Ladainha Lauretana, tem origem em Loreto, na Itália, com primeiros registros no século XII e aprovação formal pelo Papa Sisto V em 1587. É a mais célebre das ladainhas marianas, invocando Maria sob títulos tirados das Escrituras e da tradição da Igreja, como Espelho de Justiça, Rosa Mística e Torre de Davi.
+*A Ladainha de Nossa Senhora, também chamada Ladainha Lauretana, tem origem em Loreto, na Itália, com primeiros registros no século XII e aprovação formal pelo Papa Sisto V em 1587. É a mais célebre das ladainhas marianas, invocando Maria sob títulos tirados das Escrituras e da tradição da Igreja, como Espelho de Justiça, Rosa Mística e Torre de Davi.*
 
 Senhor, tende piedade de nós.<br>
 Cristo, tende piedade de nós.<br>

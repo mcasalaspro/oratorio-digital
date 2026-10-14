@@ -12,7 +12,7 @@ liturgicalFeast: "07-11"
 liturgicalColor: "festa"
 ---
 
-Da tradição beneditina (séc. IX–XI), a Medalha de São Bento traz gravadas as letras de uma poderosa oração de proteção e exorcismo, aprovada pela Igreja em 1647. A cruz no centro recorda que somente em Cristo está a nossa luz e a nossa defesa contra o mal.
+*Da tradição beneditina (séc. IX–XI), a Medalha de São Bento traz gravadas as letras de uma poderosa oração de proteção e exorcismo, aprovada pela Igreja em 1647. A cruz no centro recorda que somente em Cristo está a nossa luz e a nossa defesa contra o mal.*
 
 ## A Cruz de São Bento
 

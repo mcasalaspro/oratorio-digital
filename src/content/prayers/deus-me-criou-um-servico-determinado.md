@@ -12,7 +12,7 @@ liturgicalFeast: "10-09"
 liturgicalColor: "festa"
 ---
 
-Meditação de São João Henrique Newman, extraída das *Meditações e Devoções* (1848), sobre a vocação e o sentido único de cada vida.
+_Meditação de São João Henrique Newman, extraída das *Meditações e Devoções* (1848), sobre a vocação e o sentido único de cada vida._
 
 Deus me criou para Lhe prestar um serviço determinado.<br>
 Confiou-me uma obra que a nenhum outro confiou.<br>

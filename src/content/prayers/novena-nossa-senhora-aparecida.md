@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Em 1717, três pescadores lançavam suas redes no Rio Paraíba do Sul e, depois de muito trabalho sem nada pescar, retiraram das águas a imagem de uma Senhora morena. A partir daquele encontro, fartura e bênçãos não cessaram. Devoção que atravessou os séculos, Nossa Senhora Aparecida foi proclamada Padroeira do Brasil pelo Papa Pio XI em 1930. Esta novena, fruto da tradição brasileira e da piedade da Diocese de São Paulo, nos prepara para honrar a Mãe que do fundo das águas se ergueu para nos abraçar.
+*Em 1717, três pescadores lançavam suas redes no Rio Paraíba do Sul e, depois de muito trabalho sem nada pescar, retiraram das águas a imagem de uma Senhora morena. A partir daquele encontro, fartura e bênçãos não cessaram. Devoção que atravessou os séculos, Nossa Senhora Aparecida foi proclamada Padroeira do Brasil pelo Papa Pio XI em 1930. Esta novena, fruto da tradição brasileira e da piedade da Diocese de São Paulo, nos prepara para honrar a Mãe que do fundo das águas se ergueu para nos abraçar.*
 
-Em cada dia, faça o Sinal da Cruz e recolha o coração diante da imagem da Mãe Aparecida.
+*Em cada dia, faça o Sinal da Cruz e recolha o coração diante da imagem da Mãe Aparecida.*
 
 ## Dia 1 — A Mãe que se deixa encontrar
 
@@ -34,7 +34,13 @@ na busca do Senhor e da Sua vontade.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 2 — A humildade da serva do Senhor
 
@@ -52,7 +58,13 @@ para que Ele nos exalte na Sua misericórdia.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 3 — A fé que vence as tempestades
 
@@ -70,7 +82,13 @@ atravessemos serenos todo perigo.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 4 — Mãe da família brasileira
 
@@ -88,7 +106,13 @@ como Vós unistes a Sagrada Família de Nazaré.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 5 — Refúgio dos pecadores
 
@@ -106,7 +130,13 @@ fonte de toda a misericórdia.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 6 — Consoladora dos aflitos
 
@@ -124,7 +154,13 @@ a doce presença do Senhor que nos ama.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 7 — Auxílio dos cristãos
 
@@ -142,7 +178,13 @@ para que reine no Brasil o reino de Deus.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 8 — A esperança que não decepciona
 
@@ -160,7 +202,13 @@ fazei brotar a vitória de Deus.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 ## Dia 9 — Padroeira e Rainha do Brasil
 
@@ -182,4 +230,10 @@ se for para o bem das nossas almas.
 
 > Nossa Senhora Aparecida, rogai por nós.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.

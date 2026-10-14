@@ -10,7 +10,7 @@ description: "Súplica confiante a Maria, certos de que ninguém recorre a ela e
 featured: false
 liturgicalColor: "festa"
 ---
-Oração mariana de profunda confiança, atribuída popularmente a São Bernardo de Claraval. O texto, conhecido desde o século XV, foi amplamente difundido no século XVII pelo Pe. Claude Bernard. Reza-se com a certeza de que jamais se ouviu dizer que alguém tivesse recorrido à proteção de Maria sem ser por ela amparado.
+*Oração mariana de profunda confiança, atribuída popularmente a São Bernardo de Claraval. O texto, conhecido desde o século XV, foi amplamente difundido no século XVII pelo Pe. Claude Bernard. Reza-se com a certeza de que jamais se ouviu dizer que alguém tivesse recorrido à proteção de Maria sem ser por ela amparado.*
 
 Lembrai-vos, ó piíssima Virgem Maria,<br>
 que nunca se ouviu dizer<br>

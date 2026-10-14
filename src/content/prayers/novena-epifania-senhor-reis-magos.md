@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A Epifania do Senhor, herdada da tradição litúrgica oriental e ocidental dos séculos IV e V, celebra a manifestação de Cristo às nações.<br>
+*A Epifania do Senhor, herdada da tradição litúrgica oriental e ocidental dos séculos IV e V, celebra a manifestação de Cristo às nações.<br>
 No relato de São Mateus (Mt 2,1-12), os Magos vindos do Oriente seguem a estrela e prostram-se diante do Menino, oferecendo ouro, incenso e mirra.<br>
-Esta novena nos convida a buscar a luz de Cristo e a oferecer-Lhe o melhor de nós mesmos.
+Esta novena nos convida a buscar a luz de Cristo e a oferecer-Lhe o melhor de nós mesmos.*
 
 > Senhor Jesus, Luz das nações, manifestai-Vos em nossos corações. Amém.
 

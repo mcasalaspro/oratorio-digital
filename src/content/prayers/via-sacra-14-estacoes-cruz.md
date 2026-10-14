@@ -11,11 +11,11 @@ featured: false
 liturgicalColor: "martir"
 ---
 
-A Via-Sacra é uma antiga devoção que recorda os passos do Senhor desde a condenação até a sepultura.
+*A Via-Sacra é uma antiga devoção que recorda os passos do Senhor desde a condenação até a sepultura.
 Nascida da piedade dos peregrinos em Jerusalém e difundida pelos franciscanos, suas catorze estações foram fixadas em 1731 pelo Papa Clemente XII.
-É rezada especialmente nas sextas-feiras da Quaresma e nas sextas-feiras comuns.
+É rezada especialmente nas sextas-feiras da Quaresma e nas sextas-feiras comuns.*
 
-Em cada estação, fazemos a adoração inicial:
+*Em cada estação, fazemos a adoração inicial:*
 
 > V. Nós Vos adoramos, ó Cristo, e Vos bendizemos.<br>
 > R. Porque pela Vossa santa Cruz remistes o mundo.

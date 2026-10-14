@@ -12,7 +12,7 @@ liturgicalFeast: "09-23"
 liturgicalColor: "festa"
 ---
 
-Oração atribuída a São Pio de Pietrelcina (séc. XX), tradicionalmente rezada após a Comunhão, como súplica para que o Senhor permaneça sempre presente na alma.
+*Oração atribuída a São Pio de Pietrelcina (séc. XX), tradicionalmente rezada após a Comunhão, como súplica para que o Senhor permaneça sempre presente na alma.*
 
 Ficai comigo, Senhor, pois preciso da Vossa presença para não Vos esquecer.<br>
 Vós sabeis com quanta facilidade eu Vos abandono.<br>

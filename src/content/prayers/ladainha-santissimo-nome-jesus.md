@@ -12,7 +12,7 @@ liturgicalFeast: "01-03"
 liturgicalColor: "festa"
 ---
 
-Ladainha do Santíssimo Nome de Jesus, aprovada para uso público pelo Papa Leão XIII em 1886. Reza-se especialmente na festa do Santíssimo Nome de Jesus, celebrada em 3 de janeiro, invocando os múltiplos títulos do Nome adorável diante do qual todo joelho se dobra.
+*Ladainha do Santíssimo Nome de Jesus, aprovada para uso público pelo Papa Leão XIII em 1886. Reza-se especialmente na festa do Santíssimo Nome de Jesus, celebrada em 3 de janeiro, invocando os múltiplos títulos do Nome adorável diante do qual todo joelho se dobra.*
 
 Senhor, tende piedade de nós.<br>
 Senhor, tende piedade de nós.

@@ -11,7 +11,4 @@ export const oracoesMovidas: Record<string, string> = {
   'oracao-sao-ricardo-chichester-dia-apos-dia': 'oracao-sao-ricardo-chichester',
   'de-profundis-salmo-129': 'profundis-salmo-130-pelos-defuntos',
   'novena-santo-antonio': 'novena-santo-antonio-padua',
-  // A5: a "Oração de Libertação" adaptava a fórmula de exorcismo de Leão XIII, que a Congregação para a
-  // Doutrina da Fé (carta Inde ab aliquot annis, 1985) pede que os fiéis não usem: fica a oração breve
-  'exorcismo-sao-miguel': 'sao-miguel-arcanjo',
 };

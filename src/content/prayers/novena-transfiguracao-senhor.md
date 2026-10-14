@@ -14,17 +14,17 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A festa da Transfiguração do Senhor celebra o momento em que Jesus,
+*A festa da Transfiguração do Senhor celebra o momento em que Jesus,
 no alto do Monte Tabor, revelou Sua glória divina diante de Pedro,
 Tiago e João (Mt 17,1-9). Seu rosto resplandeceu como o sol e Suas
 vestes tornaram-se brancas como a luz, enquanto Moisés e Elias
 conversavam com Ele e a voz do Pai proclamava: "Este é o Meu Filho
-amado, escutai-O."
+amado, escutai-O."*
 
-Venerada desde os primeiros séculos pela tradição litúrgica oriental
+*Venerada desde os primeiros séculos pela tradição litúrgica oriental
 (séc. IV), a festa foi estendida a toda a Igreja pelo Papa Calisto III
 em 1456. Nesta novena, contemplamos a luz do Tabor que transfigura
-nossas vidas e nos prepara para a glória prometida.
+nossas vidas e nos prepara para a glória prometida.*
 
 ## Dia 1 — A luz que vem do alto
 

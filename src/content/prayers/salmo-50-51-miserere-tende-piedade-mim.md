@@ -10,7 +10,7 @@ description: "Tende piedade de mim, ó Deus, segundo a Vossa misericórdia — o
 featured: false
 liturgicalColor: "ordinario"
 ---
-O Salmo 50/51, conhecido pelas suas primeiras palavras em latim *Miserere mei, Deus*, é atribuído pela tradição ao rei Davi, após ser repreendido pelo profeta Natã. É o mais célebre dos salmos penitenciais, prece de arrependimento e súplica pela misericórdia divina.
+_O Salmo 50/51, conhecido pelas suas primeiras palavras em latim *Miserere mei, Deus*, é atribuído pela tradição ao rei Davi, após ser repreendido pelo profeta Natã. É o mais célebre dos salmos penitenciais, prece de arrependimento e súplica pela misericórdia divina._
 
 Tende piedade de mim, ó Deus,<br>
 segundo a Vossa misericórdia.<br>

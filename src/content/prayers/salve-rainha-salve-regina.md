@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Antífona mariana atribuída a Hermano de Reichenau OSB (†1054) ou a Adhémar de Monteil, por volta do ano 1050. É tradicionalmente cantada ao fim das Completas e após a reza do Santo Rosário, invocando a maternal proteção da Virgem Maria.
+*Antífona mariana atribuída a Hermano de Reichenau OSB (†1054) ou a Adhémar de Monteil, por volta do ano 1050. É tradicionalmente cantada ao fim das Completas e após a reza do Santo Rosário, invocando a maternal proteção da Virgem Maria.*
 
 Salve, Rainha, Mãe de misericórdia,<br>
 vida, doçura e esperança nossa, salve!<br>

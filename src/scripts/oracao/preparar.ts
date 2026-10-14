@@ -5,14 +5,22 @@
 //  O HTML que o Markdown gera recebe aqui, uma única vez, tudo o que antes o
 //  navegador fazia ao abrir a página (e que "picotava" o texto em milhares de
 //  <span>, apagava negrito/itálico e fazia a página saltar):
-//   • rubricas: parágrafo inteiramente em itálico → class="rubric" (o assistente pula)
+//   • rubricas: parágrafo inteiramente em itálico → class="rubric" (o assistente pula);
+//     rubrica longa (nota de abertura, fonte, "como rezar") ganha também class="nota"
+//     (alinhada à esquerda, como texto corrido) — G9
+//   • rótulo: parágrafo só em negrito, curto e sem ponto final ("**Oração final**",
+//     "**Para começar**", "**A Fé**") → class="rotulo" (aparece igual; o assistente pula) — G9
+//   • instrução no meio da oração, entre parênteses — "(faça aqui o seu pedido)",
+//     "(diga aqui a sua intenção)", "(Nome)" → <span class="rubrica-inline" data-leitor-pular> — G9
 //   • "10x …" no começo de um parágrafo ou citação: o marcador sai do texto e
 //     entram as continhas (data-rep="10" + <span class="rep">); "1x" só perde o marcador
 //   • seção repetida (G8): título começando por um número e "x" — ex.: "## 5x Dezenas" —
 //     repete a seção inteira, até o próximo título do mesmo nível ou maior
 //     → <section class="od-secao" data-repetir="5"> com a sua barra de continhas
 //   • novena: cada bloco depois de "## Dia N" recebe data-dia="N" (os dias ≠ 1 saem
-//     com hidden; o script curto da página escolhe o dia certo antes de pintar)
+//     com hidden; o script curto da página escolhe o dia certo antes de pintar);
+//     um título "## … todos os dias" / "## … cada dia" DEPOIS dos dias encerra os dias:
+//     o que vem dali em diante é comum e aparece no fim de todos eles
 //   • capitular: class="lead" no 1º parágrafo lido (novena sem introdução: o 1º de cada dia)
 //   • Terço / Rosário completo / páginas de mistérios (G7): seletor de dias e sumário
 //  Nenhum texto é reescrito além do marcador "Nx": negrito, itálico e quebras ficam
@@ -204,7 +212,13 @@ export interface Preparo {
 }
 
 const DIA_RE = /^\s*(dia|day)\s+\d+/i;
+const COMUM_RE = /\b(todos os dias|cada dia|every day|each day)\b/i;
 const TITULO = /^h([1-6])$/;
+// G9: rubrica a partir deste tamanho vira "nota" (texto corrido, à esquerda)
+const NOTA_MIN = 120;
+// G9: instrução entre parênteses no meio da oração (não é lida; aparece em itálico suave)
+// (a pontuação logo depois vai junto: senão o assistente pararia num "." sozinho)
+const INSTRUCAO_INLINE = /\((?:(?:faça|faz|diga|dizer|mencione|apresente|peça|pedir|reze|repita)\b[^()]{0,80}|Nome|N\.)\)[.,;:]?/gi;
 
 export function prepararOracao(html: string, op: Opcoes): Preparo {
   const raiz = analisar(html);
@@ -237,10 +251,14 @@ export function prepararOracao(html: string, op: Opcoes): Preparo {
   // 2) novena: data-dia em cada bloco de topo depois de "## Dia N"
   let dias = 0;
   if (op.novena) {
-    let d = 0;
+    let d = 0, comum = false;
     for (const e of elementos(raiz)) {
-      if (e.tag === 'h2' && DIA_RE.test(textoDe(e))) d++;
-      if (d > 0) { setAttr(e, 'data-dia', String(d)); if (d !== 1) setAttr(e, 'hidden', null); }
+      if (e.tag === 'h2') {
+        const t = textoDe(e);
+        if (DIA_RE.test(t)) { d++; comum = false; }
+        else if (d > 0 && COMUM_RE.test(t)) comum = true; // "## Para todos os dias": fim dos dias
+      }
+      if (d > 0 && !comum) { setAttr(e, 'data-dia', String(d)); if (d !== 1) setAttr(e, 'hidden', null); }
     }
     dias = d;
   }
@@ -250,7 +268,45 @@ export function prepararOracao(html: string, op: Opcoes): Preparo {
     if (e.tag !== 'p') continue;
     const em = e.filhos.find((f) => ehEl(f) && (f.tag === 'em' || f.tag === 'i')) as El | undefined;
     const txt = textoDe(e).trim();
-    if (em && txt && textoDe(em).trim() === txt) addClasse(e, 'rubric');
+    if (em && txt && textoDe(em).trim() === txt) {
+      addClasse(e, 'rubric');
+      if (txt.length >= NOTA_MIN) addClasse(e, 'nota');
+      continue;
+    }
+    // G9 — rótulo: só negrito, curto, sem ponto final, fora de citação/lista
+    // (uma resposta de ladainha em negrito termina em ponto e continua sendo lida)
+    if (dentroDe(e, 'blockquote') || dentroDe(e, 'li')) continue;
+    const st = e.filhos.find((f) => ehEl(f) && (f.tag === 'strong' || f.tag === 'b')) as El | undefined;
+    const semDoisPontos = (s: string) => s.trim().replace(/:$/, '').trim();
+    if (st && txt && txt.length <= 60 && semDoisPontos(textoDe(st)) === semDoisPontos(txt) && !/[.!?…]$/.test(txt)) addClasse(e, 'rotulo');
+  }
+
+  // 3b) G9 — instrução entre parênteses dentro da oração: "(faça aqui o seu pedido)" etc.
+  const ehRubricaEl = (e: El) => temClasse(e, 'rubric') || temClasse(e, 'rotulo');
+  for (const e of [...descendentes(raiz)]) {
+    if (e.tag === 'script' || e.tag === 'style' || ehRubricaEl(e)) continue;
+    let dentroRubrica = false;
+    for (let p: El | null = e; p; p = p.pai) if (ehRubricaEl(p) || p.tag === 'nav') { dentroRubrica = true; break; }
+    if (dentroRubrica) continue;
+    for (let i = 0; i < e.filhos.length; i++) {
+      const f = e.filhos[i];
+      if (f.t !== 'txt') continue;
+      INSTRUCAO_INLINE.lastIndex = 0;
+      if (!INSTRUCAO_INLINE.test(f.v)) continue;
+      const novos: No[] = [];
+      let pos = 0;
+      INSTRUCAO_INLINE.lastIndex = 0;
+      for (let m: RegExpExecArray | null; (m = INSTRUCAO_INLINE.exec(f.v)); ) {
+        if (m.index > pos) novos.push({ t: 'txt', v: f.v.slice(pos, m.index), pai: e });
+        const span: El = { t: 'el', tag: 'span', attrs: [['class', 'rubrica-inline'], ['data-leitor-pular', null]], filhos: [], pai: e };
+        span.filhos.push({ t: 'txt', v: m[0], pai: span });
+        novos.push(span);
+        pos = m.index + m[0].length;
+      }
+      if (pos < f.v.length) novos.push({ t: 'txt', v: f.v.slice(pos), pai: e });
+      e.filhos.splice(i, 1, ...novos);
+      i += novos.length - 1;
+    }
   }
 
   // 4) "Nx": citação (o marcador no 1º <p>) ou parágrafo fora de citação
@@ -268,7 +324,7 @@ export function prepararOracao(html: string, op: Opcoes): Preparo {
 
   // 5) capitular: 1º parágrafo lido (pula rubricas, mistérios do Terço e blocos sem texto)
   const legivel = (e: El) => (e.tag === 'p' || e.tag === 'blockquote')
-    && !temClasse(e, 'rubric') && !temClasse(e, 'terco-mystery') && textoDe(e).trim().length > 1;
+    && !temClasse(e, 'rubric') && !temClasse(e, 'rotulo') && !temClasse(e, 'terco-mystery') && textoDe(e).trim().length > 1;
   // blocos lidos de uma lista de elementos de topo (desce em <section>/<div>, não em citações)
   const blocos = (lista: El[]): El[] => {
     const out: El[] = [];
@@ -279,7 +335,9 @@ export function prepararOracao(html: string, op: Opcoes): Preparo {
     return out;
   };
   const topo = elementos(raiz);
-  const comuns = blocos(topo.filter((e) => !attr(e, 'data-dia')));
+  // comuns de ABERTURA (antes do 1º dia); o que é comum no fim ("## Para todos os dias") não leva a capitular
+  const iDia1 = topo.findIndex((e) => attr(e, 'data-dia') != null);
+  const comuns = blocos((iDia1 < 0 ? topo : topo.slice(0, iDia1)).filter((e) => !attr(e, 'data-dia')));
   const leadComum = comuns.find((e) => e.tag === 'p');
   if (leadComum) addClasse(leadComum, 'lead');
   else if (dias > 0) {

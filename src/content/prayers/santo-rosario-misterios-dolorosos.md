@@ -11,14 +11,13 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Os Mistérios Dolorosos são tradicionalmente rezados às terças e sextas-feiras. Nesta contemplação acompanhamos a Paixão de Nosso Senhor Jesus Cristo — desde a agonia no Horto até a morte na Cruz —, unindo-nos à Virgem Maria no caminho do Calvário. A forma estruturada do Rosário em mistérios remonta ao Beato Alano de la Roche, O.P. (c. 1470–1475).
+*Os Mistérios Dolorosos são tradicionalmente rezados às terças e sextas-feiras. Nesta contemplação acompanhamos a Paixão de Nosso Senhor Jesus Cristo — desde a agonia no Horto até a morte na Cruz —, unindo-nos à Virgem Maria no caminho do Calvário. A forma estruturada do Rosário em mistérios remonta ao Beato Alano de la Roche, O.P. (c. 1470–1475).*
 
 ## Início
 
 Pelo sinal da Santa Cruz, livrai-nos, Deus, Nosso Senhor, dos nossos inimigos.<br>
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
-Credo:<br>
 Creio em Deus Pai todo-poderoso,<br>
 Criador do céu e da terra.<br>
 E em Jesus Cristo, Seu único Filho, nosso Senhor,<br>

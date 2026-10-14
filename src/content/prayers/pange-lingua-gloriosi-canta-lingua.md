@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Hino eucarístico composto por São Tomás de Aquino (c. 1264) para a festa de Corpus Christi. É entoado na procissão do Santíssimo Sacramento e na trasladação do Santíssimo na Quinta-feira Santa. As duas últimas estrofes formam o célebre *Tantum Ergo*, cantado na adoração e bênção do Santíssimo Sacramento.
+_Hino eucarístico composto por São Tomás de Aquino (c. 1264) para a festa de Corpus Christi. É entoado na procissão do Santíssimo Sacramento e na trasladação do Santíssimo na Quinta-feira Santa. As duas últimas estrofes formam o célebre *Tantum Ergo*, cantado na adoração e bênção do Santíssimo Sacramento._
 
 Canta, ó língua, o mistério<br>
 do glorioso Corpo Seu,<br>

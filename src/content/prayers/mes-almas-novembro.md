@@ -12,7 +12,7 @@ liturgicalFeast: "11-01"
 liturgicalColor: "festa"
 ---
 
-O mês de novembro é, desde tempos antigos, dedicado à memória e ao sufrágio das almas do Purgatório. A tradição de orar pelos fiéis defuntos remonta à Igreja primitiva, mas foi a partir do mosteiro de Cluny, no século XI, que se firmou a comemoração de Todos os Fiéis Defuntos em 2 de novembro. Ao longo deste mês, a Igreja convida-nos a oferecer orações, esmolas e indulgências em favor dos que se purificam antes de contemplar a face de Deus. Que estas preces sejam alívio para as almas e lembrança da nossa própria peregrinação rumo ao Céu.
+*O mês de novembro é, desde tempos antigos, dedicado à memória e ao sufrágio das almas do Purgatório. A tradição de orar pelos fiéis defuntos remonta à Igreja primitiva, mas foi a partir do mosteiro de Cluny, no século XI, que se firmou a comemoração de Todos os Fiéis Defuntos em 2 de novembro. Ao longo deste mês, a Igreja convida-nos a oferecer orações, esmolas e indulgências em favor dos que se purificam antes de contemplar a face de Deus. Que estas preces sejam alívio para as almas e lembrança da nossa própria peregrinação rumo ao Céu.*
 
 ## Oração inicial de cada dia
 
@@ -85,9 +85,31 @@ o lugar do alívio, da luz e da paz.
 > e brilhe para elas a luz perpétua.<br>
 > Descansem em paz. Amém.
 
-## Orações de cada dia
+## 3x Orações de cada dia
 
-3x Pai-Nosso, Ave-Maria e Glória ao Pai, pelas intenções da Igreja e pelas almas do Purgatório.
+*Três vezes, pelas intenções da Igreja e pelas almas do Purgatório:*
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Oferecimento das indulgências
 

@@ -14,9 +14,9 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-Santo Antônio Abade (251–356 d.C.), nascido no Egito, é venerado como o pai do monaquismo cristão. Tendo ouvido na igreja as palavras do Evangelho — "Se queres ser perfeito, vai, vende tudo o que tens e dá aos pobres" — distribuiu seus bens e retirou-se para o deserto, onde travou famosos combates contra as tentações e venceu pela oração e pela penitência. Esta novena, fundada na tradição antonina do Oriente Cristão (séc. IV–V), nos convida a buscar a paz interior, a confiança em Deus e a vitória sobre as tentações.
+*Santo Antônio Abade (251–356 d.C.), nascido no Egito, é venerado como o pai do monaquismo cristão. Tendo ouvido na igreja as palavras do Evangelho — "Se queres ser perfeito, vai, vende tudo o que tens e dá aos pobres" — distribuiu seus bens e retirou-se para o deserto, onde travou famosos combates contra as tentações e venceu pela oração e pela penitência. Esta novena, fundada na tradição antonina do Oriente Cristão (séc. IV–V), nos convida a buscar a paz interior, a confiança em Deus e a vitória sobre as tentações.*
 
-Em cada dia, reze com fé e recolhimento, unindo o seu coração ao desse grande mestre do deserto.
+*Em cada dia, reze com fé e recolhimento, unindo o seu coração ao desse grande mestre do deserto.*
 
 ## Dia 1 — O chamado ao despojamento
 

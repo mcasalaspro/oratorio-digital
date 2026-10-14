@@ -14,11 +14,11 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-São Jorge nasceu na Capadócia, por volta do século III, e tombou mártir em 303, durante as perseguições de Diocleciano.<br>
+*São Jorge nasceu na Capadócia, por volta do século III, e tombou mártir em 303, durante as perseguições de Diocleciano.<br>
 Soldado romano de grande coragem, recusou-se a negar a fé em Cristo e selou com o próprio sangue o testemunho do Evangelho.<br>
-Venerado desde a Antiguidade pela tradição oriental, foi canonizado por aclamação e é hoje padroeiro da Inglaterra, de Portugal e do Rio de Janeiro.
+Venerado desde a Antiguidade pela tradição oriental, foi canonizado por aclamação e é hoje padroeiro da Inglaterra, de Portugal e do Rio de Janeiro.*
 
-A todos os dias rezamos esta invocação inicial:
+*A todos os dias rezamos esta invocação inicial:*
 
 > São Jorge guerreiro, soldado de Cristo, cobri-me com o Vosso Senhor e protegei-me com Vossa fé.
 

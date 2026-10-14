@@ -10,7 +10,7 @@ description: "Ladainha da Humildade do Cardeal Merry del Val: 'Do desejo de ser 
 featured: false
 liturgicalColor: "ordinario"
 ---
-Composta pelo Cardeal Rafael Merry del Val (início do século XX), Secretário de Estado do Papa São Pio X, esta ladainha era rezada por ele todos os dias após a Santa Missa. É um pedido humilde para que Jesus arranque do coração o desejo de glória própria e o plante na verdadeira humildade, raiz de todas as virtudes.
+*Composta pelo Cardeal Rafael Merry del Val (início do século XX), Secretário de Estado do Papa São Pio X, esta ladainha era rezada por ele todos os dias após a Santa Missa. É um pedido humilde para que Jesus arranque do coração o desejo de glória própria e o plante na verdadeira humildade, raiz de todas as virtudes.*
 
 Ó Jesus manso e humilde de Coração, ouvi-me.<br>
 Do desejo de ser estimado,<br>

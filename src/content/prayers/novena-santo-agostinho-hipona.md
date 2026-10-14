@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santo Agostinho de Hipona (354–430) foi Bispo e Doutor da Igreja, chamado o Doutor da Graça. Inquieto e buscador, percorreu longos caminhos até render-se ao amor de Deus, como narrou em suas *Confissões*. Deixou também a *Cidade de Deus* e o *De Trinitate*, tesouros da tradição cristã guardados pela Ordem dos Eremitas de Santo Agostinho (OESA). Façamos esta novena com confiança, pedindo Sua intercessão.
+_Santo Agostinho de Hipona (354–430) foi Bispo e Doutor da Igreja, chamado o Doutor da Graça. Inquieto e buscador, percorreu longos caminhos até render-se ao amor de Deus, como narrou em suas *Confissões*. Deixou também a *Cidade de Deus* e o *De Trinitate*, tesouros da tradição cristã guardados pela Ordem dos Eremitas de Santo Agostinho (OESA). Façamos esta novena com confiança, pedindo sua intercessão._
 
 ## Dia 1 — A inquietação do coração
 

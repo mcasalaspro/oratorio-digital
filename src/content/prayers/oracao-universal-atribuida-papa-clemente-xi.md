@@ -10,8 +10,8 @@ description: "Oração que enumera as virtudes e disposições da alma cristã: 
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional atribuída ao Papa Clemente XI (séc. XVIII, c. 1700–1721),
-que enumera as virtudes e as disposições da alma cristã diante de Deus.
+*Oração tradicional atribuída ao Papa Clemente XI (séc. XVIII, c. 1700–1721),
+que enumera as virtudes e as disposições da alma cristã diante de Deus.*
 
 Senhor, eu creio em Vós: aumentai a minha fé.<br>
 Espero em Vós: firmai a minha esperança.<br>

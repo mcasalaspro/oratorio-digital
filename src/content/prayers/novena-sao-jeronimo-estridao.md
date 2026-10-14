@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Jerônimo de Estridão (séc. IV–V, †420 d.C.), monge, sacerdote e Doutor da Igreja, foi o grande tradutor das Sagradas Escrituras para o latim, a célebre Vulgata. Homem de fé ardente e penitência rigorosa, viveu longos anos em Belém, junto à gruta da Natividade, dedicado ao estudo e à oração. Dele nos vem a sentença imortal: "Ignorar as Escrituras é ignorar Cristo." Nesta novena, peçamos sua intercessão para amar a Palavra de Deus, perseverar no estudo da verdade e fazer penitência sincera dos nossos pecados.
+*São Jerônimo de Estridão (séc. IV–V, †420 d.C.), monge, sacerdote e Doutor da Igreja, foi o grande tradutor das Sagradas Escrituras para o latim, a célebre Vulgata. Homem de fé ardente e penitência rigorosa, viveu longos anos em Belém, junto à gruta da Natividade, dedicado ao estudo e à oração. Dele nos vem a sentença imortal: "Ignorar as Escrituras é ignorar Cristo." Nesta novena, peçamos sua intercessão para amar a Palavra de Deus, perseverar no estudo da verdade e fazer penitência sincera dos nossos pecados.*
 
-Em cada dia, comece com esta oração inicial:
+*Em cada dia, comece com esta oração inicial:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo.<br>
 Amém.

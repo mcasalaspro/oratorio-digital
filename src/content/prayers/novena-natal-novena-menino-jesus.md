@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A Novena de Natal nasce das antigas *Posadas* mexicanas (séc. XVI), inspiradas na espiritualidade de São João da Cruz e dos Carmelitas Descalços, e chegou ao Brasil como tradição popular nos séculos XVIII e XIX. Reza-se durante nove noites, de 16 a 24 de dezembro, reunindo a família ao pé do Presépio para preparar o coração ao nascimento do Salvador.
+_A Novena de Natal nasce das antigas *Posadas* mexicanas (séc. XVI), inspiradas na espiritualidade de São João da Cruz e dos Carmelitas Descalços, e chegou ao Brasil como tradição popular nos séculos XVIII e XIX. Reza-se durante nove noites, de 16 a 24 de dezembro, reunindo a família ao pé do Presépio para preparar o coração ao nascimento do Salvador._
 
-Cada dia inicia-se com esta oração comum:
+*Cada dia inicia-se com esta oração comum:*
 
 > Vinde, ó Senhor Jesus, não tardeis mais!<br>
 > Vinde nascer em nosso coração.<br>

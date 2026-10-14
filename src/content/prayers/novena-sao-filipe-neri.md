@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Filipe Néri (1515–1595), fundador da Congregação do Oratório de Roma e conhecido como o "Apóstolo de Roma", foi canonizado em 1622. Mestre da alegria espiritual, ensinava que servir a Deus deve ser feito com o coração leve e festivo. Que esta novena nos ajude a buscar a santidade com alegria, simplicidade e amor.
+*São Filipe Néri (1515–1595), fundador da Congregação do Oratório de Roma e conhecido como o "Apóstolo de Roma", foi canonizado em 1622. Mestre da alegria espiritual, ensinava que servir a Deus deve ser feito com o coração leve e festivo. Que esta novena nos ajude a buscar a santidade com alegria, simplicidade e amor.*
 
 ## Dia 1 — A alegria de servir a Deus
 

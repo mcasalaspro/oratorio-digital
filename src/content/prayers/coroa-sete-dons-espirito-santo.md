@@ -10,9 +10,9 @@ description: "Coroa de sete dezenas que invoca os Sete Dons do Espírito Santo, 
 featured: false
 liturgicalColor: "festa"
 ---
-Esta devoção, de raiz tradicional, fundamenta-se em Isaías 11,2, onde o profeta anuncia o Espírito que repousa sobre o Messias com os sete dons. Cada dezena pede um desses dons — Sabedoria, Entendimento, Conselho, Fortaleza, Ciência, Piedade e Temor de Deus — para que o coração se deixe conduzir por Deus.
+*Esta devoção, de raiz tradicional, fundamenta-se em Isaías 11,2, onde o profeta anuncia o Espírito que repousa sobre o Messias com os sete dons. Cada dezena pede um desses dons — Sabedoria, Entendimento, Conselho, Fortaleza, Ciência, Piedade e Temor de Deus — para que o coração se deixe conduzir por Deus.*
 
-Começa-se com o Sinal da Cruz e a invocação inicial.
+*Começa-se com o Sinal da Cruz e a invocação inicial.*
 
 Em Nome do Pai, e do Filho, e do Espírito Santo. Amém.<br>
 Vinde, Espírito Santo, enchei os corações dos Vossos fiéis,<br>
@@ -20,7 +20,27 @@ e acendei neles o fogo do Vosso amor.<br>
 Enviai o Vosso Espírito, e tudo será criado,<br>
 e renovareis a face da terra.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dezena 1 — O Dom da Sabedoria
 

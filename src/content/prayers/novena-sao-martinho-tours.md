@@ -14,11 +14,11 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Martinho de Tours nasceu por volta de 316 na Panônia e foi soldado do exército romano antes de se converter plenamente a Cristo.
+*São Martinho de Tours nasceu por volta de 316 na Panônia e foi soldado do exército romano antes de se converter plenamente a Cristo.
 Tornou-se bispo de Tours, na Gália, e ficou célebre pelo gesto de dividir sua capa com um mendigo nu, no qual reconheceu o próprio Senhor.
-Modelo de caridade, humildade e zelo pastoral, faleceu em 397 e é venerado como padroeiro da França.
+Modelo de caridade, humildade e zelo pastoral, faleceu em 397 e é venerado como padroeiro da França.*
 
-Esta novena, fruto da tradição gaulesa e francesa, prepara o coração para sua festa, celebrada em 11 de novembro.
+*Esta novena, fruto da tradição gaulesa e francesa, prepara o coração para sua festa, celebrada em 11 de novembro.*
 
 ## Dia 1 — A capa partilhada
 

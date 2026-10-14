@@ -10,7 +10,7 @@ description: "Oração tradicional do catecismo que professa a virtude teologal 
 featured: false
 liturgicalColor: "festa"
 ---
-Ato de fé tradicional do catecismo, enriquecido com indulgências pelo Papa Bento XIV (1747). É a profissão da virtude teologal da fé, pela qual cremos firmemente em tudo o que Deus revelou e a Santa Igreja nos propõe a crer.
+*Ato de fé tradicional do catecismo, enriquecido com indulgências pelo Papa Bento XIV (1747). É a profissão da virtude teologal da fé, pela qual cremos firmemente em tudo o que Deus revelou e a Santa Igreja nos propõe a crer.*
 
 Meu Deus, porque sois infinitamente verdadeiro<br>
 e não podeis enganar-Vos nem enganar-nos,<br>

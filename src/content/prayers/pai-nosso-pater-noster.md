@@ -11,9 +11,9 @@ featured: true
 liturgicalColor: "ordinario"
 ---
 
-O Pai Nosso é a oração que o próprio Senhor Jesus Cristo ensinou aos Seus discípulos,
+*O Pai Nosso é a oração que o próprio Senhor Jesus Cristo ensinou aos Seus discípulos,
 conservada nos Evangelhos de São Mateus (6,9-13) e São Lucas (11,2-4).
-É chamada "Oração do Senhor" e resume todo o Evangelho.
+É chamada "Oração do Senhor" e resume todo o Evangelho.*
 
 ## Oração
 

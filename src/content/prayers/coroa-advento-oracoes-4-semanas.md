@@ -11,15 +11,15 @@ featured: false
 liturgicalColor: "advento"
 ---
 
-A Coroa do Advento tem origem na tradição luterana alemã do século XIX e foi gradualmente adotada pelo catolicismo ao longo dos séculos XIX e XX.<br>
+*A Coroa do Advento tem origem na tradição luterana alemã do século XIX e foi gradualmente adotada pelo catolicismo ao longo dos séculos XIX e XX.<br>
 Suas quatro velas marcam as quatro semanas de preparação para o Natal, começando no domingo mais próximo a 30 de novembro.<br>
-Cada vela acesa é um sinal de esperança e de conversão, anunciando a luz de Cristo que vem ao mundo.
+Cada vela acesa é um sinal de esperança e de conversão, anunciando a luz de Cristo que vem ao mundo.*
 
-A cada semana, acende-se uma vela a mais, junto às que já foram acesas nas semanas anteriores.
+*A cada semana, acende-se uma vela a mais, junto às que já foram acesas nas semanas anteriores.*
 
 ## Primeira Semana — A vela da Esperança
 
-Acende-se a primeira vela.
+*Acende-se a primeira vela.*
 
 Senhor nosso Deus,<br>
 nós Vos louvamos e Vos bendizemos.<br>
@@ -40,7 +40,7 @@ e nos ensinaram a esperar com fé.
 
 ## Segunda Semana — A vela da Paz
 
-Acendem-se a primeira e a segunda velas.
+*Acendem-se a primeira e a segunda velas.*
 
 Senhor nosso Deus,<br>
 fonte de toda a paz,<br>
@@ -61,7 +61,7 @@ da Vossa paz no mundo.
 
 ## Terceira Semana — A vela da Alegria
 
-Acendem-se a primeira, a segunda e a terceira velas.
+*Acendem-se a primeira, a segunda e a terceira velas.*
 
 Senhor nosso Deus,<br>
 alegria dos que esperam em Vós,<br>
@@ -82,7 +82,7 @@ e mensageiros da Vossa alegria.
 
 ## Quarta Semana — A vela do Amor
 
-Acendem-se as quatro velas.
+*Acendem-se as quatro velas.*
 
 Senhor nosso Deus,<br>
 que sois o próprio Amor,<br>

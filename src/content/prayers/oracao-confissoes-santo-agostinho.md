@@ -12,7 +12,7 @@ liturgicalFeast: "08-28"
 liturgicalColor: "festa"
 ---
 
-Esta oração foi extraída das *Confissões* de Santo Agostinho de Hipona (c. 397–401 d.C.), uma das obras mais célebres da espiritualidade cristã. Nela, o santo recorda sua longa busca e o repouso encontrado em Deus.
+_Esta oração foi extraída das *Confissões* de Santo Agostinho de Hipona (c. 397–401 d.C.), uma das obras mais célebres da espiritualidade cristã. Nela, o santo recorda sua longa busca e o repouso encontrado em Deus._
 
 Grande sois Vós, Senhor, e infinitamente digno de louvor.<br>
 Grande é o Vosso poder e incomensurável a Vossa sabedoria.<br>

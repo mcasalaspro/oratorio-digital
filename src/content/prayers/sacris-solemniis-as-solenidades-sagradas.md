@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Hino composto por São Tomás de Aquino por volta de 1264, a pedido do Papa Urbano IV, para a festa de Corpus Christi. Cantado nas Matinas, celebra a instituição da Eucaristia na Última Ceia. Sua penúltima estrofe — *Panis Angelicus* — tornou-se uma das peças mais célebres da música sacra.
+_Hino composto por São Tomás de Aquino por volta de 1264, a pedido do Papa Urbano IV, para a festa de Corpus Christi. Cantado nas Matinas, celebra a instituição da Eucaristia na Última Ceia. Sua penúltima estrofe — *Panis Angelicus* — tornou-se uma das peças mais célebres da música sacra._
 
 Às solenidades sagradas unam-se nossos louvores,<br>
 e do íntimo do coração ressoem as vozes;<br>

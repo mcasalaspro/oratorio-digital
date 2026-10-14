@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena é inspirada nas aparições de Nossa Senhora aos pastorinhos Lúcia, Francisco e Jacinta, ocorridas na Cova da Iria, em Fátima (Portugal), entre 13 de maio e 13 de outubro de 1917. O espírito desta oração recolhe as mensagens transmitidas pela Irmã Lúcia de Jesus em seus escritos (c. 1946–1952): o apelo à conversão, à penitência e à reza diária do terço pela paz do mundo.
+*Esta novena é inspirada nas aparições de Nossa Senhora aos pastorinhos Lúcia, Francisco e Jacinta, ocorridas na Cova da Iria, em Fátima (Portugal), entre 13 de maio e 13 de outubro de 1917. O espírito desta oração recolhe as mensagens transmitidas pela Irmã Lúcia de Jesus em seus escritos (c. 1946–1952): o apelo à conversão, à penitência e à reza diária do terço pela paz do mundo.*
 
-Iniciemos cada dia com o sinal da cruz e a invocação:
+*Iniciemos cada dia com o sinal da cruz e a invocação:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.<br>
 Senhora do Rosário de Fátima, vinde em nosso auxílio.

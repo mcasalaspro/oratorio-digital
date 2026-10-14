@@ -10,7 +10,7 @@ description: "Oração tradicional da virtude teologal da esperança: confiar na
 featured: false
 liturgicalColor: "festa"
 ---
-O Ato de Esperança é uma das orações que exprimem as três virtudes teologais — fé, esperança e caridade. Sua fórmula tradicional difundiu-se no catecismo, e o Papa Bento XIV concedeu-lhe indulgências em 1747. Por ela, o cristão renova a confiança de alcançar, pela bondade de Deus e pelos méritos de Cristo, o perdão dos pecados e a vida eterna.
+*O Ato de Esperança é uma das orações que exprimem as três virtudes teologais — fé, esperança e caridade. Sua fórmula tradicional difundiu-se no catecismo, e o Papa Bento XIV concedeu-lhe indulgências em 1747. Por ela, o cristão renova a confiança de alcançar, pela bondade de Deus e pelos méritos de Cristo, o perdão dos pecados e a vida eterna.*
 
 Meu Deus, espero da Vossa infinita bondade,<br>
 pelos méritos de Jesus Cristo, vosso Filho, e nosso Salvador,<br>

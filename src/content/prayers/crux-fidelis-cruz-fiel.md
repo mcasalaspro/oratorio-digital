@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Hino à Santa Cruz, atribuído a São Venâncio Fortunato (séc. VI), entoado tradicionalmente na adoração da Cruz, na liturgia da Sexta-feira Santa. O refrão *Crux fidelis* alterna-se com as estrofes do *Pange lingua gloriosi*.
+_Hino à Santa Cruz, atribuído a São Venâncio Fortunato (séc. VI), entoado tradicionalmente na adoração da Cruz, na liturgia da Sexta-feira Santa. O refrão *Crux fidelis* alterna-se com as estrofes do *Pange lingua gloriosi*._
 
 **Refrão:**
 

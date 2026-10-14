@@ -10,7 +10,7 @@ description: "Antífona mariana do séc. XII, saudação à Rainha dos anjos, re
 featured: false
 liturgicalColor: "festa"
 ---
-Antífona mariana atribuída a autor anônimo do século XII, tradicionalmente rezada ao final das Completas, no tempo que vai da Festa da Apresentação do Senhor (2 de fevereiro) até a Quinta-feira Santa. É uma das quatro grandes antífonas finais a Nossa Senhora, saudando-a como Rainha dos anjos e raiz da nossa salvação.
+*Antífona mariana atribuída a autor anônimo do século XII, tradicionalmente rezada ao final das Completas, no tempo que vai da Festa da Apresentação do Senhor (2 de fevereiro) até a Quinta-feira Santa. É uma das quatro grandes antífonas finais a Nossa Senhora, saudando-a como Rainha dos anjos e raiz da nossa salvação.*
 
 ## Em português
 

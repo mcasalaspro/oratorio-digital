@@ -12,9 +12,9 @@ liturgicalFeast: "01-01"
 liturgicalColor: "festa"
 ---
 
-Esta é a mais antiga oração mariana conhecida.
+*Esta é a mais antiga oração mariana conhecida.
 Foi preservada num papiro egípcio (Rylands Greek Papyrus 470), datado por volta de 250 d.C.,
-e testemunha a confiança dos primeiros cristãos no amparo maternal de Maria.
+e testemunha a confiança dos primeiros cristãos no amparo maternal de Maria.*
 
 ## Versão tradicional
 

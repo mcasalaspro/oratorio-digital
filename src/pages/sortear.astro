@@ -1,0 +1,65 @@
+---
+// /sortear/ — abre uma oração ao acaso (o mesmo sorteio do public/js/sortear.js).
+// Os botões "Sortear uma oração" já sorteiam sem passar por aqui; esta página é a
+// reserva (script do sorteio que não carregou) e um endereço que dá para compartilhar.
+// ?tipo=novena (ou terco,rosario…) sorteia só daquele tipo. Fora do Google (noindex).
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../config/site';
+
+// sugestões para quem está sem JavaScript (mudam a cada publicação)
+const todas = (await getCollection('prayers')).filter((p) => (p.data.language ?? 'pt-BR') === 'pt-BR');
+const sugestoes = [...todas].sort(() => Math.random() - 0.5).slice(0, 6)
+  .map((p) => ({ titulo: p.data.title, href: withBase(`/oracao/${p.id}`) }));
+---
+<Base title="Sortear uma oração" description="Uma oração ao acaso, para conhecer algo novo." noindex>
+  <Fragment slot="head">
+    <!-- com JavaScript, as sugestões só aparecem se o sorteio falhar -->
+    <script is:inline>document.documentElement.classList.add('od-sorteio-js');</script>
+  </Fragment>
+  <section class="section sorteio">
+    <div class="wrap sorteio-wrap">
+      <p class="eyebrow" data-i18n="random_prayer">Sortear uma oração</p>
+      <h1 class="section-title" id="sorteioTitulo" data-i18n="random_drawing">Sorteando uma oração…</h1>
+      <p class="sorteio-falha" id="sorteioFalha" hidden data-i18n="random_failed">Não foi possível sortear agora. Que tal uma destas?</p>
+      <noscript><p class="sorteio-falha">Para sortear, o navegador precisa do JavaScript ligado. Que tal uma destas?</p></noscript>
+      <ul class="sorteio-lista" id="sorteioLista">
+        {sugestoes.map((s) => <li><a href={s.href}>{s.titulo}</a></li>)}
+      </ul>
+      <p><a class="btn" href={withBase('/#catalogo')} data-i18n="back_catalog">Voltar ao catálogo</a></p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const W = window as any;
+      const tipo = new URLSearchParams(location.search).get('tipo') || '';
+      const falhou = () => {
+        const f = document.getElementById('sorteioFalha');
+        if (f) f.hidden = false;
+        const t = document.getElementById('sorteioTitulo');
+        if (t) { t.setAttribute('data-i18n', 'random_prayer'); t.textContent = W.odt ? W.odt('random_prayer') : 'Sortear uma oração'; }
+        document.getElementById('sorteioLista')?.classList.add('sorteio-lista--ver');
+      };
+      let tentativas = 0;
+      (function tentar() {
+        if (typeof W.odSortear !== 'function') {
+          if (++tentativas > 40) { falhou(); return; } // o script do sorteio não carregou em 2 s
+          setTimeout(tentar, 50);
+          return;
+        }
+        W.odSortear(tipo).then((o: { u: string } | null) => { if (o) location.replace(o.u); else falhou(); }, falhou);
+      })();
+    })();
+  </script>
+  <style>
+    .sorteio-wrap { max-width: calc(var(--read) + 4.4rem); text-align: center; min-height: 50vh; }
+    .sorteio-falha { color: var(--ink-soft); font-style: italic; }
+    /* com JavaScript, a lista só aparece se o sorteio falhar (sem JS ela fica à vista) */
+    :global(html.od-sorteio-js) .sorteio-lista:not(.sorteio-lista--ver) { display: none; }
+    .sorteio-lista { list-style: none; padding: 0; margin: 1.2rem auto 1.6rem; max-width: 30rem; text-align: left; }
+    .sorteio-lista li { border-bottom: 1px solid var(--hair); }
+    .sorteio-lista a { display: flex; align-items: center; min-height: 48px; color: var(--ink); text-decoration: none; }
+    .sorteio-lista a:hover { color: var(--gold); }
+  </style>
+</Base>

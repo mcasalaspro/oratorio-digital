@@ -10,32 +10,44 @@ description: "Três Ave-Marias rezadas de manhã e à noite para obter a graça 
 featured: false
 liturgicalColor: "ordinario"
 ---
-Esta antiga e simples devoção consiste em rezar três Ave-Marias ao acordar e ao deitar, pedindo a Maria Santíssima a graça da pureza e a perseverança final. Foi revelada a Santa Mectildes, a quem Nossa Senhora prometeu assistência especial, e amplamente difundida por Santo Afonso Maria de Ligório, que a recomendava encarecidamente como meio seguro de conservar a virtude e alcançar a salvação. A tradição remonta aos séculos XIII a XVIII.
+*Esta antiga e simples devoção consiste em rezar três Ave-Marias ao acordar e ao deitar, pedindo a Maria Santíssima a graça da pureza e a perseverança final. Foi revelada a Santa Mectildes, a quem Nossa Senhora prometeu assistência especial, e amplamente difundida por Santo Afonso Maria de Ligório, que a recomendava encarecidamente como meio seguro de conservar a virtude e alcançar a salvação. A tradição remonta aos séculos XIII a XVIII.*
 
 ## De manhã
 
-Ao despertar, dirigi o coração à Virgem Imaculada,<br>
-pedindo que Ela vos guarde puros durante o dia.
+*Ao despertar, dirigi o coração à Virgem Imaculada,<br>
+pedindo que Ela vos guarde puros durante o dia.*
 
 Recordai-vos, ó puríssima Virgem Maria,<br>
 que jamais se ouviu dizer<br>
 que algum daqueles que recorreram à Vossa proteção<br>
 fosse por Vós desamparado.
 
-3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Ó Maria, concebida sem pecado, guardai-me puro nesta manhã e durante todo este dia.
 
 ## À noite
 
-Antes de dormir, voltai-vos novamente à vossa Mãe celeste,<br>
-confiando-Lhe o repouso e a perseverança até o fim.
+*Antes de dormir, voltai-vos novamente à vossa Mãe celeste,<br>
+confiando-Lhe o repouso e a perseverança até o fim.*
 
 Por Vossa Imaculada Conceição,<br>
 ó Maria, purificai o meu corpo<br>
 e santificai a minha alma.
 
-3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Ó Maria, concebida sem pecado, guardai-me puro nesta noite e alcançai-me a graça da perseverança final.
 

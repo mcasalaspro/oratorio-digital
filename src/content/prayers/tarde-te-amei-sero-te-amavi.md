@@ -12,7 +12,7 @@ liturgicalFeast: "08-28"
 liturgicalColor: "festa"
 ---
 
-Súplica imortal de Santo Agostinho de Hipona, extraída das *Confissões* (Livro X, 27), escrita por volta dos anos 397–401. É o lamento e a alegria de quem buscou a felicidade nas coisas criadas e só tarde descobriu que toda beleza vinha do próprio Deus.
+_Súplica imortal de Santo Agostinho de Hipona, extraída das *Confissões* (Livro X, 27), escrita por volta dos anos 397–401. É o lamento e a alegria de quem buscou a felicidade nas coisas criadas e só tarde descobriu que toda beleza vinha do próprio Deus._
 
 Tarde Te amei, ó Beleza tão antiga e tão nova,<br>
 tarde Te amei!<br>

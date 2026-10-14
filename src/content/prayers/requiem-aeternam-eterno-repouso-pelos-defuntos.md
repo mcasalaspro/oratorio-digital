@@ -10,9 +10,9 @@ description: "Antífona litúrgica latina de sufrágio pelos falecidos: dai-lhes
 featured: false
 liturgicalColor: "festa"
 ---
-Antífona tradicional da liturgia latina, rezada em sufrágio pelos fiéis defuntos. Brota das Sagradas Escrituras e atravessa os séculos como prece confiante pelo descanso eterno das almas. É costume rezá-la pelos falecidos, especialmente no Dia de Finados e nas Missas de Réquiem.
+*Antífona tradicional da liturgia latina, rezada em sufrágio pelos fiéis defuntos. Brota das Sagradas Escrituras e atravessa os séculos como prece confiante pelo descanso eterno das almas. É costume rezá-la pelos falecidos, especialmente no Dia de Finados e nas Missas de Réquiem.*
 
-Em latim:
+*Em latim:*
 
 Réquiem aetérnam dona eis, Dómine,<br>
 et lux perpétua lúceat eis.<br>

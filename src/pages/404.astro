@@ -25,6 +25,10 @@ import { withBase } from '../config/site';
         <a class="btn" href={withBase('/#catalogo')} data-i18n="nav_catalog">Catálogo</a>
         <a class="btn" href={withBase('/proximas-festas')} data-i18n="nav_feasts">Próximas festas</a>
         <a class="btn" href={withBase('/biografias')} data-i18n="nav_bio">Biografias</a>
+        <a class="btn btn-sortear" href={withBase('/sortear')} data-od-sortear>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="random_prayer">Sortear uma oração</span>
+        </a>
       </nav>
     </div>
   </section>

@@ -14,9 +14,9 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-Santa Inês de Roma foi uma jovem mártir cristã que, segundo a tradição romana primitiva (Séc. IV), entregou sua vida por amor a Cristo com apenas cerca de doze anos. Tendo consagrado sua virgindade ao Senhor, recusou ofertas de casamento e preferiu o martírio à infidelidade à sua fé. É venerada como padroeira das jovens e da castidade. Seu nome, associado ao latim *agnus* (cordeiro), tornou-a símbolo de inocência e pureza.
+_Santa Inês de Roma foi uma jovem mártir cristã que, segundo a tradição romana primitiva (Séc. IV), entregou sua vida por amor a Cristo com apenas cerca de doze anos. Tendo consagrado sua virgindade ao Senhor, recusou ofertas de casamento e preferiu o martírio à infidelidade à sua fé. É venerada como padroeira das jovens e da castidade. Seu nome, associado ao latim *agnus* (cordeiro), tornou-a símbolo de inocência e pureza._
 
-Iniciemos cada dia desta novena com o sinal da Cross e com o coração disposto a imitar a coragem desta pequena mártir.
+*Iniciemos cada dia desta novena com o sinal da Cruz e com o coração disposto a imitar a coragem desta pequena mártir.*
 
 > Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
@@ -173,10 +173,26 @@ louvar eternamente o Senhor no céu.
 
 > Santa Inês, virgem e mártir, rogai por nós.
 
-Concluamos a novena rezando:
+*Concluamos a novena rezando:*
 
-> Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-> Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-> Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

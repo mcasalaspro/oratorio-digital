@@ -10,7 +10,7 @@ description: "Oração tradicional para rezar ajoelhado diante do Crucifixo, con
 featured: false
 liturgicalColor: "festa"
 ---
-Esta antiga oração — conhecida pelas suas primeiras palavras em latim, *En ego, o bone et dulcissime Iesu* — remonta aos séculos XV–XVI e é de autor anônimo. Indulgenciada pelo Papa Pio IX, costuma ser rezada ajoelhado diante de uma imagem do Crucifixo, sobretudo nas sextas-feiras e durante a Quaresma, enquanto se contemplam as cinco chagas do Senhor.
+_Esta antiga oração — conhecida pelas suas primeiras palavras em latim, *En ego, o bone et dulcissime Iesu* — remonta aos séculos XV–XVI e é de autor anônimo. Indulgenciada pelo Papa Pio IX, costuma ser rezada ajoelhado diante de uma imagem do Crucifixo, sobretudo nas sextas-feiras e durante a Quaresma, enquanto se contemplam as cinco chagas do Senhor._
 
 Eis-me aqui, ó bom e dulcíssimo Jesus,<br>
 prostrado em Vossa santíssima presença.<br>

@@ -12,7 +12,7 @@ liturgicalFeast: "12-08"
 liturgicalColor: "festa"
 ---
 
-A *Tota Pulchra Es Maria* é uma das mais antigas antífonas marianas, cujo texto remonta ao século IV e que se difundiu amplamente na Idade Média. Inspirada nas palavras do Cântico dos Cânticos, ela exalta a beleza imaculada de Maria, preservada de toda mácula desde a sua Conceição. É cantada de modo especial na Solenidade da Imaculada Conceição, celebrada em 8 de dezembro.
+_A *Tota Pulchra Es Maria* é uma das mais antigas antífonas marianas, cujo texto remonta ao século IV e que se difundiu amplamente na Idade Média. Inspirada nas palavras do Cântico dos Cânticos, ela exalta a beleza imaculada de Maria, preservada de toda mácula desde a sua Conceição. É cantada de modo especial na Solenidade da Imaculada Conceição, celebrada em 8 de dezembro._
 
 Toda formosa és, ó Maria,<br>
 e a mácula original não está em ti.<br>

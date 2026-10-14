@@ -12,7 +12,7 @@ liturgicalFeast: "01-28"
 liturgicalColor: "festa"
 ---
 
-Oração tradicional composta por São Tomás de Aquino (c. 1264–1273), conhecida pelas suas primeiras palavras em latim *Omnipotens sempiterne Deus, ecce accedo*. Nela, o fiel se aproxima do altar pedindo fé, esperança e caridade para receber dignamente o Corpo e o Sangue de Cristo.
+_Oração tradicional composta por São Tomás de Aquino (c. 1264–1273), conhecida pelas suas primeiras palavras em latim *Omnipotens sempiterne Deus, ecce accedo*. Nela, o fiel se aproxima do altar pedindo fé, esperança e caridade para receber dignamente o Corpo e o Sangue de Cristo._
 
 Onipotente e eterno Deus,<br>
 eis que me aproximo do sacramento do Vosso Filho unigênito,<br>

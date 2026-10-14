@@ -12,7 +12,7 @@ liturgicalFeast: "07-31"
 liturgicalColor: "festa"
 ---
 
-A oração *Suscipe* (do latim, "Recebei") foi composta por Santo Inácio de Loyola por volta de 1540–1548 e encontra-se na "Contemplação para Alcançar Amor", ao final dos Exercícios Espirituais (n. 234). É um ato de total e confiante entrega de si mesmo a Deus.
+_A oração *Suscipe* (do latim, "Recebei") foi composta por Santo Inácio de Loyola por volta de 1540–1548 e encontra-se na "Contemplação para Alcançar Amor", ao final dos Exercícios Espirituais (n. 234). É um ato de total e confiante entrega de si mesmo a Deus._
 
 Tomai, Senhor, e recebei toda a minha liberdade,<br>
 a minha memória, o meu entendimento e toda a minha vontade,<br>

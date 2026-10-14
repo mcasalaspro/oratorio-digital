@@ -10,7 +10,7 @@ description: "Oração tradicional de dor dos pecados e firme propósito de emen
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional do catecismo e do Ritual Romano (séc. XVI–XVIII), rezada como expressão de arrependimento dos pecados, sobretudo no sacramento da Penitência. Nela o fiel reconhece suas faltas e promete, com a graça de Deus, emendar a vida.
+*Oração tradicional do catecismo e do Ritual Romano (séc. XVI–XVIII), rezada como expressão de arrependimento dos pecados, sobretudo no sacramento da Penitência. Nela o fiel reconhece suas faltas e promete, com a graça de Deus, emendar a vida.*
 
 Meu Deus, eu me arrependo de todo o coração de Vos ter ofendido,<br>
 porque sois infinitamente bom e digno de ser amado,<br>

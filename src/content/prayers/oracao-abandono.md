@@ -12,7 +12,7 @@ liturgicalFeast: "12-01"
 liturgicalColor: "festa"
 ---
 
-Oração composta por São Carlos de Foucauld (c. 1896), inspirada nas últimas palavras de Jesus na cruz: *"Pai, em Vossas mãos entrego o Meu espírito"* (Lc 23,46). Canonizado em 2022, o "irmão universal" deixou nesta súplica o resumo de toda uma vida de abandono confiante à vontade do Pai.
+_Oração composta por São Carlos de Foucauld (c. 1896), inspirada nas últimas palavras de Jesus na cruz: *"Pai, em Vossas mãos entrego o Meu espírito"* (Lc 23,46). Canonizado em 2022, o "irmão universal" deixou nesta súplica o resumo de toda uma vida de abandono confiante à vontade do Pai._
 
 Pai,<br>
 eu Me abandono a Vós,<br>

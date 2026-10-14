@@ -14,11 +14,11 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São João Maria Vianney, o santo Cura d'Ars, foi um humilde sacerdote francês do século XIX, padroeiro de todos os párocos.
+*São João Maria Vianney, o santo Cura d'Ars, foi um humilde sacerdote francês do século XIX, padroeiro de todos os párocos.
 De saúde frágil e estudos difíceis, tornou-se um dos maiores confessores da história, passando até dezesseis horas por dia no confessionário, reconciliando almas com Deus.
-Esta novena segue a tradição paroquial francesa que floresceu em Ars, onde milhares de peregrinos buscavam a palavra e a oração deste homem de Deus, canonizado em 1925.
+Esta novena segue a tradição paroquial francesa que floresceu em Ars, onde milhares de peregrinos buscavam a palavra e a oração deste homem de Deus, canonizado em 1925.*
 
-Que cada dia desta novena nos aproxime do amor de Cristo presente na Eucaristia e na misericórdia da confissão.
+*Que cada dia desta novena nos aproxime do amor de Cristo presente na Eucaristia e na misericórdia da confissão.*
 
 ## Dia 1 — A humildade do servo
 

@@ -12,7 +12,7 @@ liturgicalFeast: "08-28"
 liturgicalColor: "festa"
 ---
 
-Esta breve e profunda súplica nasce dos *Solilóquios* (livro II) de Santo Agostinho de Hipona, escritos por volta de 386–387, pouco antes de seu batismo. No original latino — *Noverim me, noverim Te* — o santo pede ao mesmo tempo o conhecimento de si e o conhecimento de Deus, convencido de que só conhecendo a própria miséria e a grandeza divina a alma pode encontrar a verdade e o repouso.
+_Esta breve e profunda súplica nasce dos *Solilóquios* (livro II) de Santo Agostinho de Hipona, escritos por volta de 386–387, pouco antes de seu batismo. No original latino — *Noverim me, noverim Te* — o santo pede ao mesmo tempo o conhecimento de si e o conhecimento de Deus, convencido de que só conhecendo a própria miséria e a grandeza divina a alma pode encontrar a verdade e o repouso._
 
 Que eu Vos conheça, ó Deus que me conheceis,<br>
 que eu Vos conheça assim como sou conhecido por Vós.<br>
@@ -36,4 +36,4 @@ e conduzi-me, ó Luz verdadeira, ao conhecimento de Vossa face.
 
 > Que eu Vos conheça e a mim me conheça, Senhor. Amém.
 
-**Fonte:** Santo Agostinho de Hipona, *Solilóquios*, Livro II (c. 386–387). Texto tradicional de domínio público.
+_**Fonte:** Santo Agostinho de Hipona, *Solilóquios*, Livro II (c. 386–387). Texto tradicional de domínio público._

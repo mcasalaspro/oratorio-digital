@@ -10,12 +10,12 @@ description: "Oração de desagravo e louvor ao Santíssimo Nome de Deus, revela
 featured: false
 liturgicalColor: "festa"
 ---
-A Oração da Seta de Ouro foi revelada à Irmã Maria de São Pedro,
+*A Oração da Seta de Ouro foi revelada à Irmã Maria de São Pedro,
 carmelita de Tours (França), em meados do século XIX,
 e difundida pelo venerável Leão Dupont, o "Santo Homem de Tours".<br>
 Nosso Senhor a teria chamado de "seta de ouro" porque,
 ferindo amorosamente Seu Coração, reparava as feridas
-causadas pela blasfêmia e pela profanação do domingo.
+causadas pela blasfêmia e pela profanação do domingo.*
 
 Que o santíssimo Nome de Deus seja louvado, bendito,
 amado, adorado e glorificado em todo lugar e em todo tempo.

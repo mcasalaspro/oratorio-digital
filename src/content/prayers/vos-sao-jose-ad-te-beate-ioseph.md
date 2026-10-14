@@ -12,7 +12,7 @@ liturgicalFeast: "03-19"
 liturgicalColor: "festa"
 ---
 
-Esta oração foi composta pelo Papa Leão XIII e proposta a toda a Igreja na encíclica *Quamquam Pluries* (1889), que recomendava a recitação diária ao final do mês de outubro. Tradução do latim *Ad te, Beate Ioseph*. Texto de domínio público.
+_Esta oração foi composta pelo Papa Leão XIII e proposta a toda a Igreja na encíclica *Quamquam Pluries* (1889), que recomendava a recitação diária ao final do mês de outubro. Tradução do latim *Ad te, Beate Ioseph*. Texto de domínio público._
 
 A Vós, ó São José, recorremos em nossa tribulação,<br>
 e, depois de termos implorado o auxílio de Vossa santíssima Esposa,<br>

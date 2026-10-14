@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santa Catarina de Sena (1347–1380), filha da Ordem Dominicana, foi uma das maiores místicas da história da Igreja. Conselheira de papas e reis, lutou pelo retorno do Papa de Avinhão a Roma e pela renovação da fé. Canonizada em 1461 e proclamada Doutora da Igreja em 1970, é modelo de amor ardente a Cristo e de fidelidade à Santa Igreja.
+*Santa Catarina de Sena (1347–1380), filha da Ordem Dominicana, foi uma das maiores místicas da história da Igreja. Conselheira de papas e reis, lutou pelo retorno do Papa de Avinhão a Roma e pela renovação da fé. Canonizada em 1461 e proclamada Doutora da Igreja em 1970, é modelo de amor ardente a Cristo e de fidelidade à Santa Igreja.*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
@@ -31,7 +31,27 @@ a graça de buscar a Deus acima de todas as coisas,<br>
 para que somente n'Ele encontre o meu descanso<br>
 e a verdadeira paz do meu coração.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -47,7 +67,27 @@ e a manter viva a presença de Deus em minha alma,<br>
 para que, em toda hora,<br>
 eu O ame e O sirva com fidelidade.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -63,7 +103,27 @@ a coragem de defendê-la<br>
 e a humildade de aprendê-la sempre,<br>
 para que eu caminhe sem temor na luz de Cristo.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -79,7 +139,27 @@ e fazei-me obediente aos seus pastores,<br>
 para que eu seja servo fiel<br>
 do Corpo Místico do Senhor.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -95,7 +175,27 @@ mãos generosas e olhos atentos<br>
 para socorrer os irmãos necessitados,<br>
 amando a Deus naqueles que sofrem.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -111,7 +211,27 @@ a paciência nas dores<br>
 e a esperança nas tribulações,<br>
 para que eu permaneça fiel até o fim.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -127,7 +247,27 @@ e a oferecer ao Senhor os meus sofrimentos,<br>
 para que, unido à Sua Paixão,<br>
 eu também participe da Sua glória.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -143,7 +283,27 @@ de meditar na Sua Palavra<br>
 e de viver segundo a Sua sabedoria,<br>
 para que minha vida glorifique o Senhor.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 
@@ -159,7 +319,27 @@ para que eu viva e morra na amizade de Deus,<br>
 e, terminada a minha peregrinação,<br>
 possa contemplar para sempre a face do Senhor.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Catarina de Sena, rogai por nós.
 

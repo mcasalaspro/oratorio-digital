@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "martir"
 ---
 
-Hino à Santa Cruz, composto por São Venâncio Fortunato em 569, por ocasião da chegada de uma relíquia da Vera Cruz ao mosteiro de Poitiers. Tradicionalmente cantado nas Vésperas do Tempo da Paixão, celebra o triunfo do Senhor crucificado e a glória do madeiro redentor.
+*Hino à Santa Cruz, composto por São Venâncio Fortunato em 569, por ocasião da chegada de uma relíquia da Vera Cruz ao mosteiro de Poitiers. Tradicionalmente cantado nas Vésperas do Tempo da Paixão, celebra o triunfo do Senhor crucificado e a glória do madeiro redentor.*
 
 Avante, ó estandarte do Rei,<br>
 fulgura o mistério da Cruz,<br>

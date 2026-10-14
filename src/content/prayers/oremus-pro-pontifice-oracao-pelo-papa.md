@@ -10,7 +10,7 @@ description: "Breve súplica da tradição litúrgica romana pela vida e pelas i
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional da liturgia romana, recitada para implorar a Deus por Sua proteção e por Suas graças sobre o Sumo Pontífice. Costuma seguir-se à indulgência ou ao Tantum ergo, mas pode ser rezada por todos os fiéis em qualquer tempo.
+*Oração tradicional da liturgia romana, recitada para implorar a Deus por Sua proteção e por Suas graças sobre o Sumo Pontífice. Costuma seguir-se à indulgência ou ao Tantum ergo, mas pode ser rezada por todos os fiéis em qualquer tempo.*
 
 V. Oremos pelo nosso Pontífice Francisco.<br>
 R. O Senhor o conserve e lhe dê vida,<br>

@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena é dedicada a Santa Rita de Cássia, religiosa da Ordem dos Eremitas de Santo Agostinho (OESA), que viveu entre os séculos XV e XVI na Itália. Esposa, mãe e, mais tarde, viúva, conheceu a dor, o perdão e a entrega total a Deus, tornando-se mística e modelo de paciência. Canonizada em 1900 pelo Papa Leão XIII, é venerada como a "santa dos impossíveis" e advogada das causas mais difíceis.
+*Esta novena é dedicada a Santa Rita de Cássia, religiosa da Ordem dos Eremitas de Santo Agostinho (OESA), que viveu entre os séculos XV e XVI na Itália. Esposa, mãe e, mais tarde, viúva, conheceu a dor, o perdão e a entrega total a Deus, tornando-se mística e modelo de paciência. Canonizada em 1900 pelo Papa Leão XIII, é venerada como a "santa dos impossíveis" e advogada das causas mais difíceis.*
 
-Em cada dia, recolhamo-nos em silêncio e confiemos nossas intenções à sua poderosa intercessão.
+*Em cada dia, recolhamo-nos em silêncio e confiemos nossas intenções à sua poderosa intercessão.*
 
 ## Dia 1 — A coragem da fé
 

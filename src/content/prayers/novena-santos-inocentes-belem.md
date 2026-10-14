@@ -14,9 +14,9 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra os Santos Inocentes de Belém, as crianças massacradas por ordem de Herodes na tentativa de matar o Menino Jesus (Mt 2,16-18). Venerados desde os primeiros séculos da Igreja (Séc. IV–V, na tradição litúrgica romana), são tidos como os primeiros mártires de Cristo, pois morreram por Ele sem ainda saberem falar. Que a sua intercessão proteja todas as crianças e nos ensine a inocência e a confiança do coração.
+*Esta novena honra os Santos Inocentes de Belém, as crianças massacradas por ordem de Herodes na tentativa de matar o Menino Jesus (Mt 2,16-18). Venerados desde os primeiros séculos da Igreja (Séc. IV–V, na tradição litúrgica romana), são tidos como os primeiros mártires de Cristo, pois morreram por Ele sem ainda saberem falar. Que a sua intercessão proteja todas as crianças e nos ensine a inocência e a confiança do coração.*
 
-Iniciemos cada dia com o sinal da cruz e a invocação:
+*Iniciemos cada dia com o sinal da cruz e a invocação:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.<br>
 

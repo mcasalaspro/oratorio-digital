@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra os três Santos Arcanjos cujos nomes são revelados nas Sagradas Escrituras: Miguel, príncipe das milícias celestes; Gabriel, mensageiro da Encarnação; e Rafael, companheiro e médico que curou Tobias. A devoção remonta à tradição litúrgica romana dos séculos V e VI, e em 1969 o Papa Paulo VI unificou a festa dos três Arcanjos no dia 29 de setembro.
+*Esta novena honra os três Santos Arcanjos cujos nomes são revelados nas Sagradas Escrituras: Miguel, príncipe das milícias celestes; Gabriel, mensageiro da Encarnação; e Rafael, companheiro e médico que curou Tobias. A devoção remonta à tradição litúrgica romana dos séculos V e VI, e em 1969 o Papa Paulo VI unificou a festa dos três Arcanjos no dia 29 de setembro.*
 
-Inicie cada dia com o sinal da cruz e com esta invocação:
+*Inicie cada dia com o sinal da cruz e com esta invocação:*
 
 Glorioso Deus, Senhor dos exércitos celestes,<br>
 que entre os anjos escolhestes mensageiros do Vosso amor,<br>

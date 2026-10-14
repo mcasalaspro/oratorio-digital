@@ -10,7 +10,7 @@ description: "Louvores de Desagravo, recitados após a Bênção do Santíssimo 
 featured: false
 liturgicalColor: "festa"
 ---
-Os Louvores de Desagravo, também chamados pelo seu início "Bendito seja Deus", foram compostos pelo Pe. Luigi Felici SJ em 1797. São tradicionalmente recitados após a Bênção do Santíssimo Sacramento, em reparação às blasfêmias e ofensas contra o santo Nome de Deus.
+*Os Louvores de Desagravo, também chamados pelo seu início "Bendito seja Deus", foram compostos pelo Pe. Luigi Felici SJ em 1797. São tradicionalmente recitados após a Bênção do Santíssimo Sacramento, em reparação às blasfêmias e ofensas contra o santo Nome de Deus.*
 
 Bendito seja Deus.<br>
 Bendito o Seu santo Nome.<br>

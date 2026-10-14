@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São João Bosco (1815–1888), conhecido carinhosamente como Dom Bosco, foi um sacerdote piemontês que dedicou toda a sua vida à educação e à salvação dos jovens pobres e trabalhadores de Turim. Fundou a Congregação Salesiana (SDB), inspirada em São Francisco de Sales, e desenvolveu o "Sistema Preventivo" de educação, fundado na razão, na religião e na bondade. Foi canonizado em 1934 pelo Papa Pio XI. Esta novena, preparada segundo a tradição salesiana, pede sua intercessão por nossos jovens e por nossas necessidades.
+*São João Bosco (1815–1888), conhecido carinhosamente como Dom Bosco, foi um sacerdote piemontês que dedicou toda a sua vida à educação e à salvação dos jovens pobres e trabalhadores de Turim. Fundou a Congregação Salesiana (SDB), inspirada em São Francisco de Sales, e desenvolveu o "Sistema Preventivo" de educação, fundado na razão, na religião e na bondade. Foi canonizado em 1934 pelo Papa Pio XI. Esta novena, preparada segundo a tradição salesiana, pede sua intercessão por nossos jovens e por nossas necessidades.*
 
 ## Dia 1 — A confiança na Providência
 
@@ -31,7 +31,27 @@ e conduzi-os à fonte da verdadeira esperança.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 2 — O sonho dos nove anos
 
@@ -47,7 +67,27 @@ imitando a paciência e a doçura do bom Pastor.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 3 — A devoção a Nossa Senhora Auxiliadora
 
@@ -63,7 +103,27 @@ caminhemos sempre seguros para Jesus, vosso Filho.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 4 — O amor aos jovens pobres
 
@@ -79,7 +139,27 @@ a imagem do próprio Cristo, que se fez pobre por nós.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 5 — O Sistema Preventivo
 
@@ -95,7 +175,27 @@ sejam o caminho da santidade para a juventude.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 6 — A santidade na alegria
 
@@ -111,7 +211,27 @@ e atraia muitos ao caminho da virtude.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 7 — O zelo pelas vocações
 
@@ -127,7 +247,27 @@ levando o Evangelho a todas as nações.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 8 — O trabalho incansável
 
@@ -143,7 +283,27 @@ mas sirvamos com fidelidade até o fim.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Dia 9 — A intercessão pelos nossos pedidos
 
@@ -160,4 +320,24 @@ sejamos um dia reunidos convosco na alegria eterna do Céu.
 
 > São João Bosco, pai e mestre da juventude, rogai por nós.
 
-(Reze um Pai-Nosso, uma Ave-Maria e um Glória.)
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

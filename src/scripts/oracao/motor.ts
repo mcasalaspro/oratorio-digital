@@ -57,7 +57,8 @@ interface Bloco { el: HTMLElement; linhas: Linha[] | null; rep: Conta | null; se
 
 // nunca lidos: barras de continhas, sumários/seletores de mistérios
 export const PULAR = '.rep, .od-misterios, .terco-days, [data-leitor-pular]';
-const ehRubrica = (el: Element) => el.classList.contains('rubric') || el.classList.contains('terco-mystery');
+// rubricas (itálico inteiro, inclusive as notas — G9), rótulos em negrito (G9) e nomes de mistério: não são lidos
+const ehRubrica = (el: Element) => el.classList.contains('rubric') || el.classList.contains('rotulo') || el.classList.contains('terco-mystery');
 
 // onde ficam as linhas de um bloco: na citação, CADA <p> que não é rubrica (B2 da Fase 1)
 function hospedes(el: HTMLElement): HTMLElement[] {

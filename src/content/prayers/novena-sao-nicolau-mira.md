@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Nicolau de Mira foi bispo na cidade de Mira, na Lícia (atual Turquia), no século IV (c. 270–343 d.C.). Conhecido por sua imensa caridade, generosidade secreta e zelo pela fé, tornou-se padroeiro das crianças e dos marinheiros, e sua fama de bondade deu origem à figura do Papai Noel. Que esta novena, rezada com confiança, nos alcance as graças que pedimos e nos ensine a amar os pobres.
+*São Nicolau de Mira foi bispo na cidade de Mira, na Lícia (atual Turquia), no século IV (c. 270–343 d.C.). Conhecido por sua imensa caridade, generosidade secreta e zelo pela fé, tornou-se padroeiro das crianças e dos marinheiros, e sua fama de bondade deu origem à figura do Papai Noel. Que esta novena, rezada com confiança, nos alcance as graças que pedimos e nos ensine a amar os pobres.*
 
-Iniciemos cada dia com o sinal da cruz:
+*Iniciemos cada dia com o sinal da cruz:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
@@ -164,9 +164,33 @@ e gozar da felicidade eterna.
 
 > São Nicolau de Mira, rogai por nós.
 
-Concluamos a novena rezando:
+*Concluamos a novena rezando:*
 
-3x Pai-Nosso, Ave-Maria e Glória ao Pai pelas intenções que confiamos a São Nicolau.
+### 3x Pelas intenções que confiamos a São Nicolau
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
+
+### Conclusão
 
 > São Nicolau de Mira, modelo de caridade e amigo dos pequeninos, rogai por nós, para que, imitando a vossa generosidade, alcancemos a misericórdia do Senhor. Amém.
 

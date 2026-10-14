@@ -12,15 +12,15 @@ liturgicalColor: "ordinario"
 liturgicalFeast: "divina-misericordia"
 ---
 
-A Coroa da Divina Misericórdia foi revelada por Nosso Senhor Jesus Cristo a Santa Faustina Kowalska, em 1935, na cidade de Vilnius, na Lituânia. Jesus prometeu graças extraordinárias a quem a rezasse, em especial pelos pecadores endurecidos e pelos agonizantes. É tradicionalmente rezada às 15h, a Hora da Misericórdia, e tem lugar de destaque no Domingo da Misericórdia. Reza-se no terço comum.
+*A Coroa da Divina Misericórdia foi revelada por Nosso Senhor Jesus Cristo a Santa Faustina Kowalska, em 1935, na cidade de Vilnius, na Lituânia. Jesus prometeu graças extraordinárias a quem a rezasse, em especial pelos pecadores endurecidos e pelos agonizantes. É tradicionalmente rezada às 15h, a Hora da Misericórdia, e tem lugar de destaque no Domingo da Misericórdia. Reza-se no terço comum.*
 
 ## Início
 
-Sinal da Cruz.
+*Sinal da Cruz.*
 
 Em Vós confiei, ó Senhor, jamais ficarei confundido para sempre.
 
-Reza-se uma vez:
+*Reza-se uma vez:*
 
 Pai nosso que estais nos céus,<br>
 santificado seja o Vosso nome;<br>
@@ -33,7 +33,7 @@ assim como nós perdoamos a quem nos tem ofendido;<br>
 e não nos deixeis cair em tentação,<br>
 mas livrai-nos do mal. Amém.
 
-Reza-se uma vez:
+*Reza-se uma vez:*
 
 Ave, Maria, cheia de graça,<br>
 o Senhor é convosco;<br>
@@ -43,7 +43,7 @@ Santa Maria, Mãe de Deus,<br>
 rogai por nós, pecadores,<br>
 agora e na hora da nossa morte. Amém.
 
-Reza-se uma vez:
+*Reza-se uma vez:*
 
 Creio em Deus Pai todo-poderoso,<br>
 Criador do céu e da terra.<br>
@@ -88,7 +88,7 @@ e dos do mundo inteiro.
 
 ## Conclusão
 
-No final, reza-se três vezes:
+*No final, reza-se três vezes:*
 
 3x Deus Santo, Deus Forte, Deus Imortal, tende piedade de nós e do mundo inteiro.
 
@@ -100,4 +100,4 @@ No final, reza-se três vezes:
 
 > Tu expiraste, ó Jesus, mas a fonte da vida brotou para as almas e abriu-se um oceano de misericórdia para o mundo inteiro. Ó Fonte de Vida, insondável Divina Misericórdia, abrange o mundo inteiro e derrama-Te sobre nós. Amém.
 
-**Fonte:** Devoção revelada por Nosso Senhor Jesus Cristo a Santa Faustina Kowalska (1935, Vilnius). Texto tradicional de domínio público.
+_**Fonte:** Devoção revelada por Nosso Senhor Jesus Cristo a Santa Faustina Kowalska (1935, Vilnius). Texto tradicional de domínio público._

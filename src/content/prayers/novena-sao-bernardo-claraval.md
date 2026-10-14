@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Bernardo de Claraval (1090–1153), monge cisterciense da Ordem de Cister (OCist), foi um dos maiores místicos e teólogos do século XII. Conhecido como o "Doutor Melífluo" pela doçura de sua palavra, reformou a vida monástica, espalhou a devoção a Maria Santíssima e foi proclamado Doutor da Igreja em 1830, após ser canonizado em 1174. Que esta novena nos conduza ao amor ardente a Deus e à confiança filial em Nossa Senhora.
+*São Bernardo de Claraval (1090–1153), monge cisterciense da Ordem de Cister (OCist), foi um dos maiores místicos e teólogos do século XII. Conhecido como o "Doutor Melífluo" pela doçura de sua palavra, reformou a vida monástica, espalhou a devoção a Maria Santíssima e foi proclamado Doutor da Igreja em 1830, após ser canonizado em 1174. Que esta novena nos conduza ao amor ardente a Deus e à confiança filial em Nossa Senhora.*
 
 **Oração inicial para todos os dias:**
 

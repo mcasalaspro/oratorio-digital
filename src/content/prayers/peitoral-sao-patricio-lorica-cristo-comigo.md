@@ -12,7 +12,7 @@ liturgicalFeast: "03-17"
 liturgicalColor: "festa"
 ---
 
-O *Peitoral de São Patrício* (em latim *Lorica*, "couraça") é uma antiga oração de proteção atribuída a São Patrício, apóstolo da Irlanda (séc. V); o texto que chegou até nós foi preservado em manuscritos do séc. VIII. Como uma armadura espiritual, invoca a força da Santíssima Trindade e a presença constante de Cristo que nos cerca por todos os lados.
+_O *Peitoral de São Patrício* (em latim *Lorica*, "couraça") é uma antiga oração de proteção atribuída a São Patrício, apóstolo da Irlanda (séc. V); o texto que chegou até nós foi preservado em manuscritos do séc. VIII. Como uma armadura espiritual, invoca a força da Santíssima Trindade e a presença constante de Cristo que nos cerca por todos os lados._
 
 Levanto-me hoje<br>
 por uma força poderosa, a invocação da Trindade,<br>

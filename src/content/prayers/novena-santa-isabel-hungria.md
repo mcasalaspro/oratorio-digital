@@ -14,15 +14,15 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santa Isabel da Hungria (1207–1231), princesa filha do rei André II,
+*Santa Isabel da Hungria (1207–1231), princesa filha do rei André II,
 foi esposa amorosa, mãe dedicada e, após enviuvar aos vinte anos,
 renunciou às riquezas e honras do mundo para abraçar a pobreza
 evangélica como terciária franciscana. Ligada à Ordem Franciscana
 Secular e à história da Ordem Teutônica, dedicou sua breve vida
 ao cuidado dos enfermos, dos famintos e dos abandonados.
-Canonizada em 1235, é venerada como modelo de caridade e desapego.
+Canonizada em 1235, é venerada como modelo de caridade e desapego.*
 
-Façamos cada dia desta novena com fé, pedindo Sua intercessão.
+*Façamos cada dia desta novena com fé, pedindo sua intercessão.*
 
 ## Dia 1 — A fé de uma princesa
 
@@ -141,7 +141,27 @@ confiante na intercessão desta santa princesa.
 
 > Santa Isabel da Hungria, rogai por nós.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santa Isabel da Hungria,<br>
 > que renunciastes às riquezas para servir os pobres,<br>

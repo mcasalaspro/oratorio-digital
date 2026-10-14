@@ -14,14 +14,14 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra Maria Santíssima sob o título de Mãe de Deus,
+_Esta novena honra Maria Santíssima sob o título de Mãe de Deus,
 proclamado solenemente no Concílio de Éfeso, no ano de 431,
 quando a Igreja confessou Maria como *Theotókos*, a que gerou Deus.
 A Solenidade de Maria, Mãe de Deus, é celebrada em 1º de janeiro,
 no oitavo dia do Natal, abrindo o ano com o louvor àquela
-que nos deu o Salvador.
+que nos deu o Salvador._
 
-Iniciamos cada dia com o sinal da cruz e a oração inicial.
+*Iniciamos cada dia com o sinal da cruz e a oração inicial.*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 

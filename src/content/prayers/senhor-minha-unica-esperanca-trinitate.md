@@ -12,7 +12,7 @@ liturgicalFeast: "08-28"
 liturgicalColor: "festa"
 ---
 
-Oração com que Santo Agostinho de Hipona conclui sua grande obra *De Trinitate* (Livro XV), composta entre os anos 400 e 428. Ao terminar sua reflexão sobre o mistério da Trindade, o santo se volta em súplica ao "Senhor, único Deus, Deus Trindade", pedindo a graça de O buscar sempre.
+_Oração com que Santo Agostinho de Hipona conclui sua grande obra *De Trinitate* (Livro XV), composta entre os anos 400 e 428. Ao terminar sua reflexão sobre o mistério da Trindade, o santo se volta em súplica ao "Senhor, único Deus, Deus Trindade", pedindo a graça de O buscar sempre._
 
 Senhor, meu Deus, única esperança minha,<br>
 ouvi-me, para que eu não desfaleça em buscar-Vos,<br>

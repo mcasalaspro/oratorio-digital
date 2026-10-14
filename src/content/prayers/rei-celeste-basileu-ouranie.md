@@ -10,7 +10,7 @@ description: "Antiga invocação bizantina ao Espírito Santo, pedindo que venha
 featured: false
 liturgicalColor: "festa"
 ---
-Antiga invocação ao Espírito Santo, da tradição litúrgica bizantina (séc. VI–IX). É rezada no início dos ofícios e das orações cotidianas, suplicando que o Consolador venha habitar em nós, purificar nossas almas e salvá-las.
+*Antiga invocação ao Espírito Santo, da tradição litúrgica bizantina (séc. VI–IX). É rezada no início dos ofícios e das orações cotidianas, suplicando que o Consolador venha habitar em nós, purificar nossas almas e salvá-las.*
 
 Ó Rei Celeste, Consolador,<br>
 Espírito da Verdade,<br>

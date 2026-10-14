@@ -14,9 +14,9 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-São Expedito foi um soldado romano martirizado por sua fé em Cristo, por volta dos séculos III e IV. Venerado como padroeiro das causas urgentes e justas, sua devoção tornou-se muito popular no Brasil. Esta novena, de tradição popular surgida no século XIX, é rezada por aqueles que necessitam de auxílio rápido e confiam na intercessão deste valoroso mártir.
+*São Expedito foi um soldado romano martirizado por sua fé em Cristo, por volta dos séculos III e IV. Venerado como padroeiro das causas urgentes e justas, sua devoção tornou-se muito popular no Brasil. Esta novena, de tradição popular surgida no século XIX, é rezada por aqueles que necessitam de auxílio rápido e confiam na intercessão deste valoroso mártir.*
 
-A cada dia, reze com fé e confiança, lembrando que toda graça vem de Deus, e que os santos intercedem por nós diante d'Ele.
+*A cada dia, reze com fé e confiança, lembrando que toda graça vem de Deus, e que os santos intercedem por nós diante d'Ele.*
 
 ## Dia 1 — A pressa do coração que confia
 
@@ -150,4 +150,24 @@ o louvarei eternamente.
 
 > São Expedito, intercessor das causas urgentes, rogai por nós.
 
-> Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

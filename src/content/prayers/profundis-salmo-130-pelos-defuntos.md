@@ -12,9 +12,9 @@ liturgicalColor: "ordinario"
 liturgicalFeast: "11-02"
 ---
 
-O *De Profundis* é o Salmo 130 (129 na numeração da Septuaginta), um dos sete salmos penitenciais.
+_O *De Profundis* é o Salmo 130 (129 na numeração da Septuaginta), um dos sete salmos penitenciais.
 Brotado da tradição judaico-cristã (séc. X–VI a.C.), entrou no uso litúrgico cristão já no século IV.
-Desde então é cantado pela Igreja como súplica pelos fiéis defuntos, expressando a confiança na misericórdia do Senhor diante da morte.
+Desde então é cantado pela Igreja como súplica pelos fiéis defuntos, expressando a confiança na misericórdia do Senhor diante da morte._
 
 ## Salmo 130 (129)
 

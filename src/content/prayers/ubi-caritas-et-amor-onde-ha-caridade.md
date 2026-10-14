@@ -10,7 +10,7 @@ description: "Antífona do Lava-pés da Quinta-feira Santa: onde há caridade e 
 featured: false
 liturgicalColor: "festa"
 ---
-Antífona tradicional cantada na Quinta-feira Santa, durante o rito do Lava-pés. Atribuída à tradição litúrgica do século IX (ou anterior), celebra o mandamento novo do amor deixado por Cristo aos Seus discípulos.
+*Antífona tradicional cantada na Quinta-feira Santa, durante o rito do Lava-pés. Atribuída à tradição litúrgica do século IX (ou anterior), celebra o mandamento novo do amor deixado por Cristo aos Seus discípulos.*
 
 Onde há caridade e amor, aí está Deus.<br>
 O amor de Cristo nos congregou e somos um só.<br>

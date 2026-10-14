@@ -14,11 +14,11 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Karol Wojtyła, São João Paulo II, foi o 282º Papa da Igreja Católica (1978–2005).<br>
+_Karol Wojtyła, São João Paulo II, foi o 282º Papa da Igreja Católica (1978–2005).<br>
 Homem de profunda fé e oração, fez do lema mariano *Totus Tuus* ("Todo Teu") o coração da sua vida.<br>
-Foi beatificado em 2011 e canonizado em 27 de abril de 2014 pelo Papa Francisco.
+Foi beatificado em 2011 e canonizado em 27 de abril de 2014 pelo Papa Francisco._
 
-Iniciemos cada dia desta novena com fé, invocando a intercessão deste grande Pastor.
+*Iniciemos cada dia desta novena com fé, invocando a intercessão deste grande Pastor.*
 
 > Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
@@ -158,7 +158,7 @@ cheguemos um dia à pátria do Céu.
 
 > São João Paulo II, rogai por nós.
 
-Rezemos:
+*Rezemos:*
 
 Ó Deus, rico em misericórdia,<br>
 que chamastes São João Paulo II a guiar toda a Vossa Igreja,<br>
@@ -168,4 +168,24 @@ abramos com confiança os nossos corações<br>
 Por Nosso Senhor Jesus Cristo, Vosso Filho,<br>
 na unidade do Espírito Santo. Amém.
 
-> Pai-Nosso, Ave-Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra dois apóstolos do Senhor, São Simão, o Zelota, e São Judas Tadeu, cuja memória a Igreja celebra unida no dia 28 de outubro. A devoção a São Judas Tadeu, conhecido como o padroeiro das causas desesperadas e das situações humanamente impossíveis, remonta à tradição apostólica do Oriente cristão (séc. I–II). Que estes fiéis discípulos de Cristo intercedam por nós junto a Deus em nossas maiores aflições.
+*Esta novena honra dois apóstolos do Senhor, São Simão, o Zelota, e São Judas Tadeu, cuja memória a Igreja celebra unida no dia 28 de outubro. A devoção a São Judas Tadeu, conhecido como o padroeiro das causas desesperadas e das situações humanamente impossíveis, remonta à tradição apostólica do Oriente cristão (séc. I–II). Que estes fiéis discípulos de Cristo intercedam por nós junto a Deus em nossas maiores aflições.*
 
 > Que possa eu, com São Simão e São Judas Tadeu, viver e morrer no amor de Deus.
 

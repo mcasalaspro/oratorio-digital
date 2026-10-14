@@ -10,7 +10,7 @@ description: "Dai-me a Sabedoria que se assenta junto ao Vosso trono — oraçã
 featured: false
 liturgicalColor: "ordinario"
 ---
-Esta oração recolhe a célebre súplica do Livro da Sabedoria (Sb 9), texto sapiencial do Antigo Testamento (séc. I a.C.), no qual Salomão pede a Deus o dom da Sabedoria para governar com retidão e conhecer a vontade do Altíssimo.
+*Esta oração recolhe a célebre súplica do Livro da Sabedoria (Sb 9), texto sapiencial do Antigo Testamento (séc. I a.C.), no qual Salomão pede a Deus o dom da Sabedoria para governar com retidão e conhecer a vontade do Altíssimo.*
 
 Deus dos Pais e Senhor de misericórdia,<br>
 que tudo criastes pela Vossa Palavra,<br>

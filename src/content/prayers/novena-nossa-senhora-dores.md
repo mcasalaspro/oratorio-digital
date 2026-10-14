@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena nos conduz pelo caminho doloroso da Virgem Maria, meditando as Sete Dores que traspassaram o seu Imaculado Coração. A devoção foi difundida no século XIII pela Ordem dos Servos de Maria (Servitas, OSM), fundada em 1233, e a festa de Nossa Senhora das Dores foi estendida a toda a Igreja em 1814, pelo Papa Pio VII. Inspirada no antigo hino *Stabat Mater*, ela nos une à Mãe que, fiel ao pé da Cruz, participou de modo singular da Paixão do seu Filho.
+_Esta novena nos conduz pelo caminho doloroso da Virgem Maria, meditando as Sete Dores que traspassaram o seu Imaculado Coração. A devoção foi difundida no século XIII pela Ordem dos Servos de Maria (Servitas, OSM), fundada em 1233, e a festa de Nossa Senhora das Dores foi estendida a toda a Igreja em 1814, pelo Papa Pio VII. Inspirada no antigo hino *Stabat Mater*, ela nos une à Mãe que, fiel ao pé da Cruz, participou de modo singular da Paixão do seu Filho._
 
-Em cada dia, iniciemos com a invocação:
+*Em cada dia, iniciemos com a invocação:*
 
 > Ó Maria, Mãe das Dores,<br>
 > abri o nosso coração à compaixão,<br>
@@ -40,11 +40,26 @@ a aceitar com fé as provações da vida,<br>
 unindo os nossos sofrimentos<br>
 aos méritos da Paixão de Cristo.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -66,11 +81,26 @@ a graça de confiar em Deus<br>
 no meio das incertezas e dos perigos,<br>
 caminhando sempre na fé.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -92,11 +122,26 @@ nunca perder Jesus pelo pecado;<br>
 e, se O perdermos, que O busquemos<br>
 com perseverança e lágrimas de arrependimento.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -118,11 +163,26 @@ a coragem de acompanhar o Senhor<br>
 nas suas cruzes e nos nossos irmãos sofredores,<br>
 sem nunca abandoná-Lo.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -144,11 +204,26 @@ fiéis junto à Cruz de cada dia,<br>
 firmes na esperança<br>
 e ardentes no amor.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -170,11 +245,26 @@ a venerar a Paixão de Cristo<br>
 e a acolher em nós o seu amor crucificado,<br>
 que se entregou pela nossa salvação.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -196,11 +286,26 @@ a esperança que não desfalece,<br>
 crendo que após a morte e a noite<br>
 amanhece a vida nova em Cristo.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -222,11 +327,26 @@ um refúgio para Jesus sofredor,<br>
 e ensinai-nos a compadecer<br>
 das dores dos nossos irmãos.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.
@@ -248,11 +368,26 @@ e conduzi-nos, depois desta vida,<br>
 à glória da ressurreição,<br>
 onde não haverá mais lágrimas nem dor.
 
-Rezemos:
+*Rezemos:*
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-7x Ave Maria...
+> 7x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santa Mãe, fazei que as chagas do Senhor<br>
 > sejam gravadas em meu coração.

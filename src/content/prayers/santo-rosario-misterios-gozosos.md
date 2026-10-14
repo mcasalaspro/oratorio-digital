@@ -11,9 +11,9 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Os Mistérios Gozosos contemplam a alegria da Encarnação e da infância de Jesus.<br>
+*Os Mistérios Gozosos contemplam a alegria da Encarnação e da infância de Jesus.<br>
 São tradicionalmente rezados às segundas-feiras e aos sábados.<br>
-A forma estruturada do Rosário foi difundida pelo Beato Alano de la Roche OP (†1475), por volta de 1470–1475.
+A forma estruturada do Rosário foi difundida pelo Beato Alano de la Roche OP (†1475), por volta de 1470–1475.*
 
 ## Início
 
@@ -39,11 +39,27 @@ na remissão dos pecados;<br>
 na ressurreição da carne;<br>
 na vida eterna. Amém.
 
-1x Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave Maria, cheia de graça...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-1x Glória ao Pai e ao Filho e ao Espírito Santo...
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Primeiro Mistério Gozoso — A Anunciação do Anjo a Maria
 
@@ -51,11 +67,27 @@ O Anjo Gabriel é enviado por Deus à Virgem Maria,<br>
 que concebe pelo poder do Espírito Santo o Verbo encarnado.<br>
 Contemplemos a humildade de Maria, que se faz serva do Senhor.
 
-1x Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria, cheia de graça...
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-1x Glória ao Pai e ao Filho e ao Espírito Santo...
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -67,11 +99,27 @@ Maria, levando em Seu seio o Salvador,<br>
 visita sua prima Isabel e é proclamada bendita entre as mulheres.<br>
 Contemplemos a caridade de Maria que serve com alegria.
 
-1x Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria, cheia de graça...
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-1x Glória ao Pai e ao Filho e ao Espírito Santo...
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -83,11 +131,27 @@ O Filho de Deus nasce na pobreza de uma manjedoura,<br>
 e os anjos anunciam a paz aos homens de boa vontade.<br>
 Contemplemos a pobreza e a humildade do Salvador que nasce por nós.
 
-1x Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria, cheia de graça...
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-1x Glória ao Pai e ao Filho e ao Espírito Santo...
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -99,11 +163,27 @@ Maria e José apresentam o Menino Jesus no Templo,<br>
 e o ancião Simeão O reconhece como luz para iluminar as nações.<br>
 Contemplemos a obediência à Lei e a oferta de Jesus ao Pai.
 
-1x Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria, cheia de graça...
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-1x Glória ao Pai e ao Filho e ao Espírito Santo...
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu
@@ -115,11 +195,27 @@ Após três dias de busca,<br>
 Maria e José encontram Jesus no Templo, entre os doutores.<br>
 Contemplemos Jesus que cuida das coisas de Seu Pai.
 
-1x Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria, cheia de graça...
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-1x Glória ao Pai e ao Filho e ao Espírito Santo...
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno,
 > levai as almas todas para o céu

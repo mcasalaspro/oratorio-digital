@@ -13,6 +13,12 @@
      odContador.contarOracao(slug)    Promise → { oracao: n|null, total: n|null }
      odContador.contarVisita()        Promise → n|null
      odContador.contarLiturgia()      Promise → n|null
+     odContador.contarVisitaOracao(slug)  Promise → n|null  (só no Supabase) visita à
+                                      página de uma oração
+     odContador.numeros(dias, limite) Promise → objeto|null (só no Supabase) os números
+                                      da página /numeros/ (ver ler_numeros no contador.sql)
+
+   Robôs de busca (Googlebot e parecidos) não somam visitas.
 
    Nada aqui lança erro: rede caída, bloqueador ou serviço fora → null.
    Depende de window.__SITE__ (definido antes pelo Base.astro).
@@ -40,6 +46,10 @@
     return Promise.race([req, prazo]);
   }
   function num(v) { var n = typeof v === 'string' ? Number(v) : v; return (typeof n === 'number' && isFinite(n)) ? n : null; }
+  // robôs de busca e prévias de link rodam o JavaScript da página: não contam como visita
+  // ("bot" só seguido de / ; ) ou -: celulares como o "CUBOT P80" continuam contando)
+  var ROBO = /bot[\/;)\-]|crawler|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegrambot|lighthouse|pagespeed|prerender/i;
+  var robo = ROBO.test((navigator && navigator.userAgent) || '');
 
   // ───────── Supabase: funções do banco (ver supabase/contador.sql) ─────────
   // aceita o endereço do projeto com ou sem barra final e com ou sem /rest/v1
@@ -114,8 +124,20 @@
     });
   }
   function contarVisita() {
-    if (!ligado) return Promise.resolve(null);
+    if (!ligado || robo) return Promise.resolve(null);
     return (supa ? rpc('contar_visita').then(num) : abacus('hit', K.visitas)).then(esquecer);
+  }
+  // visita à página de uma oração: só no Supabase (o Abacus não tem histórico)
+  function contarVisitaOracao(slug) {
+    if (!supa || robo || !slug) return Promise.resolve(null);
+    return rpc('contar_visita_oracao', { p_slug: slug }).then(num);
+  }
+  // números da página /numeros/: total, série dia a dia e as mais rezadas/visitadas
+  function numeros(dias, limite) {
+    if (!supa) return Promise.resolve(null);
+    return rpc('ler_numeros', { p_dias: dias || 30, p_limite: limite || 50 }).then(function (j) {
+      return (j && typeof j === 'object' && Array.isArray(j.serie)) ? j : null;
+    });
   }
   function contarLiturgia() {
     if (!ligado) return Promise.resolve(null);
@@ -129,6 +151,8 @@
     ler: ler,
     contarOracao: contarOracao,
     contarVisita: contarVisita,
-    contarLiturgia: contarLiturgia
+    contarLiturgia: contarLiturgia,
+    contarVisitaOracao: contarVisitaOracao,
+    numeros: numeros
   };
 })();

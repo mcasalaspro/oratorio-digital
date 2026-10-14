@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santa Teresa de Ávila (1515–1582), reformadora do Carmelo e fundadora dos Carmelitas Descalços, foi canonizada em 1622 e proclamada Doutora da Igreja em 1970, ao lado de Santa Catarina de Sena, tornando-se a primeira mulher a receber esse título. Mestra da oração e autora do *Castelo Interior*, ela nos ensina a percorrer as moradas da alma até a união íntima com Deus.
+_Santa Teresa de Ávila (1515–1582), reformadora do Carmelo e fundadora dos Carmelitas Descalços, foi canonizada em 1622 e proclamada Doutora da Igreja em 1970, ao lado de Santa Catarina de Sena, tornando-se a primeira mulher a receber esse título. Mestra da oração e autora do *Castelo Interior*, ela nos ensina a percorrer as moradas da alma até a união íntima com Deus._
 
-Antes de cada dia, faça o Sinal da Cruz e prepare o coração:
+*Antes de cada dia, faça o Sinal da Cruz e prepare o coração:*
 
 Em Vosso nome, Senhor, eu me recolho.<br>
 Conduzi-me às moradas interiores,<br>
@@ -172,6 +172,26 @@ nada te turbe, nada te espante, só Deus basta.
 
 > Santa Teresa de Ávila, mestra da oração, rogai por nós.
 
-Pai-Nosso, Ave-Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 *Oração tradicional segundo a espiritualidade da Ordem do Carmo Descalço (OCD), inspirada nos escritos de Santa Teresa de Ávila (séc. XVI), com sua célebre poesia "Nada te turbe".*

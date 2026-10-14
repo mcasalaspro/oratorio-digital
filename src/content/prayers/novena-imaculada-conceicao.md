@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena celebra a Imaculada Conceição de Maria, verdade venerada desde os primeiros séculos e proclamada dogma de fé pelo Papa Pio IX na Bula *Ineffabilis Deus*, em 8 de dezembro de 1854. A piedade franciscana (séculos XIII–XIV) foi grande defensora deste mistério: Maria foi preservada de toda mancha do pecado original desde o primeiro instante de sua concepção, por singular graça e privilégio de Deus, em vista dos méritos de Jesus Cristo, Salvador do gênero humano.
+_Esta novena celebra a Imaculada Conceição de Maria, verdade venerada desde os primeiros séculos e proclamada dogma de fé pelo Papa Pio IX na Bula *Ineffabilis Deus*, em 8 de dezembro de 1854. A piedade franciscana (séculos XIII–XIV) foi grande defensora deste mistério: Maria foi preservada de toda mancha do pecado original desde o primeiro instante de sua concepção, por singular graça e privilégio de Deus, em vista dos méritos de Jesus Cristo, Salvador do gênero humano._
 
-Cada dia desta novena é coroado pela antífona *Tota Pulchra Es* ("És toda formosa"), antigo cântico que exalta a beleza imaculada da Mãe de Deus.
+_Cada dia desta novena é coroado pela antífona *Tota Pulchra Es* ("És toda formosa"), antigo cântico que exalta a beleza imaculada da Mãe de Deus._
 
 > Tota Pulchra Es, Maria,
 > e a mancha original não há em Ti.

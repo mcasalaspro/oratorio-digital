@@ -10,7 +10,7 @@ description: "Sequência da Missa do Domingo de Páscoa, atribuída a Wipo da Bo
 featured: false
 liturgicalColor: "festa"
 ---
-Sequência cantada na Missa do Domingo de Páscoa, atribuída a Wipo da Borgonha (século XI), que celebra a vitória de Cristo sobre a morte e o testemunho da Ressurreição.
+*Sequência cantada na Missa do Domingo de Páscoa, atribuída a Wipo da Borgonha (século XI), que celebra a vitória de Cristo sobre a morte e o testemunho da Ressurreição.*
 
 À Vítima Pascal ofereçam os cristãos louvores.<br>
 O Cordeiro redimiu as ovelhas;<br>

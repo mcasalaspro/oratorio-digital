@@ -12,7 +12,7 @@ liturgicalFeast: "02-11"
 liturgicalColor: "festa"
 ---
 
-O Dia Mundial do Doente foi instituído por São João Paulo II em 13 de maio de 1992 e celebrado anualmente em 11 de fevereiro, memória de Nossa Senhora de Lourdes, onde a Virgem apareceu como fonte de consolo e cura. É um convite a rezar pelos enfermos e por todos os que deles cuidam, contemplando o mistério do sofrimento humano à luz de Cristo, médico das almas e dos corpos.
+*O Dia Mundial do Doente foi instituído por São João Paulo II em 13 de maio de 1992 e celebrado anualmente em 11 de fevereiro, memória de Nossa Senhora de Lourdes, onde a Virgem apareceu como fonte de consolo e cura. É um convite a rezar pelos enfermos e por todos os que deles cuidam, contemplando o mistério do sofrimento humano à luz de Cristo, médico das almas e dos corpos.*
 
 ## Invocação inicial
 

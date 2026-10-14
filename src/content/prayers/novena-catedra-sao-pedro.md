@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A festa da Cátedra de São Pedro, celebrada em 22 de fevereiro, remonta à tradição litúrgica romana do século IV.
+*A festa da Cátedra de São Pedro, celebrada em 22 de fevereiro, remonta à tradição litúrgica romana do século IV.
 A "cátedra" é a cadeira do mestre, símbolo do magistério e do ministério que o Senhor confiou a Pedro.
-Nesta novena pedimos a graça da fé firme, da unidade eclesial e da fidelidade ao Evangelho.
+Nesta novena pedimos a graça da fé firme, da unidade eclesial e da fidelidade ao Evangelho.*
 
 > Tu és Pedro, e sobre esta pedra edificarei a minha Igreja (Mt 16,18).
 

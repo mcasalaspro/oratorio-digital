@@ -10,7 +10,7 @@ description: "Oração tradicional de adoração e oferecimento ao acordar, dand
 featured: false
 liturgicalColor: "festa"
 ---
-Oração da tradição cristã do oferecimento matinal, de uso universal. Ao despertar, o fiel volta seu primeiro pensamento a Deus, adorando-O, agradecendo-Lhe pelo dom da vida e oferecendo-Lhe o novo dia que começa.
+*Oração da tradição cristã do oferecimento matinal, de uso universal. Ao despertar, o fiel volta seu primeiro pensamento a Deus, adorando-O, agradecendo-Lhe pelo dom da vida e oferecendo-Lhe o novo dia que começa.*
 
 Eu Vos adoro, meu Deus,<br>
 e Vos amo de todo o coração.<br>

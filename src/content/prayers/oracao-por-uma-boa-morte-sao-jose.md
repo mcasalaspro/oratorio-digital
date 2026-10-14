@@ -10,7 +10,7 @@ description: "Oração tradicional a São José pela graça de uma morte santa, 
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional por uma boa morte, sob o patrocínio de São José, padroeiro dos moribundos. A Igreja venera São José como modelo de uma morte santa, pois ele entregou a alma ao Senhor amparado por Jesus e por Maria. Confiando nessa proteção, pedimos a graça de perseverar até o fim e de partir desta vida na companhia da Sagrada Família.
+*Oração tradicional por uma boa morte, sob o patrocínio de São José, padroeiro dos moribundos. A Igreja venera São José como modelo de uma morte santa, pois ele entregou a alma ao Senhor amparado por Jesus e por Maria. Confiando nessa proteção, pedimos a graça de perseverar até o fim e de partir desta vida na companhia da Sagrada Família.*
 
 *Faça o sinal da cruz e apresente a Deus a sua intenção.*
 

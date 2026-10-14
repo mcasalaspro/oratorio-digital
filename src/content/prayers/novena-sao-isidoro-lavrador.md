@@ -14,8 +14,8 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra São Isidoro Lavrador, humilde camponês de Madri (séc. XII), canonizado em 1622, padroeiro dos agricultores e esposo de Santa Maria de la Cabeza.
-Confiando na sua intercessão, peçamos a bênção sobre o trabalho do campo, a fartura das colheitas e a santidade da vida simples.
+*Esta novena honra São Isidoro Lavrador, humilde camponês de Madri (séc. XII), canonizado em 1622, padroeiro dos agricultores e esposo de Santa Maria de la Cabeza.
+Confiando na sua intercessão, peçamos a bênção sobre o trabalho do campo, a fartura das colheitas e a santidade da vida simples.*
 
 > São Isidoro Lavrador, fiel servo do Senhor, rogai por nós.
 

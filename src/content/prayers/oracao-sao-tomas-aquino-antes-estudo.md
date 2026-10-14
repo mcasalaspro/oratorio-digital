@@ -12,7 +12,7 @@ liturgicalFeast: "01-28"
 liturgicalColor: "festa"
 ---
 
-Oração atribuída a São Tomás de Aquino (c. 1260–1274), conhecida pelas suas primeiras palavras em latim *Creator ineffabilis et immense*. Súplica ao Espírito Santo para que ilumine a mente e ordene o estudo, hoje integrada ao Ofício da Ordem Dominicana.
+_Oração atribuída a São Tomás de Aquino (c. 1260–1274), conhecida pelas suas primeiras palavras em latim *Creator ineffabilis et immense*. Súplica ao Espírito Santo para que ilumine a mente e ordene o estudo, hoje integrada ao Ofício da Ordem Dominicana._
 
 Inefável Criador,<br>
 que dos tesouros da Vossa sabedoria<br>

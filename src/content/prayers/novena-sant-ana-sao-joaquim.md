@@ -14,10 +14,10 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Sant'Ana e São Joaquim foram os pais da Virgem Maria e, portanto, os avós maternos de Jesus.
+*Sant'Ana e São Joaquim foram os pais da Virgem Maria e, portanto, os avós maternos de Jesus.
 Embora seus nomes não apareçam nos Evangelhos canônicos, a piedosa tradição cristã os conserva desde os primeiros séculos, sobretudo a partir do Proto-Evangelho de Tiago (c. 150 d.C.).
 A devoção popular os venera como protetores das famílias, dos avós, dos casais sem filhos e de todos os que cultivam a esperança em meio à espera.
-Façamos esta novena com fé, pedindo sua poderosa intercessão.
+Façamos esta novena com fé, pedindo sua poderosa intercessão.*
 
 ## Dia 1 — A fidelidade na espera
 
@@ -136,7 +136,7 @@ em companhia de toda a Família Sagrada.
 
 > Sant'Ana e São Joaquim, avós do Senhor, rogai por nós.
 
-Concluamos esta novena com confiança:
+*Concluamos esta novena com confiança:*
 
 Senhor nosso Deus,<br>
 que escolhestes Sant'Ana e São Joaquim<br>
@@ -147,4 +147,24 @@ a graça que humildemente Vos pedimos nesta novena.
 Por Cristo, nosso Senhor.<br>
 Amém.
 
-> Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

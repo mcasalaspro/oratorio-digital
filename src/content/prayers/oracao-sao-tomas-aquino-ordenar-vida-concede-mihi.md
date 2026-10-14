@@ -12,7 +12,7 @@ liturgicalFeast: "01-28"
 liturgicalColor: "festa"
 ---
 
-Oração atribuída a São Tomás de Aquino (séc. XIII), conhecida pelas primeiras palavras latinas *Concede mihi, misericors Deus*. Nela se pede a Deus o dom de ordenar toda a vida segundo as quatro virtudes cardeais — prudência, justiça, fortaleza e temperança.
+_Oração atribuída a São Tomás de Aquino (séc. XIII), conhecida pelas primeiras palavras latinas *Concede mihi, misericors Deus*. Nela se pede a Deus o dom de ordenar toda a vida segundo as quatro virtudes cardeais — prudência, justiça, fortaleza e temperança._
 
 Concedei-me, ó Deus misericordioso,<br>
 desejar ardentemente o que Vos agrada,<br>

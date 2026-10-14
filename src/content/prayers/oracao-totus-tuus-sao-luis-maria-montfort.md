@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Oração de consagração mariana inspirada no *Tratado da Verdadeira Devoção à Santíssima Virgem*, de São Luís Maria Grignion de Montfort (c. 1712). A célebre fórmula *Totus Tuus ego sum* — "Sou todo teu" — tornou-se o lema do pontificado de São João Paulo II.
+_Oração de consagração mariana inspirada no *Tratado da Verdadeira Devoção à Santíssima Virgem*, de São Luís Maria Grignion de Montfort (c. 1712). A célebre fórmula *Totus Tuus ego sum* — "Sou todo teu" — tornou-se o lema do pontificado de São João Paulo II._
 
 Eu sou todo teu, ó Maria,<br>
 e tudo o que é meu te pertence.<br>

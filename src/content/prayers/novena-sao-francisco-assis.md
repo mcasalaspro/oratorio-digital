@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Francisco de Assis (1182–1226), filho de um rico comerciante, abraçou a pobreza para seguir o Cristo crucificado. Fundou a Ordem dos Frades Menores, recebeu os estigmas no monte Alverne em 1224 e foi canonizado em 1228. Proclamado padroeiro da ecologia por São João Paulo II em 1979, ele nos ensina a louvar a Deus em todas as criaturas. Esta novena recolhe a piedade franciscana tradicional para nos dispor à conversão e à paz.
+*São Francisco de Assis (1182–1226), filho de um rico comerciante, abraçou a pobreza para seguir o Cristo crucificado. Fundou a Ordem dos Frades Menores, recebeu os estigmas no monte Alverne em 1224 e foi canonizado em 1228. Proclamado padroeiro da ecologia por São João Paulo II em 1979, ele nos ensina a louvar a Deus em todas as criaturas. Esta novena recolhe a piedade franciscana tradicional para nos dispor à conversão e à paz.*
 
-Em cada dia, faça o sinal da cruz e reze com o coração simples e pobre do Poverello.
+*Em cada dia, faça o sinal da cruz e reze com o coração simples e pobre do Poverello.*
 
 ## Dia 1 — A conversão do coração
 

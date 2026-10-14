@@ -11,18 +11,14 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Os Mistérios Luminosos foram propostos por São João Paulo II em 2002, na Carta Apostólica *Rosarium Virginis Mariae* (16 de outubro de 2002), para contemplar a vida pública de Jesus. São rezados tradicionalmente às quintas-feiras.
+_Os Mistérios Luminosos foram propostos por São João Paulo II em 2002, na Carta Apostólica *Rosarium Virginis Mariae* (16 de outubro de 2002), para contemplar a vida pública de Jesus. São rezados tradicionalmente às quintas-feiras._
 
 ## Como rezar
 
-Faça o Sinal da Cruz e, em seguida, reze o Credo, o Pai-Nosso, três Ave-Marias e o Glória. Depois anuncie cada mistério, reze um Pai-Nosso, dez Ave-Marias e um Glória.
-
-**Sinal da Cruz**
+*Faça o Sinal da Cruz e, em seguida, reze o Credo, o Pai-Nosso, três Ave-Marias e o Glória. Depois anuncie cada mistério, reze um Pai-Nosso, dez Ave-Marias e um Glória.*
 
 Em nome do Pai, e do Filho, e do Espírito Santo.<br>
 Amém.
-
-**Credo**
 
 Creio em Deus Pai todo-poderoso,<br>
 Criador do céu e da terra.<br>
@@ -43,33 +39,27 @@ na remissão dos pecados;<br>
 na ressurreição da carne;<br>
 na vida eterna. Amém.
 
-**Pai-Nosso**
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-Pai nosso que estais nos céus,<br>
-santificado seja o Vosso nome;<br>
-venha a nós o Vosso reino,<br>
-seja feita a Vossa vontade,<br>
-assim na terra como no céu;<br>
-o pão nosso de cada dia nos dai hoje;<br>
-perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido;<br>
-e não nos deixeis cair em tentação,<br>
-mas livrai-nos do mal. Amém.
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-3x Ave-Maria
-
-Ave, Maria, cheia de graça,<br>
-o Senhor é convosco;<br>
-bendita sois vós entre as mulheres,<br>
-e bendito é o fruto do vosso ventre, Jesus.<br>
-Santa Maria, Mãe de Deus,<br>
-rogai por nós, pecadores,<br>
-agora e na hora da nossa morte. Amém.
-
-**Glória**
-
-Glória ao Pai e ao Filho e ao Espírito Santo.<br>
-Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ## Primeiro Mistério Luminoso — O Batismo de Jesus no Jordão
 
@@ -77,33 +67,27 @@ Contemplamos o Batismo de Jesus no rio Jordão.<br>
 Os céus se abrem e a voz do Pai O proclama Filho amado.<br>
 O Espírito Santo desce sobre Ele em forma de pomba.
 
-**Pai-Nosso**
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-Pai nosso que estais nos céus,<br>
-santificado seja o Vosso nome;<br>
-venha a nós o Vosso reino,<br>
-seja feita a Vossa vontade,<br>
-assim na terra como no céu;<br>
-o pão nosso de cada dia nos dai hoje;<br>
-perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido;<br>
-e não nos deixeis cair em tentação,<br>
-mas livrai-nos do mal. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-10x Ave-Maria
-
-Ave, Maria, cheia de graça,<br>
-o Senhor é convosco;<br>
-bendita sois vós entre as mulheres,<br>
-e bendito é o fruto do vosso ventre, Jesus.<br>
-Santa Maria, Mãe de Deus,<br>
-rogai por nós, pecadores,<br>
-agora e na hora da nossa morte. Amém.
-
-**Glória**
-
-Glória ao Pai e ao Filho e ao Espírito Santo.<br>
-Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
 
@@ -113,33 +97,27 @@ Contemplamos as bodas de Caná da Galileia.<br>
 Por intercessão de Maria, Jesus realiza o primeiro dos Seus sinais.<br>
 A água transformada em vinho manifesta Sua glória.
 
-**Pai-Nosso**
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-Pai nosso que estais nos céus,<br>
-santificado seja o Vosso nome;<br>
-venha a nós o Vosso reino,<br>
-seja feita a Vossa vontade,<br>
-assim na terra como no céu;<br>
-o pão nosso de cada dia nos dai hoje;<br>
-perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido;<br>
-e não nos deixeis cair em tentação,<br>
-mas livrai-nos do mal. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-10x Ave-Maria
-
-Ave, Maria, cheia de graça,<br>
-o Senhor é convosco;<br>
-bendita sois vós entre as mulheres,<br>
-e bendito é o fruto do vosso ventre, Jesus.<br>
-Santa Maria, Mãe de Deus,<br>
-rogai por nós, pecadores,<br>
-agora e na hora da nossa morte. Amém.
-
-**Glória**
-
-Glória ao Pai e ao Filho e ao Espírito Santo.<br>
-Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
 
@@ -149,33 +127,27 @@ Contemplamos Jesus proclamando o Reino de Deus.<br>
 Ele convida todos à conversão e ao perdão dos pecados.<br>
 Sua palavra ilumina os corações e cura os enfermos.
 
-**Pai-Nosso**
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-Pai nosso que estais nos céus,<br>
-santificado seja o Vosso nome;<br>
-venha a nós o Vosso reino,<br>
-seja feita a Vossa vontade,<br>
-assim na terra como no céu;<br>
-o pão nosso de cada dia nos dai hoje;<br>
-perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido;<br>
-e não nos deixeis cair em tentação,<br>
-mas livrai-nos do mal. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-10x Ave-Maria
-
-Ave, Maria, cheia de graça,<br>
-o Senhor é convosco;<br>
-bendita sois vós entre as mulheres,<br>
-e bendito é o fruto do vosso ventre, Jesus.<br>
-Santa Maria, Mãe de Deus,<br>
-rogai por nós, pecadores,<br>
-agora e na hora da nossa morte. Amém.
-
-**Glória**
-
-Glória ao Pai e ao Filho e ao Espírito Santo.<br>
-Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
 
@@ -185,33 +157,27 @@ Contemplamos a Transfiguração no monte Tabor.<br>
 O rosto de Jesus resplandece como o sol e Suas vestes ficam brancas.<br>
 A voz do Pai exorta: "Este é o Meu Filho amado, escutai-O."
 
-**Pai-Nosso**
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-Pai nosso que estais nos céus,<br>
-santificado seja o Vosso nome;<br>
-venha a nós o Vosso reino,<br>
-seja feita a Vossa vontade,<br>
-assim na terra como no céu;<br>
-o pão nosso de cada dia nos dai hoje;<br>
-perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido;<br>
-e não nos deixeis cair em tentação,<br>
-mas livrai-nos do mal. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-10x Ave-Maria
-
-Ave, Maria, cheia de graça,<br>
-o Senhor é convosco;<br>
-bendita sois vós entre as mulheres,<br>
-e bendito é o fruto do vosso ventre, Jesus.<br>
-Santa Maria, Mãe de Deus,<br>
-rogai por nós, pecadores,<br>
-agora e na hora da nossa morte. Amém.
-
-**Glória**
-
-Glória ao Pai e ao Filho e ao Espírito Santo.<br>
-Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
 
@@ -221,33 +187,27 @@ Contemplamos a instituição da Eucaristia na Última Ceia.<br>
 Jesus Se entrega como pão da vida e cálice da salvação.<br>
 Ele permanece conosco no sacramento do Seu amor.
 
-**Pai-Nosso**
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-Pai nosso que estais nos céus,<br>
-santificado seja o Vosso nome;<br>
-venha a nós o Vosso reino,<br>
-seja feita a Vossa vontade,<br>
-assim na terra como no céu;<br>
-o pão nosso de cada dia nos dai hoje;<br>
-perdoai-nos as nossas ofensas,<br>
-assim como nós perdoamos a quem nos tem ofendido;<br>
-e não nos deixeis cair em tentação,<br>
-mas livrai-nos do mal. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-10x Ave-Maria
-
-Ave, Maria, cheia de graça,<br>
-o Senhor é convosco;<br>
-bendita sois vós entre as mulheres,<br>
-e bendito é o fruto do vosso ventre, Jesus.<br>
-Santa Maria, Mãe de Deus,<br>
-rogai por nós, pecadores,<br>
-agora e na hora da nossa morte. Amém.
-
-**Glória**
-
-Glória ao Pai e ao Filho e ao Espírito Santo.<br>
-Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
 
@@ -266,8 +226,6 @@ bendito fruto do vosso ventre,<br>
 Rogai por nós, Santa Mãe de Deus.<br>
 Para que sejamos dignos das promessas de Cristo.<br>
 Amém.
-
-**Sinal da Cruz**
 
 Em nome do Pai, e do Filho, e do Espírito Santo.<br>
 Amém.

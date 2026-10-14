@@ -10,7 +10,7 @@ description: "Oração tradicional do Ato de Caridade: amar a Deus sobre todas a
 featured: false
 liturgicalColor: "festa"
 ---
-O Ato de Caridade é uma das três orações que expressam as virtudes teologais (fé, esperança e caridade). Nesta fórmula tradicional do catecismo, o fiel renova seu amor a Deus acima de tudo e ao próximo por amor a Ele. O Papa Bento XIV concedeu indulgências a esta prática piedosa no século XVIII (1747).
+*O Ato de Caridade é uma das três orações que expressam as virtudes teologais (fé, esperança e caridade). Nesta fórmula tradicional do catecismo, o fiel renova seu amor a Deus acima de tudo e ao próximo por amor a Ele. O Papa Bento XIV concedeu indulgências a esta prática piedosa no século XVIII (1747).*
 
 Meu Deus, eu Vos amo sobre todas as coisas,<br>
 com todo o meu coração e com toda a minha alma,<br>

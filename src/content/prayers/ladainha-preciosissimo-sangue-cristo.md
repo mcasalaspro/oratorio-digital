@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-Esta ladainha em honra ao Preciosíssimo Sangue de Cristo foi aprovada pelo Papa Pio IX em 1850 e revista pelo Papa Paulo VI em 1960. Está profundamente ligada ao apostolado de São Gaspar del Bufalo, fundador dos Missionários do Preciosíssimo Sangue. Tradicionalmente rezada durante o mês de julho, dedicado ao Sangue de Cristo, cuja festa se celebrava em 1º de julho.
+*Esta ladainha em honra ao Preciosíssimo Sangue de Cristo foi aprovada pelo Papa Pio IX em 1850 e revista pelo Papa Paulo VI em 1960. Está profundamente ligada ao apostolado de São Gaspar del Bufalo, fundador dos Missionários do Preciosíssimo Sangue. Tradicionalmente rezada durante o mês de julho, dedicado ao Sangue de Cristo, cuja festa se celebrava em 1º de julho.*
 
 Senhor, tende piedade de nós.<br>
 Cristo, tende piedade de nós.<br>

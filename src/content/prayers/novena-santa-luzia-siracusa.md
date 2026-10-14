@@ -14,11 +14,11 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-Santa Luzia de Siracusa, virgem e mártir do século IV, é venerada como protetora da visão e dos olhos.<br>
+*Santa Luzia de Siracusa, virgem e mártir do século IV, é venerada como protetora da visão e dos olhos.<br>
 Seu nome significa "luz", e ela continua a iluminar quantos a invocam com fé.<br>
-Segundo a tradição siciliana e romana, ofereceu sua vida a Cristo durante a perseguição de Diocleciano, por volta do ano 304.
+Segundo a tradição siciliana e romana, ofereceu sua vida a Cristo durante a perseguição de Diocleciano, por volta do ano 304.*
 
-Que esta novena nos ajude a buscar a verdadeira Luz, que é o Senhor.
+*Que esta novena nos ajude a buscar a verdadeira Luz, que é o Senhor.*
 
 ## Dia 1 — A luz que vem de Deus
 

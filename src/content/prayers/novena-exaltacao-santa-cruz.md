@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A festa da Exaltação da Santa Cruz tem origem na tradição litúrgica oriental, em Jerusalém, no ano de 335 d.C., quando foi dedicada a Basílica do Santo Sepulcro, erguida sobre o Calvário.
+*A festa da Exaltação da Santa Cruz tem origem na tradição litúrgica oriental, em Jerusalém, no ano de 335 d.C., quando foi dedicada a Basílica do Santo Sepulcro, erguida sobre o Calvário.
 A celebração ganhou novo brilho em 628 d.C., quando o Imperador Heráclio recuperou a relíquia da Vera Cruz, que havia sido levada pelos persas, e a restituiu solenemente a Jerusalém.
-Nesta novena, contemplamos a Cruz não como instrumento de morte, mas como trono glorioso da nossa salvação.
+Nesta novena, contemplamos a Cruz não como instrumento de morte, mas como trono glorioso da nossa salvação.*
 
 > Nós Vos adoramos, ó Cristo, e Vos bendizemos,
 > porque pela Vossa Santa Cruz remistes o mundo.

@@ -12,7 +12,7 @@ liturgicalFeast: "11-02"
 liturgicalColor: "festa"
 ---
 
-O Ofício dos Mortos é uma das mais antigas orações da Igreja pelos que partiram, recebendo forma litúrgica no tempo do Beato Alcuíno de Iorque (séc. VIII–IX). Por volta do ano 998, São Odilão de Cluny instituiu o dia 2 de novembro como memória anual de oração por todos os fiéis defuntos, costume que se difundiu por toda a Igreja. Esta oração recolhe esse espírito de intercessão pelas almas, pedindo a Deus o descanso eterno para os que dormem na esperança da ressurreição.
+*O Ofício dos Mortos é uma das mais antigas orações da Igreja pelos que partiram, recebendo forma litúrgica no tempo do Beato Alcuíno de Iorque (séc. VIII–IX). Por volta do ano 998, São Odilão de Cluny instituiu o dia 2 de novembro como memória anual de oração por todos os fiéis defuntos, costume que se difundiu por toda a Igreja. Esta oração recolhe esse espírito de intercessão pelas almas, pedindo a Deus o descanso eterno para os que dormem na esperança da ressurreição.*
 
 > Dai-lhes, Senhor, o descanso eterno,
 > e que a luz perpétua os ilumine.

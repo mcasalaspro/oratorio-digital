@@ -12,7 +12,7 @@ liturgicalFeast: "06-01"
 liturgicalColor: "festa"
 ---
 
-O mês de junho é tradicionalmente consagrado ao Sagrado Coração de Jesus, fonte inesgotável de amor e misericórdia. Esta devoção nasce das revelações feitas por Nosso Senhor a Santa Margarida Maria Alacoque, em Paray-le-Monial, entre 1673 e 1675, e foi difundida com o auxílio de seu diretor espiritual, São Cláudio de la Colombière, da Companhia de Jesus. A consagração de todo o mês de junho ao Coração de Jesus firmou-se ao longo do século XIX.
+*O mês de junho é tradicionalmente consagrado ao Sagrado Coração de Jesus, fonte inesgotável de amor e misericórdia. Esta devoção nasce das revelações feitas por Nosso Senhor a Santa Margarida Maria Alacoque, em Paray-le-Monial, entre 1673 e 1675, e foi difundida com o auxílio de seu diretor espiritual, São Cláudio de la Colombière, da Companhia de Jesus. A consagração de todo o mês de junho ao Coração de Jesus firmou-se ao longo do século XIX.*
 
 ## Oferecimento do mês
 

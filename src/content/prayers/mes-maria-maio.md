@@ -12,9 +12,9 @@ liturgicalFeast: "05-01"
 liturgicalColor: "festa"
 ---
 
-O *Mês de Maria* é a devoção que consagra todo o mês de maio à Santíssima Virgem.
+_O *Mês de Maria* é a devoção que consagra todo o mês de maio à Santíssima Virgem.
 Popularizada pelo Padre Alfonso Muzzarelli SJ e inspirada na piedade de São Filipe Néri (séc. XVI–XVIII), foi consolidada na Roma renascentista e difundida pela Igreja no séc. XIX.
-A prática consiste em honrar Maria a cada dia de maio, recitando o Rosário, oferecendo flores e cultivando uma virtude em Sua honra.
+A prática consiste em honrar Maria a cada dia de maio, recitando o Rosário, oferecendo flores e cultivando uma virtude em Sua honra._
 
 ## Oração de abertura
 
@@ -47,27 +47,76 @@ entregamos os dias deste mês.
 
 ## A oração do Rosário
 
-Reza-se diariamente ao menos uma parte do Rosário, meditando os mistérios da vida de Cristo e de Maria.
+*Reza-se diariamente ao menos uma parte do Rosário, meditando os mistérios da vida de Cristo e de Maria.*
 
-Sinal da Cruz e ato de contrição.
+*Sinal da Cruz e ato de contrição.*
 
-Creio em Deus Pai...
+Creio em Deus Pai todo-poderoso,<br>
+Criador do céu e da terra.<br>
+E em Jesus Cristo, Seu único Filho, nosso Senhor,<br>
+que foi concebido pelo poder do Espírito Santo;<br>
+nasceu da Virgem Maria;<br>
+padeceu sob Pôncio Pilatos,<br>
+foi crucificado, morto e sepultado.<br>
+Desceu à mansão dos mortos;<br>
+ressuscitou ao terceiro dia,<br>
+subiu aos céus;<br>
+está sentado à direita de Deus Pai todo-poderoso,<br>
+donde há de vir a julgar os vivos e os mortos.<br>
+Creio no Espírito Santo;<br>
+na santa Igreja Católica,<br>
+na comunhão dos santos;<br>
+na remissão dos pecados;<br>
+na ressurreição da carne;<br>
+na vida eterna. Amém.
 
-Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-Glória ao Pai e ao Filho e ao Espírito Santo...
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ### 5x Dezenas
 
 *Em cada dezena, anuncia-se o mistério, reza-se um Pai-Nosso, dez Ave-Marias e um Glória:*
 
-Pai nosso que estais nos céus...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem.
 
@@ -109,4 +158,4 @@ antes ouvi-as e atendei-as propícia. Amém.
 
 ---
 
-**Fontes:** Devoção tradicional do *Mês de Maria*, de domínio público, popularizada pelo Padre Alfonso Muzzarelli SJ e inspirada na piedade de São Filipe Néri (séc. XVI–XVIII), consolidada na Roma renascentista e difundida amplamente no séc. XIX.
+_**Fontes:** Devoção tradicional do *Mês de Maria*, de domínio público, popularizada pelo Padre Alfonso Muzzarelli SJ e inspirada na piedade de São Filipe Néri (séc. XVI–XVIII), consolidada na Roma renascentista e difundida amplamente no séc. XIX._

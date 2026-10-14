@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Em 11 de fevereiro de 1858, na gruta de Massabielle, em Lourdes, a Virgem Maria apareceu a Santa Bernadette Soubirous, declarando-se a "Imaculada Conceição". As aparições prolongaram-se até 16 de julho daquele ano, e desde então Lourdes tornou-se um santuário de fé, cura e conversão. Em 11 de fevereiro celebra-se também o Dia Mundial do Doente. Esta novena, fiel à tradição local da Diocese de Tarbes-Lourdes, eleva ao Coração da Mãe as nossas dores e esperanças.
+*Em 11 de fevereiro de 1858, na gruta de Massabielle, em Lourdes, a Virgem Maria apareceu a Santa Bernadette Soubirous, declarando-se a "Imaculada Conceição". As aparições prolongaram-se até 16 de julho daquele ano, e desde então Lourdes tornou-se um santuário de fé, cura e conversão. Em 11 de fevereiro celebra-se também o Dia Mundial do Doente. Esta novena, fiel à tradição local da Diocese de Tarbes-Lourdes, eleva ao Coração da Mãe as nossas dores e esperanças.*
 
-Faça o sinal da cruz e inicie cada dia com confiança filial.
+*Faça o sinal da cruz e inicie cada dia com confiança filial.*
 
 ## Dia 1 — A Imaculada Conceição
 

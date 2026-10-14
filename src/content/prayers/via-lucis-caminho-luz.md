@@ -10,9 +10,9 @@ description: "Devoção pascal das catorze estações, da Ressurreição a Pente
 featured: false
 liturgicalColor: "festa"
 ---
-O Via Lucis (Caminho da Luz) é uma devoção pós-conciliar, difundida a partir dos anos 1990 pela família salesiana, como contraparte pascal da Via-Sacra. Em catorze estações, percorre o caminho que vai da Ressurreição de Cristo à descida do Espírito Santo em Pentecostes, ajudando o fiel a contemplar a alegria do Senhor ressuscitado.
+*O Via Lucis (Caminho da Luz) é uma devoção pós-conciliar, difundida a partir dos anos 1990 pela família salesiana, como contraparte pascal da Via-Sacra. Em catorze estações, percorre o caminho que vai da Ressurreição de Cristo à descida do Espírito Santo em Pentecostes, ajudando o fiel a contemplar a alegria do Senhor ressuscitado.*
 
-Em cada estação, faz-se a invocação:
+*Em cada estação, faz-se a invocação:*
 
 > V. Nós Vos adoramos, ó Cristo, e Vos bendizemos.<br>
 > R. Porque, ressuscitando, dais a vida ao mundo.

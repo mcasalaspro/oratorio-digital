@@ -9,7 +9,8 @@
 //
 //  Partes: motor.ts (assistente de leitura), novena.ts, conclusao.ts (contador e
 //  overlay), ferramentas.ts (favoritar, compartilhar, letra, foco, tela acesa),
-//  misterios-dia.ts (Terço e Rosários).
+//  misterios-dia.ts (Terço e Rosários), visita.ts (visita à oração: contador e
+//  lista das já abertas, que o "Sortear" usa).
 // ════════════════════════════════════════════════════════════════
 import { lerDados, t, guarda, traduzirArias } from './dados';
 import { criarMotor, iniciarContas, desenharConta, contaDe } from './motor';
@@ -17,6 +18,7 @@ import { iniciarNovena } from './novena';
 import { iniciarConclusao, type Conclusao } from './conclusao';
 import { iniciarFerramentas, type Ferramentas } from './ferramentas';
 import { iniciarMisterios } from './misterios-dia';
+import { registrarVisita } from './visita';
 
 const meta = lerDados();
 const content = document.getElementById('prayer-content');
@@ -97,6 +99,7 @@ if (meta && content) {
     content.querySelectorAll('[data-rep], section.od-secao').forEach((el) => { const c = contaDe(el); if (c) desenharConta(c); });
   });
   rotularPlay();
+  registrarVisita(meta.slug);
 
   // para testes e depuração (sem efeito na página)
   (window as any).odLeitor = { motor, novena, depurar: () => motor.depurar() };

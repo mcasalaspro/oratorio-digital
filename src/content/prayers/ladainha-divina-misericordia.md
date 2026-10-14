@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-Esta ladainha tem inspiração na devoção à Divina Misericórdia, associada às revelações registradas no Diário de Santa Faustina Kowalska (séc. XX, publicado integralmente em 1981). Nela invocamos a infinita misericórdia de Deus, depositando n'Ele toda a nossa confiança. É rezada de modo especial durante a Semana da Divina Misericórdia.
+*Esta ladainha tem inspiração na devoção à Divina Misericórdia, associada às revelações registradas no Diário de Santa Faustina Kowalska (séc. XX, publicado integralmente em 1981). Nela invocamos a infinita misericórdia de Deus, depositando n'Ele toda a nossa confiança. É rezada de modo especial durante a Semana da Divina Misericórdia.*
 
 Senhor, tende piedade de nós.<br>
 Cristo, tende piedade de nós.<br>

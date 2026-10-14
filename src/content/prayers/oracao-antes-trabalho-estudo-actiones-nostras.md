@@ -10,7 +10,7 @@ description: "Oração litúrgica tradicional rezada antes das tarefas: que tudo
 featured: false
 liturgicalColor: "festa"
 ---
-Oração litúrgica tradicional (*Actiones nostras*), conservada no Missal Romano e recitada antes de iniciar o trabalho ou o estudo, para que todas as nossas ações tenham princípio e fim em Deus.
+_Oração litúrgica tradicional (*Actiones nostras*), conservada no Missal Romano e recitada antes de iniciar o trabalho ou o estudo, para que todas as nossas ações tenham princípio e fim em Deus._
 
 *Faça o Sinal da Cruz e, recolhendo-se, apresente a Deus o trabalho ou o estudo que vai começar.*
 

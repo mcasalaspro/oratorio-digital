@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Francisco de Sales, bispo de Genebra e Doutor da Igreja, autor da célebre *Introdução à Vida Devota* (1609), ensinou que todos são chamados à santidade no estado e na vocação em que se encontram. Mestre da mansidão e da doçura, fundador da Ordem das Visitandinas e padroeiro dos escritores e jornalistas, ele nos conduz com suavidade ao coração de Deus.
+_São Francisco de Sales, bispo de Genebra e Doutor da Igreja, autor da célebre *Introdução à Vida Devota* (1609), ensinou que todos são chamados à santidade no estado e na vocação em que se encontram. Mestre da mansidão e da doçura, fundador da Ordem das Visitandinas e padroeiro dos escritores e jornalistas, ele nos conduz com suavidade ao coração de Deus._
 
-Façamos esta novena com confiança, pedindo sua intercessão.
+*Façamos esta novena com confiança, pedindo sua intercessão.*
 
 ## Dia 1 — A coragem da fé
 

@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Vicente de Paulo (1581–1660), sacerdote francês, fundou a Congregação da Missão (Lazaristas) e, com Santa Luísa de Marillac, as Filhas da Caridade. Toda a sua vida foi devotada ao serviço dos pobres, dos enfermos e dos abandonados, vendo no rosto do necessitado a face de Cristo. Canonizado em 1737, foi declarado patrono universal de todas as obras de caridade. Que esta novena nos inspire a amar a Deus servindo os irmãos.
+*São Vicente de Paulo (1581–1660), sacerdote francês, fundou a Congregação da Missão (Lazaristas) e, com Santa Luísa de Marillac, as Filhas da Caridade. Toda a sua vida foi devotada ao serviço dos pobres, dos enfermos e dos abandonados, vendo no rosto do necessitado a face de Cristo. Canonizado em 1737, foi declarado patrono universal de todas as obras de caridade. Que esta novena nos inspire a amar a Deus servindo os irmãos.*
 
 ## Dia 1 — O chamado à caridade
 

@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Luís Gonzaga, da Companhia de Jesus (séc. XVI–XVII, canonizado em 1726), renunciou às riquezas e honras de sua família nobre para servir a Deus na pobreza e na pureza.
+*São Luís Gonzaga, da Companhia de Jesus (séc. XVI–XVII, canonizado em 1726), renunciou às riquezas e honras de sua família nobre para servir a Deus na pobreza e na pureza.
 Patrono da juventude cristã, morreu aos vinte e três anos, em 1591, contraindo a peste enquanto cuidava dos doentes nas ruas de Roma.
-Nesta novena, peçamos a sua intercessão para vivermos com pureza de coração, generosidade no serviço e amor ardente a Deus.
+Nesta novena, peçamos a sua intercessão para vivermos com pureza de coração, generosidade no serviço e amor ardente a Deus.*
 
 > Ó São Luís, ornamento da juventude, rogai por nós a Deus, para que, imitando vossas virtudes, mereçamos um dia contemplá-Lo no Céu. Amém.
 

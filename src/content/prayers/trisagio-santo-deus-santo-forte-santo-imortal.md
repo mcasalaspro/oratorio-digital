@@ -10,7 +10,7 @@ description: "Hino à Santíssima Trindade da tradição litúrgica oriental: Sa
 featured: false
 liturgicalColor: "festa"
 ---
-O Triságio (do grego *trisághios*, "três vezes santo") é um dos hinos mais antigos da cristandade, cantado nas liturgias do Oriente Cristão desde o século V. Repetido três vezes, eleva a alma à adoração da Santíssima Trindade, ecoando o louvor dos serafins que clamam diante do trono de Deus.
+_O Triságio (do grego *trisághios*, "três vezes santo") é um dos hinos mais antigos da cristandade, cantado nas liturgias do Oriente Cristão desde o século V. Repetido três vezes, eleva a alma à adoração da Santíssima Trindade, ecoando o louvor dos serafins que clamam diante do trono de Deus._
 
 3x Santo Deus,<br>
 Santo Forte,<br>

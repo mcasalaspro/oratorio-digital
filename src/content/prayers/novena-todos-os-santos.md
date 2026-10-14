@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A Solenidade de Todos os Santos remonta à tradição litúrgica romana e foi estendida a toda a Igreja pelo Papa Gregório IV, no século VIII (em 837). Esta novena nos une à Igreja Triunfante e a toda a comunhão dos santos que já contemplam a face de Deus no Céu, pedindo sua intercessão e inspirando-nos a seguir seus exemplos de santidade.
+*A Solenidade de Todos os Santos remonta à tradição litúrgica romana e foi estendida a toda a Igreja pelo Papa Gregório IV, no século VIII (em 837). Esta novena nos une à Igreja Triunfante e a toda a comunhão dos santos que já contemplam a face de Deus no Céu, pedindo sua intercessão e inspirando-nos a seguir seus exemplos de santidade.*
 
-Iniciemos cada dia com o sinal da cruz:
+*Iniciemos cada dia com o sinal da cruz:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.<br>
 
@@ -168,7 +168,7 @@ para Vos louvar eternamente no Céu.
 
 > Todos os santos e santas de Deus, rogai por nós.
 
-Concluamos a novena com esta oração:
+*Concluamos a novena com esta oração:*
 
 Deus eterno e todo-poderoso,<br>
 que nos concedeis venerar numa só festa<br>
@@ -180,4 +180,24 @@ e conduzi-nos seguros à pátria do Céu.
 
 Por Cristo, nosso Senhor. Amém.
 
-> Pai-Nosso, Ave-Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

@@ -11,10 +11,10 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-O Símbolo dos Apóstolos é a antiga profissão de fé batismal da Igreja de Roma.
+*O Símbolo dos Apóstolos é a antiga profissão de fé batismal da Igreja de Roma.
 Sua forma final foi fixada entre os séculos VI e VII, mas suas raízes remontam à tradição apostólica dos primeiros séculos (séc. II–IV).
 É chamado "Apostólico" por resumir fielmente a fé dos Apóstolos.
-Recita-se no início do Santo Rosário e na Liturgia das Horas.
+Recita-se no início do Santo Rosário e na Liturgia das Horas.*
 
 Creio em Deus Pai todo-poderoso,<br>
 Criador do céu e da terra.<br>

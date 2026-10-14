@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Bento de Núrsia (séc. V–VI) é o pai do monaquismo ocidental e autor da célebre Regra Beneditina (c. 540), que ordenou a vida cristã sob o lema *Ora et Labora* — "Reza e Trabalha". Canonizado no século XII, foi proclamado padroeiro da Europa pelo Papa Paulo VI em 1964. A medalha de São Bento é mundialmente conhecida como poderoso sinal de proteção contra o mal.
+_São Bento de Núrsia (séc. V–VI) é o pai do monaquismo ocidental e autor da célebre Regra Beneditina (c. 540), que ordenou a vida cristã sob o lema *Ora et Labora* — "Reza e Trabalha". Canonizado no século XII, foi proclamado padroeiro da Europa pelo Papa Paulo VI em 1964. A medalha de São Bento é mundialmente conhecida como poderoso sinal de proteção contra o mal._
 
-Reze esta novena com fé, confiando na intercessão deste grande Santo.
+*Reze esta novena com fé, confiando na intercessão deste grande Santo.*
 
 **Oração inicial (rezada todos os dias):**
 

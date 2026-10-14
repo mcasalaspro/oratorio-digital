@@ -11,8 +11,8 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-O *Glória ao Pai*, chamado também de Doxologia Menor, é uma breve oração de louvor à Santíssima Trindade.
-Sua forma trinitária consolidou-se na tradição litúrgica sob a influência do Concílio de Niceia (c. 325 d.C.), afirmando a igual glória das três Pessoas divinas: o Pai, o Filho e o Espírito Santo.
+_O *Glória ao Pai*, chamado também de Doxologia Menor, é uma breve oração de louvor à Santíssima Trindade.
+Sua forma trinitária consolidou-se na tradição litúrgica sob a influência do Concílio de Niceia (c. 325 d.C.), afirmando a igual glória das três Pessoas divinas: o Pai, o Filho e o Espírito Santo._
 
 Glória ao Pai<br>
 e ao Filho<br>

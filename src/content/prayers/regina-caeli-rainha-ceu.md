@@ -11,8 +11,8 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Antífona mariana tradicional, de autor anônimo (falsamente atribuída a São Gregório Magno), com primeiros registros documentados no século XII.<br>
-Durante o Tempo Pascal, ela substitui a Salve Rainha, convidando Maria — e toda a Igreja — a alegrar-se com a Ressurreição do Senhor.
+*Antífona mariana tradicional, de autor anônimo (falsamente atribuída a São Gregório Magno), com primeiros registros documentados no século XII.<br>
+Durante o Tempo Pascal, ela substitui a Salve Rainha, convidando Maria — e toda a Igreja — a alegrar-se com a Ressurreição do Senhor.*
 
 Rainha do Céu, alegrai-vos, aleluia!<br>
 Porque Aquele que merecestes trazer em vosso seio, aleluia,<br>

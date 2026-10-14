@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-A devoção a Nossa Senhora Desatadora dos Nós inspira-se na pintura de Johann Georg Melchior Schmidtner (c. 1700) e foi difundida pelo então Pe. Jorge Mario Bergoglio, mais tarde Papa Francisco, durante seu ministério em Buenos Aires, nos anos 1980.
+*A devoção a Nossa Senhora Desatadora dos Nós inspira-se na pintura de Johann Georg Melchior Schmidtner (c. 1700) e foi difundida pelo então Pe. Jorge Mario Bergoglio, mais tarde Papa Francisco, durante seu ministério em Buenos Aires, nos anos 1980.*
 
 Virgem Maria, Mãe do belo amor,<br>
 Mãe que jamais abandonastes um filho que clama por socorro,<br>

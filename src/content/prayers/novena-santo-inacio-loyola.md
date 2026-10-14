@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra Santo Inácio de Loyola (1491–1556), soldado convertido que fundou a Companhia de Jesus em 1540 e nos legou os Exercícios Espirituais. Canonizado em 1622, ensinou-nos a buscar e fazer a vontade de Deus em tudo, "para a maior glória de Deus" (*Ad maiorem Dei gloriam*).
+_Esta novena honra Santo Inácio de Loyola (1491–1556), soldado convertido que fundou a Companhia de Jesus em 1540 e nos legou os Exercícios Espirituais. Canonizado em 1622, ensinou-nos a buscar e fazer a vontade de Deus em tudo, "para a maior glória de Deus" (*Ad maiorem Dei gloriam*)._
 
-Reze a cada dia a oração inicial, medite o tema próprio e conclua com a oração final comum.
+*Reze a cada dia a oração inicial, medite o tema próprio e conclua com a oração final comum.*
 
 **Oração inicial (todos os dias):**
 

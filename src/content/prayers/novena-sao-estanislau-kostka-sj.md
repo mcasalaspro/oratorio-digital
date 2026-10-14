@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Estanislau Kostka (1550–1568), nobre polonês, ingressou na Companhia de Jesus ainda muito jovem, após uma fuga corajosa rumo a Roma. Morreu santamente aos dezoito anos, no dia da Assunção que tanto amava, deixando um exemplo luminoso de pureza, fervor e abandono à vontade de Deus. Canonizado em 1726, é padroeiro da juventude e dos noviços religiosos.
+*São Estanislau Kostka (1550–1568), nobre polonês, ingressou na Companhia de Jesus ainda muito jovem, após uma fuga corajosa rumo a Roma. Morreu santamente aos dezoito anos, no dia da Assunção que tanto amava, deixando um exemplo luminoso de pureza, fervor e abandono à vontade de Deus. Canonizado em 1726, é padroeiro da juventude e dos noviços religiosos.*
 
-Reza-se esta novena de 4 a 12 de novembro, preparando a festa do santo no dia 13.
+*Reza-se esta novena de 4 a 12 de novembro, preparando a festa do santo no dia 13.*
 
 ## Dia 1 — O chamado de Deus na juventude
 

@@ -14,9 +14,9 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-Santa Cecília de Roma, segundo a tradição martirológica romana dos séculos III e IV, foi uma nobre virgem cristã que, mesmo no dia de suas núpcias, cantava em seu coração apenas ao Senhor. Por sua fidelidade até o martírio (por volta do ano 230 d.C.), tornou-se padroeira da música sacra, dos cantores, dos músicos e dos poetas. Façamos esta novena com confiança, pedindo Sua intercessão.
+*Santa Cecília de Roma, segundo a tradição martirológica romana dos séculos III e IV, foi uma nobre virgem cristã que, mesmo no dia de suas núpcias, cantava em seu coração apenas ao Senhor. Por sua fidelidade até o martírio (por volta do ano 230 d.C.), tornou-se padroeira da música sacra, dos cantores, dos músicos e dos poetas. Façamos esta novena com confiança, pedindo sua intercessão.*
 
-Iniciemos cada dia com o sinal da cruz e a invocação:
+*Iniciemos cada dia com o sinal da cruz e a invocação:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.<br>
 Vinde, Espírito Santo, e enchei os corações dos vossos fiéis.<br>
@@ -153,7 +153,7 @@ Santa Cecília,<br>
 agora gloriosa no céu entre os mártires e as virgens,<br>
 apresentai a Deus as súplicas que hoje Vos confio.
 
-(Faça aqui o seu pedido com confiança.)
+*(Faça aqui o seu pedido com confiança.)*
 
 Que, seguindo o Vosso exemplo de fé e amor,<br>
 eu chegue um dia à pátria celeste<br>

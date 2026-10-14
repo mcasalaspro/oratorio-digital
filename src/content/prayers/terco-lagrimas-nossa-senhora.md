@@ -10,7 +10,7 @@ description: "Terço das Lágrimas de Nossa Senhora, revelado à Irmã Amália d
 featured: false
 liturgicalColor: "festa"
 ---
-O Terço das Lágrimas de Nossa Senhora foi revelado à Irmã Amália de Jesus Flagelado, em Campinas, no Brasil, no ano de 1929. Nele, suplicamos a Deus pelas lágrimas de Maria Santíssima, oferecendo-as pela conversão dos pecadores e pelas intenções da Igreja. Reza-se em contas próprias, com a invocação repetida *"Ó Jesus, escutai as nossas preces, pelas lágrimas de Vossa Santíssima Mãe."*
+_O Terço das Lágrimas de Nossa Senhora foi revelado à Irmã Amália de Jesus Flagelado, em Campinas, no Brasil, no ano de 1929. Nele, suplicamos a Deus pelas lágrimas de Maria Santíssima, oferecendo-as pela conversão dos pecadores e pelas intenções da Igreja. Reza-se em contas próprias, com a invocação repetida *"Ó Jesus, escutai as nossas preces, pelas lágrimas de Vossa Santíssima Mãe."*_
 
 ## Sinal da Cruz
 
@@ -53,7 +53,7 @@ pelas lágrimas de Vossa Santíssima Mãe.
 
 ## Conclusão
 
-Ao terminar, reza-se três vezes:
+*Ao terminar, reza-se três vezes:*
 
 3x Ó Jesus, olhai as lágrimas daquela que mais Vos amou na terra e mais ardentemente Vos ama no céu.
 

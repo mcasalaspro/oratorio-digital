@@ -12,7 +12,7 @@ liturgicalColor: "festa"
 liturgicalFeast: "pentecostes"
 ---
 
-Sequência da Missa de Pentecostes, conhecida como *Sequência Áurea* pela beleza de seus versos. É atribuída a Estêvão Langton (Stephen Langton), arcebispo de Cantuária, por volta do ano 1200. Nela, a Igreja implora ao Espírito Santo Sua luz, Seu consolo e Seus dons.
+_Sequência da Missa de Pentecostes, conhecida como *Sequência Áurea* pela beleza de seus versos. É atribuída a Estêvão Langton (Stephen Langton), arcebispo de Cantuária, por volta do ano 1200. Nela, a Igreja implora ao Espírito Santo Sua luz, Seu consolo e Seus dons._
 
 Vinde, Espírito Santo,<br>
 e enviai do céu<br>
@@ -58,4 +58,4 @@ dai-lhes a alegria eterna.
 
 ---
 
-**Fonte:** *Veni Sancte Spiritus*, sequência litúrgica da Missa de Pentecostes, atribuída a Estêvão Langton (c. 1200). Texto tradicional de domínio público.
+_**Fonte:** *Veni Sancte Spiritus*, sequência litúrgica da Missa de Pentecostes, atribuída a Estêvão Langton (c. 1200). Texto tradicional de domínio público._

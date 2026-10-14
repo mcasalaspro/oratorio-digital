@@ -10,10 +10,10 @@ description: "A antiga oração hesicasta do Oriente Cristão, repetida ao ritmo
 featured: false
 liturgicalColor: "festa"
 ---
-A Oração de Jesus, ou Oração do Coração, nasceu entre os monges do deserto e floresceu na tradição hesicasta do Oriente Cristão (séc. V–XIV).
-É uma oração breve, repetida com fé e ao ritmo suave da respiração, até que desça da mente ao coração e se torne contínua como o bater do peito.
+*A Oração de Jesus, ou Oração do Coração, nasceu entre os monges do deserto e floresceu na tradição hesicasta do Oriente Cristão (séc. V–XIV).
+É uma oração breve, repetida com fé e ao ritmo suave da respiração, até que desça da mente ao coração e se torne contínua como o bater do peito.*
 
-Acalme o corpo, aquiete o pensamento e invoque o Nome santo de Jesus.
+*Acalme o corpo, aquiete o pensamento e invoque o Nome santo de Jesus.*
 
 **A fórmula plena:**
 
@@ -30,8 +30,8 @@ tende piedade de mim, pecador.
 
 **Repetição contínua:**
 
-Repita a oração com calma e atenção, sem pressa e sem contar.
-Quando a mente se distrair, retorne com mansidão ao Nome de Jesus.
+*Repita a oração com calma e atenção, sem pressa e sem contar.
+Quando a mente se distrair, retorne com mansidão ao Nome de Jesus.*
 
 > Senhor Jesus Cristo, Filho de Deus, tende piedade de mim, pecador.
 

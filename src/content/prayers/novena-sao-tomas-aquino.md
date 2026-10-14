@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Tomás de Aquino, frade da Ordem dos Pregadores, nasceu na Itália no século XIII e tornou-se um dos maiores mestres da fé cristã. Chamado de Doutor Angélico, uniu como ninguém a luz da razão à luz da fé na sua célebre *Summa Theologiae*. Canonizado em 1323 e proclamado Doutor da Igreja em 1567, é hoje padroeiro das universidades, dos estudantes e de quantos buscam a verdade. Que esta novena nos alcance a graça de amar a sabedoria que vem de Deus.
+_São Tomás de Aquino, frade da Ordem dos Pregadores, nasceu na Itália no século XIII e tornou-se um dos maiores mestres da fé cristã. Chamado de Doutor Angélico, uniu como ninguém a luz da razão à luz da fé na sua célebre *Summa Theologiae*. Canonizado em 1323 e proclamado Doutor da Igreja em 1567, é hoje padroeiro das universidades, dos estudantes e de quantos buscam a verdade. Que esta novena nos alcance a graça de amar a sabedoria que vem de Deus._
 
 ## Dia 1 — O amor à Verdade
 

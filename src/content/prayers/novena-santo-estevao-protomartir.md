@@ -14,14 +14,14 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-Santo Estêvão, escolhido entre os primeiros diáconos da Igreja, foi o primeiro a derramar o sangue por amor a Cristo.<br>
+*Santo Estêvão, escolhido entre os primeiros diáconos da Igreja, foi o primeiro a derramar o sangue por amor a Cristo.<br>
 Cheio do Espírito Santo e de sabedoria, deu testemunho da fé diante do Sinédrio e, ao ser lapidado, perdoou os seus algozes.<br>
 Segundo a tradição litúrgica romana e o relato dos Atos dos Apóstolos (At 6—7), seu martírio ocorreu em Jerusalém por volta do ano 35 d.C.<br>
-Sua festa é celebrada desde o século IV, no dia seguinte ao Natal.
+Sua festa é celebrada desde o século IV, no dia seguinte ao Natal.*
 
-Nesta novena, peçamos a sua intercessão para vivermos a fé com coragem e o perdão com mansidão.
+*Nesta novena, peçamos a sua intercessão para vivermos a fé com coragem e o perdão com mansidão.*
 
-Iniciemos cada dia com o sinal da cruz e a seguinte oração:
+*Iniciemos cada dia com o sinal da cruz e a seguinte oração:*
 
 > Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
@@ -161,8 +161,28 @@ se for para o bem da minha alma.
 
 > Santo Estêvão Protomártir, rogai por nós.
 
-Rezemos ao final:
+*Rezemos ao final:*
 
-> Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Deus, que neste dia nos fazeis celebrar a entrada de Santo Estêvão no céu, concedei-nos imitá-lo, amando até os nossos inimigos. Por Cristo, nosso Senhor. Amém.

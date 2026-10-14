@@ -68,6 +68,9 @@ set /p "resp=Enviar mesmo assim? (S = sim, ENTER = nao): "
 if /i not "%resp%"=="S" goto cancelado
 :sem_conferencia
 
+REM --- 6b) Arquivo de uso unico de uma atualizacao antiga: nao vai para o GitHub ---
+if exist "apagar-antigos.bat" del /q "apagar-antigos.bat"
+
 REM --- 7) Salvar as mudancas (commit) ---
 set "MUDOU="
 for /f "delims=" %%l in ('git status --porcelain') do set "MUDOU=1"

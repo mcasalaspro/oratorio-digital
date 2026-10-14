@@ -210,6 +210,8 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
   </script>
   <!-- contador da comunidade (Supabase ou Abacus): window.odContador — ver public/js/contador.js -->
   <script is:inline src={`${base.replace(/\/$/,'')}/js/contador.js`}></script>
+  <!-- "Sortear uma oração": links com data-od-sortear — ver public/js/sortear.js -->
+  <script is:inline defer src={`${base.replace(/\/$/,'')}/js/sortear.js`}></script>
 </head>
 <body>
   <div class="texture" aria-hidden="true"></div>
@@ -274,6 +276,8 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
       <a href={withBase('/produtos')} data-i18n="nav_produtos">Produtos</a>
       <a href={withBase('/textos')} data-i18n="nav_textos">Textos</a>
       <a href={withBase('/cantos')} data-i18n="nav_cantos">Cantos</a>
+      <a href={withBase('/numeros')} data-i18n="nav_numeros">Números</a>
+      <a href={withBase('/sortear')} data-od-sortear data-i18n="random_prayer">Sortear uma oração</a>
       <a href={withBase('/sobre')} data-i18n="nav_about">Sobre</a>
       <a href={withBase('/privacidade')} data-i18n="nav_privacidade">Privacidade</a>
     </nav>
@@ -292,7 +296,14 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
         </button>
       </div>
       <div id="searchResults" class="search-results"></div>
-      <p id="searchHint" class="search-hint" data-i18n="busca_dica">Digite para buscar orações, santos, textos e cantos.</p>
+      <div id="searchHint" class="search-hint-box">
+        <p class="search-hint" data-i18n="busca_dica">Digite para buscar orações, santos, textos e cantos.</p>
+        <!-- sem saber o que rezar? (public/js/sortear.js) -->
+        <a class="search-sortear" href={withBase('/sortear')} data-od-sortear>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="random_prayer">Sortear uma oração</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -799,6 +810,16 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     .search-item-title { font-family: 'Cormorant', serif; font-size: 1.12rem; font-weight: 600; line-height: 1.1; }
     .search-item-sub { font-size: .8rem; color: var(--ink-soft); font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .search-hint, .search-empty { padding: 1.4rem .9rem; color: var(--ink-soft); font-style: italic; text-align: center; margin: 0; }
+    .search-hint-box { text-align: center; padding-bottom: 1.2rem; }
+    .search-hint-box .search-hint { padding-bottom: .8rem; }
+    /* "Sortear uma oração" (busca, abertura, números, fim da oração) */
+    .search-sortear, .btn-sortear { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; }
+    .search-sortear { padding: .45rem 1.1rem; border: 1px solid var(--hair); border-radius: 999px; color: var(--gold); text-decoration: none; font-size: 1rem; }
+    .search-sortear:hover, .search-sortear:focus-visible { border-color: var(--gold); }
+    [data-od-sortear][aria-busy="true"] { opacity: .7; cursor: progress; }
+    [data-od-sortear][aria-busy="true"] svg { animation: od-gira .8s linear infinite; }
+    @keyframes od-gira { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { [data-od-sortear][aria-busy="true"] svg { animation: none; } }
 
     /* bead day selector */
     .beads { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; padding: 1.4rem 0 .6rem; }
@@ -836,6 +857,11 @@ const cfToken = (site.analytics?.cloudflareToken ?? '').trim();
     /* rubricas (orientações) — não são lidas pelo assistente */
     .prayer-body p.rubric { font-style: italic; color: var(--ink-soft); font-size: 1rem; text-align: center; margin: .1rem 0 1.05rem; opacity: .92; }
     .prayer-body p.rubric em, .prayer-body p.rubric i { font-style: italic; }
+    /* G9: nota (rubrica longa: abertura, fonte, como rezar) — texto corrido, à esquerda; título de obra dentro dela volta ao normal */
+    .prayer-body p.rubric.nota { text-align: left; font-size: .98rem; line-height: 1.6; margin: 0 0 1.2rem; }
+    .prayer-body p.rubric em em, .prayer-body p.rubric em i, .prayer-body p.rubric i em { font-style: normal; }
+    /* G9: instrução no meio da oração — "(faça aqui o seu pedido)" — o assistente pula */
+    .prayer-body .rubrica-inline { font-style: italic; color: var(--ink-soft); }
     /* Terço — seletor de dia da semana + nome do mistério */
     .terco-days { margin: .2rem 0 1.6rem; }
     .terco-days-label { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: .55rem; }

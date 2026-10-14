@@ -1,0 +1,513 @@
+---
+// Números do Oratório (/numeros/): orações rezadas ao longo do tempo, as mais rezadas e as
+// mais visitadas, e o "Sortear uma oração".
+// Os números vêm ao vivo do contador (window.odContador.numeros → ler_numeros no
+// supabase/contador.sql). Sem a função nova, só os números de sempre (ler_contadores);
+// sem contador nenhum, a cópia do robô diário que veio no build (src/data/contadores.json).
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { site, withBase } from '../config/site';
+import { reservas } from '../config/contadores';
+
+// nome e endereço de cada oração (as listas do contador só trazem o slug)
+const oracoes: Record<string, [string, string]> = {};
+for (const p of await getCollection('prayers')) oracoes[p.id] = [p.data.title, withBase(`/oracao/${p.id}`)];
+
+// reserva do build: total e as mais rezadas desde o início
+const R = reservas();
+const GERAIS = new Set(['total', 'visits', 'liturgias', 'hoje']);
+const reserva = {
+  total: R.total ?? null,
+  visits: R.visits ?? null,
+  liturgias: R.liturgias ?? null,
+  sempre: Object.entries(R).filter(([k, v]) => !GERAIS.has(k) && v > 0).sort((a, b) => b[1] - a[1]).slice(0, 50),
+};
+const ligado = !!site.counter?.enabled;
+const json = (v: unknown) => JSON.stringify(v).replace(/</g, '\\u003c');
+const iconeSortear = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+---
+<Base title="Números do Oratório" description="Quantas orações já foram rezadas no Oratório Digital, dia a dia, e quais são as mais rezadas e as mais visitadas.">
+  <section class="section num">
+    <div class="wrap num-wrap">
+      <p class="eyebrow" data-i18n="nav_numeros">Números</p>
+      <h1 class="section-title" data-i18n="num_title">Números do Oratório</h1>
+      <p class="num-lead" data-i18n="num_lead">Quantas orações já rezamos juntos aqui, dia a dia, e quais são as mais procuradas.</p>
+
+      <p class="num-aviso" id="numAviso" role="status" hidden></p>
+
+      <!-- números grandes -->
+      <div class="num-cards">
+        <div class="num-card num-card--total">
+          <span class="num-v" id="nTotal">—</span>
+          <span class="num-k" data-i18n="num_total">orações rezadas desde o início</span>
+        </div>
+        <div class="num-card"><span class="num-v" id="nHoje">—</span><span class="num-k" data-i18n="num_today">hoje</span></div>
+        <div class="num-card"><span class="num-v" id="n7">—</span><span class="num-k" data-i18n="num_7d">nos últimos 7 dias</span></div>
+        <div class="num-card"><span class="num-v" id="n30">—</span><span class="num-k" data-i18n="num_30d">nos últimos 30 dias</span></div>
+      </div>
+      <p class="num-extra" id="numExtra" hidden></p>
+
+      <!-- ao longo do tempo -->
+      <section class="num-bloco" id="blocoTempo" aria-labelledby="tTempo">
+        <h2 class="num-h2" id="tTempo" data-i18n="num_over_time">Ao longo do tempo</h2>
+        <div class="num-controles">
+          <div class="seg" role="group" aria-label="O que mostrar" data-i18n-aria="num_what">
+            <button type="button" data-metrica="t" aria-pressed="true" data-i18n="num_prayed">Rezadas</button>
+            <button type="button" data-metrica="o" aria-pressed="false" data-i18n="num_visited">Visitadas</button>
+          </div>
+          <div class="seg" role="group" aria-label="Período" data-i18n-aria="num_period">
+            <button type="button" data-periodo="30" aria-pressed="true" data-i18n="num_30">30 dias</button>
+            <button type="button" data-periodo="90" aria-pressed="false" data-i18n="num_90">90 dias</button>
+            <button type="button" data-periodo="365" aria-pressed="false" data-i18n="num_365">12 meses</button>
+            <button type="button" data-periodo="0" aria-pressed="false" data-i18n="num_all">Tudo</button>
+          </div>
+          <div class="seg" role="group" aria-label="Forma" data-i18n-aria="num_shape">
+            <button type="button" data-acum="0" aria-pressed="true" data-i18n="num_per_day">Por dia</button>
+            <button type="button" data-acum="1" aria-pressed="false" data-i18n="num_cumulative">Acumulado</button>
+          </div>
+        </div>
+        <figure class="num-grafico" id="grafico">
+          <div class="num-dica" id="dica" aria-hidden="true" hidden></div>
+          <div class="num-svg" id="graficoSvg"></div>
+          <figcaption class="num-legenda" id="legenda" aria-live="polite"></figcaption>
+        </figure>
+      </section>
+
+      <!-- as mais procuradas -->
+      <section class="num-bloco" id="blocoLista" aria-labelledby="tLista">
+        <h2 class="num-h2" id="tLista" data-i18n="num_ranking">As mais procuradas</h2>
+        <div class="num-controles">
+          <div class="seg" role="group" aria-label="Lista" data-i18n-aria="num_list">
+            <button type="button" data-lista="rezadas" aria-pressed="true" data-i18n="num_most_prayed">Mais rezadas</button>
+            <button type="button" data-lista="visitadas" aria-pressed="false" data-i18n="num_most_visited">Mais visitadas</button>
+          </div>
+          <div class="seg" role="group" aria-label="Período" data-i18n-aria="num_period">
+            <button type="button" data-quando="periodo" aria-pressed="true" data-i18n="num_last30">Últimos 30 dias</button>
+            <button type="button" data-quando="sempre" aria-pressed="false" data-i18n="num_ever">Desde o início</button>
+          </div>
+        </div>
+        <ol class="num-lista" id="lista"></ol>
+        <p class="num-vazio" id="listaVazia" hidden data-i18n="num_empty">Ainda não há números neste período.</p>
+        <button class="btn num-mais" id="listaMais" type="button" hidden data-i18n="show_more">Mostrar mais</button>
+      </section>
+
+      <!-- algo novo -->
+      <div class="num-sortear">
+        <p class="num-sortear-k" data-i18n="random_lead">Quer conhecer algo novo?</p>
+        <a class="btn btn-primary btn-sortear" href={withBase('/sortear')} data-od-sortear><Fragment set:html={iconeSortear} /><span data-i18n="random_prayer">Sortear uma oração</span></a>
+      </div>
+
+      <details class="num-como" lang="pt-BR">
+        <summary data-i18n="num_how">Como contamos</summary>
+        <ul>
+          <li><strong>Rezadas:</strong> cada vez que alguém conclui uma oração (o botão “Concluir oração” ou o fim do assistente de leitura). O total inclui os números de antes do contador atual.</li>
+          <li><strong>Visitadas:</strong> cada vez que alguém abre a página de uma oração — uma vez por visita; recarregar a página não conta de novo. Robôs de busca não contam.</li>
+          <li>O histórico dia a dia começa em <span id="numInicio">outubro de 2026</span>{' '}(o dia em que o contador atual entrou no ar); as visitas às orações, quando esta página foi publicada.</li>
+          <li>Os dias seguem o horário de Brasília. Nada pessoal é guardado: só números. Veja a <a href={withBase('/privacidade')}>página de privacidade</a>.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <script type="application/json" id="numDados" set:html={json({ oracoes, reserva, ligado })}></script>
+
+  <script>
+    type Par = [string, number];
+    interface Numeros {
+      hoje: string; inicio: string | null; inicio_visitas: string | null;
+      total: number; visits: number; liturgias: number; visitas_oracoes: number;
+      serie: [string, number, number, number, number][];
+      rezadas_periodo: Par[]; rezadas_sempre: Par[]; visitadas_periodo: Par[]; visitadas_sempre: Par[];
+    }
+    const W = window as any;
+    const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T | null;
+    const D = (() => { try { return JSON.parse($('numDados')?.textContent || '{}'); } catch (e) { return {}; } })();
+    const ORACOES: Record<string, [string, string]> = D.oracoes || {};
+    const MOVIDAS: Record<string, string> = (W.__SITE__ && W.__SITE__.movidas) || {};
+
+    const lingua = () => document.documentElement.getAttribute('data-lang') || 'pt-BR';
+    const tr = (k: string, pt: string) => { const f = W.odt; const v = f ? f(k) : k; return v && v !== k ? v : pt; };
+    const fmt = (n: number) => new Intl.NumberFormat(lingua()).format(n);
+    const DIA = 86400000;
+    const paraData = (s: string) => Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10));
+    const deData = (t: number) => new Date(t).toISOString().slice(0, 10);
+    const ddmm = (s: string) => `${s.slice(8, 10)}/${s.slice(5, 7)}`;
+    const mesAno = (s: string) => new Date(paraData(s)).toLocaleDateString(lingua(), { month: 'short', year: '2-digit', timeZone: 'UTC' });
+    const dataLonga = (s: string) => new Date(paraData(s)).toLocaleDateString(lingua(), { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+    // ───────── estado ─────────
+    const st = { metrica: 't' as 't' | 'o', periodo: 30, acum: false, lista: 'rezadas', quando: 'periodo', mais: false };
+    let N: Numeros | null = null;          // números ao vivo (ler_numeros)
+    let sempreParcial: Par[] | null = null; // sem ler_numeros: as mais rezadas desde o início (ler_contadores)
+
+    function aviso(txt: string) { const a = $('numAviso'); if (!a) return; a.textContent = txt; a.hidden = !txt; }
+    function poe(id: string, v: number | null) { const e = $(id); if (e) e.textContent = v == null ? '—' : fmt(v); }
+
+    // série com todos os dias (os sem movimento entram com zero), do início do histórico até hoje
+    function diasCompletos(n: Numeros): { dia: string; t: number; o: number }[] {
+      if (!n.inicio && !n.serie.length) return [];
+      const mapa = new Map(n.serie.map((x) => [x[0], x]));
+      const ini = paraData(n.serie.length ? n.serie[0][0] : (n.inicio as string));
+      const fim = paraData(n.hoje);
+      const out: { dia: string; t: number; o: number }[] = [];
+      for (let t = ini; t <= fim; t += DIA) {
+        const d = deData(t), x = mapa.get(d);
+        out.push({ dia: d, t: x ? Number(x[1]) || 0 : 0, o: x ? Number(x[4]) || 0 : 0 });
+      }
+      return out;
+    }
+
+    // ───────── números grandes ─────────
+    function cartoes() {
+      if (N) {
+        const dias = diasCompletos(N);
+        const soma = (k: number) => dias.slice(-k).reduce((s, x) => s + x.t, 0);
+        poe('nTotal', Number(N.total));
+        poe('nHoje', dias.length ? dias[dias.length - 1].t : 0);
+        poe('n7', soma(7));
+        poe('n30', soma(30));
+        const ex = $('numExtra');
+        if (ex) {
+          const partes: string[] = [];
+          if (N.visitas_oracoes > 0) partes.push(`${fmt(N.visitas_oracoes)} ${tr('num_prayer_visits', 'visitas às orações')}`);
+          if (N.visits > 0) partes.push(`${fmt(N.visits)} ${tr('num_home_visits', 'visitas à página inicial')}`);
+          if (N.liturgias > 0) partes.push(`${fmt(N.liturgias)} ${tr('num_liturgies', 'liturgias do dia lidas')}`);
+          ex.textContent = partes.join(' · ');
+          ex.hidden = !partes.length;
+        }
+        const ini = $('numInicio');
+        if (ini && N.inicio) ini.textContent = dataLonga(N.inicio);
+      }
+    }
+
+    // ───────── gráfico (SVG feito aqui, sem biblioteca) ─────────
+    interface Balde { ini: string; fim: string; v: number }
+    function baldes(): { lista: Balde[]; escala: 'dia' | 'semana' | 'mes'; inicioMetrica: string | null } {
+      if (!N) return { lista: [], escala: 'dia', inicioMetrica: null };
+      const todos = diasCompletos(N);
+      const k = st.metrica;
+      // as visitas às orações só existem a partir do primeiro dia contado
+      const inicioMetrica = k === 'o' ? N.inicio_visitas : (todos[0]?.dia ?? null);
+      let dias = inicioMetrica ? todos.filter((x) => x.dia >= (inicioMetrica as string)) : [];
+      // acumulado: começa do total de antes do histórico (inclui os números de antes do contador atual)
+      let corre = 0;
+      if (st.acum) {
+        const somaTudo = todos.reduce((s, x) => s + x[k], 0);
+        corre = Math.max(0, (k === 't' ? Number(N.total) : Number(N.visitas_oracoes)) - somaTudo);
+      }
+      const acumulados = new Map<string, number>();
+      for (const x of todos) { corre += x[k]; acumulados.set(x.dia, corre); }
+      if (st.periodo > 0) dias = dias.slice(-st.periodo);
+      if (!dias.length) return { lista: [], escala: 'dia', inicioMetrica };
+      const n = dias.length;
+      const escala: 'dia' | 'semana' | 'mes' = n <= 120 ? 'dia' : n <= 730 ? 'semana' : 'mes';
+      const lista: Balde[] = [];
+      if (escala === 'dia') {
+        for (const x of dias) lista.push({ ini: x.dia, fim: x.dia, v: st.acum ? acumulados.get(x.dia)! : x[k] });
+      } else if (escala === 'semana') {
+        // grupos de 7 dias contados de trás para a frente (o último termina hoje)
+        for (let f = n; f > 0; f -= 7) {
+          const g = dias.slice(Math.max(0, f - 7), f);
+          lista.unshift({ ini: g[0].dia, fim: g[g.length - 1].dia, v: st.acum ? acumulados.get(g[g.length - 1].dia)! : g.reduce((s, x) => s + x[k], 0) });
+        }
+      } else {
+        const meses = new Map<string, Balde>();
+        for (const x of dias) {
+          const m = x.dia.slice(0, 7);
+          const b = meses.get(m) || { ini: x.dia, fim: x.dia, v: 0 };
+          b.fim = x.dia;
+          b.v = st.acum ? acumulados.get(x.dia)! : b.v + x[k];
+          meses.set(m, b);
+        }
+        lista.push(...meses.values());
+      }
+      return { lista, escala, inicioMetrica };
+    }
+
+    // teto "redondo" do eixo (1, 2, 2,5 ou 5 × potência de 10)
+    function teto(v: number): number {
+      if (v <= 4) return 4;
+      const p = Math.pow(10, Math.floor(Math.log10(v)));
+      for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= v) return m * p;
+      return 10 * p;
+    }
+    const rotuloBalde = (b: Balde, escala: string) => escala === 'mes' ? mesAno(b.ini) : ddmm(escala === 'semana' ? b.ini : b.fim);
+    const unidade = (n: number) => st.metrica === 't'
+      ? (n === 1 ? tr('num_unit_prayed_one', 'oração rezada') : tr('num_unit_prayed', 'orações rezadas'))
+      : (n === 1 ? tr('num_unit_visit_one', 'visita') : tr('num_unit_visit', 'visitas'));
+
+    let atual: { lista: Balde[]; escala: string; x0: number; passo: number } | null = null;
+    function grafico() {
+      const caixa = $('graficoSvg'), legenda = $('legenda'), dica = $('dica');
+      if (!caixa || !legenda) return;
+      if (dica) dica.hidden = true;
+      const { lista, escala, inicioMetrica } = baldes();
+      if (!N || !lista.length) {
+        caixa.innerHTML = '';
+        atual = null;
+        legenda.textContent = !N ? tr('num_no_history', 'O histórico dia a dia ainda não está disponível.')
+          : st.metrica === 'o' && !inicioMetrica ? tr('num_no_visits', 'As visitas às orações começam a ser contadas a partir de agora.')
+          : tr('num_empty', 'Ainda não há números neste período.');
+        return;
+      }
+      const L = Math.max(280, caixa.clientWidth || 320), H = L < 520 ? 210 : 250;
+      const m = { e: 44, d: 8, c: 12, b: 26 };
+      const w = L - m.e - m.d, h = H - m.c - m.b;
+      const max = Math.max(...lista.map((b) => b.v), 0);
+      const top = teto(max);
+      const y = (v: number) => m.c + h - (v / top) * h;
+      const passo = w / lista.length;
+      const ns = 'http://www.w3.org/2000/svg';
+      const el = (tag: string, a: Record<string, string | number>, txt?: string) => {
+        const e = document.createElementNS(ns, tag);
+        for (const k in a) e.setAttribute(k, String(a[k]));
+        if (txt != null) e.textContent = txt;
+        return e;
+      };
+      const svg = el('svg', { width: L, height: H, viewBox: `0 0 ${L} ${H}`, role: 'img', class: 'num-svg-el' }) as SVGSVGElement;
+      // grade e eixo y (0, metade, teto)
+      for (const v of [0, top / 2, top]) {
+        svg.appendChild(el('line', { x1: m.e, x2: L - m.d, y1: y(v), y2: y(v), class: v ? 'g-grade' : 'g-base' }));
+        svg.appendChild(el('text', { x: m.e - 6, y: y(v) + 4, 'text-anchor': 'end', class: 'g-txt' }, fmt(v)));
+      }
+      if (st.acum) {
+        // área + linha do acumulado
+        const pts = lista.map((b, i) => [m.e + passo * i + passo / 2, y(b.v)]);
+        const linha = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+        svg.appendChild(el('path', { d: `${linha} L${pts[pts.length - 1][0].toFixed(1)} ${y(0)} L${pts[0][0].toFixed(1)} ${y(0)} Z`, class: 'g-area' }));
+        svg.appendChild(el('path', { d: linha, class: 'g-linha' }));
+        if (pts.length <= 60) for (const p of pts) svg.appendChild(el('circle', { cx: p[0], cy: p[1], r: 2.4, class: 'g-ponto' }));
+      } else {
+        const larg = Math.max(1, passo * (passo > 6 ? 0.72 : 0.86));
+        lista.forEach((b, i) => {
+          const alto = Math.max(b.v > 0 ? 1.5 : 0, y(0) - y(b.v));
+          svg.appendChild(el('rect', { x: (m.e + passo * i + (passo - larg) / 2).toFixed(1), y: (y(0) - alto).toFixed(1), width: larg.toFixed(1), height: alto.toFixed(1), rx: Math.min(3, larg / 3).toFixed(1), class: i === lista.length - 1 ? 'g-barra g-barra--hoje' : 'g-barra', 'data-i': i }));
+        });
+      }
+      // rótulos do eixo x: primeiro, meio e último
+      const marcas = lista.length === 1 ? [0] : lista.length === 2 ? [0, 1] : [0, Math.floor((lista.length - 1) / 2), lista.length - 1];
+      for (const i of marcas) {
+        const x = m.e + passo * i + passo / 2;
+        svg.appendChild(el('text', { x: Math.min(Math.max(x, m.e + 14), L - m.d - 14), y: H - 7, 'text-anchor': 'middle', class: 'g-txt' }, rotuloBalde(lista[i], escala)));
+      }
+      // destaque do ponto/barra sob o dedo
+      svg.appendChild(el('line', { x1: 0, x2: 0, y1: m.c, y2: y(0), class: 'g-mira', id: 'gMira', visibility: 'hidden' }));
+      caixa.replaceChildren(svg);
+      atual = { lista, escala, x0: m.e, passo };
+
+      // legenda (também é o resumo para leitores de tela)
+      const totalP = lista.reduce((s, b) => s + b.v, 0);
+      const quando = escala === 'dia' ? tr('num_day', 'dia') : escala === 'semana' ? tr('num_week', 'semana') : tr('num_month', 'mês');
+      let txt: string;
+      if (st.acum) {
+        txt = `${fmt(lista[lista.length - 1].v)} ${unidade(lista[lista.length - 1].v)} (${tr('num_cumulative', 'Acumulado').toLowerCase()})`;
+      } else {
+        const melhor = lista.reduce((a, b) => (b.v > a.v ? b : a), lista[0]);
+        const dias = Math.max(1, Math.round((paraData(lista[lista.length - 1].fim) - paraData(lista[0].ini)) / DIA) + 1);
+        txt = `${fmt(totalP)} ${unidade(totalP)} · ${tr('num_avg', 'média de')} ${fmt(Math.round((totalP / dias) * 10) / 10)} ${tr('num_per_day_unit', 'por dia')}`;
+        if (melhor.v > 0) txt += ` · ${tr('num_best', 'maior')} ${quando}: ${rotuloBalde(melhor, escala)} (${fmt(melhor.v)})`;
+      }
+      if (inicioMetrica) txt += ` · ${tr('num_since', 'desde')} ${ddmm(inicioMetrica)}`;
+      legenda.textContent = txt;
+      svg.setAttribute('aria-label', txt);
+    }
+
+    function mostrarDica(clienteX: number) {
+      const caixa = $('graficoSvg'), dica = $('dica'), fig = $('grafico');
+      if (!atual || !caixa || !dica || !fig) return;
+      const r = caixa.getBoundingClientRect();
+      const desloca = r.left - fig.getBoundingClientRect().left; // a dica fica dentro da moldura (figure)
+      const i = Math.min(atual.lista.length - 1, Math.max(0, Math.floor((clienteX - r.left - atual.x0) / atual.passo)));
+      const b = atual.lista[i];
+      const x = atual.x0 + atual.passo * i + atual.passo / 2;
+      const per = atual.escala === 'dia' ? ddmm(b.fim) : atual.escala === 'semana' ? `${ddmm(b.ini)}–${ddmm(b.fim)}` : mesAno(b.ini);
+      dica.textContent = `${per}: ${fmt(b.v)} ${unidade(b.v)}`;
+      dica.hidden = false;
+      const larg = dica.offsetWidth;
+      dica.style.left = (desloca + Math.min(Math.max(0, x - larg / 2), r.width - larg)) + 'px';
+      const mira = caixa.querySelector('#gMira');
+      if (mira) { mira.setAttribute('x1', String(x)); mira.setAttribute('x2', String(x)); mira.setAttribute('visibility', 'visible'); }
+      caixa.querySelectorAll('.g-barra').forEach((e) => e.classList.toggle('g-barra--sel', e.getAttribute('data-i') === String(i)));
+    }
+    function esconderDica() {
+      const caixa = $('graficoSvg'), dica = $('dica');
+      if (dica) dica.hidden = true;
+      caixa?.querySelector('#gMira')?.setAttribute('visibility', 'hidden');
+      caixa?.querySelectorAll('.g-barra--sel').forEach((e) => e.classList.remove('g-barra--sel'));
+    }
+
+    // ───────── listas ─────────
+    // juntam as orações que mudaram de endereço (redirecionamentos) e deixam de fora o que não existe mais
+    function juntar(lista: Par[] | undefined | null): Par[] {
+      const m = new Map<string, number>();
+      for (const [s0, n] of lista || []) {
+        const s = MOVIDAS[s0] || s0;
+        if (!ORACOES[s] || !(Number(n) > 0)) continue;
+        m.set(s, (m.get(s) || 0) + Number(n));
+      }
+      return [...m.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    }
+    function listaAtual(): Par[] {
+      if (N) {
+        const k = `${st.lista}_${st.quando}` as keyof Numeros;
+        return juntar(N[k] as Par[]);
+      }
+      // sem ler_numeros: só "mais rezadas desde o início" (ao vivo ou da cópia do build)
+      if (st.lista === 'rezadas' && st.quando === 'sempre') return juntar(sempreParcial || (D.reserva && D.reserva.sempre) || []);
+      return [];
+    }
+    function listas() {
+      const ol = $('lista'), vazio = $('listaVazia'), mais = $<HTMLButtonElement>('listaMais');
+      if (!ol || !vazio || !mais) return;
+      const todos = listaAtual();
+      const mostrar = st.mais ? todos.slice(0, 50) : todos.slice(0, 10);
+      const max = todos.length ? todos[0][1] : 1;
+      ol.replaceChildren(...mostrar.map(([s, n], i) => {
+        const li = document.createElement('li');
+        li.className = 'num-item';
+        li.style.setProperty('--p', String(Math.max(0.03, n / max)));
+        const pos = document.createElement('span'); pos.className = 'num-pos'; pos.textContent = String(i + 1);
+        const a = document.createElement('a'); a.className = 'num-nome'; a.href = ORACOES[s][1]; a.textContent = ORACOES[s][0];
+        const v = document.createElement('span'); v.className = 'num-n'; v.textContent = fmt(n);
+        v.setAttribute('aria-label', `${fmt(n)} ${st.lista === 'rezadas' ? (n === 1 ? tr('num_unit_prayed_one', 'oração rezada') : tr('num_unit_prayed', 'orações rezadas')) : (n === 1 ? tr('num_unit_visit_one', 'visita') : tr('num_unit_visit', 'visitas'))}`);
+        li.append(pos, a, v);
+        return li;
+      }));
+      vazio.hidden = todos.length > 0;
+      if (!todos.length) {
+        vazio.textContent = !N && !(st.lista === 'rezadas' && st.quando === 'sempre')
+          ? tr('num_no_history', 'O histórico dia a dia ainda não está disponível.')
+          : tr('num_empty', 'Ainda não há números neste período.');
+      }
+      mais.hidden = st.mais || todos.length <= 10;
+    }
+
+    // ───────── botões ─────────
+    function ligar(attr: string, aoMudar: (v: string) => void) {
+      const bs = Array.from(document.querySelectorAll<HTMLButtonElement>(`[data-${attr}]`));
+      for (const b of bs) b.addEventListener('click', () => {
+        for (const x of bs) x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        aoMudar(b.getAttribute(`data-${attr}`) || '');
+      });
+    }
+    ligar('metrica', (v) => { st.metrica = v as 't' | 'o'; grafico(); });
+    ligar('periodo', (v) => { st.periodo = Number(v) || 0; grafico(); });
+    ligar('acum', (v) => { st.acum = v === '1'; grafico(); });
+    ligar('lista', (v) => { st.lista = v; st.mais = false; listas(); });
+    ligar('quando', (v) => { st.quando = v; st.mais = false; listas(); });
+    $('listaMais')?.addEventListener('click', () => { st.mais = true; listas(); });
+
+    const svgCaixa = $('graficoSvg');
+    svgCaixa?.addEventListener('pointermove', (e) => mostrarDica(e.clientX));
+    svgCaixa?.addEventListener('pointerdown', (e) => mostrarDica(e.clientX));
+    svgCaixa?.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') esconderDica(); });
+    let redesenho = 0;
+    window.addEventListener('resize', () => { clearTimeout(redesenho); redesenho = window.setTimeout(grafico, 150); });
+    document.addEventListener('od:lang', () => { cartoes(); grafico(); listas(); });
+
+    // ───────── carga ─────────
+    async function carregar() {
+      const C = W.odContador;
+      // 200 por lista: nomes que não são orações (ficam de fora aqui) não escondem as de verdade
+      if (C && C.ativo && typeof C.numeros === 'function') N = await C.numeros(30, 200);
+      let vivo = !!N;
+      if (!N && C && C.ativo) {
+        // contador sem a função nova (ou o serviço antigo): só os números de sempre
+        const todos = await C.ler();
+        if (todos && todos.total != null) {
+          vivo = true;
+          poe('nTotal', todos.total);
+          poe('nHoje', todos.hoje != null ? todos.hoje : null);
+          sempreParcial = Object.entries(todos as Record<string, number>).filter(([k]) => !['total', 'visits', 'liturgias', 'hoje'].includes(k)) as Par[];
+          if (!sempreParcial.length) sempreParcial = null;
+          // a lista que existe é a de sempre
+          document.querySelector<HTMLButtonElement>('[data-quando="sempre"]')?.click();
+        }
+      }
+      if (!vivo) {
+        const r = D.reserva || {};
+        if (r.total) {
+          poe('nTotal', r.total);
+          aviso(tr('num_offline', 'Os números ao vivo não responderam agora; mostrando a última cópia guardada.'));
+          document.querySelector<HTMLButtonElement>('[data-quando="sempre"]')?.click();
+        } else if (D.ligado) {
+          aviso(tr('num_offline_none', 'Os números não responderam agora. Tente de novo mais tarde.'));
+        }
+      }
+      cartoes();
+      grafico();
+      listas();
+    }
+    carregar();
+  </script>
+
+  <style>
+    .num-wrap { max-width: 860px; }
+    .num-lead { color: var(--ink-soft); font-size: 1.1rem; margin: -.4rem 0 1.4rem; }
+    .num-aviso { padding: .7rem 1rem; border-left: 3px solid var(--gold); background: color-mix(in srgb, var(--gold) 8%, transparent); border-radius: 0 10px 10px 0; font-style: italic; }
+
+    .num-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin: 0 0 .6rem; }
+    .num-card { display: flex; flex-direction: column; gap: .2rem; padding: .9rem 1rem; border: 1px solid var(--hair); border-radius: 14px; background: var(--paper-raised); }
+    .num-card--total { grid-column: 1 / -1; align-items: center; text-align: center; padding: 1.2rem 1rem; background: color-mix(in srgb, var(--gold) 7%, var(--paper-raised)); }
+    .num-v { font-family: 'Cormorant', serif; font-weight: 600; font-size: 2rem; line-height: 1.05; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .num-card--total .num-v { font-size: clamp(2.6rem, 9vw, 3.6rem); }
+    .num-k { color: var(--ink-soft); font-size: .95rem; }
+    .num-extra { color: var(--ink-soft); font-size: .92rem; text-align: center; margin: .2rem 0 0; }
+
+    .num-bloco { margin: 2.4rem 0 0; }
+    .num-h2 { font-family: 'Cormorant', serif; font-size: 1.7rem; font-weight: 600; color: var(--gold); margin: 0 0 .8rem; }
+    .num-controles { display: flex; flex-wrap: wrap; gap: .5rem .8rem; margin: 0 0 .9rem; }
+    .seg { display: inline-flex; border: 1px solid var(--hair); border-radius: 999px; padding: 2px; background: var(--paper-raised); flex-wrap: wrap; }
+    .seg button { min-height: 40px; padding: .2rem .85rem; border: 0; border-radius: 999px; background: transparent; color: var(--ink); font-family: 'EB Garamond', serif; font-size: .95rem; cursor: pointer; }
+    .seg button[aria-pressed="true"] { background: var(--gold); color: var(--paper); }
+    :global(:root[data-theme="dark"]) .seg button[aria-pressed="true"] { color: #1a130a; }
+    .seg button:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 1px; }
+
+    .num-grafico { position: relative; margin: 0; padding: .8rem .6rem .6rem; border: 1px solid var(--hair); border-radius: 14px; background: var(--paper-raised); }
+    .num-svg { width: 100%; min-height: 210px; touch-action: pan-y; }
+    .num-svg :global(svg) { display: block; }
+    .num-svg :global(.g-grade) { stroke: var(--hair); stroke-dasharray: 3 4; }
+    .num-svg :global(.g-base) { stroke: var(--hair); }
+    .num-svg :global(.g-txt) { fill: var(--ink-soft); font-size: 11px; font-family: 'EB Garamond', serif; }
+    .num-svg :global(.g-barra) { fill: color-mix(in srgb, var(--gold) 78%, transparent); transition: fill .15s; }
+    .num-svg :global(.g-barra--hoje) { fill: var(--gold-bright); }
+    .num-svg :global(.g-barra--sel) { fill: var(--flame, var(--gold-bright)); }
+    .num-svg :global(.g-area) { fill: color-mix(in srgb, var(--gold) 16%, transparent); }
+    .num-svg :global(.g-linha) { fill: none; stroke: var(--gold); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+    .num-svg :global(.g-ponto) { fill: var(--gold); }
+    .num-svg :global(.g-mira) { stroke: var(--ink-soft); stroke-dasharray: 2 3; }
+    .num-dica { position: absolute; top: .3rem; z-index: 2; padding: .25rem .6rem; border-radius: 8px; background: var(--paper); border: 1px solid var(--gold); color: var(--ink); font-size: .9rem; white-space: nowrap; pointer-events: none; box-shadow: 0 6px 18px var(--shadow); }
+    .num-legenda { color: var(--ink-soft); font-size: .92rem; margin: .4rem .2rem 0; }
+
+    /* os itens da lista são criados pelo script: estilos :global (sem o escopo do Astro) */
+    .num-lista { list-style: none; margin: 0; padding: 0; }
+    .num-lista :global(.num-item) { position: relative; display: grid; grid-template-columns: 2rem 1fr auto; align-items: center; gap: .5rem; min-height: 48px; padding: .3rem .6rem; border-bottom: 1px solid var(--hair); }
+    /* barra de fundo proporcional ao número */
+    .num-lista :global(.num-item::before) { content: ''; position: absolute; left: 0; top: 18%; bottom: 18%; width: calc(var(--p) * 100%); border-radius: 0 8px 8px 0; background: color-mix(in srgb, var(--gold) 11%, transparent); z-index: 0; }
+    .num-lista :global(.num-item > *) { position: relative; z-index: 1; }
+    .num-lista :global(.num-pos) { font-family: 'Cormorant', serif; font-weight: 600; color: var(--gold); font-size: 1.15rem; text-align: center; }
+    .num-lista :global(.num-nome) { color: var(--ink); text-decoration: none; line-height: 1.25; }
+    .num-lista :global(.num-nome:hover) { color: var(--gold); }
+    .num-lista :global(.num-n) { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+    .num-vazio { color: var(--ink-soft); font-style: italic; }
+    .num-mais { margin: .9rem auto 0; display: flex; }
+
+    .num-sortear { margin: 2.6rem 0 0; padding: 1.4rem 1rem; text-align: center; border: 1px dashed color-mix(in srgb, var(--gold) 45%, transparent); border-radius: 16px; }
+    .num-sortear-k { font-family: 'Cormorant', serif; font-size: 1.35rem; color: var(--ink); margin: 0 0 .8rem; }
+
+    .num-como { margin: 2rem 0 0; color: var(--ink-soft); }
+    .num-como summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; color: var(--gold); }
+    .num-como ul { padding-left: 1.2rem; margin: .4rem 0 0; }
+    .num-como li { margin: 0 0 .5rem; }
+    .num-como a { color: var(--gold); }
+
+    @media (max-width: 560px) {
+      .num-cards { grid-template-columns: repeat(3, 1fr); gap: .45rem; }
+      .num-card { padding: .7rem .55rem; }
+      .num-v { font-size: 1.55rem; }
+      .num-k { font-size: .82rem; }
+      .seg button { padding: .2rem .65rem; font-size: .9rem; }
+      .num-lista :global(.num-item) { grid-template-columns: 1.6rem 1fr auto; padding: .3rem .3rem; }
+    }
+  </style>
+</Base>

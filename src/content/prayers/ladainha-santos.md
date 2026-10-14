@@ -11,9 +11,9 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-A Ladainha dos Santos é uma das mais antigas orações litúrgicas da Igreja, com raízes na tradição apostólica (Séc. II–IV), tendo sua forma atual aprovada pelo Papa Gregório XIII por volta de 1601.
+*A Ladainha dos Santos é uma das mais antigas orações litúrgicas da Igreja, com raízes na tradição apostólica (Séc. II–IV), tendo sua forma atual aprovada pelo Papa Gregório XIII por volta de 1601.*
 
-É cantada ou rezada em momentos solenes — nas Rogações, na Vigília Pascal, nas Ordenações e em ocasiões de súplica — invocando toda a comunhão dos santos para que interceda por nós diante de Deus.
+*É cantada ou rezada em momentos solenes — nas Rogações, na Vigília Pascal, nas Ordenações e em ocasiões de súplica — invocando toda a comunhão dos santos para que interceda por nós diante de Deus.*
 
 ## Súplicas iniciais
 

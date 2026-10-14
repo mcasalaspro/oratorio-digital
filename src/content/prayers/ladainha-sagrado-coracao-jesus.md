@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-A Ladainha do Sagrado Coração de Jesus foi aprovada para a Igreja universal pelo Papa Leão XIII em 2 de janeiro de 1899. Suas trinta e três invocações — em memória dos anos terrenos de Cristo — brotam da espiritualidade nascida das revelações do Sagrado Coração a Santa Margarida Maria Alacoque. É uma súplica de confiança e reparação ao amor infinito de Deus.
+*A Ladainha do Sagrado Coração de Jesus foi aprovada para a Igreja universal pelo Papa Leão XIII em 2 de janeiro de 1899. Suas trinta e três invocações — em memória dos anos terrenos de Cristo — brotam da espiritualidade nascida das revelações do Sagrado Coração a Santa Margarida Maria Alacoque. É uma súplica de confiança e reparação ao amor infinito de Deus.*
 
 Senhor, tende piedade de nós.<br>
 Cristo, tende piedade de nós.<br>

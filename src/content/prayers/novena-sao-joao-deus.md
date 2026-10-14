@@ -14,12 +14,12 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São João de Deus nasceu em Montemor-o-Novo, Portugal, em 1495.<br>
+*São João de Deus nasceu em Montemor-o-Novo, Portugal, em 1495.<br>
 Depois de uma vida agitada e de uma profunda conversão, dedicou-se inteiramente ao cuidado dos enfermos e dos mais pobres.<br>
 Fundou em Granada a obra que daria origem à Ordem Hospitaleira dos Irmãos de São João de Deus.<br>
-Morreu em 1550 e foi canonizado em 1690, tornando-se padroeiro dos doentes, dos enfermeiros e dos hospitais.
+Morreu em 1550 e foi canonizado em 1690, tornando-se padroeiro dos doentes, dos enfermeiros e dos hospitais.*
 
-Façamos esta novena com confiança, pedindo a sua intercessão.
+*Façamos esta novena com confiança, pedindo a sua intercessão.*
 
 > São João de Deus, modelo de caridade, rogai por nós.
 

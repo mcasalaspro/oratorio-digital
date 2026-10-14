@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-Antífona do *Magnificat* nas segundas Vésperas da solenidade de Corpus Christi, composta por São Tomás de Aquino por volta de 1264. Em poucas palavras, resume todo o mistério eucarístico: o memorial da Paixão, a comunhão com Cristo e o penhor da glória futura.
+_Antífona do *Magnificat* nas segundas Vésperas da solenidade de Corpus Christi, composta por São Tomás de Aquino por volta de 1264. Em poucas palavras, resume todo o mistério eucarístico: o memorial da Paixão, a comunhão com Cristo e o penhor da glória futura._
 
 Ó sagrado banquete,<br>
 em que Cristo é recebido como alimento,<br>

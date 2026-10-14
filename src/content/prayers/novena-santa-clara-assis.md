@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santa Clara de Assis (1194–1253), discípula de São Francisco, abandonou as riquezas de sua família nobre para abraçar a santa pobreza e fundar a Ordem das Irmãs Pobres, hoje conhecidas como Clarissas (OSCCap). Foi a primeira mulher a redigir uma Regra religiosa aprovada pela Igreja. Canonizada em 1255, é venerada como espelho de oração, humildade e confiança total em Deus. Que sua luz nos conduza ao Senhor.
+*Santa Clara de Assis (1194–1253), discípula de São Francisco, abandonou as riquezas de sua família nobre para abraçar a santa pobreza e fundar a Ordem das Irmãs Pobres, hoje conhecidas como Clarissas (OSCCap). Foi a primeira mulher a redigir uma Regra religiosa aprovada pela Igreja. Canonizada em 1255, é venerada como espelho de oração, humildade e confiança total em Deus. Que sua luz nos conduza ao Senhor.*
 
-Iniciemos cada dia desta novena com o sinal da cruz:
+*Iniciemos cada dia desta novena com o sinal da cruz:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
@@ -169,6 +169,7 @@ mereçamos contemplar-Vos na glória eterna.
 
 Por Cristo, nosso Senhor. Amém.
 
-3x Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+> 3x Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 *Fonte: oração de tradição franciscana, inspirada na vida e nos escritos de Santa Clara de Assis (Ordem das Irmãs Pobres — Clarissas, séc. XIII; canonizada em 1255).*

@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A Igreja celebra a natividade de São João Batista em 24 de junho, seis meses antes do Natal do Senhor.
+*A Igreja celebra a natividade de São João Batista em 24 de junho, seis meses antes do Natal do Senhor.
 Entre todos os santos, apenas Maria Santíssima e João Batista têm a festa de seu nascimento no calendário litúrgico, sinal da santidade que os preparou desde o ventre materno.
-Esta novena segue a tradição litúrgica romana dos séculos IV e V, recolhendo o testemunho do Precursor, "voz que clama no deserto", aquele que apontou o Cordeiro de Deus.
+Esta novena segue a tradição litúrgica romana dos séculos IV e V, recolhendo o testemunho do Precursor, "voz que clama no deserto", aquele que apontou o Cordeiro de Deus.*
 
 ## Dia 1 — Anunciado pelo Anjo
 

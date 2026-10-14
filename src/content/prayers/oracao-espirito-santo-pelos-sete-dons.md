@@ -10,7 +10,7 @@ description: "Oração pelos sete dons do Espírito Santo, com fundamento em Isa
 featured: false
 liturgicalColor: "ordinario"
 ---
-Esta oração invoca os sete dons do Espírito Santo enumerados pela tradição litúrgica a partir do fundamento bíblico de Isaías 11,2: Sabedoria, Entendimento, Conselho, Fortaleza, Ciência, Piedade e Temor de Deus. Sua devoção remonta aos séculos IV–V, nutrida pela Igreja como preparação para a vinda do Consolador.
+*Esta oração invoca os sete dons do Espírito Santo enumerados pela tradição litúrgica a partir do fundamento bíblico de Isaías 11,2: Sabedoria, Entendimento, Conselho, Fortaleza, Ciência, Piedade e Temor de Deus. Sua devoção remonta aos séculos IV–V, nutrida pela Igreja como preparação para a vinda do Consolador.*
 
 Vinde, Espírito Santo,<br>
 enchei os corações dos Vossos fiéis<br>

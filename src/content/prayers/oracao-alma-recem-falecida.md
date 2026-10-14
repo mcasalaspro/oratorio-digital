@@ -10,7 +10,7 @@ liturgicalFeast: "11-02"
 liturgicalColor: "advento"
 ---
 
-Sufrágio pela alma de quem partiu há pouco. Onde se lê *(Nome)*, diga-se o nome da pessoa falecida.
+_Sufrágio pela alma de quem partiu há pouco. Onde se lê *(Nome)*, diga-se o nome da pessoa falecida._
 
 ℣. Dai-lhes, Senhor, o eterno descanso.<br>
 ℟. Entre os resplendores da luz perpétua.<br>
@@ -35,4 +35,27 @@ e da Santíssima Virgem Maria, por todos os séculos.
 
 Amém.
 
-*Reza-se ao final: Pai-Nosso, Ave-Maria e «Dai-lhes, Senhor, o eterno descanso».*
+*Reza-se ao final:*
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Dai-lhes, Senhor, o eterno descanso,<br>
+> e brilhe para elas a luz perpétua.<br>
+> Descansem em paz. Amém.

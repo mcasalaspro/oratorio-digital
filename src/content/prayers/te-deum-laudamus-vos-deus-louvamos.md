@@ -12,7 +12,7 @@ liturgicalFeast: "12-31"
 liturgicalColor: "festa"
 ---
 
-Antigo e venerável hino de louvor e ação de graças, atribuído pela tradição a Santo Ambrósio e Santo Agostinho, e hoje a Nicetas de Remesiana (séc. IV). É entoado solenemente nos momentos de grande júbilo da Igreja e, de modo especial, no último dia do ano, em gratidão pelos benefícios recebidos.
+*Antigo e venerável hino de louvor e ação de graças, atribuído pela tradição a Santo Ambrósio e Santo Agostinho, e hoje a Nicetas de Remesiana (séc. IV). É entoado solenemente nos momentos de grande júbilo da Igreja e, de modo especial, no último dia do ano, em gratidão pelos benefícios recebidos.*
 
 A Vós, ó Deus, louvamos,<br>
 a Vós, Senhor, glorificamos.<br>

@@ -10,8 +10,8 @@ description: "Salmo de confiança e proteção, rezado nas Completas: quem habit
 featured: false
 liturgicalColor: "ordinario"
 ---
-Salmo de confiança e amparo, do Saltério bíblico, em uso litúrgico antigo.<br>
-É tradicionalmente rezado nas Completas, ao fim do dia, como entrega serena à proteção de Deus.
+*Salmo de confiança e amparo, do Saltério bíblico, em uso litúrgico antigo.<br>
+É tradicionalmente rezado nas Completas, ao fim do dia, como entrega serena à proteção de Deus.*
 
 ## Salmo 90/91
 

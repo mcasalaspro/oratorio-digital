@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Hino eucarístico atribuído a São Tomás de Aquino (c. 1264), composto em adoração à presença real e oculta de Cristo no Santíssimo Sacramento.
+*Hino eucarístico atribuído a São Tomás de Aquino (c. 1264), composto em adoração à presença real e oculta de Cristo no Santíssimo Sacramento.*
 
 Devotamente Vos adoro, ó Deidade escondida,<br>
 que sob estas figuras verdadeiramente Vos ocultais.<br>

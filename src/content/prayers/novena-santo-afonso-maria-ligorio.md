@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santo Afonso Maria de Ligório (1696–1787) foi bispo, fundador da Congregação do Santíssimo Redentor (Redentoristas), grande moralista e devoto incansável da Eucaristia e de Maria. Canonizado em 1839 e proclamado Doutor da Igreja em 1871, deixou-nos como herança suas célebres *Visitas ao Santíssimo Sacramento*. Nesta novena, à luz de seu testemunho, peçamos a Deus, por sua intercessão, as graças de que necessitamos.
+_Santo Afonso Maria de Ligório (1696–1787) foi bispo, fundador da Congregação do Santíssimo Redentor (Redentoristas), grande moralista e devoto incansável da Eucaristia e de Maria. Canonizado em 1839 e proclamado Doutor da Igreja em 1871, deixou-nos como herança suas célebres *Visitas ao Santíssimo Sacramento*. Nesta novena, à luz de seu testemunho, peçamos a Deus, por sua intercessão, as graças de que necessitamos._
 
-Iniciemos cada dia com o sinal da cruz:
+*Iniciemos cada dia com o sinal da cruz:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo.<br>
 Amém.
@@ -192,12 +192,30 @@ onde Vos louvaremos para sempre.
 
 > Santo Afonso Maria de Ligório, rogai por nós.
 
-Rezemos, ao final de cada dia:
+## Para todos os dias
 
-1x Pai-Nosso...
+*Rezemos, ao final de cada dia:*
 
-1x Ave-Maria...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-1x Glória ao Pai...
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santo Afonso Maria de Ligório, fundador dos Redentoristas e Doutor da Igreja, alcançai-nos de Deus a graça que pedimos nesta novena, se for para a glória de Deus e o bem de nossas almas. Amém.

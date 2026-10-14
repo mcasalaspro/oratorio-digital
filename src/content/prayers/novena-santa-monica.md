@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santa Mônica, nascida no norte da África no século IV, é venerada pela Tradição agostiniana como modelo de mãe orante e fiel cristã. Esposa paciente de Patrício e mãe de Santo Agostinho, derramou lágrimas e súplicas durante anos pela conversão do filho, que veio a tornar-se um dos maiores doutores da Igreja. Faleceu por volta de 387 d.C., em Óstia, pouco depois de ver realizado o sonho de sua vida. É invocada como padroeira das mães e das esposas, especialmente daquelas que sofrem por entes queridos afastados da fé.
+*Santa Mônica, nascida no norte da África no século IV, é venerada pela Tradição agostiniana como modelo de mãe orante e fiel cristã. Esposa paciente de Patrício e mãe de Santo Agostinho, derramou lágrimas e súplicas durante anos pela conversão do filho, que veio a tornar-se um dos maiores doutores da Igreja. Faleceu por volta de 387 d.C., em Óstia, pouco depois de ver realizado o sonho de sua vida. É invocada como padroeira das mães e das esposas, especialmente daquelas que sofrem por entes queridos afastados da fé.*
 
-Esta novena pode ser rezada nos nove dias que antecedem sua festa, celebrada em 27 de agosto.
+*Esta novena pode ser rezada nos nove dias que antecedem sua festa, celebrada em 27 de agosto.*
 
 ## Dia 1 — A perseverança na oração
 
@@ -163,6 +163,26 @@ junto de todos os que amei.
 
 > Santa Mônica, mãe das lágrimas santas, rogai por nós.
 
-Pai Nosso, Ave Maria e Glória ao Pai.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 Santa Mônica, modelo das mães e esposas, intercedei por nós e por todos os que confiamos à vossa proteção. Amém.

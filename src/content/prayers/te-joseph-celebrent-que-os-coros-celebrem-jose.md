@@ -12,7 +12,7 @@ liturgicalFeast: "03-19"
 liturgicalColor: "festa"
 ---
 
-Hino do Breviário Romano (séc. XVII), entoado nas festas de São José, esposo da Virgem Maria e protetor da Igreja universal. Versão tradicional em português.
+*Hino do Breviário Romano (séc. XVII), entoado nas festas de São José, esposo da Virgem Maria e protetor da Igreja universal. Versão tradicional em português.*
 
 Que os coros dos céus celebrem José,<br>
 e em uníssono ressoem os louvores dos cristãos<br>

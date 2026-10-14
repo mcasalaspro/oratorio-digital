@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Francisco Xavier, jesuíta espanhol do século XVI e companheiro de Santo Inácio de Loyola, foi o maior missionário do Oriente. Levou o Evangelho à Índia e ao Japão, batizando multidões, e faleceu em 1552 na ilha de Sanchião, às portas da China que tanto desejava evangelizar. Canonizado em 1622, é hoje padroeiro das missões e dos missionários. Esta novena nos prepara para sua festa, em 3 de dezembro, pedindo seu zelo apostólico e sua intercessão.
+*São Francisco Xavier, jesuíta espanhol do século XVI e companheiro de Santo Inácio de Loyola, foi o maior missionário do Oriente. Levou o Evangelho à Índia e ao Japão, batizando multidões, e faleceu em 1552 na ilha de Sanchião, às portas da China que tanto desejava evangelizar. Canonizado em 1622, é hoje padroeiro das missões e dos missionários. Esta novena nos prepara para sua festa, em 3 de dezembro, pedindo seu zelo apostólico e sua intercessão.*
 
 ## Dia 1 — O chamado de Deus
 

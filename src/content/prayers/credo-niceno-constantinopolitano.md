@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-Profissão de fé formulada pelos Concílios de Niceia (325) e de Constantinopla (381), proclamada solenemente na Missa dominical. Defende a divindade plena do Filho e do Espírito Santo.
+*Profissão de fé formulada pelos Concílios de Niceia (325) e de Constantinopla (381), proclamada solenemente na Missa dominical. Defende a divindade plena do Filho e do Espírito Santo.*
 
 Creio em um só Deus,<br>
 Pai todo-poderoso,<br>

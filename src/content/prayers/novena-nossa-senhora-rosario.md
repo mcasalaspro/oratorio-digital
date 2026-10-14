@@ -14,10 +14,10 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-A devoção do Santo Rosário foi difundida pela Ordem dos Pregadores e, segundo a tradição, confiada por Nossa Senhora a São Domingos de Gusmão.
+*A devoção do Santo Rosário foi difundida pela Ordem dos Pregadores e, segundo a tradição, confiada por Nossa Senhora a São Domingos de Gusmão.
 O Beato Alano de la Roche (OP), no século XIII, reavivou esta piedosa prática, que tomou sua forma atual por volta de 1470.
 Em 1571, a vitória da cristandade na Batalha de Lepanto foi atribuída à intercessão da Virgem invocada pelo Rosário, e o Papa São Pio V instituiu esta festa em ação de graças.
-Que nestes nove dias possamos, pela meditação dos mistérios do Rosário, unir-nos a Maria no caminho até Jesus.
+Que nestes nove dias possamos, pela meditação dos mistérios do Rosário, unir-nos a Maria no caminho até Jesus.*
 
 ## Dia 1 — A Virgem do Rosário
 
@@ -145,9 +145,9 @@ eu possa um dia contemplar a face de Deus na glória.
 
 > Nossa Senhora do Rosário, rogai por nós.
 
----
+## Para todos os dias
 
-Rezemos ao final de cada dia:
+*Rezemos ao final de cada dia:*
 
 > Rogai por nós, Santa Mãe de Deus,<br>
 > para que sejamos dignos das promessas de Cristo.

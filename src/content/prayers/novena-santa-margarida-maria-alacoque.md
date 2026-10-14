@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santa Margarida Maria Alacoque, religiosa da Ordem da Visitação, recebeu entre 1673 e 1675, no mosteiro de Paray-le-Monial, as grandes revelações do Sagrado Coração de Jesus. Guiada espiritualmente pelos padres da Companhia de Jesus, tornou-se a mensageira do amor ardente do Coração de Cristo. Canonizada em 1920, ela nos ensina a confiar, reparar e amar.
+*Santa Margarida Maria Alacoque, religiosa da Ordem da Visitação, recebeu entre 1673 e 1675, no mosteiro de Paray-le-Monial, as grandes revelações do Sagrado Coração de Jesus. Guiada espiritualmente pelos padres da Companhia de Jesus, tornou-se a mensageira do amor ardente do Coração de Cristo. Canonizada em 1920, ela nos ensina a confiar, reparar e amar.*
 
-Façamos esta novena com fé, pedindo sua intercessão e abrindo nossos corações ao amor do Senhor.
+*Façamos esta novena com fé, pedindo sua intercessão e abrindo nossos corações ao amor do Senhor.*
 
 ## Dia 1 — O chamado do amor
 

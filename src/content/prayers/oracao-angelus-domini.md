@@ -12,7 +12,7 @@ liturgicalFeast: "03-25"
 liturgicalColor: "festa"
 ---
 
-O Ângelus é uma antiga oração mariana cuja origem remonta ao século XIII, ganhando sua forma completa no século XVII. Reza-se tradicionalmente três vezes ao dia — ao amanhecer, ao meio-dia e ao entardecer — em memória do mistério da Encarnação do Verbo. Durante o Tempo Pascal, é substituído pela antífona Regina Caeli.
+*O Ângelus é uma antiga oração mariana cuja origem remonta ao século XIII, ganhando sua forma completa no século XVII. Reza-se tradicionalmente três vezes ao dia — ao amanhecer, ao meio-dia e ao entardecer — em memória do mistério da Encarnação do Verbo. Durante o Tempo Pascal, é substituído pela antífona Regina Caeli.*
 
 ---
 

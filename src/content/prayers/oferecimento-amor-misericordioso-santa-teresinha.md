@@ -11,7 +11,7 @@ featured: false
 liturgicalFeast: "10-01"
 liturgicalColor: "festa"
 ---
-Oferecimento composto por Santa Teresa do Menino Jesus em 9 de junho de 1895, ato central de sua "Pequena Via" de confiança e abandono ao Amor de Deus.
+*Oferecimento composto por Santa Teresa do Menino Jesus em 9 de junho de 1895, ato central de sua "Pequena Via" de confiança e abandono ao Amor de Deus.*
 
 Ó meu Deus! Trindade bem-aventurada,<br>
 desejo Vos amar e fazer-Vos amar,<br>

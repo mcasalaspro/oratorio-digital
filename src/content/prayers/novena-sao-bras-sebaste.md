@@ -14,7 +14,7 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-São Brás de Sebaste, bispo e mártir da Igreja primitiva, viveu na Armênia entre os séculos III e IV. Médico de profissão e pastor de almas, é venerado pela tradição armênia e romana como protetor da garganta, lembrando o milagre em que salvou uma criança que se sufocava com uma espinha de peixe. Por isso, em sua festa, a 3 de fevereiro, a Igreja abençoa as gargantas dos fiéis com duas velas cruzadas. Iniciemos esta novena confiando ao Senhor, pela intercessão de São Brás, a nossa saúde e as nossas necessidades.
+*São Brás de Sebaste, bispo e mártir da Igreja primitiva, viveu na Armênia entre os séculos III e IV. Médico de profissão e pastor de almas, é venerado pela tradição armênia e romana como protetor da garganta, lembrando o milagre em que salvou uma criança que se sufocava com uma espinha de peixe. Por isso, em sua festa, a 3 de fevereiro, a Igreja abençoa as gargantas dos fiéis com duas velas cruzadas. Iniciemos esta novena confiando ao Senhor, pela intercessão de São Brás, a nossa saúde e as nossas necessidades.*
 
 > São Brás, bispo e mártir, rogai por nós e guardai a nossa garganta de todo mal.
 

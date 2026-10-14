@@ -9,7 +9,7 @@ featured: false
 liturgicalColor: "advento"
 ---
 
-A Igreja confia à misericórdia de Deus as crianças que partem antes de receber o Batismo, na esperança de que para elas haja um caminho de salvação (cf. *Catecismo da Igreja Católica*, n. 1261). Esta não é uma oração para purgar pecados — a criança que nada cometeu não precisa de sufrágio —, mas um gesto de entrega ao Pai e de consolação para quem chora um filho perdido na gestação. (O pai pode adaptar livremente as palavras.)
+_A Igreja confia à misericórdia de Deus as crianças que partem antes de receber o Batismo, na esperança de que para elas haja um caminho de salvação (cf. *Catecismo da Igreja Católica*, n. 1261). Esta não é uma oração para purgar pecados — a criança que nada cometeu não precisa de sufrágio —, mas um gesto de entrega ao Pai e de consolação para quem chora um filho perdido na gestação. (O pai pode adaptar livremente as palavras.)_
 
 Deus Pai, autor da vida,<br>
 coloco-me em Tua presença para Te agradecer<br>

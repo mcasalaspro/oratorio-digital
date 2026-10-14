@@ -10,7 +10,7 @@ description: "Oração das Completas para a noite: 'Visitai, Senhor, esta casa e
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional das Completas (do latim *Visita, quaesumus Domine*), última hora da Liturgia das Horas, rezada antes do repouso. Pede a proteção de Deus sobre a casa e os que nela habitam, e a paz para o descanso da noite.
+_Oração tradicional das Completas (do latim *Visita, quaesumus Domine*), última hora da Liturgia das Horas, rezada antes do repouso. Pede a proteção de Deus sobre a casa e os que nela habitam, e a paz para o descanso da noite._
 
 *Faça o sinal da cruz e, em seguida, reze:*
 

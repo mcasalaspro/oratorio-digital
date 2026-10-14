@@ -10,7 +10,7 @@ description: "Oração tradicional de gratidão a Deus por todos os benefícios 
 featured: false
 liturgicalColor: "festa"
 ---
-Oração litúrgica tradicional de ação de graças após as refeições (*Agimus tibi gratias*). Reza-se ao término da mesa, em gratidão pelo alimento recebido e por todos os benefícios concedidos por Deus.
+_Oração litúrgica tradicional de ação de graças após as refeições (*Agimus tibi gratias*). Reza-se ao término da mesa, em gratidão pelo alimento recebido e por todos os benefícios concedidos por Deus._
 
 *Concluída a refeição, fazendo o sinal da cruz, reze:*
 

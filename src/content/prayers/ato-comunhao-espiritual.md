@@ -12,7 +12,7 @@ liturgicalFeast: "08-01"
 liturgicalColor: "festa"
 ---
 
-Quando não nos é possível receber Jesus sacramentalmente na Santa Comunhão, a Igreja nos oferece a comunhão espiritual: o ardente desejo de unir-nos a Ele presente no Santíssimo Sacramento. Esta fórmula clássica nos foi deixada por Santo Afonso Maria de Ligório (séc. XVIII), doutor da Igreja e grande mestre da vida espiritual.
+*Quando não nos é possível receber Jesus sacramentalmente na Santa Comunhão, a Igreja nos oferece a comunhão espiritual: o ardente desejo de unir-nos a Ele presente no Santíssimo Sacramento. Esta fórmula clássica nos foi deixada por Santo Afonso Maria de Ligório (séc. XVIII), doutor da Igreja e grande mestre da vida espiritual.*
 
 Meu Jesus,<br>
 creio que estais realmente presente no Santíssimo Sacramento do altar.<br>

@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-O *Magnificat* é o cântico que Maria Santíssima entoou ao visitar sua prima Isabel, conforme narra o Evangelho segundo São Lucas (Lc 1,46-55). É um hino de louvor e gratidão, no qual a Virgem exalta a grandeza do Senhor e a misericórdia d'Ele para com os humildes. A Igreja o reza diariamente nas Vésperas da Liturgia das Horas.
+_O *Magnificat* é o cântico que Maria Santíssima entoou ao visitar sua prima Isabel, conforme narra o Evangelho segundo São Lucas (Lc 1,46-55). É um hino de louvor e gratidão, no qual a Virgem exalta a grandeza do Senhor e a misericórdia d'Ele para com os humildes. A Igreja o reza diariamente nas Vésperas da Liturgia das Horas._
 
 A minha alma engrandece ao Senhor,<br>
 e o meu espírito exulta de alegria em Deus, meu Salvador,<br>

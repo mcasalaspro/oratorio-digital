@@ -12,7 +12,7 @@ liturgicalFeast: "10-09"
 liturgicalColor: "festa"
 ---
 
-Hino escrito por São João Henrique Newman em 1833, a bordo de um navio enfermo no Mar Mediterrâneo, durante um período de provação e busca espiritual. Originalmente intitulado *Lead, Kindly Light*, tornou-se uma das mais queridas orações de confiança na Providência. Newman foi canonizado em 2019.
+_Hino escrito por São João Henrique Newman em 1833, a bordo de um navio enfermo no Mar Mediterrâneo, durante um período de provação e busca espiritual. Originalmente intitulado *Lead, Kindly Light*, tornou-se uma das mais queridas orações de confiança na Providência. Newman foi canonizado em 2019._
 
 Conduze-me, ó Luz Bondosa, em meio à escuridão que me envolve,<br>
 Conduze-me Tu adiante!<br>

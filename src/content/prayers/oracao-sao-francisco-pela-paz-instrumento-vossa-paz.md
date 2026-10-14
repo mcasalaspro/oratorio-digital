@@ -11,7 +11,7 @@ featured: false
 liturgicalFeast: "10-04"
 liturgicalColor: "festa"
 ---
-Oração de origem anônima, publicada pela primeira vez em 1912 na revista *La Clochette*, na França, e desde então atribuída a São Francisco de Assis pelo seu espírito de mansidão e paz.
+_Oração de origem anônima, publicada pela primeira vez em 1912 na revista *La Clochette*, na França, e desde então atribuída a São Francisco de Assis pelo seu espírito de mansidão e paz._
 
 Senhor, fazei de mim um instrumento de Vossa paz.<br>
 Onde houver ódio, que eu leve o amor.<br>

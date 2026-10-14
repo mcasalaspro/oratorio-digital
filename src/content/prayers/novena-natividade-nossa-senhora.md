@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Celebramos o Nascimento da Bem-Aventurada Virgem Maria, festa antiquíssima nascida em Jerusalém por volta do século V, ligada à dedicação da basílica de Santa Ana, e difundida pela tradição litúrgica beneditina nos séculos seguintes. Maria é a única, depois de Cristo, cujo nascimento a Igreja celebra: por isso se diz que ela tem três festas — a sua Conceição, a sua Natividade e a sua Assunção. O Nascimento de Maria é como a aurora que anuncia a chegada do Sol da Justiça, Cristo, o Senhor.
+*Celebramos o Nascimento da Bem-Aventurada Virgem Maria, festa antiquíssima nascida em Jerusalém por volta do século V, ligada à dedicação da basílica de Santa Ana, e difundida pela tradição litúrgica beneditina nos séculos seguintes. Maria é a única, depois de Cristo, cujo nascimento a Igreja celebra: por isso se diz que ela tem três festas — a sua Conceição, a sua Natividade e a sua Assunção. O Nascimento de Maria é como a aurora que anuncia a chegada do Sol da Justiça, Cristo, o Senhor.*
 
-Façamos a cada dia, ao iniciar, o sinal da cruz e digamos:
+*Façamos a cada dia, ao iniciar, o sinal da cruz e digamos:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
 
@@ -138,10 +138,30 @@ fazei que, por sua intercessão, alcancemos a vida eterna.
 
 > Ó Maria, nascida para a nossa salvação, rogai por nós.
 
-Concluamos a novena com esta oração final:
+*Concluamos a novena com esta oração final:*
 
 > Ó gloriosa Virgem Maria, cujo nascimento foi para o mundo inteiro alegria e esperança, alcançai-nos as graças que humildemente Vos pedimos (faça-se o pedido). Vós que nascestes para ser a Mãe do Salvador e a nossa Mãe, conduzi-nos pelo caminho da fé até a glória do céu, onde Vosso Filho vive e reina pelos séculos dos séculos. Amém.
 
-Pai Nosso... Ave Maria... Glória ao Pai...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 Em nome do Pai, e do Filho, e do Espírito Santo. Amém.

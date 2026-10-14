@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Patrício de Armagh (séc. V, †461 d.C.), segundo a tradição celta e irlandesa, foi o grande Apóstolo da Irlanda. Levado cativo na juventude, encontrou a Deus na provação e mais tarde retornou àquela terra para anunciar o Evangelho aos celtas, tornando-se padroeiro da Irlanda. Nesta novena, peçamos por sua intercessão a graça da fé firme, da conversão dos corações e da proteção do Senhor.
+*São Patrício de Armagh (séc. V, †461 d.C.), segundo a tradição celta e irlandesa, foi o grande Apóstolo da Irlanda. Levado cativo na juventude, encontrou a Deus na provação e mais tarde retornou àquela terra para anunciar o Evangelho aos celtas, tornando-se padroeiro da Irlanda. Nesta novena, peçamos por sua intercessão a graça da fé firme, da conversão dos corações e da proteção do Senhor.*
 
-Iniciemos cada dia com o sinal da Cruz e a invocação:
+*Iniciemos cada dia com o sinal da Cruz e a invocação:*
 
 Em nome do Pai, e do Filho, e do Espírito Santo.<br>
 Cristo comigo, Cristo diante de mim, Cristo atrás de mim.<br>
@@ -122,7 +122,7 @@ e conduzi-me, no fim da vida, ao encontro eterno com o Senhor.
 
 > São Patrício de Armagh, rogai por nós.
 
-Concluamos com a antiga invocação atribuída ao santo:
+*Concluamos com a antiga invocação atribuída ao santo:*
 
 Cristo comigo, Cristo diante de mim, Cristo atrás de mim.<br>
 Cristo em mim, Cristo abaixo de mim, Cristo acima de mim.<br>

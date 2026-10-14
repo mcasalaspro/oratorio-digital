@@ -11,9 +11,9 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-Hino composto por São Tomás de Aquino, por volta de 1264, a pedido do Papa Urbano IV, para a festa de Corpus Christi.
+_Hino composto por São Tomás de Aquino, por volta de 1264, a pedido do Papa Urbano IV, para a festa de Corpus Christi.
 Cantado nas Laudes, celebra o mistério da Eucaristia, desde a Encarnação do Verbo até o dom de Si mesmo na Ceia.
-Suas duas últimas estrofes, iniciadas por *O Salutaris Hostia*, são frequentemente usadas na adoração e na bênção do Santíssimo Sacramento.
+Suas duas últimas estrofes, iniciadas por *O Salutaris Hostia*, são frequentemente usadas na adoração e na bênção do Santíssimo Sacramento._
 
 Verbo do alto procedendo,<br>
 sem deixar a destra do Pai,<br>

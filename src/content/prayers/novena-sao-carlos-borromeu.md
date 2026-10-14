@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São Carlos Borromeu (1538–1584), cardeal arcebispo de Milão, foi um dos grandes artífices da renovação da Igreja após o Concílio de Trento. Sobrinho do Papa Pio IV, renunciou a privilégios e riquezas para se entregar inteiramente ao serviço das almas, à reforma do clero e ao cuidado dos pobres e enfermos, especialmente durante a peste que assolou Milão. Canonizado em 1610, é venerado como padroeiro dos catequistas, dos seminaristas e dos diretores espirituais.
+*São Carlos Borromeu (1538–1584), cardeal arcebispo de Milão, foi um dos grandes artífices da renovação da Igreja após o Concílio de Trento. Sobrinho do Papa Pio IV, renunciou a privilégios e riquezas para se entregar inteiramente ao serviço das almas, à reforma do clero e ao cuidado dos pobres e enfermos, especialmente durante a peste que assolou Milão. Canonizado em 1610, é venerado como padroeiro dos catequistas, dos seminaristas e dos diretores espirituais.*
 
-Façamos esta novena com confiança, pedindo a sua intercessão por um coração inteiramente dado a Deus.
+*Façamos esta novena com confiança, pedindo a sua intercessão por um coração inteiramente dado a Deus.*
 
 ## Dia 1 — A coragem da conversão
 

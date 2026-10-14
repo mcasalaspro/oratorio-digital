@@ -11,9 +11,9 @@ featured: false
 liturgicalColor: "festa"
 ---
 
-A Coroa Franciscana, também chamada Terço dos Sete Gozos de Maria, é uma devoção nascida na tradição franciscana (OFM), com origem em Florença por volta de 1415. Meditam-se as sete alegrias da Virgem Maria, cada uma com um Pai-Nosso e dez Ave-Marias, totalizando setenta saudações angélicas. É muito rezada pelos Frades Menores e pela Ordem Franciscana Secular.
+*A Coroa Franciscana, também chamada Terço dos Sete Gozos de Maria, é uma devoção nascida na tradição franciscana (OFM), com origem em Florença por volta de 1415. Meditam-se as sete alegrias da Virgem Maria, cada uma com um Pai-Nosso e dez Ave-Marias, totalizando setenta saudações angélicas. É muito rezada pelos Frades Menores e pela Ordem Franciscana Secular.*
 
-Ao final, acrescentam-se duas Ave-Marias, em honra dos setenta e dois anos que, segundo a tradição, Maria viveu na terra, e reza-se ainda pelas intenções do Sumo Pontífice.
+*Ao final, acrescentam-se duas Ave-Marias, em honra dos setenta e dois anos que, segundo a tradição, Maria viveu na terra, e reza-se ainda pelas intenções do Sumo Pontífice.*
 
 **Para começar**
 
@@ -29,9 +29,24 @@ quando o anjo Gabriel anunciou que seria a Mãe do Filho de Deus.<br>
 Ela respondeu com humildade e fé:<br>
 "Eis aqui a serva do Senhor, faça-se em mim segundo a Vossa palavra."
 
-1x Pai-Nosso
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Alegrai-Vos, ó Virgem Maria, e bendito seja o fruto do Vosso ventre, Jesus.
 
@@ -42,9 +57,24 @@ que a saudou como bendita entre as mulheres.<br>
 Cheia do Espírito Santo, Maria exultou:<br>
 "A minha alma engrandece o Senhor e o meu espírito se alegra em Deus, meu Salvador."
 
-1x Pai-Nosso
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Alegrai-Vos, ó Virgem Maria, e bendito seja o fruto do Vosso ventre, Jesus.
 
@@ -55,9 +85,24 @@ Envolveu-O em panos e reclinou-O numa manjedoura,<br>
 contemplando com amor a face do Deus feito homem.<br>
 Os anjos cantavam: "Glória a Deus nas alturas!"
 
-1x Pai-Nosso
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Alegrai-Vos, ó Virgem Maria, e bendito seja o fruto do Vosso ventre, Jesus.
 
@@ -68,9 +113,24 @@ prostrarem-se diante do Menino Jesus.<br>
 Eles ofereceram ouro, incenso e mirra,<br>
 reconhecendo n'Ele o Rei, o Deus e o Salvador do mundo.
 
-1x Pai-Nosso
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Alegrai-Vos, ó Virgem Maria, e bendito seja o fruto do Vosso ventre, Jesus.
 
@@ -81,9 +141,24 @@ após procurá-Lo com dor durante três dias.<br>
 Ali O achou sentado entre os doutores, ouvindo e interrogando-os,<br>
 e todos se admiravam de Sua sabedoria.
 
-1x Pai-Nosso
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Alegrai-Vos, ó Virgem Maria, e bendito seja o fruto do Vosso ventre, Jesus.
 
@@ -94,9 +169,24 @@ vencedor da morte e glorioso no terceiro dia.<br>
 A tristeza da paixão converteu-se em alegria sem fim,<br>
 pois Cristo vive e reina para sempre.
 
-1x Pai-Nosso
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Alegrai-Vos, ó Virgem Maria, e bendito seja o fruto do Vosso ventre, Jesus.
 
@@ -107,9 +197,24 @@ elevada em corpo e alma à glória do Céu.<br>
 Ali foi coroada Rainha dos Anjos e dos Santos,<br>
 para reinar junto ao seu Filho por toda a eternidade.
 
-1x Pai-Nosso
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave Maria
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Alegrai-Vos, ó Virgem Maria, e bendito seja o fruto do Vosso ventre, Jesus.
 
@@ -117,9 +222,34 @@ para reinar junto ao seu Filho por toda a eternidade.
 
 Em honra dos setenta e dois anos que Maria viveu na terra, rezemos:
 
-2x Ave Maria
+> 2x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-Reza-se ainda um Pai-Nosso e uma Ave-Maria pelas intenções do Sumo Pontífice.
+*Reza-se ainda um Pai-Nosso e uma Ave-Maria pelas intenções do Sumo Pontífice:*
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Rogai por nós, Santa Mãe de Deus,<br>
 > para que sejamos dignos das promessas de Cristo.

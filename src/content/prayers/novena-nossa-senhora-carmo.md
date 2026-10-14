@@ -14,11 +14,11 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra Nossa Senhora do Carmo, venerada desde o século XIII pela Ordem do Carmo (Carmelitas), nascida no Monte Carmelo, na Terra Santa.<br>
+*Esta novena honra Nossa Senhora do Carmo, venerada desde o século XIII pela Ordem do Carmo (Carmelitas), nascida no Monte Carmelo, na Terra Santa.<br>
 Segundo a tradição, em 1251 a Virgem apareceu a São Simão Stock e lhe entregou o Escapulário Marrom como sinal de proteção e penhor de salvação.<br>
-A devoção firmou-se ainda pela chamada Bula Sabatina (1322), associada à indulgência sabatina, expressão da confiança no auxílio maternal de Maria.
+A devoção firmou-se ainda pela chamada Bula Sabatina (1322), associada à indulgência sabatina, expressão da confiança no auxílio maternal de Maria.*
 
-Reza-se um dia a cada jornada, com fé e perseverança, confiando-se ao manto da Mãe do Carmelo.
+*Reza-se um dia a cada jornada, com fé e perseverança, confiando-se ao manto da Mãe do Carmelo.*
 
 ## Dia 1 — A Mãe que nos reveste
 
@@ -173,8 +173,14 @@ se for da vontade de Deus e para o bem da nossa alma.
 
 > Nossa Senhora do Carmo, rogai por nós.
 
-Reza-se ao final:
+*Reza-se ao final:*
 
-3x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Flor do Carmelo, vide florida, esplendor do Céu, Virgem Mãe singular, ó Mãe suave, mostrai-Vos sempre Mãe.

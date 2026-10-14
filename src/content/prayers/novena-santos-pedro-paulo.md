@@ -14,11 +14,11 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra os santos apóstolos Pedro e Paulo, celebrados juntos pela Igreja desde o século IV.
+*Esta novena honra os santos apóstolos Pedro e Paulo, celebrados juntos pela Igreja desde o século IV.
 Pedro, o pescador da Galileia, foi escolhido por Cristo como pedra sobre a qual edificaria Sua Igreja, tornando-se o primeiro papa.
 Paulo, antes perseguidor, foi transformado pela graça no incansável apóstolo dos gentios.
 Ambos selaram com o sangue o seu testemunho, martirizados em Roma por volta do ano 67.
-A tradição apostólica romana, dos séculos III e IV, guarda a memória destas duas colunas da fé.
+A tradição apostólica romana, dos séculos III e IV, guarda a memória destas duas colunas da fé.*
 
 > Santos Pedro e Paulo, rogai por nós.
 

@@ -10,7 +10,7 @@ description: "Súplica pela fidelidade, paciência e santidade no matrimônio e 
 featured: false
 liturgicalColor: "festa"
 ---
-Da tradição cristã do lar, esta oração eleva ao Senhor o pedido pela graça do matrimônio e pela santidade de toda a família.
+*Da tradição cristã do lar, esta oração eleva ao Senhor o pedido pela graça do matrimônio e pela santidade de toda a família.*
 
 Senhor nosso Deus, fonte de todo amor,<br>
 que abençoastes a união dos esposos<br>

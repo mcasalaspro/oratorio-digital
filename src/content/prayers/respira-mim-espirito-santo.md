@@ -12,7 +12,7 @@ liturgicalFeast: "08-28"
 liturgicalColor: "festa"
 ---
 
-Oração atribuída a Santo Agostinho de Hipona (séc. IV–V), conhecida pelo seu início em latim *Spira in me, Sancte Spiritus*. Nela, a alma suplica que o Espírito Santo a inspire, a purifique e a conduza, para que tudo nela seja santo.
+_Oração atribuída a Santo Agostinho de Hipona (séc. IV–V), conhecida pelo seu início em latim *Spira in me, Sancte Spiritus*. Nela, a alma suplica que o Espírito Santo a inspire, a purifique e a conduza, para que tudo nela seja santo._
 
 Respira em mim, Espírito Santo,<br>
 para que todos os meus pensamentos sejam santos.

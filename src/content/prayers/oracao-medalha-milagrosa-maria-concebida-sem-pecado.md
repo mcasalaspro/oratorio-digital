@@ -12,7 +12,7 @@ liturgicalFeast: "11-27"
 liturgicalColor: "festa"
 ---
 
-Em 1830, na capela da Rue du Bac, em Paris, a Santíssima Virgem apareceu a Santa Catarina Labouré e pediu que fosse cunhada uma medalha em sua honra. Em torno da imagem de Maria liam-se as palavras: *"Ó Maria concebida sem pecado, rogai por nós que recorremos a Vós."* Quem a usasse com confiança receberia grandes graças. Por causa dos muitos prodígios obtidos, ela ficou conhecida como Medalha Milagrosa.
+_Em 1830, na capela da Rue du Bac, em Paris, a Santíssima Virgem apareceu a Santa Catarina Labouré e pediu que fosse cunhada uma medalha em sua honra. Em torno da imagem de Maria liam-se as palavras: *"Ó Maria concebida sem pecado, rogai por nós que recorremos a Vós."* Quem a usasse com confiança receberia grandes graças. Por causa dos muitos prodígios obtidos, ela ficou conhecida como Medalha Milagrosa._
 
 Ó Maria, concebida sem pecado,<br>
 rogai por nós que recorremos a Vós.<br>

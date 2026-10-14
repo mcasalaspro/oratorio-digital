@@ -14,9 +14,9 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena celebra a Realeza de Maria, devoção confirmada pelo Papa Pio XII na encíclica *Ad Caeli Reginam*, de 11 de outubro de 1954, que proclamou a Santíssima Virgem Rainha do Universo. A festa litúrgica de Nossa Senhora Rainha foi fixada no dia 22 de agosto, oitavo dia após a Assunção. Em cada dia, contemplamos um aspecto da realeza daquela que reina como Mãe e Senhora junto ao seu Filho, Rei dos reis.
+_Esta novena celebra a Realeza de Maria, devoção confirmada pelo Papa Pio XII na encíclica *Ad Caeli Reginam*, de 11 de outubro de 1954, que proclamou a Santíssima Virgem Rainha do Universo. A festa litúrgica de Nossa Senhora Rainha foi fixada no dia 22 de agosto, oitavo dia após a Assunção. Em cada dia, contemplamos um aspecto da realeza daquela que reina como Mãe e Senhora junto ao seu Filho, Rei dos reis._
 
-Reza-se em cada dia a oração final, pedindo a intercessão da Rainha do Céu.
+*Reza-se em cada dia a oração final, pedindo a intercessão da Rainha do Céu.*
 
 ## Dia 1 — A Rainha coroada pelo Rei
 

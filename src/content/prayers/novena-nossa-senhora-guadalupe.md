@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena recorda as aparições de Nossa Senhora de Guadalupe ao indígena São Juan Diego Cuauhtlatoatzin, entre 9 e 12 de dezembro de 1531, no monte Tepeyac, no México. Como sinal, a Virgem deixou Sua imagem impressa na tilma (manto) de Juan Diego, conservada até hoje. Em 1946, o Papa Pio XII a proclamou Padroeira das Américas. Que estes nove dias nos preparem para celebrar a Mãe que disse: "Não estou eu aqui, que sou tua Mãe?"
+*Esta novena recorda as aparições de Nossa Senhora de Guadalupe ao indígena São Juan Diego Cuauhtlatoatzin, entre 9 e 12 de dezembro de 1531, no monte Tepeyac, no México. Como sinal, a Virgem deixou Sua imagem impressa na tilma (manto) de Juan Diego, conservada até hoje. Em 1946, o Papa Pio XII a proclamou Padroeira das Américas. Que estes nove dias nos preparem para celebrar a Mãe que disse: "Não estou eu aqui, que sou tua Mãe?"*
 
 ## Dia 1 — A Mãe que vem ao encontro
 

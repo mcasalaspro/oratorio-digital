@@ -111,6 +111,8 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
           <CommunityCounter />
           {/* orações de hoje (só o Supabase sabe): "12 orações hoje"; some sem número */}
           <p class="votive-today" id="communityToday" hidden></p>
+          {/* gráfico do dia a dia e as mais rezadas: src/pages/numeros.astro */}
+          <p class="hero-numeros"><a href={withBase('/numeros')} data-i18n="see_numbers">Ver os números do Oratório</a></p>
         </Fragment>
       )}
       <!-- imagem do site para Instagram e WhatsApp (aparece quando o compartilhar.js carrega) -->
@@ -200,6 +202,11 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
 
       <div class="toolbar">
         <input id="search" class="search" type="search" placeholder="Buscar oração, novena ou santo…" data-i18n-ph="search_placeholder" />
+        <!-- para conhecer algo novo: public/js/sortear.js (sem JS, a página /sortear/) -->
+        <a class="btn btn-sortear" href={withBase('/sortear')} data-od-sortear>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="random_prayer">Sortear uma oração</span>
+        </a>
       </div>
       <div class="filters">
         <div class="filter-row">
@@ -290,7 +297,7 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
       const elHoje = document.getElementById('communityToday');
       const hideTotal = () => { if (boxTotal) boxTotal.style.display = 'none'; if (elHoje) elHoje.hidden = true; };   // .votive tem display próprio: hidden não bastaria
       const hideVis = () => { if (boxVis) boxVis.hidden = true; };
-      if (!C || !C.ativo) { hideTotal(); hideVis(); return; }
+      if (!C || !C.ativo) { hideTotal(); hideVis(); document.querySelector<HTMLElement>('.hero-numeros')?.setAttribute('hidden', ''); return; }
 
       const reservaDe = (attr: string) => { const n = Number(stats?.getAttribute(attr)); return Number.isFinite(n) && n > 0 ? n : 0; };
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -810,5 +817,11 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
     #catalogo .chip { flex: 0 0 auto; white-space: nowrap; }
   }
   .hero-share { margin: 1.1rem 0 0; }
+  .hero-numeros { margin: .5rem 0 0; font-size: .92rem; }
+  .hero-numeros a { color: #d8c08a; text-decoration: underline; text-decoration-color: rgba(216,192,138,.45); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; }
+  .hero-numeros a:hover { color: var(--gold-bright); }
+  .toolbar .btn-sortear { flex: 0 0 auto; color: var(--gold); }
+  .toolbar .btn-sortear svg { flex: 0 0 auto; }
+  @media (max-width: 560px) { .toolbar .btn-sortear { flex: 1 1 100%; } }
   .hero-share :global(.hero-share-btn) { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; background: rgba(10,7,3,.35); }
 </style>

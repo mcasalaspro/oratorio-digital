@@ -10,7 +10,7 @@ liturgicalFeast: "11-02"
 liturgicalColor: "advento"
 ---
 
-Célebre oração atribuída a Santa Gertrudes, a Magna, oferecendo o Preciosíssimo Sangue de Cristo em favor das almas do purgatório, dos pecadores e da Igreja inteira.
+*Célebre oração atribuída a Santa Gertrudes, a Magna, oferecendo o Preciosíssimo Sangue de Cristo em favor das almas do purgatório, dos pecadores e da Igreja inteira.*
 
 Eterno Pai,<br>
 ofereço-Vos o Preciosíssimo Sangue de Vosso Divino Filho Jesus,<br>

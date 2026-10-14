@@ -13,9 +13,9 @@ novenaSuggestedStart: -6
 liturgicalColor: "advento"
 ---
 
-As **Antífonas Ó** são sete invocações solenes cantadas no *Magnificat* das Vésperas, de 17 a 23 de dezembro, na semana que antecede o Natal. Cada uma começa com a exclamação "Ó" e invoca o Messias prometido por um de Seus títulos messiânicos colhidos das Escrituras, sobretudo do profeta Isaías.
+_As **Antífonas Ó** são sete invocações solenes cantadas no *Magnificat* das Vésperas, de 17 a 23 de dezembro, na semana que antecede o Natal. Cada uma começa com a exclamação "Ó" e invoca o Messias prometido por um de Seus títulos messiânicos colhidos das Escrituras, sobretudo do profeta Isaías._
 
-Atribuídas tradicionalmente ao **Beato Alcuíno de Iorque** e à tradição litúrgica medieval (séc. VIII–IX), as iniciais latinas dos sete títulos — *Sapientia, Adonai, Radix, Clavis, Oriens, Rex, Emmanuel* — lidas de trás para frente formam o acróstico **ERO CRAS**, que significa "Amanhã estarei presente": a própria resposta de Cristo à ardente espera de Seu povo.
+_Atribuídas tradicionalmente ao **Beato Alcuíno de Iorque** e à tradição litúrgica medieval (séc. VIII–IX), as iniciais latinas dos sete títulos — *Sapientia, Adonai, Radix, Clavis, Oriens, Rex, Emmanuel* — lidas de trás para frente formam o acróstico **ERO CRAS**, que significa "Amanhã estarei presente": a própria resposta de Cristo à ardente espera de Seu povo._
 
 ## 17 de dezembro — Ó Sabedoria
 

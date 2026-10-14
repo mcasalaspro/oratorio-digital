@@ -14,11 +14,11 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Santo Antônio de Pádua, nascido em Lisboa e falecido em Pádua, foi frade franciscano, pregador incansável e grande conhecedor das Escrituras.
+*Santo Antônio de Pádua, nascido em Lisboa e falecido em Pádua, foi frade franciscano, pregador incansável e grande conhecedor das Escrituras.
 Canonizado em 1232, menos de um ano após sua morte, foi proclamado Doutor Evangélico da Igreja em 1946.
-Venerado como padroeiro dos pobres e dos que perderam algo, é invocado por sua poderosa intercessão e pelos muitos milagres que o Senhor concedeu por suas mãos.
+Venerado como padroeiro dos pobres e dos que perderam algo, é invocado por sua poderosa intercessão e pelos muitos milagres que o Senhor concedeu por suas mãos.*
 
-Esta novena segue a tradição franciscana (OFM), em versão popular de origem anônima, fiel à devoção dos séculos XIII–XIV.
+*Esta novena segue a tradição franciscana (OFM), em versão popular de origem anônima, fiel à devoção dos séculos XIII–XIV.*
 
 *Oração inicial para todos os dias:*
 
@@ -40,6 +40,28 @@ confiando que tudo o mais me será dado em acréscimo.
 Que eu saiba responder com generosidade ao que o Senhor pede de mim,<br>
 e que a vossa intercessão me obtenha a graça da fidelidade.
 
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
+
 > Santo Antônio, rogai por nós.
 
 ## Dia 2 — O amor à Palavra de Deus
@@ -54,6 +76,28 @@ para que a Sua Palavra ilumine os meus passos.
 
 Que eu guarde no coração os ensinamentos de Cristo<br>
 e os ponha em prática com humildade e perseverança.
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santo Antônio, rogai por nós.
 
@@ -70,6 +114,28 @@ e a partilhar com alegria aquilo que de Deus recebi.
 Que o vosso exemplo me mova à compaixão e à generosidade,<br>
 e que eu nunca feche o coração diante de quem precisa.
 
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
+
 > Santo Antônio, rogai por nós.
 
 ## Dia 4 — As coisas perdidas e reencontradas
@@ -84,6 +150,28 @@ para que eu reencontre o caminho que conduz a Deus.
 
 Que nada de essencial se perca na minha vida,<br>
 e que eu jamais perca o amor d'Aquele que tudo me deu.
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santo Antônio, rogai por nós.
 
@@ -100,6 +188,28 @@ e a reconhecer que todo bem vem do Pai das luzes.
 Que eu aprenda de Cristo a ser manso e humilde de coração,<br>
 seguindo o vosso exemplo de doce simplicidade.
 
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
+
 > Santo Antônio, rogai por nós.
 
 ## Dia 6 — A defesa da verdade
@@ -115,6 +225,28 @@ mesmo quando o mundo despreza os caminhos de Deus.
 Que eu seja testemunha fiel do Evangelho,<br>
 firme na verdade que liberta e salva.
 
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
+
 > Santo Antônio, rogai por nós.
 
 ## Dia 7 — Os milagres da graça
@@ -128,6 +260,28 @@ para que se cumpra em nós a vontade santa de Deus.
 
 Que eu nunca duvide do amor providente do Pai,<br>
 e que reconheça os milagres da Sua graça em minha vida.
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santo Antônio, rogai por nós.
 
@@ -144,6 +298,28 @@ buscando-O em cada momento da minha jornada.
 Que o amor de Jesus seja o tesouro da minha alma,<br>
 e que eu O carregue sempre comigo, como vós o fizestes.
 
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
+
 > Santo Antônio, rogai por nós.
 
 ## Dia 9 — A perseverança até o fim
@@ -157,6 +333,28 @@ até alcançar a recompensa prometida aos servos fiéis.
 
 Que eu chegue ao fim da minha vida em paz com o Senhor,<br>
 para contemplar convosco a Sua glória no Céu.
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 > Santo Antônio, rogai por nós.
 

@@ -208,6 +208,11 @@ nv.pintar();
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5l9 7-9 7zM16 5h2.4v14H16z" fill="currentColor"/></svg>
             <span data-i18n="next">Próximo</span>
           </button>
+          <!-- Modo Foco também aqui: liga e desliga no meio da leitura, sem parar o assistente -->
+          <button id="rgFoco" class="rg-btn" type="button" aria-pressed="false" aria-label="Modo Foco" data-i18n-aria="focus_mode_aria">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span data-i18n="focus_mode">Foco</span>
+          </button>
         </div>
         <label class="rg-speed">
           <span data-i18n="speed">Ritmo</span>
@@ -228,6 +233,11 @@ nv.pintar();
           <button id="paNext" class="btn" type="button" data-i18n="next_day" hidden>Próximo dia</button>
           <button id="paAgain" class="btn" type="button" data-i18n="pray_again">Rezar de novo</button>
           <a id="paBack" class="btn" data-i18n="back_catalog">Voltar ao catálogo</a>
+          <!-- outra oração ao acaso, de preferência uma que ainda não abriu (public/js/sortear.js) -->
+          <a id="paSortear" class="btn btn-sortear" href={withBase('/sortear')} data-od-sortear>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="random_another">Conhecer outra oração</span>
+          </a>
         </div>
       </div>
 
@@ -300,12 +310,13 @@ nv.pintar();
   :root[data-theme="dark"] .rg-w-linha { background-color: rgba(255, 215, 132, .1); }
   :root[data-theme="dark"] .rg-w-ativa { background-color: rgba(255, 215, 132, .85); color: #1a130a; }
   /* G6: tocar num parágrafo/verso começa a leitura dali */
-  #prayer-content :is(p, blockquote):not(.rubric):not(.terco-mystery) { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  #prayer-content :is(p, blockquote):not(.rubric):not(.rotulo):not(.terco-mystery) { cursor: pointer; -webkit-tap-highlight-color: transparent; }
   #prayer-content :is(.od-misterios, .terco-days) :is(p, li) { cursor: auto; }
 
   /* B15: A+ e A− valem para tudo no texto (antes rubricas, mistérios e títulos ficavam fixos) */
   #prayer-content h2 { font-size: calc(1.9rem * var(--reader-scale, 1)); }
   #prayer-content p.rubric { font-size: calc(1rem * var(--reader-scale, 1)); }
+  #prayer-content p.rubric.nota { font-size: calc(.98rem * var(--reader-scale, 1)); }
   #prayer-content .terco-mystery { font-size: calc(1.28rem * var(--reader-scale, 1)); }
   #prayer-content .lead::first-letter { font-size: calc(3.6rem * var(--reader-scale, 1)); }
   #prayer-content .rep-count { font-size: calc(1.1rem * var(--reader-scale, 1)); }
@@ -341,6 +352,8 @@ nv.pintar();
   html.od-foco .reader-tools > :not(#focusBtn), html.od-foco .bio-link, html.od-foco .prod-related { display: none !important; }
   html.od-foco .reader-hero { min-height: 26vh; }
   html.od-foco .reader-tools { justify-content: flex-end; margin-bottom: .8rem; }
+  /* botão Foco na barra do assistente: aceso enquanto o foco está ligado */
+  #rgFoco[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); }
 
   /* B17: a barra do assistente respeita a área segura do iPhone e se recolhe enquanto as
      contas/legenda da novena estão na faixa de baixo da tela (parada; tocando, ela fica) */

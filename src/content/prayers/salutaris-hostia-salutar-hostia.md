@@ -10,7 +10,7 @@ description: "Hino de São Tomás de Aquino cantado na exposição e Bênção d
 featured: false
 liturgicalColor: "festa"
 ---
-Hino eucarístico composto por São Tomás de Aquino (c. 1264) como parte do *Verbum Supernum Prodiens*, escrito para o Ofício da solenidade de Corpus Christi. Suas duas últimas estrofes formam o **O Salutaris Hostia**, tradicionalmente cantado na exposição e na Bênção do Santíssimo Sacramento, implorando ao Senhor que abra as portas do Céu aos fiéis.
+_Hino eucarístico composto por São Tomás de Aquino (c. 1264) como parte do *Verbum Supernum Prodiens*, escrito para o Ofício da solenidade de Corpus Christi. Suas duas últimas estrofes formam o **O Salutaris Hostia**, tradicionalmente cantado na exposição e na Bênção do Santíssimo Sacramento, implorando ao Senhor que abra as portas do Céu aos fiéis._
 
 ## Texto em latim
 

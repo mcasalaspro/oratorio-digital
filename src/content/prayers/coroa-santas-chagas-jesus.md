@@ -10,9 +10,9 @@ description: "Coroa reparadora das cinco Chagas de Nosso Senhor Jesus Cristo, re
 featured: false
 liturgicalColor: "festa"
 ---
-A Coroa das Santas Chagas foi revelada à Irmã Maria Marta Chambon, religiosa da Visitação de Chambéry, na França, no século XIX. Nesta devoção reparadora oferecemos ao Pai Eterno as Chagas e o Sangue de Nosso Senhor Jesus Cristo, para alcançar misericórdia para os vivos, alívio para as almas do purgatório e a conversão dos pecadores.
+*A Coroa das Santas Chagas foi revelada à Irmã Maria Marta Chambon, religiosa da Visitação de Chambéry, na França, no século XIX. Nesta devoção reparadora oferecemos ao Pai Eterno as Chagas e o Sangue de Nosso Senhor Jesus Cristo, para alcançar misericórdia para os vivos, alívio para as almas do purgatório e a conversão dos pecadores.*
 
-Reza-se num terço comum, de cinco dezenas. No crucifixo e nas primeiras contas, fazem-se as invocações iniciais; em cada conta grande, a oração ao Pai Eterno; em cada uma das dez contas pequenas, a invocação às Chagas. No final, repete-se três vezes a oração ao Pai Eterno.
+*Reza-se num terço comum, de cinco dezenas. No crucifixo e nas primeiras contas, fazem-se as invocações iniciais; em cada conta grande, a oração ao Pai Eterno; em cada uma das dez contas pequenas, a invocação às Chagas. No final, repete-se três vezes a oração ao Pai Eterno.*
 
 ## Sinal da Cruz e oferecimento
 

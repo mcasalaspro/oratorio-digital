@@ -10,7 +10,7 @@ description: "Célebre sequência medieval sobre o Juízo Final, tradicional nas
 featured: false
 liturgicalColor: "festa"
 ---
-Sequência medieval atribuída a **Tomás de Celano OFM** (séc. XIII), cantada tradicionalmente nas Missas de defuntos (Réquiem). Meditação solene sobre o Dia do Juízo, em que o pecador implora a misericórdia de Cristo, Juiz e Salvador.
+_Sequência medieval atribuída a **Tomás de Celano OFM** (séc. XIII), cantada tradicionalmente nas Missas de defuntos (Réquiem). Meditação solene sobre o Dia do Juízo, em que o pecador implora a misericórdia de Cristo, Juiz e Salvador._
 
 Dia de ira, aquele dia,<br>
 em que os séculos se desfarão em cinza,<br>

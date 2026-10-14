@@ -9,7 +9,7 @@ featured: false
 liturgicalColor: "advento"
 ---
 
-Oração de um pai ou de uma mãe pela alma de um filho que partiu, entregando-o à misericórdia de Deus e à intercessão de Nossa Senhora.
+*Oração de um pai ou de uma mãe pela alma de um filho que partiu, entregando-o à misericórdia de Deus e à intercessão de Nossa Senhora.*
 
 Ó Deus,<br>
 quão amarga é a perda deste filho<br>

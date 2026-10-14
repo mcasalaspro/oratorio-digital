@@ -12,7 +12,7 @@ liturgicalFeast: "10-02"
 liturgicalColor: "festa"
 ---
 
-O Senhor, em Sua infinita providência, confia a cada alma um Anjo da Guarda desde o nascimento — companheiro fiel e intercessor silencioso durante toda a jornada terrena. A memória dos Santos Anjos da Guarda é celebrada em 2 de outubro.
+*O Senhor, em Sua infinita providência, confia a cada alma um Anjo da Guarda desde o nascimento — companheiro fiel e intercessor silencioso durante toda a jornada terrena. A memória dos Santos Anjos da Guarda é celebrada em 2 de outubro.*
 
 ### Oração Tradicional
 

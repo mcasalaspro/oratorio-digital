@@ -10,11 +10,11 @@ description: "Trinta e três Pai-Nossos pelos anos terrenos de Cristo e cinco Av
 featured: false
 liturgicalColor: "festa"
 ---
-A Coroa de Nosso Senhor Jesus Cristo é uma devoção atribuída ao Venerável Miguel Pio, monge camaldulense (séc. XVI).
+*A Coroa de Nosso Senhor Jesus Cristo é uma devoção atribuída ao Venerável Miguel Pio, monge camaldulense (séc. XVI).*
 
-Reza-se com trinta e três Pai-Nossos, em honra dos trinta e três anos que Cristo viveu na terra, e cinco Ave-Marias, em memória das cinco Chagas que Ele sofreu por nossa salvação.
+*Reza-se com trinta e três Pai-Nossos, em honra dos trinta e três anos que Cristo viveu na terra, e cinco Ave-Marias, em memória das cinco Chagas que Ele sofreu por nossa salvação.*
 
-Pode-se dividir a contagem em três grupos de onze Pai-Nossos, recordando os mistérios da vida, da Paixão e da glória do Senhor.
+*Pode-se dividir a contagem em três grupos de onze Pai-Nossos, recordando os mistérios da vida, da Paixão e da glória do Senhor.*
 
 ## Sinal da Cruz
 
@@ -36,7 +36,16 @@ desde o presépio até a cruz.
 
 Contemplemos a Encarnação, o nascimento e a vida oculta e pública de Cristo.
 
-11x Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+> 11x Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
 > Bendito e louvado seja Jesus Cristo, que por nós Se fez homem.
 
@@ -44,7 +53,16 @@ Contemplemos a Encarnação, o nascimento e a vida oculta e pública de Cristo.
 
 Contemplemos a agonia, a flagelação, a coroação de espinhos e a crucifixão de Cristo.
 
-11x Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+> 11x Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
 > Bendito e louvado seja Jesus Cristo, que por nós padeceu e morreu.
 
@@ -52,7 +70,16 @@ Contemplemos a agonia, a flagelação, a coroação de espinhos e a crucifixão 
 
 Contemplemos a Ressurreição, a Ascensão e a glória eterna de Cristo.
 
-11x Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+> 11x Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
 > Bendito e louvado seja Jesus Cristo, que ressuscitou e reina glorioso.
 
@@ -60,7 +87,13 @@ Contemplemos a Ressurreição, a Ascensão e a glória eterna de Cristo.
 
 Em memória das cinco Chagas que o Senhor sofreu na cruz por amor de nós.
 
-5x Ave, Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 5x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Adoramos-Vos, ó Cristo, e bendizemos-Vos, porque pela Vossa Santa Cruz remistes o mundo.
 

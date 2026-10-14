@@ -10,8 +10,8 @@ description: "Hino tradicional ao Espírito Santo, atribuído a Rabano Mauro (s�
 featured: false
 liturgicalColor: "festa"
 ---
-Hino de invocação ao Espírito Santo, atribuído a Rabano Mauro OSB (séc. IX).<br>
-Tradicionalmente cantado em Pentecostes, nas ordenações, nos conclaves e no início de toda obra importante.
+*Hino de invocação ao Espírito Santo, atribuído a Rabano Mauro OSB (séc. IX).<br>
+Tradicionalmente cantado em Pentecostes, nas ordenações, nos conclaves e no início de toda obra importante.*
 
 Vinde, Espírito Criador,<br>
 visitai as almas dos vossos fiéis<br>

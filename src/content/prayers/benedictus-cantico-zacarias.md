@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-O Benedictus é o cântico entoado por Zacarias, pai de João Batista, no momento em que recuperou a fala após o nascimento do filho (Lc 1,68-79). Repleto de júbilo profético, anuncia a vinda do Messias e a missão do precursor. Desde os primeiros séculos, a Igreja o reza diariamente nas Laudes, ao raiar do dia, como hino de bênção e esperança.
+*O Benedictus é o cântico entoado por Zacarias, pai de João Batista, no momento em que recuperou a fala após o nascimento do filho (Lc 1,68-79). Repleto de júbilo profético, anuncia a vinda do Messias e a missão do precursor. Desde os primeiros séculos, a Igreja o reza diariamente nas Laudes, ao raiar do dia, como hino de bênção e esperança.*
 
 Bendito seja o Senhor, Deus de Israel,<br>
 porque visitou e redimiu o Seu povo<br>

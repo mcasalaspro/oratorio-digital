@@ -12,9 +12,9 @@ liturgicalFeast: "09-29"
 liturgicalColor: "festa"
 ---
 
-O Terço de São Miguel Arcanjo, também chamado **Coroa Angélica**, tem origem em revelações feitas à serva de Deus Antónia d'Astónac, religiosa carmelita do século XVIII. São Miguel teria pedido que fosse honrado por nove saudações correspondentes aos nove coros angélicos, prometendo a quem o rezasse com devoção a assistência dos anjos durante a vida e na hora da morte.
+_O Terço de São Miguel Arcanjo, também chamado **Coroa Angélica**, tem origem em revelações feitas à serva de Deus Antónia d'Astónac, religiosa carmelita do século XVIII. São Miguel teria pedido que fosse honrado por nove saudações correspondentes aos nove coros angélicos, prometendo a quem o rezasse com devoção a assistência dos anjos durante a vida e na hora da morte._
 
-Reza-se uma saudação a cada coro, seguida de um Pai-Nosso e três Ave-Marias. Ao final, acrescentam-se quatro Pai-Nossos: um a São Miguel, um a São Gabriel, um a São Rafael e um ao Anjo da Guarda.
+*Reza-se uma saudação a cada coro, seguida de um Pai-Nosso e três Ave-Marias. Ao final, acrescentam-se quatro Pai-Nossos: um a São Miguel, um a São Gabriel, um a São Rafael e um ao Anjo da Guarda.*
 
 **Como começar**
 
@@ -29,9 +29,24 @@ Pela intercessão de São Miguel e do celeste coro dos Serafins,<br>
 digne-Se o Senhor tornar-nos dignos do fogo da perfeita caridade.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -42,9 +57,24 @@ digne-Se o Senhor conceder-nos a graça de abandonar os caminhos do pecado<br>
 e correr pelas sendas da perfeição cristã.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -55,9 +85,24 @@ digne-Se o Senhor infundir em nossos corações<br>
 o espírito de verdadeira e sincera humildade.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -68,9 +113,24 @@ digne-Se o Senhor conceder-nos a graça de dominar os sentidos<br>
 e corrigir as paixões desordenadas.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -81,9 +141,24 @@ digne-Se o Senhor preservar-nos das tentações<br>
 e livrar-nos do mal.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -94,9 +169,24 @@ digne-Se o Senhor proteger nossas almas<br>
 contra as ciladas e tentações do demônio.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -106,9 +196,24 @@ Pela intercessão de São Miguel e do celeste coro dos Principados,<br>
 digne-Se Deus encher nossas almas de verdadeiro espírito de obediência.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -119,9 +224,24 @@ digne-Se o Senhor conceder-nos a perseverança na fé e nas boas obras,<br>
 a fim de alcançarmos a glória do paraíso.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
@@ -132,25 +252,80 @@ digne-Se o Senhor conceder-nos que os anjos nos guardem nesta vida mortal,<br>
 para nos conduzirem depois à vida eterna.<br>
 Amém.
 
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-3x Ave-Maria...
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
 > Santo Anjo do Senhor, meu zeloso guardador, rogai por nós.
 
 ## Os quatro Pai-Nossos finais
 
-Em honra de São Miguel Arcanjo.<br>
-1x Pai-Nosso...
+*Em honra de São Miguel Arcanjo:*
 
-Em honra de São Gabriel Arcanjo.<br>
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-Em honra de São Rafael Arcanjo.<br>
-1x Pai-Nosso...
+*Em honra de São Gabriel Arcanjo:*
 
-Em honra do Anjo da Guarda.<br>
-1x Pai-Nosso...
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+*Em honra de São Rafael Arcanjo:*
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+*Em honra do Anjo da Guarda:*
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
 ## Oração final
 

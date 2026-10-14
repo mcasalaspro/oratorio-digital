@@ -10,7 +10,7 @@ description: "Antífona mariana do Advento à Apresentação do Senhor, atribuí
 featured: false
 liturgicalColor: "advento"
 ---
-Antífona mariana atribuída a Hermano de Reichenau (Hermano Contracto), monge beneditino do século XI. É uma das quatro antífonas finais de Nossa Senhora, cantada ao término das Completas no tempo que vai do Advento à festa da Apresentação do Senhor (2 de fevereiro).
+*Antífona mariana atribuída a Hermano de Reichenau (Hermano Contracto), monge beneditino do século XI. É uma das quatro antífonas finais de Nossa Senhora, cantada ao término das Completas no tempo que vai do Advento à festa da Apresentação do Senhor (2 de fevereiro).*
 
 ## Texto em português
 

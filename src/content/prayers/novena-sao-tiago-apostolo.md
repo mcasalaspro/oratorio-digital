@@ -14,12 +14,12 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-São Tiago, filho de Zebedeu e irmão de João, foi um dos primeiros chamados por Jesus à beira do mar da Galileia.<br>
+*São Tiago, filho de Zebedeu e irmão de João, foi um dos primeiros chamados por Jesus à beira do mar da Galileia.<br>
 Apelidado de "filho do trovão", esteve entre os três apóstolos mais próximos do Senhor, testemunha da Transfiguração e da agonia no Horto.<br>
-Foi o primeiro dos Apóstolos a derramar o seu sangue pela fé, martirizado por Herodes Agripa por volta do ano 44.
+Foi o primeiro dos Apóstolos a derramar o seu sangue pela fé, martirizado por Herodes Agripa por volta do ano 44.*
 
-A tradição hispânica venera o seu corpo em Santiago de Compostela, cuja tumba foi reconhecida por volta do ano 830, dando origem a um dos maiores caminhos de peregrinação da cristandade.<br>
-Façamos esta novena pedindo a sua intercessão, para que, como peregrinos da fé, caminhemos firmes rumo a Deus.
+*A tradição hispânica venera o seu corpo em Santiago de Compostela, cuja tumba foi reconhecida por volta do ano 830, dando origem a um dos maiores caminhos de peregrinação da cristandade.<br>
+Façamos esta novena pedindo a sua intercessão, para que, como peregrinos da fé, caminhemos firmes rumo a Deus.*
 
 ## Dia 1 — O chamado junto ao mar
 

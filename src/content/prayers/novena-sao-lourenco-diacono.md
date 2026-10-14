@@ -14,9 +14,9 @@ liturgicalColor: "martir"
 novenaSuggestedStart: -9
 ---
 
-São Lourenço foi diácono do Papa Sisto II, em Roma, e administrava os bens da Igreja para socorrer os pobres. Durante a perseguição do imperador Valeriano, no ano de 258, foi-lhe ordenado que entregasse os tesouros da Igreja. Lourenço reuniu então os pobres, os enfermos e os necessitados, apresentando-os como o verdadeiro tesouro de Cristo. Condenado à morte, foi martirizado sobre uma grelha em brasa, onde, com serenidade heroica, teria dito aos algozes: "Volta-me, pois já estou assado deste lado." Esta novena se inspira na tradição martirológica romana dos séculos III e IV.
+*São Lourenço foi diácono do Papa Sisto II, em Roma, e administrava os bens da Igreja para socorrer os pobres. Durante a perseguição do imperador Valeriano, no ano de 258, foi-lhe ordenado que entregasse os tesouros da Igreja. Lourenço reuniu então os pobres, os enfermos e os necessitados, apresentando-os como o verdadeiro tesouro de Cristo. Condenado à morte, foi martirizado sobre uma grelha em brasa, onde, com serenidade heroica, teria dito aos algozes: "Volta-me, pois já estou assado deste lado." Esta novena se inspira na tradição martirológica romana dos séculos III e IV.*
 
-Iniciemos cada dia com o sinal da cruz e com a oração de abertura:
+*Iniciemos cada dia com o sinal da cruz e com a oração de abertura:*
 
 > Ó glorioso São Lourenço, diácono e mártir, que destes a vida por amor a Cristo e aos pobres, intercedei por nós junto ao Senhor.
 
@@ -224,4 +224,5 @@ convosco louvar o Senhor no Céu.
 
 > São Lourenço, diácono e mártir, rogai por nós.
 
-> Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.

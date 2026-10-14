@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena celebra a Visitação de Nossa Senhora a sua prima Isabel, narrada no Evangelho de São Lucas (Lc 1,39-56). Movida pela caridade e pela alegria do Espírito Santo, Maria parte apressada para servir, e em seu encontro com Isabel brota o cântico do Magnificat. A devoção à Visitação floresceu na tradição franciscana e bonaventuriana (séculos XIII-XIV), e a festa foi aprovada pelo Papa Bonifácio IX em 1389. Que estes nove dias nos ensinem a levar Jesus aos outros, como fez Maria.
+*Esta novena celebra a Visitação de Nossa Senhora a sua prima Isabel, narrada no Evangelho de São Lucas (Lc 1,39-56). Movida pela caridade e pela alegria do Espírito Santo, Maria parte apressada para servir, e em seu encontro com Isabel brota o cântico do Magnificat. A devoção à Visitação floresceu na tradição franciscana e bonaventuriana (séculos XIII-XIV), e a festa foi aprovada pelo Papa Bonifácio IX em 1389. Que estes nove dias nos ensinem a levar Jesus aos outros, como fez Maria.*
 
 ## Dia 1 — Maria se levanta e parte
 

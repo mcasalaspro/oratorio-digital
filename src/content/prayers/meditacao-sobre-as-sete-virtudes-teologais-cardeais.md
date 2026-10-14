@@ -10,9 +10,9 @@ description: "Meditação sobre as três virtudes teologais e as quatro virtudes
 featured: false
 liturgicalColor: "ordinario"
 ---
-Esta meditação percorre as sete virtudes que ordenam a vida cristã: as três virtudes teologais — Fé, Esperança e Caridade —, infundidas por Deus e voltadas diretamente para Ele, e as quatro virtudes cardeais — Prudência, Justiça, Fortaleza e Temperança —, que governam as nossas ações humanas. Síntese fundada na tradição catequética e no ensinamento de Santo Tomás de Aquino (*Summa Theologiae*, II-II, séc. XIII).
+_Esta meditação percorre as sete virtudes que ordenam a vida cristã: as três virtudes teologais — Fé, Esperança e Caridade —, infundidas por Deus e voltadas diretamente para Ele, e as quatro virtudes cardeais — Prudência, Justiça, Fortaleza e Temperança —, que governam as nossas ações humanas. Síntese fundada na tradição catequética e no ensinamento de Santo Tomás de Aquino (*Summa Theologiae*, II-II, séc. XIII)._
 
-Antes de começar, recolhei o coração e invocai o auxílio divino:
+*Antes de começar, recolhei o coração e invocai o auxílio divino:*
 
 > Vinde, Espírito Santo, e infundi em mim as Vossas virtudes,<br>
 > para que eu Vos conheça, Vos espere e Vos ame sobre todas as coisas.

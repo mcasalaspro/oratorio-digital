@@ -14,7 +14,7 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-São João, filho de Zebedeu e irmão de Tiago, foi chamado por Jesus à beira do mar da Galileia. Tornou-se o discípulo amado, aquele que reclinou a cabeça sobre o peito do Senhor na Última Ceia e que permaneceu fiel ao pé da Cruz, recebendo Maria como mãe. Segundo a tradição apostólica joanina (séc. I–II), foi o único dos Doze que não morreu mártir, vivendo até idade avançada em Éfeso. A ele se atribuem o Quarto Evangelho, as três Cartas e o Apocalipse. Nesta novena, peçamos sua intercessão para amar como ele amou.
+*São João, filho de Zebedeu e irmão de Tiago, foi chamado por Jesus à beira do mar da Galileia. Tornou-se o discípulo amado, aquele que reclinou a cabeça sobre o peito do Senhor na Última Ceia e que permaneceu fiel ao pé da Cruz, recebendo Maria como mãe. Segundo a tradição apostólica joanina (séc. I–II), foi o único dos Doze que não morreu mártir, vivendo até idade avançada em Éfeso. A ele se atribuem o Quarto Evangelho, as três Cartas e o Apocalipse. Nesta novena, peçamos sua intercessão para amar como ele amou.*
 
 ## Dia 1 — O chamado do discípulo amado
 

@@ -14,16 +14,16 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena celebra a festa da Apresentação do Senhor no Templo,
+*Esta novena celebra a festa da Apresentação do Senhor no Templo,
 quarenta dias após o Natal, quando a Virgem Maria, cumprindo a Lei,
-apresentou o Menino Jesus ao Pai.
+apresentou o Menino Jesus ao Pai.*
 
-A devoção das candeias — velas abençoadas que recordam Cristo,
+*A devoção das candeias — velas abençoadas que recordam Cristo,
 "luz para iluminar as nações" (Lc 2,32) — nasce da tradição
 litúrgica de Jerusalém (séc. IV–V), onde os fiéis percorriam
-em procissão os lugares santos com luzes acesas.
+em procissão os lugares santos com luzes acesas.*
 
-Acenda uma vela bendita a cada dia e reze com fé.
+*Acenda uma vela bendita a cada dia e reze com fé.*
 
 > Ó Maria, Mãe da divina Luz,
 > apresentai-nos ao vosso Filho Jesus,

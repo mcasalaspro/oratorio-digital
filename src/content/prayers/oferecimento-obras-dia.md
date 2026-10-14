@@ -10,7 +10,7 @@ description: "Oração tradicional do Apostolado da Oração para oferecer ao Se
 featured: false
 liturgicalColor: "festa"
 ---
-Oração matinal do Apostolado da Oração (séc. XIX), tradicionalmente rezada ao começar o dia para consagrar a Jesus, pelo Imaculado Coração de Maria, todas as ações e intenções da jornada.
+*Oração matinal do Apostolado da Oração (séc. XIX), tradicionalmente rezada ao começar o dia para consagrar a Jesus, pelo Imaculado Coração de Maria, todas as ações e intenções da jornada.*
 
 Ó Jesus,<br>
 por meio do Imaculado Coração de Maria,<br>

@@ -10,7 +10,7 @@ description: "O Pão dos anjos faz-se pão dos homens — célebre hino eucarís
 featured: false
 liturgicalColor: "festa"
 ---
-Hino eucarístico composto por São Tomás de Aquino por volta de 1264, parte do *Sacris Solemniis*, escrito para a solenidade de Corpus Christi. Tornou-se mundialmente célebre na melodia de César Franck (1872).
+_Hino eucarístico composto por São Tomás de Aquino por volta de 1264, parte do *Sacris Solemniis*, escrito para a solenidade de Corpus Christi. Tornou-se mundialmente célebre na melodia de César Franck (1872)._
 
 O Pão dos anjos faz-Se pão dos homens;<br>
 o Pão do Céu dá fim às profecias.<br>

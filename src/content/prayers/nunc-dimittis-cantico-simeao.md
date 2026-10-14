@@ -11,7 +11,7 @@ featured: false
 liturgicalColor: "ordinario"
 ---
 
-O Nunc Dimittis é o cântico entoado pelo justo Simeão ao receber o Menino Jesus no Templo, conforme narra o Evangelho de São Lucas (Lc 2,29-32). Datado do século I d.C., é tradicionalmente rezado nas Completas, a última oração do dia na Liturgia das Horas, como entrega serena ao descanso.
+*O Nunc Dimittis é o cântico entoado pelo justo Simeão ao receber o Menino Jesus no Templo, conforme narra o Evangelho de São Lucas (Lc 2,29-32). Datado do século I d.C., é tradicionalmente rezado nas Completas, a última oração do dia na Liturgia das Horas, como entrega serena ao descanso.*
 
 Agora, Senhor, podes deixar partir em paz o Teu servo,<br>
 segundo a Tua palavra.<br>

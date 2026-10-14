@@ -10,7 +10,7 @@ description: "Oração tradicional ao jovem patrono da pureza, pela graça de um
 featured: false
 liturgicalColor: "festa"
 ---
-Oração tradicional a São Luís Gonzaga (1568–1591), jovem jesuíta e patrono da juventude, modelo de pureza e de domínio sobre as paixões.
+*Oração tradicional a São Luís Gonzaga (1568–1591), jovem jesuíta e patrono da juventude, modelo de pureza e de domínio sobre as paixões.*
 
 *Apresente a Deus a sua intenção e recolha o coração.*
 

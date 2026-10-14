@@ -14,16 +14,16 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena celebra um dos mais antigos louvores marianos da Igreja:
+*Esta novena celebra um dos mais antigos louvores marianos da Igreja:
 a Assunção da Bem-aventurada Virgem Maria, que, terminado o curso de
-sua vida terrena, foi elevada em corpo e alma à glória celeste.
+sua vida terrena, foi elevada em corpo e alma à glória celeste.*
 
-A festa é celebrada desde os séculos IV e V, e o mistério foi solenemente
+_A festa é celebrada desde os séculos IV e V, e o mistério foi solenemente
 definido como dogma de fé pelo Papa Pio XII, na Bula *Munificentissimus Deus*,
-em 1º de novembro de 1950.
+em 1º de novembro de 1950._
 
-Reze esta novena durante nove dias, preferencialmente iniciando em 6 de agosto,
-para chegar à solenidade no dia 15.
+*Reze esta novena durante nove dias, preferencialmente iniciando em 6 de agosto,
+para chegar à solenidade no dia 15.*
 
 ## Dia 1 — A escolhida desde sempre
 

@@ -10,7 +10,7 @@ description: "Exame de consciência em cinco passos, segundo a prática dos Exer
 featured: false
 liturgicalColor: "ordinario"
 ---
-O Exame de Consciência diário é uma das práticas mais preciosas dos *Exercícios Espirituais* de Santo Inácio de Loyola (séc. XVI). Ao fim de cada dia, em cinco passos — dar graças, pedir luz, rever o dia, pedir perdão e propor a emenda —, o coração se volta para Deus para reconhecer a Sua presença e crescer no Seu amor.
+_O Exame de Consciência diário é uma das práticas mais preciosas dos *Exercícios Espirituais* de Santo Inácio de Loyola (séc. XVI). Ao fim de cada dia, em cinco passos — dar graças, pedir luz, rever o dia, pedir perdão e propor a emenda —, o coração se volta para Deus para reconhecer a Sua presença e crescer no Seu amor._
 
 *Faça o sinal da cruz e coloque-se na presença de Deus.*
 

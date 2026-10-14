@@ -14,10 +14,10 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena celebra o mistério da Anunciação do Senhor, quando o Verbo se fez carne no seio da Virgem Maria.
-Enraizada na tradição mariana medieval dos séculos VII e VIII, ela contempla o "sim" humilde de Maria — *Fiat mihi secundum verbum tuum* (Lc 1,38) — pelo qual o Filho de Deus veio habitar entre nós.
+_Esta novena celebra o mistério da Anunciação do Senhor, quando o Verbo se fez carne no seio da Virgem Maria.
+Enraizada na tradição mariana medieval dos séculos VII e VIII, ela contempla o "sim" humilde de Maria — *Fiat mihi secundum verbum tuum* (Lc 1,38) — pelo qual o Filho de Deus veio habitar entre nós._
 
-A cada dia, recolhamos o coração e peçamos a graça de acolher a vontade de Deus com a mesma docilidade da Virgem.
+*A cada dia, recolhamos o coração e peçamos a graça de acolher a vontade de Deus com a mesma docilidade da Virgem.*
 
 ## Dia 1 — O anjo enviado por Deus
 

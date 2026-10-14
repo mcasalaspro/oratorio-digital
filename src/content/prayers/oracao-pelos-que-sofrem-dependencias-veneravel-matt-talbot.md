@@ -10,7 +10,7 @@ description: "Oração pela intercessão do Venerável Matt Talbot por todos os 
 featured: false
 liturgicalColor: "festa"
 ---
-O Venerável Matt Talbot (1856–1925) foi um operário irlandês de Dublin que, após anos de escravidão ao álcool, encontrou em Deus a força para uma vida nova de sobriedade, oração e penitência. Hoje é invocado como intercessor por todos os que sofrem de dependências. Esta oração pede a Sua intercessão para que os que lutam encontrem libertação e perseverança, caminhando sempre com os Sacramentos e o devido tratamento.
+*O Venerável Matt Talbot (1856–1925) foi um operário irlandês de Dublin que, após anos de escravidão ao álcool, encontrou em Deus a força para uma vida nova de sobriedade, oração e penitência. Hoje é invocado como intercessor por todos os que sofrem de dependências. Esta oração pede a Sua intercessão para que os que lutam encontrem libertação e perseverança, caminhando sempre com os Sacramentos e o devido tratamento.*
 
 *Faça o sinal da cruz e recolha-se em silêncio diante de Deus.*
 

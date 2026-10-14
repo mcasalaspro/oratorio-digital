@@ -14,11 +14,11 @@ liturgicalColor: "festa"
 novenaSuggestedStart: -9
 ---
 
-Esta novena honra Santa Maria Madalena, discípula fiel do Senhor, primeira testemunha da Ressurreição e por isso chamada pela tradição "Apóstola dos Apóstolos" (cf. Jo 20,11-18).<br>
+*Esta novena honra Santa Maria Madalena, discípula fiel do Senhor, primeira testemunha da Ressurreição e por isso chamada pela tradição "Apóstola dos Apóstolos" (cf. Jo 20,11-18).<br>
 Sua memória, venerada desde a Idade Média na tradição dominicana e provençal (séc. XIII–XIV), foi elevada a festa litúrgica pelo Papa Francisco em 2016.<br>
-Em cada dia, peçamos por seu exemplo de conversão, amor ardente e fidelidade a Cristo.
+Em cada dia, peçamos por seu exemplo de conversão, amor ardente e fidelidade a Cristo.*
 
-Façamos o sinal da cruz e recordemos a presença de Deus.
+*Façamos o sinal da cruz e recordemos a presença de Deus.*
 
 > Santa Maria Madalena, testemunha do Ressuscitado, rogai por nós.
 

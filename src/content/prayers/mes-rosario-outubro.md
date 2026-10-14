@@ -12,32 +12,87 @@ liturgicalFeast: "10-01"
 liturgicalColor: "festa"
 ---
 
-O mês de outubro é, por tradição secular da Igreja, consagrado ao Santo Rosário de Maria.
-A devoção nasceu no seio da Ordem dos Pregadores (dominicanos) por volta do século XIII e foi grandemente promovida pelo Papa Leão XIII, que entre 1883 e 1902 escreveu doze encíclicas exortando os fiéis a rezar o Rosário, sobretudo durante o mês de outubro.
+*O mês de outubro é, por tradição secular da Igreja, consagrado ao Santo Rosário de Maria.
+A devoção nasceu no seio da Ordem dos Pregadores (dominicanos) por volta do século XIII e foi grandemente promovida pelo Papa Leão XIII, que entre 1883 e 1902 escreveu doze encíclicas exortando os fiéis a rezar o Rosário, sobretudo durante o mês de outubro.*
 
-Rezar o Rosário é contemplar, com Maria, os mistérios da vida de Cristo, percorrendo Sua infância, Seu ministério, Sua Paixão e Sua glória.
+*Rezar o Rosário é contemplar, com Maria, os mistérios da vida de Cristo, percorrendo Sua infância, Seu ministério, Sua Paixão e Sua glória.*
 
 ## Como rezar o Santo Rosário
 
-Faça o Sinal da Cruz e reze o Credo.<br>
-Reze um Pai-Nosso.<br>
-Reze três Ave-Marias pelas virtudes da fé, esperança e caridade.<br>
-Reze um Glória ao Pai.
+*Faça o Sinal da Cruz e reze o Credo, um Pai-Nosso, três Ave-Marias pelas virtudes da fé, esperança e caridade, e um Glória ao Pai.*
+
+Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
+
+Creio em Deus Pai todo-poderoso,<br>
+Criador do céu e da terra.<br>
+E em Jesus Cristo, Seu único Filho, nosso Senhor,<br>
+que foi concebido pelo poder do Espírito Santo;<br>
+nasceu da Virgem Maria;<br>
+padeceu sob Pôncio Pilatos,<br>
+foi crucificado, morto e sepultado.<br>
+Desceu à mansão dos mortos;<br>
+ressuscitou ao terceiro dia,<br>
+subiu aos céus;<br>
+está sentado à direita de Deus Pai todo-poderoso,<br>
+donde há de vir a julgar os vivos e os mortos.<br>
+Creio no Espírito Santo;<br>
+na santa Igreja Católica,<br>
+na comunhão dos santos;<br>
+na remissão dos pecados;<br>
+na ressurreição da carne;<br>
+na vida eterna. Amém.
+
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
+
+> 3x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
+
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
 ### 5x Dezenas
 
 *Repita o mesmo para cada um dos cinco mistérios do dia.*
 
-Anuncie o mistério e reze um Pai-Nosso.<br>
-Em seguida, rezando uma dezena de Ave-Marias, contemple o mistério.
+*Anuncie o mistério e reze um Pai-Nosso. Em seguida, rezando uma dezena de Ave-Marias, contemple o mistério.*
 
-1x Pai nosso que estais nos céus, santificado seja o Vosso nome; venha a nós o Vosso reino, seja feita a Vossa vontade, assim na terra como no céu; o pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+> Pai nosso que estais nos céus,<br>
+> santificado seja o Vosso nome;<br>
+> venha a nós o Vosso reino,<br>
+> seja feita a Vossa vontade,<br>
+> assim na terra como no céu;<br>
+> o pão nosso de cada dia nos dai hoje;<br>
+> perdoai-nos as nossas ofensas,<br>
+> assim como nós perdoamos a quem nos tem ofendido;<br>
+> e não nos deixeis cair em tentação,<br>
+> mas livrai-nos do mal. Amém.
 
-10x Ave-Maria, cheia de graça, o Senhor é convosco, bendita sois vós entre as mulheres e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+> 10x Ave, Maria, cheia de graça,<br>
+> o Senhor é convosco;<br>
+> bendita sois vós entre as mulheres,<br>
+> e bendito é o fruto do vosso ventre, Jesus.<br>
+> Santa Maria, Mãe de Deus,<br>
+> rogai por nós, pecadores,<br>
+> agora e na hora da nossa morte. Amém.
 
-1x Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+> Glória ao Pai e ao Filho e ao Espírito Santo.<br>
+> Como era no princípio, agora e sempre. Amém.
 
-Após cada dezena, reze a oração de Fátima:
+*Após cada dezena, reze a oração de Fátima:*
 
 > Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o Céu e socorrei principalmente as que mais precisarem da Vossa misericórdia.
 
@@ -75,7 +130,7 @@ A Coroação de Maria como Rainha do Céu e da terra.
 
 ## Orações finais
 
-Ao terminar os cinco mistérios, reze a Salve-Rainha.
+*Ao terminar os cinco mistérios, reze a Salve-Rainha.*
 
 > Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve!
 > A vós bradamos, os degredados filhos de Eva.

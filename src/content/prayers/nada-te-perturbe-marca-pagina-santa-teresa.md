@@ -12,7 +12,7 @@ liturgicalFeast: "10-15"
 liturgicalColor: "festa"
 ---
 
-Estes versos foram encontrados no breviário de Santa Teresa de Ávila (séc. XVI), doutora da Igreja. Conhecidos como o "marca-página de Santa Teresa", são um convite à paz interior e à confiança total na fidelidade de Deus.
+*Estes versos foram encontrados no breviário de Santa Teresa de Ávila (séc. XVI), doutora da Igreja. Conhecidos como o "marca-página de Santa Teresa", são um convite à paz interior e à confiança total na fidelidade de Deus.*
 
 Nada te perturbe,<br>
 nada te espante.<br>
