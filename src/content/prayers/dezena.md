@@ -7,6 +7,7 @@ tags: ["mariana", "rápida"]
 description: "Uma dezena completa para acompanhar sem perder a conta."
 featured: true
 featuredOrder: 4
+imageFocus: "84% 30%"
 ---
 
 *A dezena é a menor unidade do terço. Acompanhe o texto com calma: as continhas (●) marcam cada Ave-Maria, para você não se perder.*

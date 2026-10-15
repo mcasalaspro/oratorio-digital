@@ -16,6 +16,7 @@ export interface Meta {
   reserva: number;       // número de reserva da capa (src/data/contadores.json)
   misterios: string;     // 'terco' | 'rosario' | 'gozosos' | … | ''
   lingua: string;        // língua do texto (H3)
+  bannerFoco?: string;   // "x% y%" (imageFocus) ou '' = centro
 }
 
 export function lerDados(): Meta | null {

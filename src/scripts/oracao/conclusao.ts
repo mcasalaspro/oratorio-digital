@@ -121,7 +121,7 @@ export function iniciarConclusao(meta: Meta, motor: Motor, novena: Novena | null
         : novena ? tt('prayed_day', 'Rezei o {n}º dia da').replace('{n}', String(dia)) : tt('prayed_today', 'Rezei hoje'),
       titulo: meta.titulo,
       linhas: n != null && n > 1 ? [tt('prayed_with', 'numa corrente de {n} orações').replace('{n}', fmt(n))] : [],
-      banner: meta.banner, bannerReserva: meta.bannerReserva,
+      banner: meta.banner, bannerReserva: meta.bannerReserva, foco: meta.bannerFoco || '',
       caminho: meta.caminho, dominio: meta.dominio,
       arquivo: 'rezei-' + meta.slug + (novena ? '-dia-' + dia : ''),
     });

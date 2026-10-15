@@ -7,6 +7,24 @@ import CommunityCounter from '../components/CommunityCounter.astro';
 import CompartilharOratorio from '../components/CompartilharOratorio.astro';
 import { site, withBase } from '../config/site';
 import { reserva } from '../config/contadores';
+import { srcsetDoBanner } from '../scripts/oracao/banner';
+
+// ── Fundo da abertura: um "espaço de oração" sorteado a cada visita (nunca o mesmo da visita
+// anterior). "cel" = recorte no celular e no tablet (object-position): mostra a parte da
+// imagem que tem sentido sozinha — no computador a imagem aparece inteira. Imagem nova:
+// public/textures/hero-<nome>.webp (1536×1024) + uma linha aqui.
+const HEROIS = [
+  { k: 'manha', cel: '4% 40%' },     // janela ao amanhecer: crucifixo, rosas e a Bíblia
+  { k: 'capela', cel: '72% 40%' },   // capela: o altar ao fundo e as velas votivas
+  { k: 'oratorio', cel: '90% 40%' }, // oratório mineiro com as imagens
+  { k: 'mesa', cel: '100% 40%' },    // mesa de oração: o ícone, o lírio e o crucifixo
+].filter((h) => fs.existsSync(`public/textures/hero-${h.k}.webp`))
+ .map((h) => ({ ...h, u: withBase(`/textures/hero-${h.k}.webp`), s: srcsetDoBanner(`/textures/hero-${h.k}.webp`) }));
+const heroReserva = withBase('/textures/rays.webp');
+const heroScript = `(function(){var H=${JSON.stringify(HEROIS.map((h) => ({ k: h.k, u: h.u, s: h.s, c: h.cel })))};var el=document.getElementById('heroBg');if(!el)return;`
+  + `if(!H.length){el.src=${JSON.stringify(heroReserva)};return;}var a=-1;try{a=+localStorage.getItem('od-heroi');}catch(e){}`
+  + `var i=Math.floor(Math.random()*H.length);if(H.length>1&&i===a)i=(i+1)%H.length;try{localStorage.setItem('od-heroi',String(i));}catch(e){}`
+  + `var h=H[i];el.classList.add('heroi-'+h.k);el.style.setProperty('--heroi-cel',h.c);if(h.s){el.sizes='(max-width: 1000px) 1536px, 100vw';el.srcset=h.s;}el.src=h.u;})();`;
 
 const all = await getCollection('prayers');
 const liturgiaEntries = await getCollection('liturgia');
@@ -90,7 +108,10 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
 
   <!-- ════════ HERO ════════ -->
   <section class="hero">
-    <img class="hero-bg" src={withBase('/textures/rays.webp')} alt="" aria-hidden="true" data-parallax="0.12" onerror="this.style.display='none'" />
+    <!-- o script logo abaixo escolhe a imagem antes de ela começar a baixar (sem ele: a imagem de sempre) -->
+    <img class="hero-bg" id="heroBg" alt="" aria-hidden="true" data-parallax="0.12" fetchpriority="high" onerror="this.style.display='none'" />
+    <script is:inline set:html={heroScript}></script>
+    <noscript><img class="hero-bg" src={HEROIS.length ? HEROIS[0].u : heroReserva} alt="" aria-hidden="true" /></noscript>
     <span class="hero-shade" aria-hidden="true"></span>
     <div class="hero-inner">
       <!-- logo leve: o CSS exibe entre 108 e 164 px, então basta a versão de 128 px ou a de 340 px (telas nítidas) -->
@@ -816,6 +837,8 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
     #catalogo .chips::-webkit-scrollbar { display: none; }
     #catalogo .chip { flex: 0 0 auto; white-space: nowrap; }
   }
+  /* recorte do fundo da abertura no celular e no tablet (o "cel" de cada imagem, no HEROIS); no computador aparece inteira */
+  @media (max-width: 1000px) { :global(.hero-bg[id='heroBg']) { object-position: var(--heroi-cel, center 40%); } }
   .hero-share { margin: 1.1rem 0 0; }
   .hero-numeros { margin: .5rem 0 0; font-size: .92rem; }
   .hero-numeros a { color: #d8c08a; text-decoration: underline; text-decoration-color: rgba(216,192,138,.45); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px; }

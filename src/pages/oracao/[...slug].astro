@@ -27,6 +27,8 @@ const banner = withBase(imagem);
 const imgFallback = withBase('/saints/default.webp');
 // E4: banner responsivo — srcset só com as variantes que existem (src/scripts/oracao/banner.ts)
 const bannerSrcset = srcsetDoBanner(imagem);
+// ponto da imagem que fica à vista quando ela é cortada (celular, Imersão, Stories) — campo imageFocus
+const foco = data.imageFocus ?? '';
 
 // camada de paralaxe só se o arquivo existir em public/ (antes: /textures/rays.svg dava 404 em 31 orações)
 const _px = data.parallaxImage ?? '';
@@ -64,6 +66,7 @@ const dados = {
   reserva: reserva(entry.id),
   misterios,
   lingua,
+  bannerFoco: foco,     // "x% y%" ou '' (centro)
 };
 const dadosJson = JSON.stringify(dados).replace(/</g, '\\u003c');
 
@@ -94,7 +97,7 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
     <!-- ░░ Banner com paralaxe ░░ -->
     <header class="reader-hero">
       <img class="reader-bg" src={banner} srcset={bannerSrcset || undefined} sizes={bannerSrcset ? SIZES_BANNER : undefined}
-        alt={data.saint ?? data.title} width="1600" height="1000" fetchpriority="high"
+        alt={data.saint ?? data.title} width="1600" height="1000" fetchpriority="high" style={foco ? `object-position: ${foco}` : undefined}
         onerror={`this.onerror=null;this.removeAttribute('srcset');this.src='${imgFallback}'`} />
       {parallax && <div class="reader-parallax" data-parallax="0.34" style={`background-image:url(${parallax})`}></div>}
       <div class="reader-shade"></div>
@@ -118,7 +121,7 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
           <span data-i18n="share">Compartilhar</span>
         </button>
         <CompartilharStories modo="oracao" titulo={data.title} rotulo={rotuloTipo} rotuloChave={`type_${data.type}`}
-          banner={banner} bannerReserva={imgFallback} caminho={caminho} corpo={entry.body} destaque={data.destaque} />
+          banner={banner} bannerReserva={imgFallback} foco={foco} caminho={caminho} corpo={entry.body} destaque={data.destaque} />
         <span class="rtool-sep" aria-hidden="true"></span>
         <button id="fsDown" class="rtool rtool-sq" type="button" aria-label="Diminuir letra" data-i18n-aria="font_smaller">A−</button>
         <button id="fsUp" class="rtool rtool-sq" type="button" aria-label="Aumentar letra" data-i18n-aria="font_larger">A+</button>

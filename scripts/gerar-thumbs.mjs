@@ -9,7 +9,8 @@
 //   <nome>_thumb.webp
 //        miniatura em pé 360×480 dos cartões (recorte "entropy": fica na parte
 //        mais detalhada da imagem, em geral o santo). Pastas: saints,
-//        biografias e produtos (de .webp, .jpg ou .png).
+//        biografias e produtos (de .webp, .jpg ou .png). Oração com o campo
+//        imageFocus ("x% y%"): o recorte segue esse ponto, como no celular.
 //
 //  Refaz os derivados de uma imagem quando ela muda (pelo conteúdo, não pela
 //  data) ou quando os parâmetros deste gerador mudam. Apaga derivados cuja
@@ -43,6 +44,27 @@ const DERIVADO = /_(thumb|w800|w1200)\.webp$/i;
 const ORIGINAL = /\.(webp|png|jpe?g)$/i;
 
 const t0 = Date.now();
+
+// imageFocus das orações: "saints/<arquivo>.webp" → [x, y] (0–1), lido do cabeçalho de cada .md
+function focosDasOracoes() {
+  const mapa = new Map();
+  const dir = 'src/content/prayers';
+  let nomes = [];
+  try { nomes = fs.readdirSync(dir).filter((n) => /\.mdx?$/.test(n)); } catch { return mapa; }
+  for (const n of nomes) {
+    try {
+      const txt = fs.readFileSync(path.join(dir, n), 'utf8').replace(/\r\n/g, '\n');
+      const cab = /^\uFEFF?---\n([\s\S]*?)\n---/.exec(txt);
+      if (!cab) continue;
+      const foco = /^imageFocus:\s*["']?(\d{1,3})% (\d{1,3})%["']?\s*$/m.exec(cab[1]);
+      if (!foco) continue;
+      const img = /^image:\s*["']?([^"'\n]+?)["']?\s*$/m.exec(cab[1]);
+      const arq = (img ? img[1] : `/saints/${n.replace(/\.mdx?$/, '')}.webp`).replace(/^\//, '');
+      mapa.set(arq, [Math.min(100, +foco[1]) / 100, Math.min(100, +foco[2]) / 100]);
+    } catch { /* arquivo ilegível: segue sem foco */ }
+  }
+  return mapa;
+}
 const falhas = [];
 const rel = (p) => p.split(path.sep).join('/');
 
@@ -58,6 +80,7 @@ async function main() {
   } catch { /* primeira vez (ou lista apagada): confere tudo */ }
   const mesmaVersao = manifesto.versao === VERSAO;
   const novo = { versao: VERSAO, itens: {} };
+  const focos = focosDasOracoes();
 
   // 1) originais e os derivados esperados de cada uma
   const pastas = [...new Set([...BANNERS, ...MINIATURAS])];
@@ -96,11 +119,13 @@ async function main() {
         const buf = fs.readFileSync(t.arq);
         const hash = crypto.createHash('sha1').update(buf).digest('hex');
         const antigo = manifesto.itens[chave];
+        const foco = focos.get(chave) || null;
+        const focoTxt = foco ? foco.join(',') : '';
         let largura = antigo && antigo.hash === hash ? antigo.largura : 0;
         if (!largura) largura = (await sharp(buf).metadata()).width || 0;
         const saidas = derivadosDe(t, largura);
         saidas.forEach((s) => esperados.add(s.arq));
-        const pronto = !FORCE && mesmaVersao && antigo && antigo.hash === hash && saidas.every((s) => fs.existsSync(s.arq));
+        const pronto = !FORCE && mesmaVersao && antigo && antigo.hash === hash && (antigo.foco || '') === focoTxt && saidas.every((s) => fs.existsSync(s.arq));
         if (pronto) { reaproveitadas++; novo.itens[chave] = antigo; continue; }
         if (saidas.length) {
           // decodifica uma vez só, já reduzida para a maior largura necessária
@@ -109,7 +134,12 @@ async function main() {
           const cru = () => sharp(data, { raw: { width: info.width, height: info.height, channels: info.channels } });
           for (const s of saidas) {
             let img = cru();
-            if (s.tipo === 'mini') img = img.resize({ width: MINI.largura, height: MINI.altura, fit: 'cover', position: sharp.strategy.entropy, withoutEnlargement: true });
+            if (s.tipo === 'mini' && foco) {
+              // recorte no ponto escolhido (mesma regra do object-position do CSS)
+              const k = Math.max(MINI.largura / info.width, MINI.altura / info.height);
+              const rw = Math.max(MINI.largura, Math.round(info.width * k)), rh = Math.max(MINI.altura, Math.round(info.height * k));
+              img = img.resize(rw, rh).extract({ left: Math.round(foco[0] * (rw - MINI.largura)), top: Math.round(foco[1] * (rh - MINI.altura)), width: MINI.largura, height: MINI.altura });
+            } else if (s.tipo === 'mini') img = img.resize({ width: MINI.largura, height: MINI.altura, fit: 'cover', position: sharp.strategy.entropy, withoutEnlargement: true });
             else if (s.largura < info.width) img = img.resize({ width: s.largura });
             const tmp = `${s.arq}.tmp-${process.pid}`;
             await img.webp({ quality: s.tipo === 'mini' ? QUALIDADE_MINI : QUALIDADE, effort: ESFORCO }).toFile(tmp);
@@ -118,7 +148,7 @@ async function main() {
           }
           imagensRefeitas++;
         }
-        novo.itens[chave] = { hash, largura };
+        novo.itens[chave] = focoTxt ? { hash, largura, foco: focoTxt } : { hash, largura };
       } catch (e) {
         falhas.push({ arquivo: rel(t.arq), motivo: String(e && e.message || e) });
         console.warn(`[imagens] ⚠️  ${rel(t.arq)}: não deu para gerar as versões menores (${e && e.message || e}). A página usa a imagem original.`);

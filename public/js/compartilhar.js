@@ -21,6 +21,7 @@
      citacao               true = põe aspas no trecho
      linhas                linhas extras em itálico (ex.: "numa corrente de 120 orações")
      banner, bannerReserva imagem de fundo (mesma origem) e a de reserva
+     foco                  "x% y%" (opcional): parte da imagem que fica à vista no recorte
      caminho               ex.: /oracao/pai-nosso (vai no link; a imagem mostra só o domínio)
      dominio               ex.: oratoriodigital.com
      arquivo               nome do arquivo sem extensão
@@ -121,10 +122,15 @@
       setTimeout(function () { fim(null); }, 8000);
     });
   }
-  function cobrir(c, img) {
+  // foco "x% y%" (campo imageFocus da oração): a parte da imagem que fica à vista no recorte
+  function lerFoco(f) {
+    var m = /^(\d{1,3})% (\d{1,3})%$/.exec(String(f || '').trim());
+    return m ? [Math.min(100, +m[1]) / 100, Math.min(100, +m[2]) / 100] : [0.5, 0.3];
+  }
+  function cobrir(c, img, foco) {
     var s = Math.max(W / img.naturalWidth, H / img.naturalHeight);
-    var w = img.naturalWidth * s, h = img.naturalHeight * s;
-    c.drawImage(img, (W - w) / 2, (H - h) * 0.3, w, h);
+    var w = img.naturalWidth * s, h = img.naturalHeight * s, f = lerFoco(foco);
+    c.drawImage(img, (W - w) * f[0], (H - h) * f[1], w, h);
   }
   // evita palavra sozinha na última linha: passa palavras da penúltima enquanto a última ficar menor
   function semViuva(c, ls) {
@@ -194,7 +200,7 @@
     c.textBaseline = 'alphabetic';
 
     // fundo: banner em "cover"; sem banner, um degradê da casa
-    if (img) cobrir(c, img);
+    if (img) cobrir(c, img, d.foco);
     else {
       var r = c.createRadialGradient(W / 2, H * 0.28, 40, W / 2, H * 0.4, H * 0.8);
       r.addColorStop(0, '#3a2812'); r.addColorStop(0.55, '#1a1208'); r.addColorStop(1, '#0d0904');

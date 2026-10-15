@@ -38,6 +38,7 @@ const COLECOES = {
       thumbnail: T('texto'), parallaxImage: T('texto'), tags: T('lista'), description: T('texto'),
       featured: T('booleano'), featuredOrder: T('numero'), liturgicalFeast: T('festa', { grave: true }),
       liturgicalColor: T('enum', { valores: CORES }), novenaSuggestedStart: T('inteiro', { exemplo: -9 }), destaque: T('texto'),
+      imageFocus: T('foco'),
     },
   },
   biografias: {
@@ -296,6 +297,10 @@ function conferirTipo(def, v, k, CAL) {
       return `"${k}" deve ser um número inteiro${def.min ? ` (a partir de ${def.min})` : ''}, sem aspas (ex.: ${k}: ${def.exemplo ?? 1}) — está ${comoTexto}`;
     case 'numero':
       return typeof v === 'number' && Number.isFinite(v) ? null : `"${k}" deve ser um número, sem aspas — está ${comoTexto}`;
+    case 'foco':
+      // ponto da imagem que deve ficar à vista no celular e na miniatura: "x% y%" (0% a 100%)
+      if (typeof v === 'string' && /^(100|\d{1,2})% (100|\d{1,2})%$/.test(v.trim())) return null;
+      return `"${k}" deve ser dois números de 0% a 100%, entre aspas: o primeiro da esquerda para a direita, o segundo de cima para baixo (ex.: ${k}: "80% 30%") — está ${comoTexto}`;
     case 'booleano':
       return typeof v === 'boolean' ? null : `"${k}" deve ser true ou false — está ${comoTexto}`;
     case 'lista':

@@ -33,6 +33,10 @@ const prayers = defineCollection({
     // OPCIONAL: trecho da imagem "Stories e Status". Sem ele, usam-se as primeiras
     // linhas do texto da oração (nunca a nota histórica nem as rubricas).
     destaque: z.string().optional().catch(undefined),
+    // OPCIONAL: ponto da imagem que deve ficar à vista quando ela é cortada (celular, miniatura
+    // do cartão, Imersão, Stories): "x% y%" — ex.: "84% 30%" = mais à direita, perto do alto.
+    // Sem ele: o centro (um pouco acima do meio).
+    imageFocus: z.string().regex(/^(100|\d{1,2})% (100|\d{1,2})%$/).optional().catch(undefined),
   }),
 });
 

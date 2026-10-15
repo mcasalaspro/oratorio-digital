@@ -97,6 +97,8 @@ export function iniciarImersao(meta: Meta, motor: Motor, aoMudar: () => void): I
     if (banner && banner.getAttribute('srcset')) { img.setAttribute('srcset', banner.getAttribute('srcset')!); img.sizes = '100vw'; }
     img.src = banner ? (banner.currentSrc || banner.src) : meta.banner;
     img.onerror = () => { img.onerror = null; img.removeAttribute('srcset'); img.src = meta.bannerReserva; };
+    // o mesmo recorte do banner (campo imageFocus): no celular aparece a parte que importa
+    if (meta.bannerFoco) img.style.objectPosition = meta.bannerFoco;
     const veu = document.createElement('div'); veu.className = 'imersao-veu';
     const brasas = document.createElement('div'); brasas.className = 'imersao-brasas';
     for (let i = 0; i < BRASAS; i++) {

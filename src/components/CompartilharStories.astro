@@ -21,6 +21,7 @@ interface Props {
   rotuloChave?: string;  // chave de tradução do rótulo (ex.: type_novena)
   banner: string;        // imagem de fundo (já com o caminho-base)
   bannerReserva?: string;
+  foco?: string;         // "x% y%": parte da imagem que fica à vista no recorte (campo imageFocus)
   caminho: string;       // ex.: /oracao/pai-nosso (já com o caminho-base)
   corpo?: string;        // texto em markdown (entry.body)
   destaque?: string;     // oração: trecho escolhido à mão
@@ -98,6 +99,7 @@ const dados = {
   citacao,
   banner: p.banner,
   bannerReserva: p.bannerReserva ?? '',
+  foco: p.foco ?? '',
   caminho: p.caminho,
   dominio,
   arquivo: `oratorio-${slug}`,
