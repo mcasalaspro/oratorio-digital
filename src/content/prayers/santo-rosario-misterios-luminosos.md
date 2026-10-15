@@ -6,12 +6,12 @@ language: "pt-BR"
 image: "/saints/santo-rosario-misterios-luminosos.webp"
 thumbnail: "/saints/santo-rosario-misterios-luminosos.webp"
 tags: ["rosário", "mistérios luminosos", "quinta-feira", "Maria", "Cristo"]
-description: "Os Mistérios Luminosos do Santo Rosário, rezados às quintas-feiras."
+description: "Os Mistérios Luminosos, acrescentados ao Rosário por São João Paulo II em 2002, à livre escolha de cada um."
 featured: false
 liturgicalColor: "festa"
 ---
 
-_Os Mistérios Luminosos foram propostos por São João Paulo II em 2002, na Carta Apostólica *Rosarium Virginis Mariae* (16 de outubro de 2002), para contemplar a vida pública de Jesus. São rezados tradicionalmente às quintas-feiras._
+_Os Mistérios Luminosos foram acrescentados ao Rosário por São João Paulo II na Carta Apostólica *Rosarium Virginis Mariae* (16 de outubro de 2002), para contemplar a vida pública de Jesus, do Batismo à Última Ceia. O Papa deixou esse acréscimo "à livre valorização de cada pessoa e das comunidades", "sem prejudicar nenhum aspecto essencial do esquema tradicional desta oração" (n. 19), que é de quinze mistérios. Na distribuição da semana que ele propôs, são rezados às quintas-feiras (n. 38); quem reza o Rosário tradicional reza nesse dia os Mistérios Gozosos._
 
 ## Como rezar
 

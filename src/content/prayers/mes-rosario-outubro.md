@@ -106,6 +106,8 @@ O Encontro do Menino Jesus no Templo entre os doutores.
 
 ## Os Mistérios Luminosos (quinta-feira)
 
+_Acrescentados por São João Paulo II em 2002 e deixados à livre escolha de cada um (*Rosarium Virginis Mariae*, n. 19). No Rosário tradicional, de quinze mistérios, a quinta-feira é dos Mistérios Gozosos e o sábado, dos Gloriosos._
+
 O Batismo de Jesus no Rio Jordão.<br>
 A Autorrevelação de Jesus nas bodas de Caná.<br>
 O Anúncio do Reino de Deus e o convite à conversão.<br>

@@ -4,11 +4,11 @@ type: "rosario"
 language: "pt-BR"
 saint: "Nossa Senhora"
 tags: ["mariana", "contemplativa", "completo"]
-description: "O rosário inteiro — as quatro coroas, vinte mistérios — guiado dezena por dezena."
+description: "O Rosário inteiro, guiado dezena por dezena: os quinze mistérios tradicionais e, se quiser, os Luminosos (2002)."
 featured: false
 ---
 
-*O rosário completo percorre as quatro coroas de mistérios — vinte ao todo — contemplando a vida de Jesus à luz do coração de Maria. Acompanhe o texto: as continhas (●) marcam cada Ave-Maria.*
+_Por tradição, o Rosário tem quinze mistérios, em três coroas: Gozosos, Dolorosos e Gloriosos. Em 2002, São João Paulo II propôs acrescentar os Mistérios Luminosos, deixando-os à livre escolha de cada um (*Rosarium Virginis Mariae*, n. 19); escolha abaixo se quer rezá-los. Contemple a vida de Jesus à luz do coração de Maria e acompanhe o texto: as continhas (●) marcam cada Ave-Maria._
 
 ## Orações iniciais
 
@@ -697,7 +697,7 @@ featured: false
 
 ## Conclusão
 
-*Ao terminar as quatro coroas, reze a Salve Rainha e confie suas intenções a Deus:*
+*Ao terminar a última coroa, reze a Salve Rainha e confie suas intenções a Deus:*
 
 > Salve, Rainha, Mãe de misericórdia,<br>
 > vida, doçura e esperança nossa, salve!<br>

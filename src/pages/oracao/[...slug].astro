@@ -85,6 +85,7 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
           var s = parseFloat(localStorage.getItem('od-fontscale'));
           if (s >= 0.8 && s <= 1.6) document.documentElement.style.setProperty('--reader-scale', String(s));
           if (localStorage.getItem('od-foco') === '1') document.documentElement.classList.add('od-foco');
+          if (localStorage.getItem('od-rosario') === 'trad') document.documentElement.classList.add('od-trad');
         } catch (e) {}
       })();
     </script>
@@ -124,6 +125,11 @@ const relatedProducts = produtosForPage(entry.id, data.saint);
         <button id="focusBtn" class="rtool" type="button" aria-pressed="false">
           <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <span data-i18n="focus_mode">Foco</span>
+        </button>
+        <!-- Modo Imersão: imagem de fundo, velas e o texto passando no meio (src/scripts/oracao/imersao.ts) -->
+        <button id="imersaoBtn" class="rtool" type="button" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6c1.7 2.1 2.7 3.5 2.7 5a2.7 2.7 0 0 1-5.4 0c0-1.5 1-2.9 2.7-5z" fill="currentColor"/><path d="M12 10.4v1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="8.6" y="12.6" width="6.8" height="8.6" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span data-i18n="immersion_mode">Imersão</span>
         </button>
         <!-- G1: só aparece onde o navegador permite manter a tela acesa (Wake Lock API) -->
         <button id="wakeBtn" class="rtool" type="button" aria-pressed="false" hidden>
@@ -212,6 +218,11 @@ nv.pintar();
           <button id="rgFoco" class="rg-btn" type="button" aria-pressed="false" aria-label="Modo Foco" data-i18n-aria="focus_mode_aria">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span data-i18n="focus_mode">Foco</span>
+          </button>
+          <!-- Imersão também aqui: entra e sai no meio da leitura, sem parar o assistente -->
+          <button id="rgImersao" class="rg-btn" type="button" aria-pressed="false" aria-label="Modo Imersão" data-i18n-aria="immersion_mode_aria">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6c1.7 2.1 2.7 3.5 2.7 5a2.7 2.7 0 0 1-5.4 0c0-1.5 1-2.9 2.7-5z" fill="currentColor"/><path d="M12 10.4v1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="8.6" y="12.6" width="6.8" height="8.6" rx="1.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span data-i18n="immersion_mode">Imersão</span>
           </button>
         </div>
         <label class="rg-speed">
@@ -345,13 +356,41 @@ nv.pintar();
   #prayer-content .terco-days .od-mist-hoje { margin: .8rem 0 .3rem; }
   #prayer-content .terco-days .od-mist-sumario { font-size: .95em; }
   #prayer-content .day-chip.od-hoje:not(.day-on) { border-color: var(--gold); }
+  /* Rosário: "Com os Luminosos (2002)" ou "Tradicional (15 mistérios)" — a escolha fica no aparelho */
+  #prayer-content .od-distrib { display: flex; flex-wrap: wrap; gap: .3rem; width: fit-content; max-width: 100%; margin: .1rem 0 .9rem; padding: .22rem; border: 1px solid var(--hair); border-radius: 14px; background: color-mix(in srgb, var(--paper) 70%, transparent); }
+  #prayer-content .od-distrib-op { flex: 1 1 auto; min-height: 40px; padding: .2rem .75rem; border-radius: 10px; border: 1px solid transparent; background: transparent; color: var(--ink-soft); font-family: 'EB Garamond', serif; font-size: .9rem; line-height: 1.2; cursor: pointer; transition: all .18s; }
+  #prayer-content .od-distrib-op:hover { color: var(--gold); }
+  html:not(.od-trad) #prayer-content .od-distrib-op[data-distrib="jp2"], html.od-trad #prayer-content .od-distrib-op[data-distrib="trad"] {
+    color: var(--ink); border-color: color-mix(in srgb, var(--gold) 55%, var(--hair)); background: color-mix(in srgb, var(--gold) 14%, transparent); }
+  /* dias de cada conjunto nas duas distribuições: aparece o da escolha (sem "piscar" ao abrir) */
+  html.od-trad #prayer-content .od-dias-jp2, html:not(.od-trad) #prayer-content .od-dias-trad { display: none; }
+  #prayer-content .od-distrib-op:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+  /* Rosário tradicional: a coroa dos Luminosos some antes de pintar (o módulo põe hidden para o assistente) */
+  html.od-trad #prayer-content [data-luminosos] { display: none !important; }
 
   /* G11: Modo Foco — além de topo e rodapé (Base.astro), esconde ferramentas, biografia e produtos.
      A classe no <html> vem do script curto do <head> (sem "piscar"); só o botão Foco fica para sair. */
   html.od-foco .topbar, html.od-foco .footsite,
-  html.od-foco .reader-tools > :not(#focusBtn), html.od-foco .bio-link, html.od-foco .prod-related { display: none !important; }
+  html.od-foco .reader-tools > :not(#focusBtn):not(#imersaoBtn), html.od-foco .bio-link, html.od-foco .prod-related { display: none !important; }
   html.od-foco .reader-hero { min-height: 26vh; }
   html.od-foco .reader-tools { justify-content: flex-end; margin-bottom: .8rem; }
+  /* barra do assistente com cinco botões (Foco e Imersão) nos celulares estreitos (360 px): botões de 40 px;
+     abaixo de 340 px, o ritmo desce para uma segunda linha */
+  @media (max-width: 380px) {
+    .reader-body .rg-bar { gap: .25rem; padding-left: .45rem; padding-right: .45rem; }
+    .rg-bar .rg-controls { gap: .22rem; }
+    .rg-bar .rg-btn { min-width: 40px; }
+    .rg-bar .rg-speed select { padding: .2rem .15rem; font-size: .78rem; }
+  }
+  @media (max-width: 340px) { .reader-body .rg-bar { flex-wrap: wrap; } .rg-bar .rg-speed { margin-left: 0; } }
+  /* barra do assistente com cinco botões (Foco e Imersão): numa linha só a partir de 768 px */
+  @media (min-width: 768px) {
+    .reader-body .rg-bar { margin-left: -2rem; margin-right: -2rem; flex-wrap: nowrap; }
+    .rg-bar .rg-btn { padding: 0 .55rem; }
+    .rg-bar :is(.rg-controls, .rg-speed) { flex-shrink: 0; }
+    /* rótulos mais longos ("Continuar", outros idiomas): o título encolhe com "…" em vez de quebrar a barra */
+    .rg-bar .rg-title { letter-spacing: .14em; flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  }
   /* botão Foco na barra do assistente: aceso enquanto o foco está ligado */
   #rgFoco[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); }
 
@@ -365,6 +404,170 @@ nv.pintar();
   .beads, .day-caption { scroll-margin-top: 84px; }
   html.od-foco .beads, html.od-foco .day-caption { scroll-margin-top: 1rem; }
 
+  /* ════ Modo Imersão — "oratório digital" (src/scripts/oracao/imersao.ts) ════
+     A imagem da oração ocupa a tela sob um degradê; velas tremulam ao pé da tela (e, nas
+     telas bem largas, velas de altar dos dois lados); o texto passa pelo meio, e a linha
+     lida fica no centro. Camadas: fundo (z −1, atrás do texto) · texto · degradês e velas
+     (z 25, por cima do texto que sai pelo alto e por baixo) · topo (35) · barra (36) ·
+     aviso de conclusão (100). Só na tela: na impressão, nada disto aparece. */
+  .imersao, .imersao-frente, .imersao-topo { display: none; }
+  #rgImersao[aria-pressed="true"], #imersaoBtn[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); }
+  @media screen {
+    html:root.od-imersao {
+      --paper: #120d07; --paper-raised: #1d150c; --ink: #f4ead6; --ink-soft: #d2c09c; --hair: rgba(233, 194, 122, .24);
+      --gold: #e6b75e; --gold-bright: #f5ca74; --flame: #ffd784; --glow: rgba(240, 194, 100, .5);
+      --shadow: rgba(0, 0, 0, .5); --scrim: rgba(5, 3, 1, .72);
+      color-scheme: dark; background: #0b0805; scrollbar-width: none;
+    }
+    html.od-imersao::-webkit-scrollbar { display: none; }
+    html.od-imersao body { background: transparent; }
+    html.od-imersao :is(.topbar, .footsite, .texture, .reader-hero, .reader-tools, .bio-link, .prod-related, #rgFoco) { display: none !important; }
+    /* o texto começa e termina no meio da tela (a 1ª e a última linha também passam pelo centro) */
+    html.od-imersao .reader-body { max-width: 40rem; padding: 46vh clamp(1.1rem, 5vw, 1.6rem) 62vh; }
+    html.od-imersao #prayer-content { font-size: calc(1.3rem * var(--reader-scale, 1)); line-height: 1.8; text-shadow: 0 1px 2px rgba(0, 0, 0, .9), 0 0 22px rgba(0, 0, 0, .7); }
+    html.od-imersao #prayer-content blockquote { background: rgba(12, 8, 4, .34); }
+    html.od-imersao #prayer-content :is(h2, h3) { text-shadow: 0 0 24px rgba(240, 194, 100, .25), 0 1px 2px rgba(0, 0, 0, .9); }
+    :root.od-imersao ::highlight(od-linha) { background-color: rgba(255, 215, 132, .15); }
+    :root.od-imersao ::highlight(od-palavra) { background-color: rgba(255, 215, 132, .9); color: #1a130a; text-shadow: none; }
+    :root.od-imersao .rg-w-linha { background-color: rgba(255, 215, 132, .15); }
+    :root.od-imersao .rg-w-ativa { background-color: rgba(255, 215, 132, .9); color: #1a130a; text-shadow: none; }
+    /* barra do assistente: fixa embaixo, escura e translúcida; na imersão nunca se recolhe */
+    html.od-imersao .rg-bar { position: fixed; left: 0; right: 0; bottom: calc(10px + var(--od-seguro)); margin: 0 auto; width: min(44rem, calc(100% - 20px)); z-index: 36;
+      padding-bottom: .7rem; background: rgba(20, 14, 8, .86); border-color: rgba(233, 194, 122, .22); box-shadow: 0 10px 34px rgba(0, 0, 0, .55);
+      -webkit-backdrop-filter: none; backdrop-filter: none; /* sem desfoque: o fundo se move e o desfoque pesaria no celular */
+      transition: none; }
+    html.od-imersao .rg-bar.rg-recolhida { transform: none; opacity: 1; pointer-events: auto; }
+    /* "Próximo dia" rola até as contas: que fiquem abaixo do degradê do alto */
+    html.od-imersao :is(.beads, .day-caption) { scroll-margin-top: calc(var(--im-topo, 64px) + 110px); }
+    html.od-imersao .rg-speed select { background: #1d150c; }
+
+    /* fundo: imagem com um zoom bem lento, degradê, luz quente das velas e faíscas subindo */
+    html.od-imersao .imersao { display: block; position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #0b0805; pointer-events: none; }
+    .imersao-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; max-width: none;
+      transform-origin: 50% 35%; animation: im-respira-fundo 50s ease-in-out infinite alternate; }
+    @keyframes im-respira-fundo { from { transform: scale(1.02); } to { transform: scale(1.1) translateY(-1.5%); } }
+    .imersao-veu { position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 44%, rgba(10, 7, 4, .5) 0%, rgba(10, 7, 4, .62) 55%, rgba(10, 7, 4, .82) 100%),
+        linear-gradient(180deg, rgba(10, 7, 4, .45) 0%, rgba(10, 7, 4, 0) 26%, rgba(10, 7, 4, 0) 60%, rgba(10, 7, 4, .55) 100%); }
+    .imersao-luz { position: absolute; left: -10%; right: -10%; bottom: 0; height: 50%; mix-blend-mode: screen; pointer-events: none;
+      background: radial-gradient(ellipse 58% 60% at 50% 100%, rgba(255, 160, 60, .3) 0%, rgba(255, 140, 40, .11) 45%, rgba(255, 140, 40, 0) 72%);
+      animation: im-luz 4.8s ease-in-out infinite; }
+    @keyframes im-luz { 0%, 100% { opacity: .82; } 28% { opacity: 1; } 52% { opacity: .74; } 76% { opacity: .95; } }
+    .imersao-brasas { position: absolute; inset: 0; }
+    .im-brasa { position: absolute; left: var(--x); bottom: var(--im-baixo, 170px); width: var(--s); height: var(--s); border-radius: 50%;
+      background: #ffd27a; box-shadow: 0 0 6px 2px rgba(255, 176, 70, .7); opacity: 0; animation: im-sobe var(--t) linear var(--a) infinite; }
+    @keyframes im-sobe { 0% { transform: translate(0, 0) scale(1); opacity: 0; } 12% { opacity: .85; } 60% { opacity: .5; } 100% { transform: translate(var(--dx), -56vh) scale(.35); opacity: 0; } }
+
+    /* frente: degradês que apagam o texto no alto e embaixo; velas por cima */
+    html.od-imersao .imersao-frente { display: block; position: fixed; inset: 0; z-index: 25; pointer-events: none; overflow: hidden; }
+    /* os degradês "seguram" o toque: o texto e os links apagados embaixo deles não reagem
+       (a rolagem com o dedo e com a roda passa para a página normalmente) */
+    .imersao-nevoa { position: absolute; left: 0; right: 0; pointer-events: auto; }
+    .imersao-nevoa-cima { top: 0; height: calc(var(--im-topo, 64px) + 100px);
+      background: linear-gradient(180deg, rgba(10, 7, 4, .97) 0%, rgba(10, 7, 4, .95) calc(var(--im-topo, 64px) + 4px), rgba(10, 7, 4, 0) 100%); }
+    .imersao-nevoa-baixo { bottom: 0; height: calc(var(--im-baixo, 170px) + 150px);
+      background: linear-gradient(0deg, rgba(10, 7, 4, .96) 0%, rgba(10, 7, 4, .94) calc(var(--im-baixo, 170px) + 8px), rgba(10, 7, 4, 0) 100%); }
+    .imersao-velas { position: absolute; left: 0; right: 0; bottom: var(--im-base, 84px); height: 96px; }
+    /* a prateleira onde ficam as velas */
+    .imersao-velas:not(.imersao-lados)::after { content: ''; position: absolute; left: 0; right: 0; bottom: -7px; height: 7px; border-radius: 2px;
+      background: linear-gradient(180deg, #7a5524, #2c1c0b); box-shadow: 0 -1px 0 rgba(255, 204, 128, .32), 0 -12px 26px rgba(255, 170, 70, .16); }
+    .imersao-lados { inset: 0; height: auto; bottom: 0; }
+    .im-vela { position: absolute; bottom: 0; left: var(--x); width: var(--w); height: var(--h); transform: translateX(-50%);
+      --fw: max(8px, calc(var(--w) * .62)); --fh: max(15px, calc(var(--w) * 1.36)); }
+    .im-luz { position: absolute; left: 50%; bottom: 100%; width: 0; height: 0; }
+    html.od-imersao .im-luz { animation: im-acende .9s ease-out calc(var(--i) * 90ms + 250ms) backwards; }
+    @keyframes im-acende { 0% { opacity: 0; transform: scale(.25); } 60% { opacity: 1; transform: scale(1.18); } 100% { opacity: 1; transform: scale(1); } }
+    .im-chama { position: absolute; left: calc(var(--fw) / -2); bottom: 4px; width: var(--fw); height: var(--fh);
+      border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; transform-origin: 50% 92%;
+      background: radial-gradient(ellipse 55% 60% at 50% 74%, #fffef6 0%, #fff0bd 24%, #ffd06a 46%, #ff9a2c 72%, rgba(230, 100, 20, 0) 100%);
+      box-shadow: 0 0 7px 1px rgba(255, 190, 90, .55), 0 0 2px rgba(255, 240, 200, .8);
+      animation: im-tremula var(--d) ease-in-out var(--a) infinite; }
+    @keyframes im-tremula {
+      0%, 100% { transform: rotate(-2deg) scale(1, 1); }
+      18% { transform: rotate(1.6deg) scale(.95, 1.08); }
+      37% { transform: rotate(-1deg) scale(1.04, .95); }
+      58% { transform: rotate(2.4deg) scale(.93, 1.1); }
+      79% { transform: rotate(-1.4deg) scale(1.02, .98); }
+    }
+    .im-halo { position: absolute; left: calc(var(--fw) * -3.2); bottom: calc(4px + var(--fh) / 2 - var(--fw) * 3.2);
+      width: calc(var(--fw) * 6.4); height: calc(var(--fw) * 6.4); border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 204, 116, .44) 0%, rgba(255, 170, 70, .16) 38%, rgba(255, 150, 50, 0) 70%);
+      animation: im-halo calc(var(--d) * 1.6) ease-in-out var(--a) infinite; }
+    @keyframes im-halo { 0%, 100% { opacity: .82; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+    /* vela de cera: luz da chama no alto e o pavio */
+    .im-corpo { position: absolute; inset: 0; border-radius: 3px 3px 2px 2px;
+      background: linear-gradient(180deg, rgba(255, 206, 128, .5) 0%, rgba(255, 206, 128, 0) 38%),
+        linear-gradient(90deg, #9c8259 0%, #e4d3ad 22%, #fbf3df 46%, #eee0c1 62%, #c4aa7c 84%, #876c48 100%);
+      box-shadow: 0 0 16px rgba(255, 180, 80, .16); }
+    .im-corpo::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 8px; border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255, 228, 164, .95), rgba(255, 210, 140, .3) 70%, transparent); }
+    .im-corpo::after { content: ''; position: absolute; left: 50%; top: -6px; width: 2px; height: 7px; margin-left: -1px; border-radius: 1px; background: linear-gradient(#1e140a, #4b3218); }
+    /* lamparina num copo de vidro (rubi, âmbar, ouro) */
+    .im-copo { width: 26px; height: 30px; --fw: 10px; --fh: 18px; }
+    .im-copo .im-luz { bottom: calc(100% - 7px); }
+    .im-copo .im-corpo { border-radius: 4px 4px 9px 9px;
+      background: linear-gradient(180deg, rgba(var(--c), .5) 0%, rgba(var(--c), .88) 66%, rgba(var(--c2), .96) 100%);
+      box-shadow: inset 0 3px 10px rgba(255, 206, 128, .55), 0 0 20px rgba(var(--c), .5); }
+    .im-copo .im-corpo::before { left: 20%; right: auto; width: 3px; top: 5px; height: 62%; border-radius: 2px; background: rgba(255, 255, 255, .22); }
+    .im-copo .im-corpo::after { left: 18%; right: 18%; top: 1px; width: auto; height: 60%; margin: 0; border-radius: 50%;
+      background: radial-gradient(ellipse at 50% 18%, rgba(255, 222, 150, .75), rgba(255, 200, 120, 0) 72%);
+      animation: im-halo calc(var(--d) * 1.3) ease-in-out var(--a) infinite; }
+    .im-copo-rubi { --c: 168, 26, 32; --c2: 104, 12, 18; }
+    .im-copo-ambar { --c: 212, 118, 28; --c2: 136, 66, 10; }
+    .im-copo-ouro { --c: 222, 172, 70; --c2: 146, 106, 36; }
+    /* velas de altar (laterais): castiçal de latão */
+    .im-lado { display: none; }
+    .im-lado::after { content: ''; position: absolute; left: 50%; bottom: -3px; width: calc(var(--w) * 2.3); height: 12px; transform: translateX(-50%);
+      border-radius: 50% 50% 5px 5px / 70% 70% 5px 5px; background: linear-gradient(180deg, #e0b866, #8a6528 70%, #5a3f16); box-shadow: 0 0 18px rgba(255, 180, 80, .2); }
+
+    /* topo: nome da oração e o "×" */
+    html.od-imersao .imersao-topo { display: flex; position: fixed; top: 0; left: 0; right: 0; z-index: 35; align-items: center; justify-content: center;
+      min-height: 60px; padding: calc(.45rem + env(safe-area-inset-top, 0px)) 3.8rem .45rem; pointer-events: none; }
+    .imersao-nome { margin: 0; max-width: 100%; font-family: 'Cormorant', Georgia, serif; font-weight: 600; font-size: 1.04rem; line-height: 1.25;
+      letter-spacing: .14em; text-transform: uppercase; text-align: center; color: var(--gold); text-shadow: 0 0 18px rgba(240, 194, 100, .35);
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .imersao-sair { pointer-events: auto; position: absolute; top: calc(.45rem + env(safe-area-inset-top, 0px)); right: calc(.55rem + env(safe-area-inset-right, 0px)); width: 44px; height: 44px;
+      display: grid; place-items: center; border-radius: 12px; border: 1px solid rgba(233, 194, 122, .3); background: rgba(20, 14, 8, .6);
+      color: #f4ead6; cursor: pointer; transition: border-color .18s, color .18s; }
+    .imersao-sair:hover { border-color: var(--gold); color: var(--gold); }
+    .imersao-sair:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+
+    /* telas bem largas: velas de altar dos dois lados; a fileira de baixo fica no meio */
+    @media (min-width: 1100px) {
+      .im-lado { display: block; }
+      .im-ponta { display: none; }
+      .imersao-velas:not(.imersao-lados)::after { left: 18%; right: 18%; }
+    }
+    @media (max-width: 699px) {
+      .im-largo { display: none; }
+      .imersao-velas { height: 86px; }
+    }
+    @media (max-width: 560px) {
+      html.od-imersao #prayer-content { font-size: calc(1.18rem * var(--reader-scale, 1)); line-height: 1.75; }
+      html.od-imersao .reader-body { padding-left: 1rem; padding-right: 1rem; }
+      html.od-imersao .rg-bar { bottom: calc(8px + var(--od-seguro)); width: calc(100% - 16px); padding-bottom: .55rem; }
+      .imersao-nome { font-size: .9rem; letter-spacing: .1em; }
+    }
+    /* tela baixa (celular deitado): sem as velas, degradês e topo menores — sobra lugar para o texto */
+    @media (max-height: 520px) {
+      .imersao-velas { display: none; }
+      html.od-imersao .imersao-topo { min-height: 44px; padding-top: calc(.2rem + env(safe-area-inset-top, 0px)); padding-bottom: .2rem; }
+      .imersao-sair { top: calc(.2rem + env(safe-area-inset-top, 0px)); width: 40px; height: 40px; }
+      .imersao-nome { font-size: .84rem; -webkit-line-clamp: 1; }
+      .imersao-nevoa-cima { height: calc(var(--im-topo, 44px) + 44px);
+        background: linear-gradient(180deg, rgba(10, 7, 4, .97) 0%, rgba(10, 7, 4, .95) var(--im-topo, 44px), rgba(10, 7, 4, 0) 100%); }
+      .imersao-nevoa-baixo { height: calc(var(--im-baixo, 80px) + 56px);
+        background: linear-gradient(0deg, rgba(10, 7, 4, .96) 0%, rgba(10, 7, 4, .92) var(--im-baixo, 80px), rgba(10, 7, 4, 0) 100%); }
+      html.od-imersao .reader-body { padding-top: 40vh; padding-bottom: 56vh; }
+    }
+    /* "reduzir movimento": velas acesas e paradas (a regra geral do Base.astro tira as animações dos
+       elementos; aqui também a do brilho do copo, que é um pseudo-elemento), sem faíscas */
+    @media (prefers-reduced-motion: reduce) {
+      .imersao-brasas { display: none; }
+      .im-copo .im-corpo::after { animation: none; }
+    }
+  }
+
   /* G10: impressão — papel branco, sem barras nem botões; a novena sai com todos os dias */
   @media print {
     :root, :root[data-theme="dark"] {
@@ -375,7 +578,7 @@ nv.pintar();
     html, body { background: #fff !important; color: #111 !important; }
     .texture, .topbar, .footsite, .search-overlay, .reader-tools, .bio-link, #beads, .day-caption, .rg-bar,
     .finish-zone, .prod-related, .overlay, .reader-bg, .reader-shade, .reader-parallax, .reader-count,
-    .rep-hint, .rep-count, .rep-dots, .terco-days-row, .terco-days-label, #prayer-content .od-mist-hoje { display: none !important; }
+    .rep-hint, .rep-count, .rep-dots, .terco-days-row, .terco-days-label, #prayer-content .od-mist-hoje, #prayer-content .od-distrib { display: none !important; }
     .reader-hero { min-height: 0 !important; background: none !important; display: block; overflow: visible; }
     .reader-head { color: #111 !important; padding: 0 0 .6rem !important; max-width: none; }
     .reader-type, .reader-title, .reader-saint { color: #111 !important; text-shadow: none !important; }

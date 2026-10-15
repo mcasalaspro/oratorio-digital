@@ -125,6 +125,8 @@ export interface Motor {
   reiniciar(pintarInicio?: boolean): void;   // nova leitura (zera contas e posição)
   proximo(): void;                           // próximo bloco; se estava tocando, continua (G4)
   reconstruir(): void;                       // o texto visível mudou (outro dia da novena)
+  tocarDe(el: Element | null): void;         // começa a ler deste bloco (sem leitura em andamento) — Imersão
+  acompanhar(forcar?: boolean): void;        // traz a linha lida para o lugar dela agora (a página mudou de forma)
   readonly tocando: boolean;
   readonly iniciado: boolean;
   setRitmo(r: string): void;
@@ -138,6 +140,9 @@ export interface OpcoesMotor {
   aoTerminar: () => void;              // fim da leitura com a página visível → concluir
   aoRecomecar: () => void;             // leitura nova (do começo): o fim volta a poder concluir
   ritmo: string;
+  // onde fica a linha lida, em fração da altura da tela (Imersão: no meio, entre o degradê do
+  // alto e as velas); min/max = faixa confortável sem animação. null/ausente: o padrão (42%)
+  posicao?: () => { alvo: number; min: number; max: number } | null;
 }
 
 //            base  porLetra  mín  vírgula  ponto  verso  bloco  (ms)
@@ -257,6 +262,16 @@ export function criarMotor(op: OpcoesMotor): Motor {
     const r = retanguloDaLinha(L);
     if (!r) return;
     const vh = window.innerHeight;
+    const pos = op.posicao ? op.posicao() : null;
+    if (pos) {
+      if (reduzMovimento()) {
+        if (r.top >= vh * pos.min && r.bottom <= vh * pos.max) return;
+        window.scrollTo({ top: Math.max(0, window.scrollY + r.top - vh * pos.min), behavior: 'auto' });
+      } else {
+        window.scrollTo({ top: Math.max(0, window.scrollY + r.top - (vh * pos.alvo - r.height / 2)), behavior: 'smooth' });
+      }
+      return;
+    }
     const barra = op.barra ? op.barra.getBoundingClientRect().height : 0;
     if (reduzMovimento()) {
       // sem animação: salta só quando a linha sai da faixa confortável
@@ -405,6 +420,34 @@ export function criarMotor(op: OpcoesMotor): Motor {
       op.aoMudar(false);
     },
     reconstruir() { motor.reiniciar(false); },
+    tocarDe(el: Element | null) {
+      garantir();
+      if (!blocos.length) return;
+      // só sem leitura em andamento (pausada no meio, continua de onde parou); leitura já
+      // terminada conta como nova: começa do trecho da tela, com as contas zeradas
+      const terminou = bi >= blocos.length;
+      if (el && (!iniciado || terminou)) {
+        // o próprio bloco, o bloco que o contém ou o primeiro bloco depois dele
+        let k = blocos.findIndex((b) => b.el === el || b.el.contains(el) || el.contains(b.el));
+        if (k < 0) k = blocos.findIndex((b) => !!(el.compareDocumentPosition(b.el) & Node.DOCUMENT_POSITION_FOLLOWING));
+        if (k > 0 || (k === 0 && terminou)) {
+          limpar();
+          if (terminou) { zerarContas(); op.aoRecomecar(); }
+          bi = k; li = 0; wi = 0; entrou = false;
+        }
+      }
+      motor.tocar();
+    },
+    acompanhar(forcar = true) {
+      // forcar: vale mesmo logo depois de a pessoa rolar com o dedo (troca de modo); sem forcar
+      // (a tela mudou de tamanho), respeita os 4 s de rolagem manual (B11)
+      if (forcar) manualAte = 0;
+      ultimaSeguida = null;
+      const b = blocos[bi];
+      if (!iniciado || !b) return;
+      const L = linhas(b)[li];
+      if (L) seguir(L);
+    },
     setRitmo(r: string) { if (RITMOS[r]) ritmo = r; },
     depurar() {
       garantir();
@@ -429,6 +472,9 @@ export function criarMotor(op: OpcoesMotor): Motor {
     if (e.detail > 1) return;
     const alvo = e.target as Element | null;
     if (!alvo || alvo.closest('a, button, input, select, textarea, label, summary, [role="button"], ' + PULAR)) return;
+    // Imersão: o texto sob o degradê do alto, as velas e a barra não está à vista — tocar ali não muda a leitura
+    const pos = op.posicao ? op.posicao() : null;
+    if (pos && (e.clientY < pos.min * window.innerHeight || e.clientY > pos.max * window.innerHeight)) return;
     const unidade = (alvo.closest('blockquote') || alvo.closest('p, li')) as HTMLElement | null;
     if (!unidade || !content.contains(unidade) || ehRubrica(unidade)) return;
     if (!temRealce) desembrulhar();

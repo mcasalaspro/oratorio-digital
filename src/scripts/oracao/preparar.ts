@@ -167,6 +167,19 @@ function barraContas(n: number, extra = ''): string {
 
 // ───────── G7: Terço / Rosário completo / páginas de mistérios ─────────
 const esc = (s: string) => escTexto(s);
+// dias de um conjunto nas duas distribuições: o CSS mostra o da escolha (html.od-trad, posto
+// antes de pintar pelo script curto da página) — nada muda de texto depois de aberto
+function diasDe(k: keyof typeof CONJUNTOS): string {
+  const d = CONJUNTOS[k].diasTexto;
+  return `<span class="od-mist-dias"><span class="od-dias-jp2">${esc(d.jp2)}</span><span class="od-dias-trad">${esc(d.trad)}</span></span>`;
+}
+// Rosário tradicional (15 mistérios) ou com os Luminosos (2002): a escolha fica no aparelho
+function escolhaDaDistribuicao(): string {
+  return `<div class="od-distrib" role="group" aria-label="Distribuição dos mistérios" data-i18n-aria="myst_dist_aria">`
+    + `<button type="button" class="od-distrib-op" data-distrib="jp2" aria-pressed="true" data-i18n="myst_dist_jp2">Com os Luminosos (2002)</button>`
+    + `<button type="button" class="od-distrib-op" data-distrib="trad" aria-pressed="false" data-i18n="myst_dist_trad">Tradicional (15 mistérios)</button>`
+    + `</div>`;
+}
 function seletorDoTerco(ids: string[]): string {
   let chips = '';
   for (let d = 0; d < 7; d++) chips += `<button type="button" class="day-chip" data-semana="${d}" aria-pressed="false" aria-label="${DIAS_LONGOS[d]}">${DIAS_CURTOS[d]}</button>`;
@@ -175,7 +188,8 @@ function seletorDoTerco(ids: string[]): string {
     const alvo = ids[i] ? ` href="#${escAtrib(ids[i])}"` : '';
     lista += `<li><a${alvo} data-misterio="${i}">${i + 1}º Mistério</a></li>`;
   }
-  return `<div class="terco-days-label" data-i18n="myst_pick_day">Toque no dia para ver os mistérios:</div>`
+  return escolhaDaDistribuicao()
+    + `<div class="terco-days-label" data-i18n="myst_pick_day">Toque no dia para ver os mistérios:</div>`
     + `<div class="terco-days-row" role="group" aria-label="Dias da semana">${chips}</div>`
     + `<p class="od-mist-hoje" data-hoje aria-live="polite"></p>`
     + `<ol class="od-mist-sumario">${lista}</ol>`;
@@ -184,10 +198,12 @@ function caixaDoRosario(ids: Record<string, string>): string {
   const itens = ORDEM.map((k) => {
     const c = CONJUNTOS[k];
     const alvo = ids[k] ? ` href="#${escAtrib(ids[k])}"` : '';
-    return `<li data-conjunto="${k}"><a${alvo}>${esc(c.nome)}</a> <span class="od-mist-dias">${esc(c.diasTexto)}</span></li>`;
+    const lum = k === 'luminosos' ? ' data-luminosos' : '';
+    return `<li data-conjunto="${k}"${lum}><a${alvo}>${esc(c.nome)}</a> ${diasDe(k)}</li>`;
   }).join('');
   return `<nav class="od-misterios" data-misterios="rosario" aria-label="Mistérios do Rosário">`
     + `<p class="od-mist-titulo" data-i18n="myst_summary">Sumário dos mistérios</p>`
+    + escolhaDaDistribuicao()
     + `<p class="od-mist-hoje" data-hoje aria-live="polite"></p>`
     + `<ol class="od-mist-sumario">${itens}</ol></nav>`;
 }
@@ -196,7 +212,7 @@ function caixaDoConjunto(k: keyof typeof CONJUNTOS, itens: { id: string; nome: s
   const lista = (itens.length ? itens : c.misterios.map((nome) => ({ id: '', nome })))
     .map((x) => `<li><a${x.id ? ` href="#${escAtrib(x.id)}"` : ''}>${esc(x.nome)}</a></li>`).join('');
   return `<nav class="od-misterios" data-misterios="${k}" aria-label="${esc(c.nome)}">`
-    + `<p class="od-mist-titulo">${esc(c.nome)} · <span class="od-mist-dias">${esc(c.diasTexto)}</span></p>`
+    + `<p class="od-mist-titulo">${esc(c.nome)} · ${diasDe(k)}</p>`
     + `<p class="od-mist-hoje" data-hoje aria-live="polite"></p>`
     + `<ol class="od-mist-sumario">${lista}</ol></nav>`;
 }
@@ -360,11 +376,17 @@ export function prepararOracao(html: string, op: Opcoes): Preparo {
     let caixa = '';
     if (op.misterios === 'rosario') {
       const ids: Record<string, string> = {};
+      let naLuminosa = false;
       for (const e of topo) {
-        if (e.tag !== 'h2') continue;
-        const t = textoDe(e).toLowerCase();
-        for (const k of ORDEM) if (t.includes(k.slice(0, -1))) ids[k] = attr(e, 'id') || '';
+        if (e.tag === 'h2') {
+          const t = textoDe(e).toLowerCase();
+          for (const k of ORDEM) if (t.includes(k.slice(0, -1))) ids[k] = attr(e, 'id') || '';
+          naLuminosa = t.includes('luminos');
+        }
+        // a coroa dos Luminosos inteira (título e dezenas): some no Rosário tradicional
+        if (naLuminosa) setAttr(e, 'data-luminosos', '');
       }
+      if (!ids.luminosos) avisos.push('Rosário completo sem "## Mistérios Luminosos": a escolha "Tradicional" não tem o que esconder');
       caixa = caixaDoRosario(ids);
     } else {
       // "Primeiro Mistério Gozoso — A Anunciação…" → nome depois do travessão

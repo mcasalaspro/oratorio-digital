@@ -6,12 +6,12 @@ language: "pt-BR"
 image: "/saints/santo-rosario-misterios-gloriosos.webp"
 thumbnail: "/saints/santo-rosario-misterios-gloriosos.webp"
 tags: ["rosário", "mistérios gloriosos", "Maria", "ressurreição", "Pentecostes"]
-description: "Os Mistérios Gloriosos do Santo Rosário, rezados às quartas-feiras e domingos."
+description: "Os Mistérios Gloriosos do Santo Rosário: a Ressurreição, a Ascensão, Pentecostes, a Assunção e a Coroação de Maria."
 featured: false
 liturgicalColor: "festa"
 ---
 
-*Os Mistérios Gloriosos do Santo Rosário são tradicionalmente rezados às quartas-feiras e aos domingos. Contemplam a Ressurreição de Cristo, a Sua Ascensão ao Céu, a vinda do Espírito Santo, a Assunção de Maria e a sua Coroação como Rainha do Céu e da Terra. A forma estruturada do Rosário é atribuída ao Beato Alano de la Roche, OP (c. 1470–1475).*
+*Os Mistérios Gloriosos do Santo Rosário são rezados, no Rosário tradicional, às quartas-feiras, aos sábados e aos domingos; na distribuição proposta por São João Paulo II em 2002, às quartas-feiras e aos domingos. Contemplam a Ressurreição de Cristo, a Sua Ascensão ao Céu, a vinda do Espírito Santo, a Assunção de Maria e a sua Coroação como Rainha do Céu e da Terra. A forma estruturada do Rosário é atribuída ao Beato Alano de la Roche, OP (c. 1470–1475).*
 
 ## Como se inicia
 

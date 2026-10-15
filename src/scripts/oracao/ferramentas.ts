@@ -7,8 +7,8 @@
 //  • Foco: esconde topo, rodapé, ferramentas, biografia e produtos; lembra a escolha
 //    ("od-foco") e mantém a tela acesa. Botão também na barra do assistente (liga no meio
 //    da leitura, sem parar e sem perder o lugar).
-//  • Tela acesa (Wake Lock API): enquanto o assistente toca, no Modo Foco ou pelo botão
-//    "Manter tela acesa"; libera ao pausar, ao sair do foco e ao deixar a página
+//  • Tela acesa (Wake Lock API): enquanto o assistente toca, no Modo Foco, na Imersão
+//    (imersao.ts) ou pelo botão "Manter tela acesa"; libera ao pausar, ao sair do foco e ao deixar a página
 //    (o navegador libera sozinho ao esconder; ao voltar, pede de novo se ainda precisa).
 // ════════════════════════════════════════════════════════════════
 import { t, guarda } from './dados';
@@ -18,6 +18,23 @@ export interface Ferramentas { atualizarTela(): void; readonly telaAcesa: boolea
 
 const W = window as any;
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T | null;
+
+// bloco do texto que está no meio da tela (para não perder o lugar quando a página muda de forma:
+// Foco e Imersão)
+export function ancora(): HTMLElement | null {
+  const conteudo = $('prayer-content');
+  if (!conteudo) return null;
+  const SEL = '#prayer-content p, #prayer-content blockquote, #prayer-content li, #prayer-content h2, #prayer-content h3';
+  const r0 = conteudo.getBoundingClientRect();
+  const sob = document.elementFromPoint(Math.round(r0.left + Math.min(40, r0.width / 2)), Math.round(window.innerHeight * 0.45));
+  const bloco = sob ? (sob as Element).closest<HTMLElement>(SEL) : null;
+  if (bloco) return bloco;
+  for (const b of Array.from(conteudo.querySelectorAll<HTMLElement>('p, blockquote, li, h2, h3'))) {
+    const r = b.getBoundingClientRect();
+    if (r.height && r.bottom > 0) return r.top < window.innerHeight ? b : null;
+  }
+  return null;
+}
 
 export function iniciarFerramentas(slug: string, motor: Motor): Ferramentas {
   // ── favoritar ──
@@ -64,7 +81,8 @@ export function iniciarFerramentas(slug: string, motor: Motor): Ferramentas {
   let sentinela: any = null, pedindo = false, querAcesa = false;
   // a classe no <html> vem do script curto do <head> (antes de pintar); a do <body> é a do Base.astro
   const emFoco = () => document.documentElement.classList.contains('od-foco');
-  const precisa = () => motor.tocando || querAcesa || emFoco();
+  const emImersao = () => document.documentElement.classList.contains('od-imersao');
+  const precisa = () => motor.tocando || querAcesa || emFoco() || emImersao();
   async function atualizarTela(): Promise<void> {
     if (!WL) return;
     const quer = precisa() && document.visibilityState === 'visible';
@@ -98,20 +116,6 @@ export function iniciarFerramentas(slug: string, motor: Motor): Ferramentas {
   // sempre à mão durante a leitura. Ligar ou desligar não para o assistente e não perde o lugar:
   // o bloco que está no meio da tela continua na mesma altura depois que topo e ferramentas somem.
   const botoesFoco = [$('focusBtn'), $('rgFoco')].filter(Boolean) as HTMLElement[];
-  function ancora(): HTMLElement | null {
-    const conteudo = $('prayer-content');
-    if (!conteudo) return null;
-    const SEL = '#prayer-content p, #prayer-content blockquote, #prayer-content li, #prayer-content h2, #prayer-content h3';
-    const r0 = conteudo.getBoundingClientRect();
-    const sob = document.elementFromPoint(Math.round(r0.left + Math.min(40, r0.width / 2)), Math.round(window.innerHeight * 0.45));
-    const bloco = sob ? (sob as Element).closest<HTMLElement>(SEL) : null;
-    if (bloco) return bloco;
-    for (const b of Array.from(conteudo.querySelectorAll<HTMLElement>('p, blockquote, li, h2, h3'))) {
-      const r = b.getBoundingClientRect();
-      if (r.height && r.bottom > 0) return r.top < window.innerHeight ? b : null;
-    }
-    return null;
-  }
   function aplicarFoco(on: boolean, guardar: boolean): void {
     const a = guardar ? ancora() : null;
     const antes = a ? a.getBoundingClientRect().top : 0;

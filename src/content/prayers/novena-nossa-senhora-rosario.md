@@ -7,7 +7,7 @@ language: "pt-BR"
 image: "/saints/novena-nossa-senhora-rosario.webp"
 thumbnail: "/saints/novena-nossa-senhora-rosario.webp"
 tags: ["rosário", "Maria", "intercessão", "Lepanto", "vitória"]
-description: "Novena tradicional a Nossa Senhora do Rosário, devoção ligada à Ordem dos Pregadores e à vitória de Lepanto (1571)."
+description: "Novena a Nossa Senhora do Rosário, devoção ligada à Ordem dos Pregadores e à vitória de Lepanto (1571)."
 featured: true
 liturgicalFeast: "10-07"
 liturgicalColor: "festa"
@@ -15,7 +15,7 @@ novenaSuggestedStart: -9
 ---
 
 *A devoção do Santo Rosário foi difundida pela Ordem dos Pregadores e, segundo a tradição, confiada por Nossa Senhora a São Domingos de Gusmão.
-O Beato Alano de la Roche (OP), no século XIII, reavivou esta piedosa prática, que tomou sua forma atual por volta de 1470.
+O Beato Alano de la Roche (OP), no século XV, reavivou esta piedosa prática, cuja forma tradicional, de quinze mistérios, São Pio V confirmou em 1569.
 Em 1571, a vitória da cristandade na Batalha de Lepanto foi atribuída à intercessão da Virgem invocada pelo Rosário, e o Papa São Pio V instituiu esta festa em ação de graças.
 Que nestes nove dias possamos, pela meditação dos mistérios do Rosário, unir-nos a Maria no caminho até Jesus.*
 
@@ -159,4 +159,4 @@ eu possa um dia contemplar a face de Deus na glória.
 > imitemos o que eles contêm e alcancemos o que prometem.<br>
 > Por Cristo, nosso Senhor. Amém.
 
-*Fontes: tradição da Ordem dos Pregadores (OP); Beato Alano de la Roche (OP), séc. XIII; forma atual c. 1470. Festa instituída por São Pio V em 1571, após a Batalha de Lepanto.*
+*Fontes: tradição da Ordem dos Pregadores (OP); Beato Alano de la Roche (OP), séc. XV; forma tradicional confirmada por São Pio V na bula *Consueverunt Romani Pontifices* (1569). Festa instituída por São Pio V depois da Batalha de Lepanto (1571), como Nossa Senhora da Vitória; Gregório XIII deu-lhe o nome de festa do Santíssimo Rosário em 1573.*

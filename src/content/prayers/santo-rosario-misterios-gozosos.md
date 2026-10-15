@@ -6,13 +6,13 @@ language: "pt-BR"
 image: "/saints/santo-rosario-misterios-gozosos.webp"
 thumbnail: "/saints/santo-rosario-misterios-gozosos.webp"
 tags: ["rosário", "mistérios gozosos", "Maria", "encarnação", "infância de Jesus"]
-description: "Os Mistérios Gozosos do Santo Rosário, rezados às segundas-feiras e aos sábados."
+description: "Os Mistérios Gozosos do Santo Rosário: a alegria da Encarnação e da infância de Jesus."
 featured: false
 liturgicalColor: "festa"
 ---
 
 *Os Mistérios Gozosos contemplam a alegria da Encarnação e da infância de Jesus.<br>
-São tradicionalmente rezados às segundas-feiras e aos sábados.<br>
+No Rosário tradicional, são rezados às segundas e quintas-feiras; na distribuição proposta por São João Paulo II em 2002, às segundas-feiras e aos sábados.<br>
 A forma estruturada do Rosário foi difundida pelo Beato Alano de la Roche OP (†1475), por volta de 1470–1475.*
 
 ## Início

@@ -10,7 +10,7 @@
 //  Partes: motor.ts (assistente de leitura), novena.ts, conclusao.ts (contador e
 //  overlay), ferramentas.ts (favoritar, compartilhar, letra, foco, tela acesa),
 //  misterios-dia.ts (Terço e Rosários), visita.ts (visita à oração: contador e
-//  lista das já abertas, que o "Sortear" usa).
+//  lista das já abertas, que o "Sortear" usa), imersao.ts (Modo Imersão).
 // ════════════════════════════════════════════════════════════════
 import { lerDados, t, guarda, traduzirArias } from './dados';
 import { criarMotor, iniciarContas, desenharConta, contaDe } from './motor';
@@ -19,6 +19,7 @@ import { iniciarConclusao, type Conclusao } from './conclusao';
 import { iniciarFerramentas, type Ferramentas } from './ferramentas';
 import { iniciarMisterios } from './misterios-dia';
 import { registrarVisita } from './visita';
+import { iniciarImersao, type Imersao } from './imersao';
 
 const meta = lerDados();
 const content = document.getElementById('prayer-content');
@@ -26,6 +27,7 @@ const content = document.getElementById('prayer-content');
 if (meta && content) {
   let conclusao: Conclusao | null = null;
   let ferramentas: Ferramentas | null = null;
+  let imersao: Imersao | null = null;
 
   iniciarContas(content);
 
@@ -44,6 +46,8 @@ if (meta && content) {
     aoMudar: () => { rotularPlay(); ferramentas?.atualizarTela(); recolherBarra(); },
     aoTerminar: () => conclusao?.concluir(true), // marca como rezada (conta na oração e no total)
     aoRecomecar: () => conclusao?.novaLeitura(),
+    // Imersão: a linha lida fica no meio da faixa limpa (entre o topo e as velas)
+    posicao: () => (imersao ? imersao.posicao() : null),
   });
 
   function rotularPlay(): void {
@@ -63,7 +67,9 @@ if (meta && content) {
   });
   conclusao = iniciarConclusao(meta, motor, novena);
   ferramentas = iniciarFerramentas(meta.slug, motor);
-  const misterios = iniciarMisterios(content, meta.misterios);
+  imersao = iniciarImersao(meta, motor, () => { ferramentas?.atualizarTela(); });
+  // Rosário completo: escolher "Tradicional" esconde a coroa dos Luminosos → nova leitura
+  const misterios = iniciarMisterios(content, meta.misterios, () => { motor.reconstruir(); rotularPlay(); });
 
   // ── B17: a barra do assistente não cobre as contas da novena nem a legenda ──
   // (parada, ela se recolhe enquanto contas/legenda estão na faixa de baixo da tela)
@@ -102,5 +108,5 @@ if (meta && content) {
   registrarVisita(meta.slug);
 
   // para testes e depuração (sem efeito na página)
-  (window as any).odLeitor = { motor, novena, depurar: () => motor.depurar() };
+  (window as any).odLeitor = { motor, novena, imersao, depurar: () => motor.depurar() };
 }
