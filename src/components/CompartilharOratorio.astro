@@ -5,11 +5,14 @@
 //  1080×1920 e publicação/conversa 1080×1350): marca, uma frase sobre a oração
 //  (site.ts → compartilharSite.frases), o número de orações e de biografias e o
 //  total de orações já rezadas (lido do contador ao abrir). Ver public/js/compartilhar.js.
+//  Fundo: o mesmo "espaço de oração" da abertura que a pessoa está vendo; fora da abertura,
+//  um deles ao acaso (src/config/herois.ts). Sem nenhum: o rays.webp de sempre.
 // ════════════════════════════════════════════════════════════════
 import { getCollection } from 'astro:content';
 import { site, withBase } from '../config/site';
 import { reserva } from '../config/contadores';
 import JanelaCompartilhar from './JanelaCompartilhar.astro';
+import { heroisDisponiveis } from '../config/herois';
 
 interface Props { classe?: string }
 const { classe = 'btn' } = Astro.props;
@@ -29,6 +32,8 @@ const dados = {
   texto: `${cfg.texto ?? site.name} ${url}`,
   url,
   banner: withBase(fundo),
+  // imagem inteira (1536 px): a de Stories é em pé e amplia bastante o recorte
+  fundos: heroisDisponiveis().map((h) => ({ k: h.k, u: h.u, foco: h.cel })),
   dominio: (Astro.site?.host ?? 'oratoriodigital.com').replace(/^www\./, ''),
   arquivo: 'oratorio-digital',
 };

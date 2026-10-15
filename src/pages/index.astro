@@ -7,19 +7,11 @@ import CommunityCounter from '../components/CommunityCounter.astro';
 import CompartilharOratorio from '../components/CompartilharOratorio.astro';
 import { site, withBase } from '../config/site';
 import { reserva } from '../config/contadores';
-import { srcsetDoBanner } from '../scripts/oracao/banner';
+import { heroisDisponiveis } from '../config/herois';
 
 // ── Fundo da abertura: um "espaço de oração" sorteado a cada visita (nunca o mesmo da visita
-// anterior). "cel" = recorte no celular e no tablet (object-position): mostra a parte da
-// imagem que tem sentido sozinha — no computador a imagem aparece inteira. Imagem nova:
-// public/textures/hero-<nome>.webp (1536×1024) + uma linha aqui.
-const HEROIS = [
-  { k: 'manha', cel: '4% 40%' },     // janela ao amanhecer: crucifixo, rosas e a Bíblia
-  { k: 'capela', cel: '72% 40%' },   // capela: o altar ao fundo e as velas votivas
-  { k: 'oratorio', cel: '90% 40%' }, // oratório mineiro com as imagens
-  { k: 'mesa', cel: '100% 40%' },    // mesa de oração: o ícone, o lírio e o crucifixo
-].filter((h) => fs.existsSync(`public/textures/hero-${h.k}.webp`))
- .map((h) => ({ ...h, u: withBase(`/textures/hero-${h.k}.webp`), s: srcsetDoBanner(`/textures/hero-${h.k}.webp`) }));
+// anterior), com o recorte próprio no celular e no tablet — lista em src/config/herois.ts
+const HEROIS = heroisDisponiveis();
 const heroReserva = withBase('/textures/rays.webp');
 const heroScript = `(function(){var H=${JSON.stringify(HEROIS.map((h) => ({ k: h.k, u: h.u, s: h.s, c: h.cel })))};var el=document.getElementById('heroBg');if(!el)return;`
   + `if(!H.length){el.src=${JSON.stringify(heroReserva)};return;}var a=-1;try{a=+localStorage.getItem('od-heroi');}catch(e){}`
@@ -837,7 +829,7 @@ const mostrarIdioma = langs.length > 1 && outrasLinguas > 1;
     #catalogo .chips::-webkit-scrollbar { display: none; }
     #catalogo .chip { flex: 0 0 auto; white-space: nowrap; }
   }
-  /* recorte do fundo da abertura no celular e no tablet (o "cel" de cada imagem, no HEROIS); no computador aparece inteira */
+  /* recorte do fundo da abertura no celular e no tablet (o "cel" de cada imagem, em src/config/herois.ts); no computador aparece inteira */
   @media (max-width: 1000px) { :global(.hero-bg[id='heroBg']) { object-position: var(--heroi-cel, center 40%); } }
   .hero-share { margin: 1.1rem 0 0; }
   .hero-numeros { margin: .5rem 0 0; font-size: .92rem; }

@@ -114,8 +114,9 @@ async function gerar(dist, base, cacheDir, logger) {
     ]).raw().toBuffer({ resolveWithObject: true });
   const camadasPagina = [{ input: faixa.data, raw: faixa.info, top: topoFaixa, left: 0 }];
 
-  // padrão (abertura, listas, cantos…): fundo do topo do site (rays.webp) + logo grande e nome
-  const fundo = existe(path.join(dist, 'textures/rays.webp')) ? path.join(dist, 'textures/rays.webp') : reserva;
+  // padrão (abertura, listas, cantos…): um dos "espaços de oração" da abertura (a capela;
+  // sem ela, o rays.webp de sempre) + logo grande e nome — ver src/config/herois.ts
+  const fundo = ['textures/hero-capela.webp', 'textures/rays.webp'].map((a) => path.join(dist, a)).find(existe) || reserva;
   const destPadrao = path.join(dist, 'og/padrao.jpg');
   const chavePadrao = hash(molde, fs.readFileSync(fundo));
   let padrao;

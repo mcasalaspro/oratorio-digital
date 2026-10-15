@@ -290,10 +290,21 @@
     story: { h: 1920, topo: SEGURO_TOPO + 10, base: SEGURO_BASE, logo: 150, nome: 92, tag: 40, frase: 58, num: 124, rot: 32 },
     post:  { h: 1350, topo: 84, base: 1350 - 70, logo: 112, nome: 78, tag: 36, frase: 50, num: 104, rot: 30 }
   };
-  function cobrirEm(c, img, w, h) {
+  function cobrirEm(c, img, w, h, foco) {
     var s = Math.max(w / img.naturalWidth, h / img.naturalHeight);
-    var iw = img.naturalWidth * s, ih = img.naturalHeight * s;
-    c.drawImage(img, (w - iw) / 2, (h - ih) * 0.3, iw, ih);
+    var iw = img.naturalWidth * s, ih = img.naturalHeight * s, f = lerFoco(foco);
+    c.drawImage(img, (w - iw) * f[0], (h - ih) * f[1], iw, ih);
+  }
+  // fundo da imagem do site: o "espaço de oração" que a abertura está mostrando; fora dela,
+  // um ao acaso — escolhido uma vez por página (trocar Story/Publicação não muda o fundo)
+  var fundoSite = null;
+  function escolherFundoSite(d) {
+    if (fundoSite) return fundoSite;
+    var F = Array.isArray(d.fundos) ? d.fundos : [], esc = null, hero = document.getElementById('heroBg');
+    for (var i = 0; hero && i < F.length; i++) if (hero.classList.contains('heroi-' + F[i].k)) esc = F[i];
+    if (!esc && F.length) esc = F[Math.floor(Math.random() * F.length)];
+    fundoSite = esc || { u: d.banner, foco: '' };
+    return fundoSite;
   }
   function fmtNum(n) { try { return Number(n).toLocaleString('pt-BR'); } catch (e) { return String(n); } }
   function desenharSite(d, fundo, logo) {
@@ -302,7 +313,7 @@
     cv.width = W; cv.height = h;
     var c = cv.getContext('2d');
     c.textBaseline = 'alphabetic';
-    if (fundo) cobrirEm(c, fundo, W, h);
+    if (fundo) cobrirEm(c, fundo, W, h, d._foco);
     else { c.fillStyle = '#1a1208'; c.fillRect(0, 0, W, h); }
     // véu escuro, um pouco mais forte embaixo (números e endereço)
     var g = c.createLinearGradient(0, 0, 0, h);
@@ -398,7 +409,10 @@
   function imagem(d) {
     d = d || {};
     if (d.tipo === 'site') {
-      return Promise.all([fontes(), carregar(d.banner), carregar(base('/logo-340.webp'))])
+      var f = escolherFundoSite(d);
+      d._foco = f.foco;
+      return Promise.all([fontes(), carregar(f.u), carregar(base('/logo-340.webp'))])
+        .then(function (r) { return r[1] || f.u === d.banner ? r : carregar(d.banner).then(function (im) { d._foco = ''; r[1] = im; return r; }); })
         .then(function (r) { return jpeg(desenharSite(d, r[1], r[2])); })
         .catch(function () { return null; });
     }
